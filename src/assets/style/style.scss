@@ -9,6 +9,7 @@
 
 .main_wrapper{
     margin-top: 127px;
+    margin-bottom: 30px;
     animation-name: mainFadeOut;
     animation-duration: 1s;
     animation-iteration-count: 1;
@@ -16,6 +17,7 @@
     .card{
         border:1.5px solid $cardBorder;
         border-radius: 12px;
+        height: 100%;
         .card-body{
             padding: 18px;
             .card_head{

@@ -1,0 +1,28 @@
+import { createApp } from 'vue'
+import App from './App.vue'
+import 'primeicons/primeicons.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
+import DatePicker from 'primevue/datepicker';
+
+
+
+
+import '@/assets/style/style.css'
+import route from './route'
+
+const app = createApp(App);
+
+app.use(PrimeVue,{
+    theme: {
+        preset: Aura
+    }
+});
+app.component('DatePicker', DatePicker);
+
+app.use(route);
+app.mount('#app');
+// createApp(App).use(PrimeVue).use(route).mount('#app');
+

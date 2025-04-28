@@ -242,8 +242,4 @@ export default {
 
   </div>
 
-
-
-
-
 </template>

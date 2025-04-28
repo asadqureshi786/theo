@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #8B8F92;
 }
 
+.darkCol {
+  color: #001727;
+}
+
 .fw1 {
   font-weight: 100;
 }
@@ -230,6 +234,9 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 .btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-size: 12px;
 }
 .btn.btn-primary {
@@ -244,7 +251,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 .main_wrapper {
   margin-top: 127px;
-  margin-bottom: 30px;
+  margin-bottom: 22px;
   animation-name: mainFadeOut;
   animation-duration: 1s;
   animation-iteration-count: 1;

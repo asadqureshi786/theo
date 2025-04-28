@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from './pages/Admin/Dashboard.vue'
 import Clubs from './pages/Admin/Clubs.vue'
 import Agents from './pages/Admin/Agents.vue'
+import Players from './pages/Admin/Players.vue'
+import Home from './pages/Web/Home.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 const routes = [
@@ -33,7 +35,16 @@ const routes = [
                 path : 'agents',
                 component : Agents,
             },
+            {
+                path : 'players',
+                component : Players,
+            },
         ]
+    },
+    {
+        path: '/',
+        name: 'home',
+        component: Home,
     }
 ]
 

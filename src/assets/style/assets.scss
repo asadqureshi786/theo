@@ -20,6 +20,7 @@ $cardBorder:#E2E8F0;
 $silverCol:#8B8F92;
 $ltext:#101828B2;
 $gtext:#384046;
+$darkCol:#001727;
 
 
 
@@ -44,6 +45,9 @@ $gtext:#384046;
 }
 .silverCol{
     color:$silverCol;
+}
+.darkCol{
+    color:$darkCol;
 }
 
 // FontWeight
@@ -82,6 +86,9 @@ $gtext:#384046;
 
 // Button Style
 .btn{
+    display: flex;
+    align-items: center;
+    gap: 7px;
     font-size: 12px;
     &.btn-primary{
         background: $primaryGr;
@@ -91,6 +98,13 @@ $gtext:#384046;
         background: transparent;
         color:$primaryCol;
         border: 1px solid $primaryCol;
+    }
+    &.btn-simple{
+        background: $primaryCol;
+        color: #fff;
+        font-size: 15px;
+        padding: 8px 18px;
+        border-radius: 8px;
     }
 }
 

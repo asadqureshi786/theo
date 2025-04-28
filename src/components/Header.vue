@@ -67,7 +67,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a href="#" class="nav_item" exact active-class="active" >
+                            <router-link to="players" class="nav_item" exact active-class="active" >
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@
     
                                 <span class="text">Players</span>
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
-                            </a>
+                            </router-link>
                         </li>
                         <li>
                             <a href="#" class="nav_item">
@@ -211,7 +211,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style scoped lang="scss" >
 @import '../assets/style/assets.scss';
     header{
         background: #fff;

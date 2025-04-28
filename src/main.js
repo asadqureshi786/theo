@@ -6,11 +6,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import DatePicker from 'primevue/datepicker';
+import InputText from 'primevue/inputtext';
 
 
 
 
 import '@/assets/style/style.css'
+import '@/assets/style/web.css'
 import route from './route'
 
 const app = createApp(App);
@@ -21,6 +23,7 @@ app.use(PrimeVue,{
     }
 });
 app.component('DatePicker', DatePicker);
+app.component('InputText', InputText);
 
 app.use(route);
 app.mount('#app');

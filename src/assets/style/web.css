@@ -269,6 +269,37 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-weight: 400;
 }
 
+.btn-white {
+  background-color: #fff;
+  color: #8F0301;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.p-dialog.p-component {
+  background: #fff;
+}
+.p-dialog.p-component .p-dialog-title {
+  color: #001727;
+}
+.p-dialog.p-component label {
+  color: #001727;
+}
+.p-dialog.p-component .footer_md {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+}
+.p-dialog.p-component .btn-white {
+  transition: 0.2s all linear;
+  color: #001727;
+}
+.p-dialog.p-component .btn-white:hover {
+  border: 1px solid #8F0301;
+  color: #8F0301;
+}
+
 .btn {
   padding: 8px 18px !important;
   font-size: 15px !important;
@@ -497,11 +528,7 @@ header .main_header .sign_up {
   font-weight: 500;
 }
 .start_managing .btn-white {
-  background-color: #fff;
-  color: #8F0301;
-  font-size: 15px;
   margin: 0 auto;
-  font-weight: 500;
 }
 
 .contact_us {
@@ -658,12 +685,39 @@ header .main_header .sign_up {
   color: #8F0301;
 }
 
+.getNotiy {
+  padding: 0px 25px;
+  display: flex;
+  align-items: end;
+  border-radius: 16px;
+  gap: 20px;
+}
+.getNotiy .from-group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 0px;
+  width: 100%;
+}
+.getNotiy .from-group input {
+  border: 2px solid rgba(143, 3, 1, 0.0784313725);
+}
+.getNotiy .btn {
+  white-space: nowrap;
+  border: 1px solid #8F0301;
+  padding: 6px 18px !important;
+  font-size: 14px !important;
+}
+
 @media only screen and (max-width: 992px) {
   .desktop_view {
     display: none !important;
   }
   .hamburger {
     display: block;
+  }
+  .mobile_menu {
+    display: block !important;
   }
   .hamburger {
     display: block;

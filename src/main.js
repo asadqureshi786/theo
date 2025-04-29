@@ -7,6 +7,8 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import DatePicker from 'primevue/datepicker';
 import InputText from 'primevue/inputtext';
+import Dialog from 'primevue/dialog';
+
 
 
 
@@ -24,6 +26,7 @@ app.use(PrimeVue,{
 });
 app.component('DatePicker', DatePicker);
 app.component('InputText', InputText);
+app.component('Dialog', Dialog);
 
 app.use(route);
 app.mount('#app');

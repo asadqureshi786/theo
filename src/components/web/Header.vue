@@ -33,10 +33,10 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-primary sign_up desktop_view" >Sign up</button>
+            <!-- <button class="btn btn-primary  sign_up desktop_view" >Sign up</button> -->
 
 
-            <div class="mobile_menu" >
+            <div class="mobile_menu d-none" >
                 <div class="hamburger"  @click="toggleMenu" id="hamburger">
                     <i class="pi pi-bars"></i>
                 </div>

@@ -248,6 +248,13 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #8F0301;
   border: 1px solid #8F0301;
 }
+.btn.btn-simple {
+  background: #8F0301;
+  color: #fff;
+  font-size: 15px;
+  padding: 8px 18px;
+  border-radius: 8px;
+}
 
 .main_wrapper {
   margin-top: 127px;

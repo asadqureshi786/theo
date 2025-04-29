@@ -50,7 +50,7 @@
 
 
             <!-- Why Agents Section Start -->
-             <div class="why_agents" id="Why">
+             <div class="why_agents d-none" id="Why">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="headings">Why Agents Choose THEO?</div>
@@ -89,20 +89,7 @@
 
 
         <!-- Plans Coming Soon Section Start -->
-         <div class="plans" id="plans" >
-            <div class="container">
-                <h6 class="headings">
-                    Plans Coming Soon
-                </h6>
-                <p class="text">We’re getting ready to launch flexible subscription</p>
-                <p class="text"> plans designed specifically for football agents.</p>
-
-                <div class="mt-3" >
-                    <p class="text">From solo scouting to managing a full squad of elite</p>
-                    <p class="text"> talent — THEO has you covered.</p>
-                </div>
-            </div>
-         </div>
+        <Plans/>
         <!-- Plans Coming Soon Section End -->
 
 
@@ -206,6 +193,7 @@
 import Header from "@/components/web/Header.vue";
 import Banner from "@/components/web/Banner.vue";
 import Footer from "@/components/web/Footer.vue";
+import Plans from "@/components/web/Plans.vue";
 
 // Images
 import BannerImg from "@/assets/images/web/banner.png"
@@ -217,6 +205,7 @@ import Star from "@/assets/images/web/star.png"
         components : {
             Header,
             Banner,
+            Plans,
             Footer,
         },
         data(){
@@ -225,6 +214,7 @@ import Star from "@/assets/images/web/star.png"
                     BannerImg : BannerImg,
                     sideImage1 : sideImage1,
                     Star : Star,
+                    visible: false,
                 }
             )
         }

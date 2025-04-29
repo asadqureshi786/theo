@@ -333,9 +333,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 header {
-  background: rgba(143, 3, 1, 0.0196078431);
   padding: 15px 20px;
-  border: 1px solid rgba(143, 3, 1, 0.0588235294);
   border-radius: 16px;
   margin-top: 47px;
 }
@@ -346,10 +344,10 @@ header .icon {
 header .main_header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 header .main_header .logo img {
-  width: 102px;
+  width: 152px;
 }
 header .main_header .nav_links ul {
   list-style: none;
@@ -713,14 +711,10 @@ header .main_header .sign_up {
   .desktop_view {
     display: none !important;
   }
-  .hamburger {
-    display: block;
-  }
   .mobile_menu {
     display: block !important;
   }
   .hamburger {
-    display: block;
     cursor: pointer;
   }
   .hamburger i {

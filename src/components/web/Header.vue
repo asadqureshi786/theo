@@ -9,7 +9,7 @@
            
 
 
-            <div class="nav_links desktop_view ">
+            <div class="nav_links desktop_view d-none ">
                 <ul>
                     <li>
                         <a href="#home" exact active-class="active" class="nav_item">

@@ -89,9 +89,9 @@ body {
 }
 
 header {
-    background: #8F030105;
+    // background: #8F030105;
     padding: 15px 20px;
-    border: 1px solid #8F03010F;
+    // border: 1px solid #8F03010F;
     border-radius: 16px;
     margin-top: 47px;
 
@@ -103,11 +103,11 @@ header {
     .main_header {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
 
         .logo {
             img {
-                width: 102px;
+                width: 152px;
             }
         }
 
@@ -592,7 +592,7 @@ header {
     }
 
     .hamburger {
-        display: block;
+        // display: block;
     }
 
     .mobile_menu {
@@ -600,7 +600,7 @@ header {
     }
 
     .hamburger {
-        display: block;
+        // display: block;
         cursor: pointer;
 
         i {

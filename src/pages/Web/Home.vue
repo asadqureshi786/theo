@@ -100,7 +100,7 @@
                     <p class="text">Get full access to your agency tools with a THEO subscription.</p>
                         <p class="text">Choose a Plan  & Register</p>
                 </div>
-                <button class="btn btn-white" >Request Demo</button>
+                <button class="btn btn-white" > Coming Soon</button>
             </div>
         </div>
 

@@ -23,7 +23,7 @@
 
         <div class="container">
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center d-none">
                 <div class="col-md-10">
                     <div class="trusted_section">
                         <div class="content">

@@ -3,6 +3,7 @@
         <h1 class="hd" >Connect with the Right Clubs, Instantly</h1>
         <div class="content">
             <p class="text" >Access verified contact details for club presidents, sports directors, and recruitment heads — all in one place.</p>
+            <p class="text" >All the major club contacts are inside Theo</p>
             <p class="text" >Save time, stay organized, and take action with confidence.</p>
         </div>
         <!-- <button class="btn btn-simple" >Get Started</button> -->

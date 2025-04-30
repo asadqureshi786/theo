@@ -21,6 +21,9 @@ $silverCol:#8B8F92;
 $ltext:#101828B2;
 $gtext:#384046;
 $darkCol:#001727;
+$formText:#475569;
+$pltext:#4A0D0C7A;
+
 
 
 
@@ -48,6 +51,12 @@ $darkCol:#001727;
 }
 .darkCol{
     color:$darkCol;
+}
+.formText{
+    color:$formText;
+}
+.pltext{
+    color:$pltext;
 }
 
 // FontWeight
@@ -86,10 +95,15 @@ $darkCol:#001727;
 
 // Button Style
 .btn{
-    display: flex;
-    align-items: center;
-    gap: 7px;
     font-size: 12px;
+    padding: 8px 12px 9px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    &.icon{
+        gap: 7px;
+        align-items: center;
+        display: flex;
+    }
     &.btn-primary{
         background: $primaryGr;
         border: 1px solid $primaryCol;

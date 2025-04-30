@@ -7,6 +7,8 @@
 
 @import './assets.scss';
 
+
+// Main Wrapper SASS Start
 .main_wrapper{
     margin-top: 127px;
     margin-bottom: 22px;
@@ -65,14 +67,104 @@
         opacity:1;
     }
   }
+// Main Wrapper SASS End
 
 .container-fluid{
     padding: 0px 30px;
 }
 
+// Form SASS Start
+.form-group{
+    label{
+        font-size: 15px;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color:$darkCol;
+        .subTxt{
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+            color:#475467;
+            font-weight: 300;
+        }
+    }
+}
+.form-control{
+    background: transparent!important;
+    border: 1.6px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 7px 12px !important;
+    color:$formText!important;
+    font-size: 14px!important;
+    &::placeholder{
+        color:$formText!important;
+        font-size: 14px!important;
+    }
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+// Form SASS End
+
+// Modal SASS Start
+.p-dialog.p-component{
+    background: #fff;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    border:none;
+    .p-dialog-title{
+        color:$darkCol;
+    }
+    .p-dialog-header{
+        border-bottom: 1px solid $cardBorder;
+        margin-bottom: 15px;
+        padding:10px 20px;
+    }
+    .form-group{
+        label{
+            font-size: 15px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color:$darkCol;
+        }
+    }
+    .modal_footer{
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        margin-top: 20px;
+        .btn{
+            min-width: 100px;
+        }
+    }
+}
+// Modal SASS End
+
+// SearchBox SASS Start
+.searchBox{
+    position: relative;
+    &.icon_box{
+        .icon{
+            width: fit-content;
+            height: fit-content;
+            line-height: 0px;
+            position: absolute;
+            top:50%;
+            left:13px;
+            transform:translateY(-50%);
+            i{
+                color:$formText;
+            }
+        }
+        input{
+            padding-left: 35px!important;
+        }
+    }
+}
+// SearchBox SASS End
 
 
-//   Dashboard SASS Start
+// Dashboard SASS Start
 .dashboard{
     .gird_col{
         display: grid;
@@ -119,7 +211,7 @@
         font-size: 14px;
     }
 }
-//   Dashboard SASS End
+// Dashboard SASS End
 
 
 // Top Leads Cards SASS Start
@@ -279,5 +371,107 @@
     }
 }
 // Request Item SASS End
+
+// Page Header SASS Start
+.page_header{
+    display: flex;
+    justify-content: space-between;
+    .hd{
+        font-weight: 600;
+    }
+    .r_side{
+        display: flex;
+        align-items: center;
+        gap:10px;
+        
+    }
+}
+// Page Header SASS End
+
+// Player Card SASS Start
+.player_grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:22px;
+}
+.player_card{
+    border:1.5px solid $cardBorder;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    width: 100%;
+    align-items: center;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 90px;
+    .profile_picture{
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        // border:1px solid $primaryCol;
+        border-radius: 100px;
+        background-color: white;
+        position: absolute;
+        top:0;
+        left: 50%;
+        // transform: translateX(-50%);
+        transform: translate(-50%,-50%);
+    }
+    .middle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:5px;
+        margin: 16px 0px 20px 0px;
+        padding-top: 35px;
+        .name{
+            font-size: 22px;
+            font-weight: 600;
+            color:$primaryCol;
+        }
+        .desc{
+            display: flex;
+            align-items: center;
+            gap:5px;
+            label{
+                font-weight: 600;
+                color:$pltext;
+                font-size:15px;
+            }
+            .text{
+                color:$pltext;
+                font-size:15px;
+                font-weight: 400;
+            }
+            .club_img{
+                display: flex;
+                align-items: center;
+                gap:5px;
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .club_img{
+            display: flex;
+        }
+    }
+    .btn{
+        width: 100%;
+    }
+    .status{
+        position: absolute;
+        top:8px;
+        right: 8px;
+        background: $primaryLight;
+        color:$primaryCol;
+        border-radius: 6px;
+        font-size:9px;
+        padding: 6px 15px;
+    }
+}
+// Player Card SASS End
 
 

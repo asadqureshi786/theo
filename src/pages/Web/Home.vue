@@ -1,3 +1,4 @@
+
 <template>
    <div class="website" id="home" >
 
@@ -220,3 +221,5 @@ import Star from "@/assets/images/web/star.png"
         }
     }
 </script>
+
+

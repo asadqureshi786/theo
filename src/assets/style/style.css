@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
-*, html, body {
+*,
+html,
+body {
   font-family: "Roboto Flex", sans-serif;
 }
 
@@ -47,6 +49,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 .pltext {
   color: rgba(74, 13, 12, 0.4784313725);
+}
+
+.drPrimary {
+  color: #4A0D0C;
 }
 
 .fw1 {
@@ -267,6 +273,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-size: 15px;
   padding: 8px 18px;
   border-radius: 8px;
+}
+
+.light_head {
+  font-size: 25px;
+  font-weight: 500;
+  color: #424441;
 }
 
 .main_wrapper {
@@ -603,6 +615,14 @@ h1, h2, h3, h4, h5, h6, p, ul {
   display: flex;
   justify-content: space-between;
 }
+.page_header .heading_icon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.page_header .heading_icon i {
+  font-size: 17px;
+}
 .page_header .hd {
   font-weight: 600;
 }
@@ -693,4 +713,183 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border-radius: 6px;
   font-size: 9px;
   padding: 6px 15px;
+}
+
+.player_profile .profile_section {
+  display: grid;
+  grid-template-columns: 16% 84%;
+  border: 2px solid rgba(143, 3, 1, 0.0784313725);
+  margin-top: 35px;
+}
+.player_profile .profile_section .profileImage {
+  position: relative;
+  border: 3px solid rgb(133, 121, 119);
+  border-radius: 12px;
+  transform: scale(1.04);
+  overflow: hidden;
+  position: relative;
+}
+.player_profile .profile_section .profileImage::before {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.57) 0%, rgba(255, 255, 255, 0) 100%, rgba(0, 212, 255, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.player_profile .profile_section .profileImage img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.player_profile .profile_section .profileImage .profile_number {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 500;
+  z-index: 1;
+}
+.player_profile .profile_section .profile_instruction .main_col {
+  padding: 10px 30px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top {
+  display: flex;
+  justify-content: space-between;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .player_name {
+  font-size: 38px;
+  color: rgba(143, 3, 1, 0.8);
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent li {
+  margin-bottom: 10px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent li:last-child {
+  margin-bottom: 0px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent li > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent li > div label {
+  font-size: 15px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent .sm_img {
+  width: 24px;
+  height: 24px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .fcol {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: end;
+  margin-bottom: 5px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .fcol .status {
+  padding: 3px 10px 2px 10px;
+  font-weight: 4c00;
+  border-radius: 4px;
+  color: #8F0301;
+  background: rgba(143, 3, 1, 0.0392156863);
+  font-size: 9px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .fcol .text {
+  font-size: 10px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry {
+  border: 1px solid rgba(133, 143, 163, 0.3098039216);
+  border-radius: 12px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .header {
+  border-bottom: 1px solid rgba(133, 143, 163, 0.3098039216);
+  padding: 5px 15px;
+  font-size: 11px;
+  text-align: center;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .counter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 15px;
+  position: relative;
+  gap: 25px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .counter:before {
+  background: rgba(133, 143, 163, 0.3098039216);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 80%;
+  content: "";
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .counter > div {
+  text-align: center;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .counter > div .count {
+  font-size: 14px;
+}
+.player_profile .profile_section .profile_instruction .main_col .top .left_side .contract_expiry .counter > div .text {
+  font-size: 10px;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .contract_dates label {
+  font-size: 12px;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .contract_dates span {
+  font-size: 12px;
+  font-style: italic;
+  color: #384046;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .invite_link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .invite_link .icon {
+  color: #8F0301;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .invite_link .icon i {
+  font-size: 14px;
+}
+.player_profile .profile_section .profile_instruction .main_col .ft_bottom .invite_link .text {
+  font-style: italic;
+  font-size: 13px;
+  color: #8F0301;
+  border-bottom: 1px solid #8F0301;
+}
+.player_profile .profile_section .profile_detail {
+  background: rgba(143, 3, 1, 0.0392156863);
+  border: 1.6px solid rgba(143, 3, 1, 0.0784313725);
+  padding: 25px 30px;
+  border-left: none;
+  border-radius: 0px 0px 12px 0px;
+}
+.player_profile .profile_section .profile_detail ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.player_profile .profile_section .profile_detail ul li:last-child {
+  margin-bottom: 0px;
+}
+.player_profile .profile_section .profile_detail ul li label {
+  font-weight: 500;
+  font-size: 16.5px;
+}
+.player_profile .profile_section .profile_detail ul li .text {
+  font-weight: 400;
+  font-size: 16.5px;
 }/*# sourceMappingURL=style.css.map */

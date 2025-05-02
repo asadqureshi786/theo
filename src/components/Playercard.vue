@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary">View</button>
+        <router-link class="btn btn-primary" to="player-profile" >View</router-link>
 
         <div class="status">{{item.status}}</div>
     </div>

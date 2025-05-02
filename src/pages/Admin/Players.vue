@@ -123,7 +123,7 @@ export default {
       Profile1: Profile1,
       Profile2: Profile2,
       searchQuery: "",
-      addPlayer: true,
+      addPlayer: false,
       allPlayers: [
         {
           image: Profile1,

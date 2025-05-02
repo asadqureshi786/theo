@@ -3,6 +3,7 @@ import Dashboard from './pages/Admin/Dashboard.vue'
 import Clubs from './pages/Admin/Clubs.vue'
 import Agents from './pages/Admin/Agents.vue'
 import Players from './pages/Admin/Players.vue'
+import Playerprofile from './pages/Admin/Playerprofile.vue'
 import Home from './pages/Web/Home.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
@@ -38,6 +39,10 @@ const routes = [
             {
                 path : 'players',
                 component : Players,
+            },
+            {
+                path : 'player-profile',
+                component : Playerprofile,
             },
         ]
     },

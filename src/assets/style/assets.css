@@ -44,6 +44,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: rgba(74, 13, 12, 0.4784313725);
 }
 
+.drPrimary {
+  color: #4A0D0C;
+}
+
 .fw1 {
   font-weight: 100;
 }

@@ -12,17 +12,17 @@ import Dialog from 'primevue/dialog';
 
 
 // Vue Upload JS Plugin
-import vueFilePond from 'vue-filepond'
-import 'filepond/dist/filepond.min.css'
-import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
+// import vueFilePond from 'vue-filepond'
+// import 'filepond/dist/filepond.min.css'
+// import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+// import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+// import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
 
 
-const FilePond = vueFilePond(
-    FilePondPluginFileValidateType,
-    FilePondPluginImagePreview
-  )
+// const FilePond = vueFilePond(
+//     FilePondPluginFileValidateType,
+//     FilePondPluginImagePreview
+//   )
 
 
 
@@ -42,7 +42,7 @@ app.use(PrimeVue,{
 app.component('DatePicker', DatePicker);
 app.component('InputText', InputText);
 app.component('Dialog', Dialog);
-app.component('FilePond', FilePond) // Register globally
+// app.component('FilePond', FilePond) // Register globally
 
 app.use(route);
 app.mount('#app');

@@ -149,6 +149,13 @@
          <Videolist/>
         <!-- Video List Components End -->
 
+        <!-- Transfer History Compenent Start -->
+        <div class="light_head mt-5">
+            Transfer History
+        </div>
+        <Simpletable :headers="dealHeaders" :data="deals"/>
+        <!-- Transfer History Compenent End -->
+
 
 
 
@@ -165,12 +172,14 @@ import fullProfile from "@/assets/images/fullProfile.jpg"
 // Components
 import Documents from "@/components/Documents.vue"
 import Videolist from "@/components/Videolist.vue"
+import Simpletable from "@/components/Simpletable.vue"
 
 export default {
     name : 'Playerprofile',
     components : {
         Documents,
-        Videolist
+        Videolist,
+        Simpletable
     },
     data(){
         return(
@@ -178,6 +187,13 @@ export default {
                 Profile1 : Profile1,
                 club1 : club1,
                 fullProfile : fullProfile,
+
+                dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
+                deals: [
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    // Add more deal data here
+                ],
             }
         )
     }

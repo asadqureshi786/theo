@@ -1,7 +1,7 @@
 <template>
     <div class="video_list mt-3" >
         <ul>
-            <li>
+            <li v-for="item in list" :key="item.id" >
                 <div class="video_main">
                     <img :src="videoCover" class="img-fluid" alt="">
                     <div class="backdrop"></div>
@@ -23,6 +23,11 @@ import videoCover from "@/assets/images/videoCover.jpg"
             return(
                 {
                     videoCover : videoCover,
+                    list : [
+                        {id : 1},
+                        {id : 2},
+                        {id : 3},
+                    ]
                 }
             )
         }
@@ -35,10 +40,11 @@ import videoCover from "@/assets/images/videoCover.jpg"
     ul{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        gap:20px;
         li{
             .video_main{
                 width: 100%;
-                height: 270px;
+                height: 250px;
                 border-radius: 8px;
                 position: relative;
                 overflow: hidden;

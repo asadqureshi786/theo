@@ -52,7 +52,7 @@ import doc from "@/assets/images/doc.png"
 .all_doc{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap:15px;
+    gap:20px;
     li{
         border:1px solid $cardBorder;
         border-radius: 12px;

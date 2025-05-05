@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="protal_header" >
         <div class="container-fluid">
             <div class="main_header">
                 <a href="" class="logo">
@@ -211,89 +211,3 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" >
-@import '../assets/style/assets.scss';
-    header{
-        background: #fff;
-        box-shadow: 0px 2px 6px 0px #0000001F;
-        padding: 13px 0px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        .icon{
-            position: relative;
-            top:2px;
-        }
-        .main_header{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .logo{
-                img{
-                    width: 102px;
-                }
-            }
-            .nav_links{
-                ul{
-                    list-style: none;
-                    padding: 0px;
-                    display: flex;
-                    align-items: center;
-                    gap:10px;
-                    margin: 0px;
-                    li{
-                        .nav_item{
-                            display: flex;
-                            align-items: start;
-                            gap:6px;
-                            text-decoration: none;
-                            color: $primaryCol;
-                            font-weight: 400;
-                            font-size: 13.7px;
-                            padding:6px 12px;
-                            .text{
-                                position: relative;
-                                top:0.5px;
-                            }
-                            &.active{
-                                background: $primaryGr;
-                                border-radius: 6px;
-                                color:#fff;
-                                svg{
-                                    color:#fff;
-                                    stroke: #fff;
-                                }
-                                path{
-                                    stroke: #fff;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .header_option{
-                display: flex;
-                align-items: center;
-                gap:10px;
-                .profile{
-                    img{
-                        width: 40px;
-                        object-fit: contain;
-                        border-radius: 100px;
-                        border:1px solid $primaryLightBorder1;
-                    }
-                }
-                .language{
-                    display: flex;
-                    align-items: center;
-                    gap:6px;
-                    .text{
-                        font-size: 11px;
-                    }
-                }
-            }
-        }
-    }
-</style>

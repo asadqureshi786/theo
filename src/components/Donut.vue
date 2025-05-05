@@ -1,4 +1,5 @@
 <template>
+ <div class="donut">
   <div ref="chart" style="height: 300px"></div>
   <ul class="items">
     <li>
@@ -14,6 +15,7 @@
       <div class="count">45%</div>
     </li>
   </ul>
+ </div>
 </template>
 
 <script setup>
@@ -74,58 +76,3 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss">
-@import "../assets/style/assets.scss";
-
-.items {
-  li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 20px;
-
-    &:before {
-      content: '';
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      border-radius: 100px;
-      background: $primaryCol;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0px;
-    }
-
-    &:nth-child(2):before {
-      background: #F6DED8;
-    }
-
-    &:nth-child(3):before {
-      background: #FFD2C7;
-    }
-
-    .label {
-      font-weight: 600;
-      font-size: 15px !important;
-    }
-
-    .count {
-      border: 1.5px solid $primaryLightBorder2;
-      border-radius: 4px;
-      background: $primaryLight;
-      color: $primaryCol;
-      font-size: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0px 8px;
-      height: 19px;
-    }
-  }
-}
-</style>

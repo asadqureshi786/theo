@@ -275,6 +275,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border-radius: 8px;
 }
 
+.formFileds.row {
+  row-gap: 15px;
+}
+
 .light_head {
   font-size: 25px;
   font-weight: 500;
@@ -344,8 +348,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 .form-group label {
-  font-size: 15px;
-  margin-bottom: 8px;
+  font-size: 14px;
+  margin-bottom: 7px;
   font-weight: 500;
   color: #001727;
 }
@@ -390,12 +394,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border-bottom: 1px solid #E2E8F0;
   margin-bottom: 15px;
   padding: 10px 20px;
-}
-.p-dialog.p-component .form-group label {
-  font-size: 15px;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: #001727;
 }
 .p-dialog.p-component .modal_footer {
   display: flex;
@@ -654,6 +652,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 125px;
   -o-object-fit: cover;
      object-fit: cover;
+  border: 2px solid rgba(143, 3, 1, 0.2392156863);
   border-radius: 100px;
   background-color: white;
   position: absolute;
@@ -713,6 +712,11 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border-radius: 6px;
   font-size: 9px;
   padding: 6px 15px;
+}
+.player_card .trashIcon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }
 
 .player_profile .profile_section {

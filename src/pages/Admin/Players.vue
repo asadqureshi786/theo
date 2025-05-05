@@ -58,14 +58,14 @@
         :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
       >
         <from>
-          <div class="grid">
+          <div class="row formFileds">
             <div class="col-12">
               <div class="form-group">
                 <label> Transfer Market Url</label>
                 <input type="text" class="form-control" />
               </div>
             </div>
-            <div class="col-12 mt-3">
+            <div class="col-12 ">
               <div class="form-group">
                 <label>
                   Documents
@@ -104,6 +104,8 @@
     <div class="card-body">
       <div class="player_grid">
         <Playercard :searchQuery="searchQuery" :allPlayers="allPlayers" />
+
+        {{ showMd ? "Run" : "Not Run" }}
       </div>
     </div>
   </div>

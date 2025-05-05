@@ -153,7 +153,7 @@
         <div class="light_head mt-5">
             Transfer History
         </div>
-        <Simpletable :headers="dealHeaders" :data="deals"/>
+        <Simpletable class="mt-3" :headers="dealHeaders" :data="deals"/>
         <!-- Transfer History Compenent End -->
 
 
@@ -190,6 +190,12 @@ export default {
 
                 dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
                 deals: [
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
                     ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
                     ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
                     // Add more deal data here

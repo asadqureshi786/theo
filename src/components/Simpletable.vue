@@ -37,6 +37,9 @@ export default {
 
 .simple_table{
     table{
+        th,td{
+            padding-inline:13px ;
+        }
         thead{
             th{
                 background: #8F0301CC;
@@ -44,12 +47,18 @@ export default {
                 font-weight: 500;
                 font-size: 17.5px;
                 padding-block: 15px;
+                &:first-child{
+                    border-radius:10px 0px 0px 0px;
+                }
+                &:last-child{
+                    border-radius:0px 10px 0px 0px;
+                }
             }
         }
         tbody{
             td{
                 font-size: 14px;
-                font-weight: 500;
+                font-weight: 400;
                 padding-block: 13px;
             }
         }

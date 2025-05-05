@@ -35,6 +35,10 @@ const FilePond = vueFilePond(
 
 
 
+
+
+
+
 import '@/assets/style/style.css'
 import '@/assets/style/web.css'
 import route from './route'
@@ -50,6 +54,10 @@ app.component('DatePicker', DatePicker);
 app.component('InputText', InputText);
 app.component('Dialog', Dialog);
 app.component('FilePond', FilePond) // Register globally
+// app.component('Tabs', Tabs) // Register globally
+// app.component('Tab', Tab) // Register globally
+// app.component('TabPanel', TabPanel) // Register globally
+// app.component('TabPanels', TabPanels) // Register globally
 
 app.use(route);
 app.mount('#app');

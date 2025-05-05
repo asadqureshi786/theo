@@ -4,7 +4,7 @@
         <!-- Page Header Section Start -->
         <div class="page_header">
             <div class="heading_icon " >
-                <orouter-link to=""><i class="pi pi-chevron-left"></i></orouter-link>
+                <div id="goBack" @click="goback" class="cursor-pointer" ><i class="pi pi-chevron-left"></i></div>
                <h3 class="hd">Player Portfolio</h3>
             </div>
           </div>
@@ -202,6 +202,12 @@ export default {
                 ],
             }
         )
+    },
+    methods : {
+        goback(){
+            console.log("RUnning");
+            window.history.back();
+        }
     }
 }
 </script>

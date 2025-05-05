@@ -191,8 +191,323 @@ body {
         }
     }
 }
-
 // SearchBox SASS End
+
+
+// Donut SASS Start
+.donut{
+    .items {
+        li {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          position: relative;
+          padding-left: 20px;
+      
+          &:before {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 100px;
+            background: $primaryCol;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+          }
+      
+          &:last-child {
+            margin-bottom: 0px;
+          }
+      
+          &:nth-child(2):before {
+            background: #F6DED8;
+          }
+      
+          &:nth-child(3):before {
+            background: #FFD2C7;
+          }
+      
+          .label {
+            font-weight: 600;
+            font-size: 15px !important;
+          }
+      
+          .count {
+            border: 1.5px solid $primaryLightBorder2;
+            border-radius: 4px;
+            background: $primaryLight;
+            color: $primaryCol;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 8px;
+            height: 19px;
+          }
+        }
+      }
+    }
+    // Donut SASS Start
+    
+    
+    
+    // All Doc SASS Start
+    .all_doc{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:20px;
+        li{
+            border:1px solid $cardBorder;
+            border-radius: 12px;
+            padding:16px 24px;
+            display: flex;
+            align-items: center;
+            gap:10px;
+            justify-content: space-between;
+            .doc{
+                display: flex;
+                align-items: center;
+                gap:12px;
+                img{
+                    width: 35px;
+                }
+                .dt{
+                    .name{
+                        font-size: 13.5px;
+                        font-weight: 500;
+                    }
+                    .size{
+                        font-size: 13px;
+                        font-weight: 400;
+                        color:$gtext;
+                    }
+                }
+            }
+            .download{
+                i{
+                    color: $silverCol;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+    // ALl DOc SASS Start
+    
+    
+    
+    // Simple Table SASS Start
+    .simple_table{
+        table{
+            th,td{
+                padding-inline:13px ;
+            }
+            thead{
+                th{
+                    background: #8F0301CC;
+                    color:#fff;
+                    font-weight: 500;
+                    font-size: 17.5px;
+                    padding-block: 15px;
+                    &:first-child{
+                        border-radius:10px 0px 0px 0px;
+                    }
+                    &:last-child{
+                        border-radius:0px 10px 0px 0px;
+                    }
+                }
+            }
+            tbody{
+                td{
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding-block: 13px;
+                }
+            }
+        }
+    }
+    // Simple Table SASS Start
+    
+    // Video List SASS Start
+    .video_list{
+        ul{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:20px;
+            li{
+                .video_main{
+                    width: 100%;
+                    height: 250px;
+                    border-radius: 8px;
+                    position: relative;
+                    overflow: hidden;
+                    img{
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 8px;
+                    }
+                    .backdrop{
+                        position: absolute;
+                        top:0;
+                        left: 0;
+                        right:0;
+                        bottom:0;
+                        background: rgba(0,0,0,0.3);
+                    }
+                    .play_button{
+                        background: rgba(255,255,255,0.5);
+                        border-radius:100px;
+                        position: absolute;
+                        top:50%;
+                        left:50%;
+                        transform: translate(-50%,-50%);
+                        width: 60px;
+                        height: 60px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        svg{
+                            width: 60px;
+                            height: 60%;
+                        }
+                    }
+                    .time_duration{
+                        background: rgba(0,0,0,0.3);
+                        border-radius:100px;
+                        color:#fff;
+                        padding:2px 5px;
+                        position: absolute;
+                        border-radius: 4px;
+                        bottom:5px;
+                        right:5px;
+                        font-size: 12px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+    // Video List SASS End
+    
+    // Portal Header SASS Start
+    header{
+        &.protal_header{
+            background: #fff;
+            box-shadow: 0px 2px 6px 0px #0000001F;
+            padding: 13px 0px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            .icon{
+                position: relative;
+                top:2px;
+            }
+            .main_header{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .logo{
+                    img{
+                        width: 102px;
+                    }
+                }
+                .nav_links{
+                    ul{
+                        list-style: none;
+                        padding: 0px;
+                        display: flex;
+                        align-items: center;
+                        gap:10px;
+                        margin: 0px;
+                        li{
+                            .nav_item{
+                                display: flex;
+                                align-items: start;
+                                gap:6px;
+                                text-decoration: none;
+                                color: $primaryCol;
+                                font-weight: 400;
+                                font-size: 13.7px;
+                                padding:6px 12px;
+                                .text{
+                                    position: relative;
+                                    top:0.5px;
+                                }
+                                &.active{
+                                    background: $primaryGr;
+                                    border-radius: 6px;
+                                    color:#fff;
+                                    svg{
+                                        color:#fff;
+                                        stroke: #fff;
+                                    }
+                                    path{
+                                        stroke: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .header_option{
+                    display: flex;
+                    align-items: center;
+                    gap:10px;
+                    .profile{
+                        img{
+                            width: 40px;
+                            object-fit: contain;
+                            border-radius: 100px;
+                            border:1px solid $primaryLightBorder1;
+                        }
+                    }
+                    .language{
+                        display: flex;
+                        align-items: center;
+                        gap:6px;
+                        .text{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Portal Header SASS End
+
+// Tab Content SASS Start
+.tabs_header_cs{
+    border:1px solid $primaryLightBorder1;
+    border-radius: 8px;
+    button{
+        margin: 0px;
+        border: 0px;
+        background-color: transparent;
+        color:$primaryCol;
+        transition: 0.2s all linear;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 7px 14px;
+        border-right: 1px solid $primaryLightBorder1;
+        &.active{
+            background: $primaryLight1;
+            color:$primaryCol;
+        }
+    }
+    button:first-child{
+        border-radius: 7px 0px 0px 7px;
+    }
+    button:last-child{
+        border-radius: 0px 7px 7px 0px;
+        border: 0px;
+    }
+}
+// Tab Content SASS End
 
 
 // Dashboard SASS Start
@@ -776,285 +1091,5 @@ body {
 
 // Player Profile SASS End
 
-.donut{
-    
-.items {
-    li {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      position: relative;
-      padding-left: 20px;
-  
-      &:before {
-        content: '';
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        border-radius: 100px;
-        background: $primaryCol;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-      }
-  
-      &:last-child {
-        margin-bottom: 0px;
-      }
-  
-      &:nth-child(2):before {
-        background: #F6DED8;
-      }
-  
-      &:nth-child(3):before {
-        background: #FFD2C7;
-      }
-  
-      .label {
-        font-weight: 600;
-        font-size: 15px !important;
-      }
-  
-      .count {
-        border: 1.5px solid $primaryLightBorder2;
-        border-radius: 4px;
-        background: $primaryLight;
-        color: $primaryCol;
-        font-size: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0px 8px;
-        height: 19px;
-      }
-    }
-  }
-}
 
-
-
-
-.all_doc{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap:20px;
-    li{
-        border:1px solid $cardBorder;
-        border-radius: 12px;
-        padding:16px 24px;
-        display: flex;
-        align-items: center;
-        gap:10px;
-        justify-content: space-between;
-        .doc{
-            display: flex;
-            align-items: center;
-            gap:12px;
-            img{
-                width: 35px;
-            }
-            .dt{
-                .name{
-                    font-size: 13.5px;
-                    font-weight: 500;
-                }
-                .size{
-                    font-size: 13px;
-                    font-weight: 400;
-                    color:$gtext;
-                }
-            }
-        }
-        .download{
-            i{
-                color: $silverCol;
-                font-size: 22px;
-            }
-        }
-    }
-}
-
-
-
-
-.simple_table{
-    table{
-        th,td{
-            padding-inline:13px ;
-        }
-        thead{
-            th{
-                background: #8F0301CC;
-                color:#fff;
-                font-weight: 500;
-                font-size: 17.5px;
-                padding-block: 15px;
-                &:first-child{
-                    border-radius:10px 0px 0px 0px;
-                }
-                &:last-child{
-                    border-radius:0px 10px 0px 0px;
-                }
-            }
-        }
-        tbody{
-            td{
-                font-size: 14px;
-                font-weight: 400;
-                padding-block: 13px;
-            }
-        }
-    }
-}
-
-
-
-.video_list{
-    ul{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap:20px;
-        li{
-            .video_main{
-                width: 100%;
-                height: 250px;
-                border-radius: 8px;
-                position: relative;
-                overflow: hidden;
-                img{
-                    object-fit: cover;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 8px;
-                }
-                .backdrop{
-                    position: absolute;
-                    top:0;
-                    left: 0;
-                    right:0;
-                    bottom:0;
-                    background: rgba(0,0,0,0.3);
-                }
-                .play_button{
-                    background: rgba(255,255,255,0.5);
-                    border-radius:100px;
-                    position: absolute;
-                    top:50%;
-                    left:50%;
-                    transform: translate(-50%,-50%);
-                    width: 60px;
-                    height: 60px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    svg{
-                        width: 60px;
-                        height: 60%;
-                    }
-                }
-                .time_duration{
-                    background: rgba(0,0,0,0.3);
-                    border-radius:100px;
-                    color:#fff;
-                    padding:2px 5px;
-                    position: absolute;
-                    border-radius: 4px;
-                    bottom:5px;
-                    right:5px;
-                    font-size: 12px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-            }
-        }
-    }
-}
-
-
-header{
-    &.protal_header{
-        background: #fff;
-        box-shadow: 0px 2px 6px 0px #0000001F;
-        padding: 13px 0px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        .icon{
-            position: relative;
-            top:2px;
-        }
-        .main_header{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            .logo{
-                img{
-                    width: 102px;
-                }
-            }
-            .nav_links{
-                ul{
-                    list-style: none;
-                    padding: 0px;
-                    display: flex;
-                    align-items: center;
-                    gap:10px;
-                    margin: 0px;
-                    li{
-                        .nav_item{
-                            display: flex;
-                            align-items: start;
-                            gap:6px;
-                            text-decoration: none;
-                            color: $primaryCol;
-                            font-weight: 400;
-                            font-size: 13.7px;
-                            padding:6px 12px;
-                            .text{
-                                position: relative;
-                                top:0.5px;
-                            }
-                            &.active{
-                                background: $primaryGr;
-                                border-radius: 6px;
-                                color:#fff;
-                                svg{
-                                    color:#fff;
-                                    stroke: #fff;
-                                }
-                                path{
-                                    stroke: #fff;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            .header_option{
-                display: flex;
-                align-items: center;
-                gap:10px;
-                .profile{
-                    img{
-                        width: 40px;
-                        object-fit: contain;
-                        border-radius: 100px;
-                        border:1px solid $primaryLightBorder1;
-                    }
-                }
-                .language{
-                    display: flex;
-                    align-items: center;
-                    gap:6px;
-                    .text{
-                        font-size: 11px;
-                    }
-                }
-            }
-        }
-    }
-}
 

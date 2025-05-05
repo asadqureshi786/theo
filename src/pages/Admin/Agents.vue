@@ -97,18 +97,7 @@
               <input type="text" class="form-control" />
             </div>
           </div>
-          <div class="col-12 mt-3 d-none">
-            <div class="form-group">
-              <label>
-                Documents
-                <p class="subTxt">
-                  Kindly upload valid documentation confirming your
-                  authorization to act on behalf of the player.
-                </p>
-              </label>
-              <FilePond />
-            </div>
-          </div>
+         
         </div>
         <div class="flex justify-end gap-2 modal_footer">
           <Button

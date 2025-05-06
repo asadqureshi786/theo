@@ -873,6 +873,9 @@ header.protal_header .main_header .header_option .language .text {
 .request_items .item .lside .btn {
   min-width: 70px;
 }
+.request_items .req_checkbox {
+  background-color: red;
+}
 
 .page_header {
   display: flex;

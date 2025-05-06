@@ -26,7 +26,7 @@
       <!-- SEPARATE TAB CONTENT SECTION -->
       <div class="tab-content mt-4">
         <div v-if="activeTab === 0">
-            <Requests :requestsList="requestsList" />
+            <Requests :requestOthers="requestOthers" :requestsList="requestsList" />
         </div>
         <div v-if="activeTab === 1">
           <p>Header II content: Sed ut perspiciatis unde omnis...</p>
@@ -50,6 +50,7 @@
       return {
         activeTab: 0,
         showAgent: false,
+        requestOthers : true,
         tabs: ['All', 'Proposed', 'Saved','Accepted','Archived'],
         requestsList: [
         {

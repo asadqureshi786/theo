@@ -2,13 +2,14 @@
     <ul class="request_items">
         <li class="item" v-for="request in requestsList" :key="request.id">
           <div class="rside">
+            <input v-if="requestOthers" class="req_checkbox" type="checkbox" />
             <div class="img">
               <img :src="request.profile" alt="" />
             </div>
             <div class="detail">
               <div class="top">
                 <div class="position">
-                  <label for="">Position:</label>
+                  <label  for="">Position:</label>
                   <p class="text">{{ request.position }}</p>
                 </div>
                 <div class="league">
@@ -39,6 +40,7 @@
         name : 'Requests',
         props : {
             requestsList : Array,
+            requestOthers : Boolean,
         }
     }
 </script>

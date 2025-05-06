@@ -10,11 +10,16 @@ import group from "@/assets/images/group.png";
 import Donut from "@/components/Donut.vue";
 import Barchart from "@/components/Barchart.vue";
 
+// Components
+import Requests from '@/components/Requests.vue'
+
+
 export default {
   name: "Dashboard",
   components: {
     Donut,
     Barchart,
+    Requests,
   },
   data() {
     return {
@@ -25,7 +30,7 @@ export default {
       profileImg: profile,
       groupImg: group,
       date: null,
-
+      requestOthers : false,
       topLeads: [
         {
           img: time,
@@ -47,7 +52,7 @@ export default {
         },
       ],
 
-      requests: [
+      requestsList: [
         {
           id: 1,
           profile: user,
@@ -187,39 +192,7 @@ export default {
               <h5 class="hd">Recent Requests</h5>
               <a href="#" class="link">See All</a>
             </div>
-            <ul class="request_items">
-              <li class="item" v-for="request in requests" :key="request.id">
-                <div class="rside">
-                  <div class="img">
-                    <img :src="request.profile" alt="" />
-                  </div>
-                  <div class="detail">
-                    <div class="top">
-                      <div class="position">
-                        <label for="">Position:</label>
-                        <p class="text">{{ request.position }}</p>
-                      </div>
-                      <div class="league">
-                        <label for="">League:</label>
-                        <p class="text">{{ request.league }}</p>
-                      </div>
-                      <div class="position">
-                        <label for="">Club:</label>
-                        <p class="text">{{ request.club }}</p>
-                      </div>
-                    </div>
-                    <div class="bottom">
-                      <label for="">Agent:</label>
-                      <p class="text">{{ request.agent }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="lside">
-                  <p class="date">Posted: {{ request.date }}</p>
-                  <button class="btn btn-secondary">View</button>
-                </div>
-              </li>
-            </ul>
+            <Requests :requestOthers="requestOthers" :requestsList="requestsList" />
           </div>
         </div>
       </div>

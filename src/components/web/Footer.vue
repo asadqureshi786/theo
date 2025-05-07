@@ -6,12 +6,7 @@
                     <img :src="logo" class="img-fluid" alt="">
                 </a>
                 <div class="menu">
-                   <div class="first">
-                    <a href="#home" class="link">Home</a>
-                    <a href="#Why" class="link">Who it's for</a>
-                    <a href="#plans" class="link">Subscription</a>
-                    <a href="#contact" class="link">Contact Us</a>
-                   </div>
+                  
                    <p class="text last-bottom" >2025 © THEO All rights reserved.</p>
                 </div>
                 <div class="follow_us">

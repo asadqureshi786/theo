@@ -1,6 +1,6 @@
 <template>
     <div class="plans" id="plans">
-        <div class="container">
+        <div class="container" data-aos="fade-right" data-aos-duration="1000" >
             <h6 class="headings">
                 Plans Coming Soon
             </h6>

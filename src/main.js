@@ -9,9 +9,15 @@ import DatePicker from 'primevue/datepicker';
 import InputText from 'primevue/inputtext';
 import Dialog from 'primevue/dialog';
 
+// CSS Animate
+import 'animate.css';
+
+// AOS Animate
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
-// Vue Upload JS Plugin
+// Vue Upload JS Plugin Start
 import vueFilePond from 'vue-filepond'
 import 'filepond/dist/filepond.min.css'
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
@@ -22,7 +28,6 @@ import FilePondPluginImageResize from 'filepond-plugin-image-resize';
 import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
 import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
 
-
 const FilePond = vueFilePond(
     FilePondPluginFileValidateType,
     FilePondPluginImagePreview,
@@ -30,11 +35,23 @@ const FilePond = vueFilePond(
     FilePondPluginImageCrop,
     FilePondPluginImageTransform
   )
+// Vue Upload JS Plugin End
 
 
+// Vue Toastification Start
+import Toast from 'vue-toastification';
+import 'vue-toastification/dist/index.css';
+// Vue Toastification End
 
 
-
+// Aos JS Start
+// Initialize AOS
+AOS.init({
+    duration: 1000, // Animation duration in milliseconds
+    once: true,     // Animation only happens once
+    easing: 'ease-in-out', // Easing style
+  });
+// Aos JS End
 
 
 
@@ -50,14 +67,23 @@ app.use(PrimeVue,{
         preset: Aura
     }
 });
+
 app.component('DatePicker', DatePicker);
 app.component('InputText', InputText);
 app.component('Dialog', Dialog);
 app.component('FilePond', FilePond) // Register globally
-// app.component('Tabs', Tabs) // Register globally
-// app.component('Tab', Tab) // Register globally
-// app.component('TabPanel', TabPanel) // Register globally
-// app.component('TabPanels', TabPanels) // Register globally
+app.use(Toast,  {
+    // You can set your default options here
+    position: 'top-right',
+    timeout: 3000,
+    closeOnClick: true,
+    pauseOnFocusLoss: true,
+    pauseOnHover: true,
+    draggable: true
+});
+// Make AOS globally available
+app.config.globalProperties.$AOS = AOS;
+
 
 app.use(route);
 app.mount('#app');

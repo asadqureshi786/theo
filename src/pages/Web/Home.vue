@@ -17,7 +17,7 @@
             
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <img class="img-fluid" :src="BannerImg" alt="">
+                    <img class="img-fluid" data-aos="fade-up"   data-aos-duration="2000" :src="BannerImg" alt="">
                 </div>
             </div>
         </div>
@@ -96,17 +96,17 @@
 
         <div class="start_managing">
             <div class="container">
-                <h1 class="hd" >Start Managing Your Players Today</h1>
+                <h1 class="hd" data-aos="fade-up" data-aos-duration="1500" >Start Managing Your Players Today</h1>
                 <div class="content">
-                    <p class="text">Get full access to your agency tools with a THEO subscription.</p>
-                        <p class="text">Choose a Plan  & Register</p>
+                    <p class="text" data-aos="fade-up" data-aos-duration="1700" >Get full access to your agency tools with a THEO subscription.</p>
+                        <p class="text" data-aos="fade-up" data-aos-duration="1900" > Stay in the loop. Drop your email & get early updates.</p>
                 </div>
-                <button class="btn btn-white" > Coming Soon</button>
+                <button class="btn btn-white"  data-aos="fade-up" data-aos-duration="2100" > Coming Soon</button>
             </div>
         </div>
 
 
-        <div class="contact_us" id="contact" >
+        <div class="contact_us d-none" id="contact" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -200,6 +200,9 @@ import Plans from "@/components/web/Plans.vue";
 import BannerImg from "@/assets/images/web/banner.png"
 import sideImage1 from "@/assets/images/web/sideImage1.png"
 import Star from "@/assets/images/web/star.png"
+
+
+
 
     export default {
         name : 'Home',

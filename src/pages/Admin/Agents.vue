@@ -143,21 +143,18 @@
         showAgent : false,
         allPlayers: [
           {
-            image: Profile1,
             name: "Cristiano Ronaldo",
             userlevel: "THEO BLACK",
             country: "Spain",
             status: "Pending",
           },
           {
-            image: Profile2,
             name: "Mesit Ozil",
             userlevel: "THEO BLACK",
             country: "Spain",
             status: "Completed",
           },
           {
-            image: Profile1,
             name: "Leo Messi",
             userlevel: "THEO BLACK",
             country: "Spain",

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import Profile1 from "@/assets/images/Profile1.jpg"
+import Profile1 from "@/assets/images/profile1.jpg"
 import club1 from "@/assets/images/club1.png"
 export default {
     name : 'Playercard',

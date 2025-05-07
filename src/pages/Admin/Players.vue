@@ -113,8 +113,8 @@
 
 <script>
 import Playercard from "@/components/Playercard.vue";
-import Profile1 from "@/assets/images/Profile1.jpg";
-import Profile2 from "@/assets/images/Profile2.jpg";
+import Profile1 from "@/assets/images/profile1.jpg";
+import Profile2 from "@/assets/images/profile2.jpg";
 export default {
   name: "Players",
   components: {

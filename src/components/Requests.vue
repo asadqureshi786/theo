@@ -35,11 +35,16 @@
               </div>
             </div>
           </div>
-          <div class="lside">
-            <p class="date">Posted: {{ request.date }}</p>
+          <div class="lside d-flex align-items-start gap-2">
+            <div>
+              <p class="date">Posted: {{ request.date }}  </p>
             <div  :class="{ 'd-flex gap-2': requestOthers }">
               <button v-if="requestOthers" class="btn btn-secondary">Unsaved </button>
-              <button class="btn btn-primary">View</button>
+              <router-link to="job-view" class="btn btn-primary">View</router-link>
+            </div>
+            </div>
+            <div class="action">
+              <i v-if="requestOthers" class="pi pi-ellipsis-v" ></i>
             </div>
           </div>
         </li>

@@ -103,9 +103,9 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-4">
-                        <div class="coming_notify">
+                        <div class="coming_notify" data-aos="fade-up" data-aos-duration="2100" >
                             <input type="email" placeholder="Email"  class="form-control" >
-                        <button class="btn btn-white"  data-aos="fade-up" data-aos-duration="2100" > Notify Me</button>
+                        <button class="btn btn-white"   > Notify Me</button>
 
                         </div>
                     </div>

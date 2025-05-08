@@ -903,6 +903,10 @@ header.protal_header .main_header .header_option .language .text {
   position: absolute;
   left: 32px;
 }
+.request_items .action {
+  color: rgba(41, 45, 50, 0.6);
+  cursor: pointer;
+}
 
 .page_header {
   display: flex;

@@ -205,7 +205,6 @@ export default {
     },
     methods : {
         goback(){
-            console.log("RUnning");
             window.history.back();
         }
     }

@@ -6,6 +6,7 @@ import Players from './pages/Admin/Players.vue'
 import Playerprofile from './pages/Admin/Playerprofile.vue'
 import Home from './pages/Web/Home.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import Jobview from './pages/Admin/Jobview.vue'
 
 const routes = [
     // {
@@ -43,6 +44,10 @@ const routes = [
             {
                 path : 'player-profile',
                 component : Playerprofile,
+            },
+            {
+                path : 'job-view',
+                component : Jobview,
             },
         ]
     },

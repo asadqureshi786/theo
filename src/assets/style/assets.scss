@@ -26,11 +26,15 @@ $gtext:#384046;
 $darkCol:#001727;
 $formText:#475569;
 $pltext:#4A0D0C7A;
+$black : #000;
 
 
 
 
 // Custom Class
+.black {
+    color:$black;
+}
 .primaryCol{
     color:$primaryCol;
 }

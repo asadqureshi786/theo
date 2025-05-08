@@ -584,6 +584,29 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .website .start_managing .btn-white {
   margin: 0 auto;
 }
+.website .start_managing .coming_notify {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.website .start_managing .coming_notify button {
+  text-wrap: nowrap;
+  color: #8F0301;
+}
+.website .start_managing .coming_notify input {
+  border: 2px solid rgba(255, 255, 255, 0.3215686275) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+          backdrop-filter: blur(16px) !important;
+  background: rgba(255, 255, 255, 0.2392156863) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  padding: 8px 12px !important;
+}
+.website .start_managing .coming_notify input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.website .start_managing .coming_notify input::placeholder {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
 .website .contact_us {
   margin: 100px 0px;
 }

@@ -389,6 +389,28 @@
     .btn-white {
       margin: 0 auto;
     }
+
+    .coming_notify{
+      display: flex;
+      gap:10px;
+      align-items: center;
+      button{
+        text-wrap: nowrap;
+        color:$primaryCol;
+      }
+      input{
+        border: 2px solid #FFFFFF52!important;
+        backdrop-filter: blur(16px)!important;
+        background: #FFFFFF3D!important;
+        color:#FFFFFFCC!important;
+        padding:8px 12px!important;
+        &::placeholder{
+          color:#FFFFFFCC!important;
+        }
+
+      }
+    }
+
   }
 
   // Start Managing SASS End

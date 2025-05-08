@@ -101,7 +101,15 @@
                     <p class="text" data-aos="fade-up" data-aos-duration="1700" >Get full access to your agency tools with a THEO subscription.</p>
                         <p class="text" data-aos="fade-up" data-aos-duration="1900" > Stay in the loop. Drop your email & get early updates.</p>
                 </div>
-                <button class="btn btn-white"  data-aos="fade-up" data-aos-duration="2100" > Coming Soon</button>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="coming_notify">
+                            <input type="email" placeholder="Email"  class="form-control" >
+                        <button class="btn btn-white"  data-aos="fade-up" data-aos-duration="2100" > Notify Me</button>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

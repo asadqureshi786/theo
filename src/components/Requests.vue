@@ -37,8 +37,8 @@
           </div>
           <div class="lside">
             <p class="date">Posted: {{ request.date }}</p>
-            <div class="d-flex gap-2">
-              <button class="btn btn-secondary">Unsaved </button>
+            <div  :class="{ 'd-flex gap-2': requestOthers }">
+              <button v-if="requestOthers" class="btn btn-secondary">Unsaved </button>
               <button class="btn btn-primary">View</button>
             </div>
           </div>

@@ -26,7 +26,7 @@
       <!-- SEPARATE TAB CONTENT SECTION -->
       <div class="tab-content mt-4">
         <div v-if="activeTab === 0">
-            <Requests :requestOthers="requestOthers" :requestsList="requestsList" />
+            <Requests :proposedImages="proposedImages" :requestOthers="requestOthers" :requestsList="requestsList" />
         </div>
         <div v-if="activeTab === 1">
           <p>Header II content: Sed ut perspiciatis unde omnis...</p>
@@ -40,8 +40,13 @@
   
   <script>
   import user from "@/assets/images/users/user1.png";
-
   import Requests from '@/components/Requests.vue'
+
+  import proposed1 from "@/assets/images/player1.png"
+  import proposed2 from "@/assets/images/player2.png"
+  import proposed3 from "@/assets/images/player3.png"
+  import proposed4 from "@/assets/images/player4.png"
+
   export default {
     components : {
         Requests,
@@ -89,7 +94,8 @@
           agent: "John Cena",
           date: "10/Nov/2024",
         },
-      ],
+        ],
+        proposedImages : [proposed1,proposed2,proposed3,proposed4],
       };
     },
   };

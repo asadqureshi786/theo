@@ -876,6 +876,33 @@ header.protal_header .main_header .header_option .language .text {
 .request_items .req_checkbox {
   background-color: red;
 }
+.request_items .player_proposed .text {
+  padding-left: 62px;
+}
+.request_items .player_proposed .img {
+  position: relative;
+}
+.request_items .player_proposed .img img {
+  width: 22px !important;
+  height: 22px;
+  border-radius: 100px;
+}
+.request_items .player_proposed .img .img0 {
+  position: absolute;
+  left: 0;
+}
+.request_items .player_proposed .img .img1 {
+  position: absolute;
+  left: 12px;
+}
+.request_items .player_proposed .img .img2 {
+  position: absolute;
+  left: 22px;
+}
+.request_items .player_proposed .img .img3 {
+  position: absolute;
+  left: 32px;
+}
 
 .page_header {
   display: flex;

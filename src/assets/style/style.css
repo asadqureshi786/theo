@@ -11,8 +11,16 @@ h1, h2, h3, h4, h5, h6, p, ul {
   list-style: none;
 }
 
+.black {
+  color: #000;
+}
+
 .primaryCol {
   color: #8F0301;
+}
+
+.primaryCol2 {
+  color: rgba(143, 3, 1, 0.8);
 }
 
 .primaryText1 {
@@ -1195,4 +1203,14 @@ header.protal_header .main_header .header_option .language .text {
 .player_profile .profile_section .profile_detail ul li .text {
   font-weight: 400;
   font-size: 16.5px;
+}
+
+.jobView .personal_info .top .main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jobView .personal_info .top .main .bookmark_icon i {
+  font-size: 22px;
+  color: #8F0301;
 }/*# sourceMappingURL=style.css.map */

@@ -8,6 +8,7 @@ h1,h2,h3,h4,h5,h6,p,ul{
 // Colors
 $primaryGr:linear-gradient(180deg, rgba(143, 3, 1, 0.9) 58.17%, rgba(74, 13, 12, 0.9) 100%);
 $primaryCol:#8F0301;
+$primaryCol2:#8F0301CC;
 $drPrimary:#4A0D0C;
 $primaryLightBorder1:#8F030152;
 $primaryLightBorder2:#8F030114;
@@ -37,6 +38,9 @@ $black : #000;
 }
 .primaryCol{
     color:$primaryCol;
+}
+.primaryCol2{
+    color:$primaryCol2;
 }
 .primaryText1{
     color:$primaryText1;

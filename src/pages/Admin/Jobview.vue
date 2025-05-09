@@ -13,20 +13,31 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <div class="persoanl_info">
+                        <div class="personal_info">
                             <div class="top">
                                 <div class="main">
                                     <div class="lside">
-                                        <h5 class="primaryCol f29 fw6" >Postion: Goalkeeper</h5>
+                                        <h5 class="primaryCol2 f30 fw6" >Postion: Goalkeeper</h5>
                                     </div>
                                     <div class="rside">
-                                        <h5 class="primaryCol f29 fw6" >Postion: Goalkeeper</h5>
+                                        <div class="bookmark_icon">
+                                            <i class="pi pi-bookmark" ></i>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="main">
                                     <div class="d-flex align-items-center gap-4" >
-                                        <p class="text black fw5">LeagueL Liga</p>
-                                        <p class="text black fw5">Club Al Nasar</p>
+                                        <p class="text f19 black fw5">LeagueL Liga</p>
+                                        <p class="text f19 black fw5">Club Al Nasar</p>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button class="btn btn-secondary">Received</button>
+                                        <button class="btn btn-primary">Propose Player</button>
+                                    </div>
+                                </div>
+                                <div class="main">
+                                    <div class="d-flex align-items-center gap-4">
+                                        <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
                                     </div>
                                 </div>
                             </div>

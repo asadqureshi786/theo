@@ -248,7 +248,7 @@ body {
         }
       }
     }
-    // Donut SASS Start
+// Donut SASS Start
     
     
     
@@ -1124,8 +1124,28 @@ body {
         }
     }
 }
-
 // Player Profile SASS End
+
+
+// Job View SASS Start
+.jobView{
+    .personal_info{
+        .top{
+            .main{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .bookmark_icon{
+                    i{
+                        font-size: 22px;
+                        color:$primaryCol;
+                    }
+                }
+            }
+        }
+    }
+}
+// Job View SASS End
 
 
 

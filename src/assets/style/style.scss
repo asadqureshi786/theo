@@ -16,7 +16,7 @@ body {
 .light_head{
     font-size: 25px;
     font-weight: 500;
-    color:#424441;
+    color:$light5;
 }
 
 // PlayerProposed SASS Start
@@ -849,6 +849,7 @@ body {
 
     .hd {
         font-weight: 600;
+        color:$light6;;
     }
 
     .r_side {
@@ -1278,6 +1279,62 @@ body {
     }
 }
 // Side Player SASS End
+
+// Agent View SASS Start
+.profile_section{
+    display: grid;
+    grid-template-columns: 13% 87%;
+    gap:20px;
+    .card{
+        height: fit-content;
+    }
+    .lside{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        img{
+            border-radius: 16px;
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+            object-position: top;
+        }
+    }
+    .rside{
+        .name{
+            letter-spacing: 0.5px;
+        }
+        .dts{
+            display: flex;
+            align-items: center;
+            gap:10px;
+            .text{
+                font-size:13px;
+                color:$darkCol;
+                font-weight: 500;
+
+            }
+            .count{
+                background: #8F030114;
+                color: $primaryCol;
+                padding: 2px 10px 1px 10px;
+                border-radius: 4px;
+                font-size: 9px;
+                font-weight: 500;
+                width: fit-content;
+            }
+        }
+        .main_card{
+            border-width: 2px;
+            .heading{
+                border-bottom: 1.6px solid $cardBorder;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+// Agent View SASS End
 
 
 

@@ -28,6 +28,9 @@ $darkCol:#001727;
 $formText:#475569;
 $pltext:#4A0D0C7A;
 $black : #000;
+$light4: #292D32CC;
+$light5:#424441;
+$light6:#00001A;
 
 
 
@@ -71,6 +74,15 @@ $black : #000;
 }
 .drPrimary{
     color:$drPrimary;
+}
+.light5{
+    color:$light5;
+}
+.light6{
+    color:$light6;
+}
+.light4{
+    color:$light4;
 }
 
 // FontWeight

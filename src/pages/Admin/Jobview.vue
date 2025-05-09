@@ -24,7 +24,7 @@
                   <div class="rside">
                     <div class="bookmark_icon">
                       <i class="pi pi-bookmark"></i>
-                    </div>
+                    </div>a
                   </div>
                 </div>
                 <div class="main">

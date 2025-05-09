@@ -56,6 +56,18 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #4A0D0C;
 }
 
+.light5 {
+  color: #424441;
+}
+
+.light6 {
+  color: #00001A;
+}
+
+.light4 {
+  color: rgba(41, 45, 50, 0.8);
+}
+
 .fw1 {
   font-weight: 100;
 }

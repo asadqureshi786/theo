@@ -63,6 +63,18 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #4A0D0C;
 }
 
+.light5 {
+  color: #424441;
+}
+
+.light6 {
+  color: #00001A;
+}
+
+.light4 {
+  color: rgba(41, 45, 50, 0.8);
+}
+
 .fw1 {
   font-weight: 100;
 }
@@ -972,6 +984,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 .page_header .hd {
   font-weight: 600;
+  color: #00001A;
 }
 .page_header .r_side {
   display: flex;
@@ -1327,4 +1340,59 @@ header.protal_header .main_header .header_option .language .text {
   height: 5px;
   background-color: #8B8F92;
   border-radius: 100px;
+}
+
+.profile_section {
+  display: grid;
+  grid-template-columns: 13% 87%;
+  gap: 20px;
+}
+.profile_section .card {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.profile_section .lside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.profile_section .lside img {
+  border-radius: 16px;
+  width: 100%;
+  height: 145px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.profile_section .rside .name {
+  letter-spacing: 0.5px;
+}
+.profile_section .rside .dts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.profile_section .rside .dts .text {
+  font-size: 13px;
+  color: #001727;
+  font-weight: 500;
+}
+.profile_section .rside .dts .count {
+  background: rgba(143, 3, 1, 0.0784313725);
+  color: #8F0301;
+  padding: 2px 10px 1px 10px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 500;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.profile_section .rside .main_card {
+  border-width: 2px;
+}
+.profile_section .rside .main_card .heading {
+  border-bottom: 1.6px solid #E2E8F0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */

@@ -58,7 +58,7 @@
         :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
       >
         <from>
-          <div class="row formFileds">
+          <div class="row formFiledss">
             <div class="col-12">
               <div class="form-group">
                 <label> Transfer Market Url</label>

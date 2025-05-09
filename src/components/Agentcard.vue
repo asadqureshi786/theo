@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <router-link class="btn btn-primary" to="player-profile">View</router-link>
+        <router-link class="btn btn-primary" to="agent-view">View</router-link>
 
         <div class="trashIcon">
 

@@ -338,7 +338,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 100%;
 }
 .main_wrapper .card .card-body {
-  padding: 18px;
+  padding: 25px;
 }
 .main_wrapper .card .card-body .card_head {
   display: flex;
@@ -418,6 +418,44 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .form-control:focus {
   outline: none;
   box-shadow: none;
+}
+
+.d_select .p-component {
+  height: 37px;
+  width: 100%;
+  background: transparent !important;
+  border: 1.6px solid #E2E8F0 !important;
+  border-radius: 10px !important;
+  padding: 7px 12px !important;
+  color: #475569 !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+}
+
+.p-select-label {
+  color: #475569 !important;
+  padding: 0px !important;
+  font-size: 14px !important;
+}
+
+.p-select-overlay.p-component {
+  border: 1px solid #E2E8F0;
+  background-color: #fff !important;
+}
+.p-select-overlay.p-component .p-select-list-container::-webkit-scrollbar-track {
+  background-color: red !important;
+}
+.p-select-overlay.p-component .p-select-list-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+.p-select-overlay.p-component .p-select-list-container .p-select-list .p-select-option {
+  color: #475569 !important;
+  font-size: 14px !important;
+}
+.p-select-overlay.p-component .p-select-list-container .p-select-list .p-select-option.p-focus {
+  background: #8F0301 !important;
+  color: #fff !important;
 }
 
 .p-dialog.p-component {
@@ -1217,4 +1255,76 @@ header.protal_header .main_header .header_option .language .text {
 .jobView .personal_info .top .main .bookmark_icon i {
   font-size: 22px;
   color: #8F0301;
+}
+.jobView .personal_info .middle .info {
+  background: rgba(143, 3, 1, 0.0392156863);
+  padding: 20px;
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.jobView .personal_info .middle .info ul {
+  width: 100%;
+}
+.jobView .personal_info .middle .info ul li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}
+.jobView .personal_info .middle .info ul li:last-child {
+  margin-bottom: 0px;
+}
+.jobView .personal_info .middle .info ul li label {
+  font-weight: 500;
+}
+.jobView .personal_info .middle .info ul li .data {
+  font-weight: 400;
+}
+.jobView .personal_info .bottom .more_info .hd {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.sidePlayer .hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidePlayer .players li {
+  margin-bottom: 5px;
+}
+.sidePlayer .players li:last-child {
+  margin-bottom: 0px;
+}
+.sidePlayer .players li .box {
+  display: flex;
+  gap: 10px;
+  border: 1px solid rgba(143, 3, 1, 0.0588235294);
+  border-radius: 8px;
+  padding: 6px;
+}
+.sidePlayer .players li .box img {
+  width: 55px;
+  height: 55px;
+  border-radius: 100px;
+  border: 2px solid rgba(143, 3, 1, 0.0784313725);
+}
+.sidePlayer .players li .box .profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  position: relative;
+  top: 2px;
+}
+.sidePlayer .players li .box > div div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sidePlayer .players li .box > div div .dot {
+  width: 5px;
+  height: 5px;
+  background-color: #8B8F92;
+  border-radius: 100px;
 }/*# sourceMappingURL=style.css.map */

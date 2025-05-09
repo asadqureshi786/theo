@@ -72,7 +72,7 @@
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
       <form> <!-- Corrected from 'from' to 'form' -->
-        <div class="row formFiled">
+        <div class="row formFileds">
           <div class="col-6">
             <div class="form-group">
               <label> Name</label>

@@ -8,6 +8,8 @@ import Aura from '@primeuix/themes/aura';
 import DatePicker from 'primevue/datepicker';
 import InputText from 'primevue/inputtext';
 import Dialog from 'primevue/dialog';
+import Select from 'primevue/select';
+
 
 // CSS Animate
 import 'animate.css';
@@ -72,6 +74,7 @@ app.component('DatePicker', DatePicker);
 app.component('InputText', InputText);
 app.component('Dialog', Dialog);
 app.component('FilePond', FilePond) // Register globally
+app.component('Select', Select) // Register globally
 app.use(Toast,  {
     // You can set your default options here
     position: 'top-right',

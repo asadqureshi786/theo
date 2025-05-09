@@ -69,7 +69,7 @@ body {
         height: 100%;
 
         .card-body {
-            padding: 18px;
+            padding: 25px;
 
             .card_head {
                 display: flex;
@@ -167,6 +167,47 @@ body {
     }
 }
 
+.d_select{
+    .p-component{
+        height: 37px;
+        width: 100%;
+        background: transparent !important;
+        border: 1.6px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 7px 12px !important;
+        color: $formText !important;
+        font-size: 14px !important;
+        box-shadow:none!important;
+    }
+}
+.p-select-label{
+    color:$formText !important;
+    padding:0px!important;
+    font-size: 14px!important;
+}
+.p-select-overlay.p-component{
+    border:1px solid $cardBorder;
+    background-color: #fff!important;
+    .p-select-list-container{
+        &::-webkit-scrollbar-track{
+            background-color: red!important;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+          }
+        .p-select-list{
+            .p-select-option{
+                color:$formText !important;
+                font-size: 14px!important;
+                &.p-focus{
+                    background: $primaryCol!important;
+                    color:#fff!important;
+                }
+            }
+        }
+    }
+}
 // Form SASS End
 
 // Modal SASS Start
@@ -1149,9 +1190,94 @@ body {
                 }
             }
         }
+        .middle{
+            .info{
+                background: $primaryLight;
+                padding:20px;
+                border-radius: 8px;
+                height: 100%;
+                display: flex;
+                // justify-content:center;
+                align-items: center;
+                ul{
+                    width: 100%;
+                    li{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        margin-bottom: 10px;
+                        &:last-child{
+                            margin-bottom: 0px;
+                        }
+                        label{
+                            font-weight: 500;
+                        }
+                        .data{
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom{
+            .more_info{
+                .hd{    
+                    margin-top: 25px; 
+                    margin-bottom: 15px; 
+                }
+            }
+        }
     }
 }
 // Job View SASS End
+
+// Side Player SASS Start
+.sidePlayer{
+    .hd{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .players{
+        li{
+            margin-bottom: 5px;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+            .box{
+                display: flex;
+                gap:10px;
+                border: 1px solid #8F03010F;
+                border-radius: 8px;
+                padding:6px;
+                img{
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 100px;
+                    border: 2px solid $primaryLightBorder2;
+                }
+                .profile{
+                    display: flex;
+                    flex-direction: column;
+                    gap:1px;
+                    position: relative;
+                    top:2px;
+                }
+                & > div div{
+                    display: flex;
+                    align-items: center;
+                    gap:12px;
+                    .dot{
+                        width: 5px;
+                        height: 5px;
+                        background-color: $silverCol;
+                        border-radius: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+// Side Player SASS End
 
 
 

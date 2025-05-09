@@ -40,6 +40,7 @@
                                         <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
                                         <Playerproposed :proposedImages="proposedImages" />
                                     </div>
+                                    <p class="ltext mt-3 f11">Posted: 10/November/2023</p>
                                 </div>
                             </div>
                         </div>

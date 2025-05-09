@@ -39,7 +39,7 @@
                                     <div class="d-flex align-items-center gap-4">
                                         <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
                                     </div>
-                                    <Playerproposed/>
+                                    <Playerproposed :proposedImages="proposedImages" />
                                 </div>
                             </div>
                         </div>
@@ -54,9 +54,25 @@
 
 <script>
 import Playerproposed from 'src/components/Playerproposed.vue'
+
+// Images
+import proposed1 from "@/assets/images/player1.png"
+import proposed2 from "@/assets/images/player2.png"
+import proposed3 from "@/assets/images/player3.png"
+import proposed4 from "@/assets/images/player4.png"
+
     export default{
         name : 'Jobview',
-        components : Playerproposed,
+        components : {
+            Playerproposed,
+        },
+        data(){
+            return(
+                {
+                    proposedImages : [proposed1,proposed2,proposed3,proposed4],
+                }
+            )
+        },
         methods : {
         goback(){
             window.history.back();

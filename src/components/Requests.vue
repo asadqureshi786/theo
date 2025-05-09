@@ -26,12 +26,10 @@
                   <label for="">Agent:</label>
                   <p class="text">{{ request.agent }}</p>
                 </div>
-                <div class="player_proposed" v-if="requestOthers" >
-                  <div class="img">
-                    <img v-for="(smImg, index) in proposedImages" key="index" :src="smImg" :class="'img' + index" alt="">
-                  </div>
-                  <p class="text">+3 players Proposed</p>
-                </div>
+                
+                
+                <Playerproposed v-if="requestOthers" :proposedImages="proposedImages"   />
+                
               </div>
             </div>
           </div>
@@ -52,10 +50,13 @@
 </template>
 
 <script>
-
+import Playerproposed from "@/components/Playerproposed.vue"
 
     export default {
         name : 'Requests',
+        components : {
+          Playerproposed,
+        },
         props : {
             requestsList : Array,
             requestOthers : Boolean,

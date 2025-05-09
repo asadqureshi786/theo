@@ -293,6 +293,34 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #424441;
 }
 
+.player_proposed .text {
+  padding-left: 62px;
+}
+.player_proposed .img {
+  position: relative;
+}
+.player_proposed .img img {
+  width: 22px !important;
+  height: 22px;
+  border-radius: 100px;
+}
+.player_proposed .img .img0 {
+  position: absolute;
+  left: 0;
+}
+.player_proposed .img .img1 {
+  position: absolute;
+  left: 12px;
+}
+.player_proposed .img .img2 {
+  position: absolute;
+  left: 22px;
+}
+.player_proposed .img .img3 {
+  position: absolute;
+  left: 32px;
+}
+
 .main_wrapper {
   margin-top: 127px;
   margin-bottom: 22px;
@@ -883,33 +911,6 @@ header.protal_header .main_header .header_option .language .text {
 }
 .request_items .req_checkbox {
   background-color: red;
-}
-.request_items .player_proposed .text {
-  padding-left: 62px;
-}
-.request_items .player_proposed .img {
-  position: relative;
-}
-.request_items .player_proposed .img img {
-  width: 22px !important;
-  height: 22px;
-  border-radius: 100px;
-}
-.request_items .player_proposed .img .img0 {
-  position: absolute;
-  left: 0;
-}
-.request_items .player_proposed .img .img1 {
-  position: absolute;
-  left: 12px;
-}
-.request_items .player_proposed .img .img2 {
-  position: absolute;
-  left: 22px;
-}
-.request_items .player_proposed .img .img3 {
-  position: absolute;
-  left: 32px;
 }
 .request_items .action {
   color: rgba(41, 45, 50, 0.6);

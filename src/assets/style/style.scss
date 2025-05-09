@@ -19,6 +19,38 @@ body {
     color:#424441;
 }
 
+// PlayerProposed SASS Start
+.player_proposed{
+    .text{
+        padding-left: 62px;
+    }
+    .img{
+        position: relative;
+        img{
+            width: 22px!important;
+            height: 22px;
+            border-radius: 100px;
+        }
+        .img0{
+            position: absolute;
+            left: 0;
+        }
+        .img1{
+            position: absolute;
+            left: 12px;
+        }
+        .img2{
+            position: absolute;
+            left: 22px;
+        }
+        .img3{
+            position: absolute;
+            left: 32px;
+        }
+    }
+}
+// PlayerPropos ed SASS End
+
 // Main Wrapper SASS Start
 .main_wrapper {
     margin-top: 127px;
@@ -747,35 +779,6 @@ body {
     }
     .req_checkbox{
         background-color: red;
-    }
-    .player_proposed{
-        .text{
-            padding-left: 62px;
-        }
-        .img{
-            position: relative;
-            img{
-                width: 22px!important;
-                height: 22px;
-                border-radius: 100px;
-            }
-            .img0{
-                position: absolute;
-                left: 0;
-            }
-            .img1{
-                position: absolute;
-                left: 12px;
-            }
-            .img2{
-                position: absolute;
-                left: 22px;
-            }
-            .img3{
-                position: absolute;
-                left: 32px;
-            }
-        }
     }
     .action{
         color:#292D3299;

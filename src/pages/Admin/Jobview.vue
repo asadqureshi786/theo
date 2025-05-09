@@ -39,6 +39,7 @@
                                     <div class="d-flex align-items-center gap-4">
                                         <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
                                     </div>
+                                    <Playerproposed/>
                                 </div>
                             </div>
                         </div>
@@ -48,12 +49,14 @@
             <div class="col-md-4"></div>
         </div>
         </div>
-
 </template>
 
+
 <script>
+import Playerproposed from 'src/components/Playerproposed.vue'
     export default{
         name : 'Jobview',
+        components : Playerproposed,
         methods : {
         goback(){
             window.history.back();

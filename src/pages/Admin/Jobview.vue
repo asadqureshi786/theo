@@ -38,8 +38,8 @@
                                 <div class="main">
                                     <div class="d-flex align-items-center gap-4">
                                         <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
+                                        <Playerproposed :proposedImages="proposedImages" />
                                     </div>
-                                    <Playerproposed :proposedImages="proposedImages" />
                                 </div>
                             </div>
                         </div>

@@ -21,8 +21,11 @@ body {
 
 // PlayerProposed SASS Start
 .player_proposed{
-    .text{
+    .text {
         padding-left: 62px;
+        font-weight: 400;
+        color: #8B8F92;
+        font-size: 15px;
     }
     .img{
         position: relative;

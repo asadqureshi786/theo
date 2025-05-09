@@ -295,6 +295,9 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 .player_proposed .text {
   padding-left: 62px;
+  font-weight: 400;
+  color: #8B8F92;
+  font-size: 15px;
 }
 .player_proposed .img {
   position: relative;

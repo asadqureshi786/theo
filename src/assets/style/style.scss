@@ -9,50 +9,86 @@ body {
 
 @import './assets.scss';
 
-.formFileds.row{
-    row-gap:15px;
+.formFileds.row {
+    row-gap: 15px;
 }
 
-.light_head{
+.light_head {
     font-size: 25px;
     font-weight: 500;
-    color:$light5;
+    color: $light5;
 }
 
 // PlayerProposed SASS Start
-.player_proposed{
+.player_proposed {
     .text {
         padding-left: 62px;
         font-weight: 400;
         color: #8B8F92;
         font-size: 14px;
     }
-    .img{
+
+    .img {
         position: relative;
-        img{
-            width: 22px!important;
+
+        img {
+            width: 22px !important;
             height: 22px;
             border-radius: 100px;
         }
-        .img0{
+
+        .img0 {
             position: absolute;
             left: 0;
         }
-        .img1{
+
+        .img1 {
             position: absolute;
             left: 12px;
         }
-        .img2{
+
+        .img2 {
             position: absolute;
             left: 22px;
         }
-        .img3{
+
+        .img3 {
             position: absolute;
             left: 32px;
         }
     }
 }
 // PlayerPropos ed SASS End
+
+// TextEditor SASS Start
+.p-editor{
+    // .ql-picker-label{
+    //     &:hover{
+    //         color:$black;
+    //     }
+    // }
+    .p-editor-toolbar {
+        background: #fff!important;
+    }
+    .ql-editor{
+        background: #fff!important;
+    }
+    .p-editor-toolbar.ql-snow {
+        border:1px solid $cardBorder!important;
+    }
+    .ql-toolbar.ql-snow + .ql-container.ql-snow{
+        border:1px solid $cardBorder!important;
+    }
+}
+.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+    color:$silverCol!important;
+}
+// .p-editor .ql-snow.ql-toolbar button:hover .ql-stroke, .p-editor .ql-snow.ql-toolbar button:focus .ql-stroke {
+//     stroke: red!important;
+//       all: unset!important;
+//     // stroke: var(--p-editor-toolbar-item-hover-color);
+// }
+// TextEditor SASS End
 
 // Main Wrapper SASS Start
 .main_wrapper {
@@ -137,7 +173,7 @@ body {
         font-weight: 500;
         color: $darkCol;
 
-  
+
 
         .subTxt {
             font-size: 10.5px;
@@ -167,8 +203,8 @@ body {
     }
 }
 
-.d_select{
-    .p-component{
+.d_select {
+    .p-component {
         height: 37px;
         width: 100%;
         background: transparent !important;
@@ -177,37 +213,109 @@ body {
         padding: 7px 12px !important;
         color: $formText !important;
         font-size: 14px !important;
-        box-shadow:none!important;
+        box-shadow: none !important;
     }
 }
-.p-select-label{
-    color:$formText !important;
-    padding:0px!important;
-    font-size: 14px!important;
+
+.p-select-label {
+    color: $formText !important;
+    padding: 0px !important;
+    font-size: 14px !important;
 }
-.p-select-overlay.p-component{
-    border:1px solid $cardBorder;
-    background-color: #fff!important;
-    .p-select-list-container{
-        &::-webkit-scrollbar-track{
-            background-color: red!important;
+
+.p-select-overlay.p-component {
+    border: 1px solid $cardBorder;
+    background-color: #fff !important;
+
+    .p-select-list-container {
+        &::-webkit-scrollbar-track {
+            background-color: red !important;
         }
+
         &::-webkit-scrollbar-thumb {
             background-color: darkgrey;
             outline: 1px solid slategrey;
-          }
-        .p-select-list{
-            .p-select-option{
-                color:$formText !important;
-                font-size: 14px!important;
-                &.p-focus{
-                    background: $primaryCol!important;
-                    color:#fff!important;
+        }
+
+        .p-select-list {
+            .p-select-option {
+                color: $formText !important;
+                font-size: 14px !important;
+
+                &.p-focus {
+                    background: $primaryCol !important;
+                    color: #fff !important;
                 }
             }
         }
     }
 }
+
+.d_date {
+    .p-inputwrapper {
+        width: 100%;
+    }
+
+    .p-inputtext {
+        background: transparent !important;
+        border: 1.6px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 7px 12px !important;
+        color: $formText !important;
+        font-size: 14px !important;
+        box-shadow: none !important;
+
+        &::placeholder {
+            color: $formText !important;
+            font-size: 14px !important;
+        }
+    }
+}
+
+.p-datepicker-panel.p-component {
+    width: fit-content !important;
+    min-width: fit-content !important;
+    background: #fff;
+    border: 1px solid $cardBorder;
+
+    .p-datepicker-title {
+        button {
+            color: $light4;
+            font-size: 15px;
+        }
+    }
+
+    .p-datepicker-day-cell.p-datepicker-today {
+        span {
+            color: #fff !important;
+        }
+    }
+
+    .p-datepicker-header {
+        padding-bottom: 0px !important;
+        background: #fff !important;
+        border-bottom: 1px solid $cardBorder;
+    }
+
+    th {
+        .p-datepicker-weekday {
+            color: $light6;
+            font-weight: 400;
+        }
+    }
+
+    td {
+        .p-datepicker-day {
+            color: $light4;
+        }
+    }
+
+    th,
+    td {
+        font-size: 14px;
+    }
+}
+
 // Form SASS End
 
 // Modal SASS Start
@@ -227,7 +335,7 @@ body {
         padding: 10px 20px;
     }
 
-  
+
 
     .modal_footer {
         display: flex;
@@ -267,322 +375,364 @@ body {
         }
     }
 }
+
 // SearchBox SASS End
 
 
 // Donut SASS Start
-.donut{
+.donut {
     .items {
         li {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 20px;
-          position: relative;
-          padding-left: 20px;
-      
-          &:before {
-            content: '';
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 100px;
-            background: $primaryCol;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 0;
-          }
-      
-          &:last-child {
-            margin-bottom: 0px;
-          }
-      
-          &:nth-child(2):before {
-            background: #F6DED8;
-          }
-      
-          &:nth-child(3):before {
-            background: #FFD2C7;
-          }
-      
-          .label {
-            font-weight: 600;
-            font-size: 15px !important;
-          }
-      
-          .count {
-            border: 1.5px solid $primaryLightBorder2;
-            border-radius: 4px;
-            background: $primaryLight;
-            color: $primaryCol;
-            font-size: 10px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0px 8px;
-            height: 19px;
-          }
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                border-radius: 100px;
+                background: $primaryCol;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+
+            &:nth-child(2):before {
+                background: #F6DED8;
+            }
+
+            &:nth-child(3):before {
+                background: #FFD2C7;
+            }
+
+            .label {
+                font-weight: 600;
+                font-size: 15px !important;
+            }
+
+            .count {
+                border: 1.5px solid $primaryLightBorder2;
+                border-radius: 4px;
+                background: $primaryLight;
+                color: $primaryCol;
+                font-size: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0px 8px;
+                height: 19px;
+            }
         }
-      }
     }
+}
+
 // Donut SASS Start
-    
-    
-    
-    // All Doc SASS Start
-    .all_doc{
+
+
+
+// All Doc SASS Start
+.all_doc {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    li {
+        border: 1px solid $cardBorder;
+        border-radius: 12px;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+
+        .doc {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            img {
+                width: 35px;
+            }
+
+            .dt {
+                .name {
+                    font-size: 13.5px;
+                    font-weight: 500;
+                }
+
+                .size {
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: $gtext;
+                }
+            }
+        }
+
+        .download {
+            i {
+                color: $silverCol;
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+// ALl DOc SASS Start
+
+
+
+// Simple Table SASS Start
+.simple_table {
+    table {
+
+        th,
+        td {
+            padding-inline: 13px;
+        }
+
+        thead {
+            th {
+                background: #8F0301CC;
+                color: #fff;
+                font-weight: 500;
+                font-size: 17.5px;
+                padding-block: 15px;
+
+                &:first-child {
+                    border-radius: 10px 0px 0px 0px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 10px 0px 0px;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                font-size: 14px;
+                font-weight: 400;
+                padding-block: 13px;
+            }
+        }
+    }
+}
+
+// Simple Table SASS Start
+
+// Video List SASS Start
+.video_list {
+    ul {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap:20px;
-        li{
-            border:1px solid $cardBorder;
-            border-radius: 12px;
-            padding:16px 24px;
+        gap: 20px;
+
+        li {
+            .video_main {
+                width: 100%;
+                height: 250px;
+                border-radius: 8px;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
+                }
+
+                .backdrop {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.3);
+                }
+
+                .play_button {
+                    background: rgba(255, 255, 255, 0.5);
+                    border-radius: 100px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        width: 60px;
+                        height: 60%;
+                    }
+                }
+
+                .time_duration {
+                    background: rgba(0, 0, 0, 0.3);
+                    border-radius: 100px;
+                    color: #fff;
+                    padding: 2px 5px;
+                    position: absolute;
+                    border-radius: 4px;
+                    bottom: 5px;
+                    right: 5px;
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+// Video List SASS End
+
+// Portal Header SASS Start
+header {
+    &.protal_header {
+        background: #fff;
+        box-shadow: 0px 2px 6px 0px #0000001F;
+        padding: 13px 0px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        .icon {
+            position: relative;
+            top: 2px;
+        }
+
+        .main_header {
             display: flex;
             align-items: center;
-            gap:10px;
             justify-content: space-between;
-            .doc{
-                display: flex;
-                align-items: center;
-                gap:12px;
-                img{
-                    width: 35px;
-                }
-                .dt{
-                    .name{
-                        font-size: 13.5px;
-                        font-weight: 500;
-                    }
-                    .size{
-                        font-size: 13px;
-                        font-weight: 400;
-                        color:$gtext;
-                    }
+
+            .logo {
+                img {
+                    width: 102px;
                 }
             }
-            .download{
-                i{
-                    color: $silverCol;
-                    font-size: 22px;
-                }
-            }
-        }
-    }
-    // ALl DOc SASS Start
-    
-    
-    
-    // Simple Table SASS Start
-    .simple_table{
-        table{
-            th,td{
-                padding-inline:13px ;
-            }
-            thead{
-                th{
-                    background: #8F0301CC;
-                    color:#fff;
-                    font-weight: 500;
-                    font-size: 17.5px;
-                    padding-block: 15px;
-                    &:first-child{
-                        border-radius:10px 0px 0px 0px;
-                    }
-                    &:last-child{
-                        border-radius:0px 10px 0px 0px;
-                    }
-                }
-            }
-            tbody{
-                td{
-                    font-size: 14px;
-                    font-weight: 400;
-                    padding-block: 13px;
-                }
-            }
-        }
-    }
-    // Simple Table SASS Start
-    
-    // Video List SASS Start
-    .video_list{
-        ul{
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap:20px;
-            li{
-                .video_main{
-                    width: 100%;
-                    height: 250px;
-                    border-radius: 8px;
-                    position: relative;
-                    overflow: hidden;
-                    img{
-                        object-fit: cover;
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 8px;
-                    }
-                    .backdrop{
-                        position: absolute;
-                        top:0;
-                        left: 0;
-                        right:0;
-                        bottom:0;
-                        background: rgba(0,0,0,0.3);
-                    }
-                    .play_button{
-                        background: rgba(255,255,255,0.5);
-                        border-radius:100px;
-                        position: absolute;
-                        top:50%;
-                        left:50%;
-                        transform: translate(-50%,-50%);
-                        width: 60px;
-                        height: 60px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        svg{
-                            width: 60px;
-                            height: 60%;
-                        }
-                    }
-                    .time_duration{
-                        background: rgba(0,0,0,0.3);
-                        border-radius:100px;
-                        color:#fff;
-                        padding:2px 5px;
-                        position: absolute;
-                        border-radius: 4px;
-                        bottom:5px;
-                        right:5px;
-                        font-size: 12px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-                }
-            }
-        }
-    }
-    // Video List SASS End
-    
-    // Portal Header SASS Start
-    header{
-        &.protal_header{
-            background: #fff;
-            box-shadow: 0px 2px 6px 0px #0000001F;
-            padding: 13px 0px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            .icon{
-                position: relative;
-                top:2px;
-            }
-            .main_header{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                .logo{
-                    img{
-                        width: 102px;
-                    }
-                }
-                .nav_links{
-                    ul{
-                        list-style: none;
-                        padding: 0px;
-                        display: flex;
-                        align-items: center;
-                        gap:10px;
-                        margin: 0px;
-                        li{
-                            .nav_item{
-                                display: flex;
-                                align-items: start;
-                                gap:6px;
-                                text-decoration: none;
-                                color: $primaryCol;
-                                font-weight: 400;
-                                font-size: 13.7px;
-                                padding:6px 12px;
-                                .text{
-                                    position: relative;
-                                    top:0.5px;
+
+            .nav_links {
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin: 0px;
+
+                    li {
+                        .nav_item {
+                            display: flex;
+                            align-items: start;
+                            gap: 6px;
+                            text-decoration: none;
+                            color: $primaryCol;
+                            font-weight: 400;
+                            font-size: 13.7px;
+                            padding: 6px 12px;
+
+                            .text {
+                                position: relative;
+                                top: 0.5px;
+                            }
+
+                            &.active {
+                                background: $primaryGr;
+                                border-radius: 6px;
+                                color: #fff;
+
+                                svg {
+                                    color: #fff;
+                                    stroke: #fff;
                                 }
-                                &.active{
-                                    background: $primaryGr;
-                                    border-radius: 6px;
-                                    color:#fff;
-                                    svg{
-                                        color:#fff;
-                                        stroke: #fff;
-                                    }
-                                    path{
-                                        stroke: #fff;
-                                    }
+
+                                path {
+                                    stroke: #fff;
                                 }
                             }
                         }
                     }
                 }
-                .header_option{
+            }
+
+            .header_option {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .profile {
+                    img {
+                        width: 40px;
+                        object-fit: contain;
+                        border-radius: 100px;
+                        border: 1px solid $primaryLightBorder1;
+                    }
+                }
+
+                .language {
                     display: flex;
                     align-items: center;
-                    gap:10px;
-                    .profile{
-                        img{
-                            width: 40px;
-                            object-fit: contain;
-                            border-radius: 100px;
-                            border:1px solid $primaryLightBorder1;
-                        }
-                    }
-                    .language{
-                        display: flex;
-                        align-items: center;
-                        gap:6px;
-                        .text{
-                            font-size: 11px;
-                        }
+                    gap: 6px;
+
+                    .text {
+                        font-size: 11px;
                     }
                 }
             }
         }
     }
-    // Portal Header SASS End
+}
+
+// Portal Header SASS End
 
 // Tab Content SASS Start
-.tabs_header_cs{
-    border:1px solid $primaryLightBorder1;
+.tabs_header_cs {
+    border: 1px solid $primaryLightBorder1;
     border-radius: 8px;
-    button{
+
+    button {
         margin: 0px;
         border: 0px;
         background-color: transparent;
-        color:$primaryCol;
+        color: $primaryCol;
         transition: 0.2s all linear;
         font-weight: 400;
         font-size: 14px;
         padding: 7px 14px;
         border-right: 1px solid $primaryLightBorder1;
-        &.active{
+
+        &.active {
             background: $primaryLight1;
-            color:$primaryCol;
+            color: $primaryCol;
         }
     }
-    button:first-child{
+
+    button:first-child {
         border-radius: 7px 0px 0px 7px;
     }
-    button:last-child{
+
+    button:last-child {
         border-radius: 0px 7px 7px 0px;
         border: 0px;
     }
 }
+
 // Tab Content SASS End
 
 
@@ -821,11 +971,13 @@ body {
             }
         }
     }
-    .req_checkbox{
+
+    .req_checkbox {
         background-color: red;
     }
-    .action{
-        color:#292D3299;
+
+    .action {
+        color: #292D3299;
         cursor: pointer;
     }
 }
@@ -849,7 +1001,8 @@ body {
 
     .hd {
         font-weight: 600;
-        color:$light6;;
+        color: $light6;
+        ;
     }
 
     .r_side {
@@ -885,7 +1038,7 @@ body {
         width: 125px;
         height: 125px;
         object-fit: cover;
-        border:2px solid #8F03013D;
+        border: 2px solid #8F03013D;
         border-radius: 100px;
         background-color: white;
         position: absolute;
@@ -957,7 +1110,8 @@ body {
         font-size: 9px;
         padding: 6px 15px;
     }
-    .trashIcon{
+
+    .trashIcon {
         position: absolute;
         top: 8px;
         right: 8px;
@@ -974,31 +1128,36 @@ body {
         grid-template-columns: 16% 84%;
         border: 2px solid $primaryLightBorder2;
         margin-top: 35px;
-        .profileImage{
+
+        .profileImage {
             position: relative;
-            border:3px solid rgb(133 121 119);
+            border: 3px solid rgb(133 121 119);
             border-radius: 12px;
-                transform: scale(1.04);
-                overflow: hidden;
-            &::before{
-                background: linear-gradient(90deg,rgba(0, 0, 0, 0.57) 0%, rgba(255, 255, 255, 0) 100%, rgba(0, 212, 255, 0) 100%);
+            transform: scale(1.04);
+            overflow: hidden;
+
+            &::before {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.57) 0%, rgba(255, 255, 255, 0) 100%, rgba(0, 212, 255, 0) 100%);
                 position: absolute;
-                top:0;
+                top: 0;
                 left: 0;
-                right:0;
-                bottom:0;
-                content:'';
+                right: 0;
+                bottom: 0;
+                content: '';
                 z-index: 1;
                 width: 100%;
                 height: 100%;
             }
-            img{
+
+            img {
                 height: 100%;
                 object-fit: cover;
-                
+
             }
+
             position: relative;
-            .profile_number{
+
+            .profile_number {
                 position: absolute;
                 bottom: 10px;
                 left: 10px;
@@ -1006,136 +1165,155 @@ body {
                 font-size: 50px;
                 font-weight: 500;
                 z-index: 1;
-                
+
             }
         }
 
         .profile_instruction {
-            .main_col{
+            .main_col {
                 padding: 10px 30px;
+
                 .top {
                     display: flex;
                     justify-content: space-between;
-    
+
                     .right_side {
                         .player_name {
                             font-size: 38px;
                             color: #8F0301CC;
                         }
-    
+
                         .teamAgent {
                             li {
                                 margin-bottom: 10px;
-                                &:last-child{
+
+                                &:last-child {
                                     margin-bottom: 0px;
                                 }
-    
+
                                 &>div {
                                     display: flex;
                                     align-items: center;
                                     gap: 10px;
-    
+
                                     label {
                                         font-size: 15px;
                                     }
                                 }
                             }
-    
+
                             .sm_img {
                                 width: 24px;
                                 height: 24px;
                             }
                         }
                     }
-                    .left_side{
-                        .fcol{
+
+                    .left_side {
+                        .fcol {
                             display: flex;
                             align-items: center;
                             gap: 10px;
                             justify-content: end;
                             margin-bottom: 5px;
-                            .status{
+
+                            .status {
                                 padding: 3px 10px 2px 10px;
                                 font-weight: 4c00;
                                 border-radius: 4px;
-                                color:$primaryCol;
+                                color: $primaryCol;
                                 background: $primaryLight;
                                 font-size: 9px;
                             }
-                            .text{
+
+                            .text {
                                 font-size: 10px;
                             }
                         }
-                        .contract_expiry{
+
+                        .contract_expiry {
                             border: 1px solid $lightBorder;
                             border-radius: 12px;
-                            .header{
+
+                            .header {
                                 border-bottom: 1px solid $lightBorder;
                                 padding: 5px 15px;
-                                font-size:11px;
+                                font-size: 11px;
                                 text-align: center;
                             }
-                            .counter{
+
+                            .counter {
                                 display: grid;
                                 grid-template-columns: 1fr 1fr;
                                 justify-content: center;
                                 align-items: center;
                                 padding: 8px 15px;
                                 position: relative;
-                                gap:25px;
-                                &:before{
+                                gap: 25px;
+
+                                &:before {
                                     background: $lightBorder;
                                     position: absolute;
-                                    top:50%;
+                                    top: 50%;
                                     left: 50%;
-                                    transform: translate(-50%,-50%);
+                                    transform: translate(-50%, -50%);
                                     width: 1px;
                                     height: 80%;
-                                    content:'';
+                                    content: '';
                                 }
-                                & > div{
+
+                                &>div {
                                     text-align: center;
-                                    .count{
+
+                                    .count {
                                         font-size: 14px;
                                     }
-                                    .text{
-                                        font-size:10px;
+
+                                    .text {
+                                        font-size: 10px;
                                     }
                                 }
                             }
                         }
                     }
                 }
-                .ft_bottom{
+
+                .ft_bottom {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    .contract_dates{
-                        label{
+
+                    .contract_dates {
+                        label {
                             font-size: 12px;
                         }
-                        span{
+
+                        span {
                             font-size: 12px;
                             font-style: italic;
-                            color:$gtext;
+                            color: $gtext;
                         }
                     }
-                    .invite_link{
+
+                    .invite_link {
                         display: flex;
                         align-items: center;
-                        gap:5px;
-                        .icon{
-                            color:$primaryCol;
-                            i{
+                        gap: 5px;
+
+                        .icon {
+                            color: $primaryCol;
+
+                            i {
                                 font-size: 14px;
                             }
                         }
-                        .text{
+
+                        .text {
                             font-style: italic;
                             font-size: 13px;
-                            color:$primaryCol;
+                            color: $primaryCol;
                             border-bottom: 1px solid $primaryCol;
-    
+
                         }
                     }
                 }
@@ -1146,7 +1324,8 @@ body {
             background: $primaryLight;
             border: 1.6px solid $primaryLightBorder2;
             padding: 25px 30px;
-            border-left: none;;
+            border-left: none;
+            ;
             border-radius: 0px 0px 12px 0px;
 
             ul {
@@ -1155,9 +1334,11 @@ body {
                     justify-content: space-between;
                     // grid-template-columns: 50% 50%;
                     margin-bottom: 5px;
-                    &:last-child{
+
+                    &:last-child {
                         margin-bottom: 0px;
                     }
+
                     label {
                         font-weight: 500;
                         font-size: 16.5px;
@@ -1172,102 +1353,120 @@ body {
         }
     }
 }
+
 // Player Profile SASS End
 
 
 // Job View SASS Start
-.jobView{
-    .personal_info{
-        .top{
-            .main{
+.jobView {
+    margin-top: 35px;
+    .personal_info {
+        .top {
+            .main {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                .bookmark_icon{
-                    i{
+
+                .bookmark_icon {
+                    i {
                         font-size: 22px;
-                        color:$primaryCol;
+                        color: $primaryCol;
                     }
                 }
             }
         }
-        .middle{
-            .info{
+
+        .middle {
+            .info {
                 background: $primaryLight;
-                padding:20px;
+                padding: 20px;
                 border-radius: 8px;
                 height: 100%;
                 display: flex;
                 // justify-content:center;
                 align-items: center;
-                ul{
+
+                ul {
                     width: 100%;
-                    li{
+
+                    li {
                         display: grid;
                         grid-template-columns: 1fr 1fr;
                         margin-bottom: 10px;
-                        &:last-child{
+
+                        &:last-child {
                             margin-bottom: 0px;
                         }
-                        label{
+
+                        label {
                             font-weight: 500;
                         }
-                        .data{
+
+                        .data {
                             font-weight: 400;
                         }
                     }
                 }
             }
         }
-        .bottom{
-            .more_info{
-                .hd{    
-                    margin-top: 25px; 
-                    margin-bottom: 15px; 
+
+        .bottom {
+            .more_info {
+                .hd {
+                    margin-top: 25px;
+                    margin-bottom: 15px;
                 }
             }
         }
     }
 }
+
 // Job View SASS End
 
 // Side Player SASS Start
-.sidePlayer{
-    .hd{
+.sidePlayer {
+    .hd {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    .players{
-        li{
+
+    .players {
+        li {
             margin-bottom: 5px;
-            &:last-child{
+
+            &:last-child {
                 margin-bottom: 0px;
             }
-            .box{
+
+            .box {
                 display: flex;
-                gap:10px;
+                gap: 10px;
                 border: 1px solid #8F03010F;
                 border-radius: 8px;
-                padding:6px;
-                img{
+                padding: 6px;
+
+                img {
                     width: 55px;
                     height: 55px;
                     border-radius: 100px;
                     border: 2px solid $primaryLightBorder2;
                 }
-                .profile{
+
+                .profile {
                     display: flex;
                     flex-direction: column;
-                    gap:1px;
+                    gap: 1px;
                     position: relative;
-                    top:2px;
+                    top: 2px;
                 }
-                & > div div{
+
+                &>div div {
                     display: flex;
                     align-items: center;
-                    gap:12px;
-                    .dot{
+                    gap: 12px;
+
+                    .dot {
                         width: 5px;
                         height: 5px;
                         background-color: $silverCol;
@@ -1278,58 +1477,72 @@ body {
         }
     }
 }
+
 // Side Player SASS End
 
 // Agent View SASS Start
-.profile_section{
-    display: grid;
-    grid-template-columns: 13% 87%;
-    gap:20px;
-    .card{
-        height: fit-content;
-    }
-    .lside{
-        display: flex;
-        flex-direction: column;
+.agent_view {
+    
+    .profile_section {
+        margin-top: 35px;
+        display: grid;
+        grid-template-columns: 13% 87%;
         gap: 20px;
-        img{
-            border-radius: 16px;
-            width: 100%;
-            height: 145px;
-            object-fit: cover;
-            object-position: top;
-        }
-    }
-    .rside{
-        .name{
-            letter-spacing: 0.5px;
-        }
-        .dts{
-            display: flex;
-            align-items: center;
-            gap:10px;
-            .text{
-                font-size:13px;
-                color:$darkCol;
-                font-weight: 500;
 
-            }
-            .count{
-                background: #8F030114;
-                color: $primaryCol;
-                padding: 2px 10px 1px 10px;
-                border-radius: 4px;
-                font-size: 9px;
-                font-weight: 500;
-                width: fit-content;
+        .card {
+            height: fit-content;
+        }
+
+        .lside {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            img {
+                border-radius: 16px;
+                width: 100%;
+                height: 145px;
+                object-fit: cover;
+                object-position: top;
             }
         }
-        .main_card{
-            border-width: 2px;
-            .heading{
-                border-bottom: 1.6px solid $cardBorder;
-                padding-bottom: 10px;
-                margin-bottom: 10px;
+
+        .rside {
+            .name {
+                letter-spacing: 0.5px;
+            }
+
+            .dts {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .text {
+                    font-size: 13px;
+                    color: $darkCol;
+                    font-weight: 500;
+
+                }
+
+                .count {
+                    background: #8F030114;
+                    color: $primaryCol;
+                    padding: 2px 10px 1px 10px;
+                    border-radius: 4px;
+                    font-size: 9px;
+                    font-weight: 500;
+                    width: fit-content;
+                }
+            }
+
+            .main_card {
+                border-width: 2px;
+
+                .heading {
+                    border-bottom: 1.6px solid $cardBorder;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                }
             }
         }
     }
@@ -1337,4 +1550,192 @@ body {
 // Agent View SASS End
 
 
+// LegalUpdate SASS Start
+.legal_update{
+    .main_section{
+        margin-top: 35px;
+        .update_item{
+            li{
+                margin-bottom: 10px;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+                .updates{
+                    display: flex;
+                    align-items: start;
+                    gap:15px;
+                    .sideLogo{
+                        width: 40px;
+                    }
+                    .readMore{
+                        font-size: 13.5px;
+                        .icon{
+                            i{
+                                font-size:14px;
+                            }
+                        }   
+                    }
+                    .cover{
+                        height: 230px;
+                        width: 100%;
+                        border-radius: 8px;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
+            }
+        }
+    }
+}
+// LegalUpdate SASS End
 
+// News Feed Section Start
+.news_feed{
+    .list{
+        li{
+            margin-bottom: 29px;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+            .item{
+                border:1px solid $cardBorder;
+                border-radius: 14px;
+                overflow: hidden;
+                position: relative;
+                img{
+                    width: 100%;
+                    height: 170px;
+                    object-fit: cover;
+                    object-position: top;
+                }
+                .view_btn{
+                    position: absolute;
+                    bottom:10px;
+                    right: 10px;
+                }
+            }
+        }
+    }
+}
+// News Feed Section End
+
+
+// News Feeds SASS Start
+.news_feeds{
+    .editor{
+        position: relative;
+        .btn{
+            position: absolute;
+            bottom:10px;
+            right:10px;
+        }
+    }
+    .feed_list{
+        ul{
+            li{
+                .top{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    .lside{
+                        display: flex;
+                        align-items: center;
+                        gap:10px;
+                        .profile{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 100px;
+                        }
+                        i{
+                            font-size: 10px;
+                        }
+                        .dot{
+                            display: inline-block;
+                            width:3px;
+                            height:3px;
+                            background: $silverCol;
+                            border-radius: 100px;
+                        }
+                    }
+                }
+                .desc{
+                    font-size: 13.5px;
+                    color:$formText;
+                    margin: 20px 0px 10px 0px;
+                    .readMore{
+                        color:$primaryCol;
+                    }
+                }
+                .cover_img{
+                    border-radius: 8px;
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+                .social_icon{
+                    display: flex;
+                    border-bottom:1px solid $lightBorder;
+                    padding-bottom: 10px;
+                    padding-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap:6px;
+                    .dot{
+                          display: inline-block;
+                            width:2px;
+                            height:2px;
+                            background: $silverCol;
+                            border-radius: 100px;
+                    }
+                    .text{
+                        color:$silverCol;
+                        font-size: 11.5px;
+                    }
+                    .icon{
+                        background-color: #1485BD;
+                        border-radius: 100px;
+                        width: 22px;
+                        height: 22px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        i{
+                            color:#fff;
+                            font-size:10px;
+                            transform: scaleX(-1);
+                        }
+                    }
+                }
+                .bottom_icon{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    padding-top: 20px;
+                    .action_social{
+                        display: flex;
+                        align-items: center;
+                        gap:8px;
+                        cursor: pointer;
+                        .icon{
+                            i{
+                                color:$silverCol;
+                                font-size: 18px;
+                            }
+                            &.rotate{
+                               i{
+                                 transform: scaleX(-1);
+                               }
+                            }
+                        }
+                        .title{
+                           color:$silverCol; 
+                           font-size: 13px;
+                           font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// News Feeds SASS End

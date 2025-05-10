@@ -1,7 +1,7 @@
 <template>
     <div class="sidePlayer">
         <div class="hd pb-3">
-            <p class="heading f20  fw5">{{playerHeading}}</p>
+            <p class="heading f22  fw5">{{playerHeading}}</p>
             <a href="" class="fw4 text-decoration-none black f15" >See All</a>
         </div>
         <ul class="players">

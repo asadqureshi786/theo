@@ -336,6 +336,23 @@ h1, h2, h3, h4, h5, h6, p, ul {
   left: 32px;
 }
 
+.p-editor .p-editor-toolbar {
+  background: #fff !important;
+}
+.p-editor .ql-editor {
+  background: #fff !important;
+}
+.p-editor .p-editor-toolbar.ql-snow {
+  border: 1px solid #E2E8F0 !important;
+}
+.p-editor .ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border: 1px solid #E2E8F0 !important;
+}
+
+.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+  color: #8B8F92 !important;
+}
+
 .main_wrapper {
   margin-top: 127px;
   margin-bottom: 22px;
@@ -470,6 +487,59 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #fff !important;
 }
 
+.d_date .p-inputwrapper {
+  width: 100%;
+}
+.d_date .p-inputtext {
+  background: transparent !important;
+  border: 1.6px solid #E2E8F0 !important;
+  border-radius: 10px !important;
+  padding: 7px 12px !important;
+  color: #475569 !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+}
+.d_date .p-inputtext::-moz-placeholder {
+  color: #475569 !important;
+  font-size: 14px !important;
+}
+.d_date .p-inputtext::placeholder {
+  color: #475569 !important;
+  font-size: 14px !important;
+}
+
+.p-datepicker-panel.p-component {
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  min-width: -moz-fit-content !important;
+  min-width: fit-content !important;
+  background: #fff;
+  border: 1px solid #E2E8F0;
+}
+.p-datepicker-panel.p-component .p-datepicker-title button {
+  color: rgba(41, 45, 50, 0.8);
+  font-size: 15px;
+}
+.p-datepicker-panel.p-component .p-datepicker-day-cell.p-datepicker-today span {
+  color: #fff !important;
+}
+.p-datepicker-panel.p-component .p-datepicker-header {
+  padding-bottom: 0px !important;
+  background: #fff !important;
+  border-bottom: 1px solid #E2E8F0;
+}
+.p-datepicker-panel.p-component th .p-datepicker-weekday {
+  color: #00001A;
+  font-weight: 400;
+}
+.p-datepicker-panel.p-component td .p-datepicker-day {
+  color: rgba(41, 45, 50, 0.8);
+}
+.p-datepicker-panel.p-component th,
+.p-datepicker-panel.p-component td {
+  font-size: 14px;
+}
+
 .p-dialog.p-component {
   background: #fff;
   box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.031372549);
@@ -595,7 +665,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-size: 22px;
 }
 
-.simple_table table th, .simple_table table td {
+.simple_table table th,
+.simple_table table td {
   padding-inline: 13px;
 }
 .simple_table table thead th {
@@ -1260,6 +1331,9 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 16.5px;
 }
 
+.jobView {
+  margin-top: 35px;
+}
 .jobView .personal_info .top .main {
   display: flex;
   align-items: center;
@@ -1342,21 +1416,22 @@ header.protal_header .main_header .header_option .language .text {
   border-radius: 100px;
 }
 
-.profile_section {
+.agent_view .profile_section {
+  margin-top: 35px;
   display: grid;
   grid-template-columns: 13% 87%;
   gap: 20px;
 }
-.profile_section .card {
+.agent_view .profile_section .card {
   height: -moz-fit-content;
   height: fit-content;
 }
-.profile_section .lside {
+.agent_view .profile_section .lside {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.profile_section .lside img {
+.agent_view .profile_section .lside img {
   border-radius: 16px;
   width: 100%;
   height: 145px;
@@ -1365,20 +1440,20 @@ header.protal_header .main_header .header_option .language .text {
   -o-object-position: top;
      object-position: top;
 }
-.profile_section .rside .name {
+.agent_view .profile_section .rside .name {
   letter-spacing: 0.5px;
 }
-.profile_section .rside .dts {
+.agent_view .profile_section .rside .dts {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.profile_section .rside .dts .text {
+.agent_view .profile_section .rside .dts .text {
   font-size: 13px;
   color: #001727;
   font-weight: 500;
 }
-.profile_section .rside .dts .count {
+.agent_view .profile_section .rside .dts .count {
   background: rgba(143, 3, 1, 0.0784313725);
   color: #8F0301;
   padding: 2px 10px 1px 10px;
@@ -1388,11 +1463,177 @@ header.protal_header .main_header .header_option .language .text {
   width: -moz-fit-content;
   width: fit-content;
 }
-.profile_section .rside .main_card {
+.agent_view .profile_section .rside .main_card {
   border-width: 2px;
 }
-.profile_section .rside .main_card .heading {
+.agent_view .profile_section .rside .main_card .heading {
   border-bottom: 1.6px solid #E2E8F0;
   padding-bottom: 10px;
   margin-bottom: 10px;
+}
+
+.legal_update .main_section {
+  margin-top: 35px;
+}
+.legal_update .main_section .update_item li {
+  margin-bottom: 10px;
+}
+.legal_update .main_section .update_item li:last-child {
+  margin-bottom: 0px;
+}
+.legal_update .main_section .update_item li .updates {
+  display: flex;
+  align-items: start;
+  gap: 15px;
+}
+.legal_update .main_section .update_item li .updates .sideLogo {
+  width: 40px;
+}
+.legal_update .main_section .update_item li .updates .readMore {
+  font-size: 13.5px;
+}
+.legal_update .main_section .update_item li .updates .readMore .icon i {
+  font-size: 14px;
+}
+.legal_update .main_section .update_item li .updates .cover {
+  height: 230px;
+  width: 100%;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.news_feed .list li {
+  margin-bottom: 29px;
+}
+.news_feed .list li:last-child {
+  margin-bottom: 0px;
+}
+.news_feed .list li .item {
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.news_feed .list li .item img {
+  width: 100%;
+  height: 170px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.news_feed .list li .item .view_btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.news_feeds .editor {
+  position: relative;
+}
+.news_feeds .editor .btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.news_feeds .feed_list ul li .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.news_feeds .feed_list ul li .top .lside {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.news_feeds .feed_list ul li .top .lside .profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+.news_feeds .feed_list ul li .top .lside i {
+  font-size: 10px;
+}
+.news_feeds .feed_list ul li .top .lside .dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: #8B8F92;
+  border-radius: 100px;
+}
+.news_feeds .feed_list ul li .desc {
+  font-size: 13.5px;
+  color: #475569;
+  margin: 20px 0px 10px 0px;
+}
+.news_feeds .feed_list ul li .desc .readMore {
+  color: #8F0301;
+}
+.news_feeds .feed_list ul li .cover_img {
+  border-radius: 8px;
+  height: 300px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news_feeds .feed_list ul li .social_icon {
+  display: flex;
+  border-bottom: 1px solid rgba(133, 143, 163, 0.3098039216);
+  padding-bottom: 10px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.news_feeds .feed_list ul li .social_icon .dot {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  background: #8B8F92;
+  border-radius: 100px;
+}
+.news_feeds .feed_list ul li .social_icon .text {
+  color: #8B8F92;
+  font-size: 11.5px;
+}
+.news_feeds .feed_list ul li .social_icon .icon {
+  background-color: #1485BD;
+  border-radius: 100px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.news_feeds .feed_list ul li .social_icon .icon i {
+  color: #fff;
+  font-size: 10px;
+  transform: scaleX(-1);
+}
+.news_feeds .feed_list ul li .bottom_icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.news_feeds .feed_list ul li .bottom_icon .action_social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.news_feeds .feed_list ul li .bottom_icon .action_social .icon i {
+  color: #8B8F92;
+  font-size: 18px;
+}
+.news_feeds .feed_list ul li .bottom_icon .action_social .icon.rotate i {
+  transform: scaleX(-1);
+}
+.news_feeds .feed_list ul li .bottom_icon .action_social .title {
+  color: #8B8F92;
+  font-size: 13px;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */

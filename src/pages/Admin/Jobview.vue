@@ -10,7 +10,7 @@
   </div>
   <!-- Page Header Section End -->
 
-  <div class="jobView mt-5">
+  <div class="jobView">
     <div class="row">
       <div class="col-md-8">
         <div class="card">
@@ -24,7 +24,7 @@
                   <div class="rside">
                     <div class="bookmark_icon">
                       <i class="pi pi-bookmark"></i>
-                    </div>a
+                    </div>
                   </div>
                 </div>
                 <div class="main">

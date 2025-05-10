@@ -8,6 +8,8 @@ import Home from './pages/Web/Home.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import Jobview from './pages/Admin/Jobview.vue'
 import Agentview from './pages/Admin/Agentview.vue'
+import Legalupdates from './pages/Admin/Legalupdates.vue'
+import Newsfeeds from './pages/Admin/Newsfeeds.vue'
 
 const routes = [
     // {
@@ -53,6 +55,14 @@ const routes = [
             {
                 path : 'agent-view',
                 component : Agentview,
+            },
+            {
+                path : 'legal-updates',
+                component : Legalupdates,
+            },
+            {
+                path : 'news-feeds',
+                component : Newsfeeds,
             },
         ]
     },

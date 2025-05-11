@@ -128,7 +128,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a href="#" class="nav_item">
+                            <router-link to="messages" exact active-class="active" href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@
                                 </svg>
     
                                 <span class="text">Messages</span>    
-                            </a>
+                            </router-link>
                         </li>
                         <li>
                             <a href="#" class="nav_item">

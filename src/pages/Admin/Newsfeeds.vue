@@ -3,7 +3,7 @@
          <h3 class="hd">Newsfeed</h3>
     </div>
 
-    <div class="news_feeds">
+    <div class="news_feeds mt-4">
         <div class="row">
             <div class="col-md-8">
               <div class="editor">

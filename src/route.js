@@ -10,6 +10,7 @@ import Jobview from './pages/Admin/Jobview.vue'
 import Agentview from './pages/Admin/Agentview.vue'
 import Legalupdates from './pages/Admin/Legalupdates.vue'
 import Newsfeeds from './pages/Admin/Newsfeeds.vue'
+import Messages from './pages/Admin/Messages.vue'
 
 const routes = [
     // {
@@ -63,6 +64,10 @@ const routes = [
             {
                 path : 'news-feeds',
                 component : Newsfeeds,
+            },
+            {
+                path : 'messages',
+                component : Messages,
             },
         ]
     },

@@ -1821,6 +1821,20 @@ header {
         }
 
         .list {
+                height: calc(100vh - 251px);
+                overflow: auto;
+                 &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 100px;
+        }
             li {
                 border-bottom: 1px solid $cardBorder;
 
@@ -1903,11 +1917,14 @@ header {
 // Messages Page SASS End
 
 // ChatBox Page SASS Start
+.chat_side{
+    border-left: 1px solid $cardBorder;
+}
 .chat_box {
     .header {
         border-bottom: 1px solid $cardBorder;
         padding: 15px;
-        border-left: 1px solid $cardBorder;
+        // border-left: 1px solid $cardBorder;
 
         .info {
             display: flex;
@@ -1952,23 +1969,24 @@ header {
     }
 
     .msg_list {
-        border-left: 1px solid $cardBorder;
+       
         padding: 20px 15px;
-        height: calc(100vh - 250px);
+        height: calc(100vh - 268px);
         overflow: auto;
-       &::-webkit-scrollbar {
-  width: 5px;
-}
- 
-&::-webkit-scrollbar-track {
-    background-color: #fff;
-}
- 
-&::-webkit-scrollbar-thumb {
-  background-color: $primaryLight2;
-  border-radius: 100px;
-}
-        
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $primaryLight2;
+            border-radius: 100px;
+        }
+
 
         .messages {
             display: flex;
@@ -2023,6 +2041,49 @@ header {
                     border-top-right-radius: 0px !important;
                 }
             }
+        }
+    }
+
+    .chat_input {
+        border: 2px solid #E2E8F0;
+        margin: 15px;
+        border-radius: 8px;
+        position: relative;
+        height: 43px;
+        display: flex;
+        align-items: center;
+
+        .form-control {
+            border: none !important;
+            padding-left: 45px !important;
+
+            &::placeholder {
+                color: #535353 !important;
+            }
+        }
+
+        .icon {
+            i {
+                color: #535353B2;
+                // color:#535353;
+            }
+        }
+        .text{
+            color:$primaryCol;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .face{
+            position: absolute;
+            top:50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+        .links{
+            position: absolute;
+            top:50%;
+            right: 15px;
+            transform: translateY(-50%);
         }
     }
 }

@@ -44,6 +44,9 @@ export default {
                 { img : user3 , name : 'Shane Watson' , msg : 'This player is really cool.', time : '5h' , active : false , online : false },
                 { img : user4 , name : 'Ricky Ponting' , msg : 'This player is really cool.', time : '5h' , active : false , online : true },
                 { img : user5 , name : 'Chris Gayle' , msg : 'This player is really cool.', time : '5h' , active : false , online : false },
+                { img : user3 , name : 'Shane Watson' , msg : 'This player is really cool.', time : '5h' , active : false , online : false },
+                { img : user4 , name : 'Ricky Ponting' , msg : 'This player is really cool.', time : '5h' , active : false , online : true },
+                { img : user5 , name : 'Chris Gayle' , msg : 'This player is really cool.', time : '5h' , active : false , online : false },
             ]
         }
     }

@@ -1666,6 +1666,20 @@ header.protal_header .main_header .header_option .language .text {
   border-radius: 8px !important;
   border-width: 1px !important;
 }
+.messages_page .users_list .list {
+  height: calc(100vh - 251px);
+  overflow: auto;
+}
+.messages_page .users_list .list::-webkit-scrollbar {
+  width: 5px;
+}
+.messages_page .users_list .list::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+.messages_page .users_list .list::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 100px;
+}
 .messages_page .users_list .list li {
   border-bottom: 1px solid #E2E8F0;
 }
@@ -1726,10 +1740,13 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 12px;
 }
 
+.chat_side {
+  border-left: 1px solid #E2E8F0;
+}
+
 .chat_box .header {
   border-bottom: 1px solid #E2E8F0;
   padding: 15px;
-  border-left: 1px solid #E2E8F0;
 }
 .chat_box .header .info {
   display: flex;
@@ -1765,9 +1782,8 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 11.5px;
 }
 .chat_box .msg_list {
-  border-left: 1px solid #E2E8F0;
   padding: 20px 15px;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 268px);
   overflow: auto;
 }
 .chat_box .msg_list::-webkit-scrollbar {
@@ -1818,4 +1834,43 @@ header.protal_header .main_header .header_option .language .text {
   background-color: #8F0301;
   border: 2px solid #8F0301;
   border-top-right-radius: 0px !important;
+}
+.chat_box .chat_input {
+  border: 2px solid #E2E8F0;
+  margin: 15px;
+  border-radius: 8px;
+  position: relative;
+  height: 43px;
+  display: flex;
+  align-items: center;
+}
+.chat_box .chat_input .form-control {
+  border: none !important;
+  padding-left: 45px !important;
+}
+.chat_box .chat_input .form-control::-moz-placeholder {
+  color: #535353 !important;
+}
+.chat_box .chat_input .form-control::placeholder {
+  color: #535353 !important;
+}
+.chat_box .chat_input .icon i {
+  color: rgba(83, 83, 83, 0.6980392157);
+}
+.chat_box .chat_input .text {
+  color: #8F0301;
+  font-weight: 600;
+  font-size: 14px;
+}
+.chat_box .chat_input .face {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+.chat_box .chat_input .links {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
 }/*# sourceMappingURL=style.css.map */

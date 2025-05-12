@@ -365,7 +365,6 @@ body {
         }
     }
 }
-
 // Modal SASS End
 
 // SearchBox SASS Start
@@ -393,7 +392,6 @@ body {
         }
     }
 }
-
 // SearchBox SASS End
 
 
@@ -451,10 +449,41 @@ body {
         }
     }
 }
-
 // Donut SASS Start
 
+// Action Dropdown SASS Start
+.action_dropdown{
+    padding-block: 13px;
+    .dots{
+        color:#CCCDCE;
+    }
+    .dropdown-toggle::after{
+        content:none;
+    }
+     .dropdown-menu{
+        animation-name: DropDownFade;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        border: 1px solid $cardBorder;
+        li{
+            .dropdown-item{
+                font-size: 12px;
+            }
+        }        
+    }
+    @keyframes DropDownFade{
+    from{
+        opacity : 0;
+    }
+    to{
+        opacity : 1;
+    }
+    
+}
+}
 
+// Action Dropdown SASS End
 
 // All Doc SASS Start
 .all_doc {
@@ -543,8 +572,64 @@ body {
         }
     }
 }
-
 // Simple Table SASS Start
+
+// Dynamic Table SASS Start
+.dynamic_table{
+    table {
+        th,
+        td {
+            padding-inline: 13px;
+        }
+        thead {
+            th {
+                background: #F9F9F9;
+                border-radius: 8px;
+                color: $black;
+                font-weight: 500;
+                font-size: 15px;
+                padding-block: 15px;
+
+                &:first-child {
+                    border-radius: 10px 0px 0px 0px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 10px 0px 0px;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                vertical-align: middle;
+                .text{
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding-block: 13px;
+                    color:#06142E99;
+                }
+                .status{
+                    background: $primaryLight2;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color:$primaryCol;
+                    border-radius: 8px;
+                    padding: 10px 0px;
+                    text-align: center;
+                }
+                &.fit-width{
+                        width: 10px;
+                        padding: 0px 20px 0px 20px;
+                }
+                input[type="checkbox"]{
+                    color: red;
+                }
+            }
+        }
+    }
+}
+// Dynamic Table SASS End
 
 // Video List SASS Start
 .video_list {

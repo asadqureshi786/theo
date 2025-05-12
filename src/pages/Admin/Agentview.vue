@@ -99,8 +99,8 @@
     <!-- Documents Section Start -->
 
     <!-- Table Section Start -->
-    <div class="light_head mb-3 mt-5">Transfer History</div>
-    <Simpletable class="" :headers="dealHeaders" :data="deals" />
+    <div class="light_head mb-3 mt-5">Players</div>
+    <Dynamictable :t_head="player_head" :t_body="player_body" />
     <!-- Table Section Start -->
   </div>
 </template>
@@ -109,6 +109,7 @@
 // Components
 import Documents from "@/components/Documents.vue";
 import Simpletable from "@/components/Simpletable.vue";
+import Dynamictable from "@/components/Dynamictable.vue";
 
 // Images
 import Agent from "@/assets/images/agent.png";
@@ -118,21 +119,70 @@ export default {
   components: {
     Documents,
     Simpletable,
+    Dynamictable,
   },
   data() {
     return {
       Agent: Agent,
-      dealHeaders: ["Date", "Player Name", "Club Name", "Role", "Contact End", "Status"],
-      deals: [
-        [
-          "Dec 12, 2023",
-          "Enzo Delgado",
-          "Marseille",
-          "Striker",
-          "USA",
-          "<button</button>",
-        ],
-        // Add more deal data here
+      player_head: [
+        {
+          key: "checkbox",
+          label: "",
+        },
+        {
+          key: "date",
+          label: "Date",
+        },
+        {
+          key: "player_name",
+          label: "Player Name",
+        },
+        {
+          key: "club_name",
+          label: "Club Name",
+        },
+        {
+          key: "role",
+          label: "Role",
+        },
+        {
+          key: "contract_end",
+          label: "Contract End",
+        },
+        {
+          key: "status",
+          label: "Status",
+        },
+        {
+          key: "action",
+          label: "",
+        },
+      ],
+      player_body: [
+        {
+          checkbox: `<div class="text-center">
+            <input type="checkbox" />
+            <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+            </div>`,
+          date: `<div class="text">Dec 12, 2023</div>`,
+          player_name: `<div class="text fw6">Enzo Delgado</div>`,
+          club_name: `<div class="text fw6">Marseille</div>`,
+          role: `<div class="text">Strike</div>`,
+          contract_end: `<div class="text">12/02/2022</div>`,
+          status: `<div class="status">My Player</div>`,
+          action: `<div class="dropdown action_dropdown text-center">
+  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="dots">
+     <i class="pi pi-ellipsis-v" ></i>
+    </span>
+  </div>
+  <ul class="dropdown-menu action_dropdown_menu">
+    <li><a class="dropdown-item" href="#">View</a></li>
+    <li><a class="dropdown-item" href="#">Edit</a></li>
+    <li><a class="dropdown-item" href="#">Delete</a></li>
+  </ul>
+</div>`,
+        },
       ],
       selectedCity: null,
       selectedCountry: null,

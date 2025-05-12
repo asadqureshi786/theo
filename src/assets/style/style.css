@@ -640,6 +640,34 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 19px;
 }
 
+.action_dropdown {
+  padding-block: 13px;
+}
+.action_dropdown .dots {
+  color: #CCCDCE;
+}
+.action_dropdown .dropdown-toggle::after {
+  content: none;
+}
+.action_dropdown .dropdown-menu {
+  animation-name: DropDownFade;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  border: 1px solid #E2E8F0;
+}
+.action_dropdown .dropdown-menu li .dropdown-item {
+  font-size: 12px;
+}
+@keyframes DropDownFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .all_doc {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -697,6 +725,50 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-size: 14px;
   font-weight: 400;
   padding-block: 13px;
+}
+
+.dynamic_table table th,
+.dynamic_table table td {
+  padding-inline: 13px;
+}
+.dynamic_table table thead th {
+  background: #F9F9F9;
+  border-radius: 8px;
+  color: #000;
+  font-weight: 500;
+  font-size: 15px;
+  padding-block: 15px;
+}
+.dynamic_table table thead th:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+.dynamic_table table thead th:last-child {
+  border-radius: 0px 10px 0px 0px;
+}
+.dynamic_table table tbody td {
+  vertical-align: middle;
+}
+.dynamic_table table tbody td .text {
+  font-size: 14px;
+  font-weight: 400;
+  padding-block: 13px;
+  color: rgba(6, 20, 46, 0.6);
+}
+.dynamic_table table tbody td .status {
+  background: rgba(143, 3, 1, 0.0588235294);
+  font-size: 12px;
+  font-weight: 400;
+  color: #8F0301;
+  border-radius: 8px;
+  padding: 10px 0px;
+  text-align: center;
+}
+.dynamic_table table tbody td.fit-width {
+  width: 10px;
+  padding: 0px 20px 0px 20px;
+}
+.dynamic_table table tbody td input[type=checkbox] {
+  color: red;
 }
 
 .video_list ul {

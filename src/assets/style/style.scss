@@ -1740,6 +1740,303 @@ header {
 }
 // News Feeds SASS End
 
+// Messages Page SASS Start
+.messages_page {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr;
+    border: 1px solid $cardBorder;
+    border-radius: 8px;
+
+    .hd {
+        padding: 22.5px 15px;
+        border-bottom: 1px solid $cardBorder;
+    }
+
+    .users_list {
+        padding: 10px 15px;
+
+        .searchBox {
+            input {
+                border-radius: 8px !important;
+                border-width: 1px !important;
+
+                // font-size: 13px!important;
+                &::placeholder {
+                    // font-size: 13px!important;
+                }
+            }
+        }
+
+        .list {
+                height: calc(100vh - 251px);
+                overflow: auto;
+                 &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 100px;
+        }
+            li {
+                border-bottom: 1px solid $cardBorder;
+
+                &:last-child {
+                    border-bottom: 0px;
+                }
+
+                .item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    padding: 10px;
+                    margin: 10px 0px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: 0.2s all linear;
+
+                    &:hover {
+                        background: $primaryLight2;
+                    }
+
+                    &.active {
+                        background: $primaryLight2;
+                    }
+
+                    &.online {
+                        .p_img {
+                            position: relative;
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                bottom: 1px;
+                                right: 1px;
+                                background-color: $primaryCol;
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 100px;
+                            }
+                        }
+                    }
+
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+
+                        .p_img {
+                            img {
+                                width: 45px;
+                                height: 45px;
+                                border-radius: 100px;
+                            }
+                        }
+
+                        .name {
+                            color: $formText;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        .msg {
+                            color: $formText;
+                            font-weight: 400;
+                            font-size: 13.5px;
+                        }
+                    }
+
+                    .time {
+                        color: $silverCol;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// Messages Page SASS End
+
+// ChatBox Page SASS Start
+.chat_side{
+    border-left: 1px solid $cardBorder;
+}
+.chat_box {
+    .header {
+        border-bottom: 1px solid $cardBorder;
+        padding: 15px;
+        // border-left: 1px solid $cardBorder;
+
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .p_img {
+                position: relative;
+
+                &.active {
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        bottom: 1px;
+                        right: 1px;
+                        background-color: $primaryCol;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100px;
+                    }
+                }
+
+                img {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 100px;
+                }
+            }
+
+            .name {
+                color: $formText;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .last_seen {
+                color: $light6;
+                font-weight: 400;
+                font-size: 11.5px;
+            }
+        }
+    }
+
+    .msg_list {
+       
+        padding: 20px 15px;
+        height: calc(100vh - 268px);
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $primaryLight2;
+            border-radius: 100px;
+        }
+
+
+        .messages {
+            display: flex;
+            gap: 10px;
+
+            .profile_img {
+                img {
+                    width: 35px;
+                    border-radius: 100px;
+                    // border: 2px solid $primaryLightBorder2;
+                }
+            }
+
+            .list {
+                li {
+                    margin-bottom: 5px;
+
+                    &:last-child {
+                        margin-bottom: 0px;
+                    }
+
+                    .msg {
+                        font-size: 13.5px;
+                        padding: 5px 12px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+
+            .msg_time {
+                font-size: 11px;
+                text-align: right;
+                margin-top: 5px;
+            }
+
+            &.recieved_msg {
+                .msg {
+                    color: $formText;
+                    background-color: $primaryLight2;
+                    border: 2px solid $primaryLightBorder2;
+                    border-top-left-radius: 0px !important;
+                }
+            }
+
+            &.sender_msg {
+                justify-content: end;
+
+                .msg {
+                    color: #fff;
+                    background-color: $primaryCol;
+                    border: 2px solid $primaryCol;
+                    border-top-right-radius: 0px !important;
+                }
+            }
+        }
+    }
+
+    .chat_input {
+        border: 2px solid #E2E8F0;
+        margin: 15px;
+        border-radius: 8px;
+        position: relative;
+        height: 43px;
+        display: flex;
+        align-items: center;
+
+        .form-control {
+            border: none !important;
+            padding-left: 45px !important;
+
+            &::placeholder {
+                color: #535353 !important;
+            }
+        }
+
+        .icon {
+            i {
+                color: #535353B2;
+                // color:#535353;
+            }
+        }
+        .text{
+            color:$primaryCol;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .face{
+            position: absolute;
+            top:50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+        .links{
+            position: absolute;
+            top:50%;
+            right: 15px;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+// ChatBox Page SASS End
+
 
 // Admin Dashboard Calendar SASS Start
 .admin_dashboard {
@@ -1788,3 +2085,5 @@ header {
     }
 }
 // Admin Dashboard Calendar SASS End
+
+

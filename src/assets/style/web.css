@@ -840,6 +840,9 @@ h1, h2, h3, h4, h5, h6, p, ul {
   .website .why_agents .content {
     margin-bottom: 30px;
   }
+  .website .plans {
+    height: 50vh;
+  }
   .website .plans .text {
     font-size: 16px;
   }

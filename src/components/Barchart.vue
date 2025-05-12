@@ -14,7 +14,7 @@
   
     chart.setOption({
       title: {
-        text: 'Bar Chart Example'
+        text: ''
       },
       tooltip: {},
       xAxis: {

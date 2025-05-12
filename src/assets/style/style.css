@@ -349,22 +349,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border: 1px solid #E2E8F0 !important;
 }
 
-.ql-editor p,
-.ql-editor ol,
-.ql-editor ul,
-.ql-editor pre,
-.ql-editor blockquote,
-.ql-editor h1,
-.ql-editor h2,
-.ql-editor h3,
-.ql-editor h4,
-.ql-editor h5,
-.ql-editor h6 {
+.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
   color: #8B8F92 !important;
 }
 
 .main_wrapper {
-  margin-top: 95px;
+  margin-top: 127px;
   margin-bottom: 22px;
   animation-name: mainFadeOut;
   animation-duration: 1s;
@@ -593,7 +583,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 .searchBox.icon_box input {
   padding-left: 35px !important;
-  box-shadow: none !important;
 }
 
 .donut .items li {
@@ -1167,7 +1156,7 @@ header.protal_header .main_header .header_option .language .text {
   display: grid;
   grid-template-columns: 16% 84%;
   border: 2px solid rgba(143, 3, 1, 0.0784313725);
-  margin-top: 1.5rem;
+  margin-top: 35px;
 }
 .player_profile .profile_section .profileImage {
   position: relative;
@@ -1343,7 +1332,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .jobView {
-  margin-top: 1.5rem;
+  margin-top: 35px;
 }
 .jobView .personal_info .top .main {
   display: flex;
@@ -1428,7 +1417,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .agent_view .profile_section {
-  margin-top: 1.5rem;
+  margin-top: 35px;
   display: grid;
   grid-template-columns: 13% 87%;
   gap: 20px;
@@ -1484,7 +1473,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .legal_update .main_section {
-  margin-top: 1.5rem;
+  margin-top: 35px;
 }
 .legal_update .main_section .update_item li {
   margin-bottom: 10px;
@@ -1634,13 +1623,12 @@ header.protal_header .main_header .header_option .language .text {
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social .icon i {
+.news_feeds .feed_list ul li .bottom_icon .action_social cur .icon i {
   color: #8B8F92;
   font-size: 18px;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social .icon.rotate i {
+.news_feeds .feed_list ul li .bottom_icon .action_social cur .icon.rotate i {
   transform: scaleX(-1);
 }
 .news_feeds .feed_list ul li .bottom_icon .action_social .title {
@@ -1649,228 +1637,34 @@ header.protal_header .main_header .header_option .language .text {
   font-weight: 400;
 }
 
-.messages_page {
-  display: grid;
-  grid-template-columns: 1.2fr 3fr;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
+.admin_dashboard .p-datepicker.p-component {
+  display: block;
+  height: 100% !important;
 }
-.messages_page .hd {
-  padding: 22.5px 15px;
-  border-bottom: 1px solid #E2E8F0;
+.admin_dashboard .p-datepicker-panel.p-component th {
+  text-align: center;
 }
-.messages_page .users_list {
-  padding: 10px 15px;
+.admin_dashboard .p-datepicker-panel.p-component {
+  width: 100% !important;
+  height: 100% !important;
 }
-.messages_page .users_list .searchBox input {
-  border-radius: 8px !important;
-  border-width: 1px !important;
-}
-.messages_page .users_list .list {
-  height: calc(100vh - 251px);
-  overflow: auto;
-}
-.messages_page .users_list .list::-webkit-scrollbar {
+.admin_dashboard .p-datepicker-panel.p-component::-webkit-scrollbar {
   width: 5px;
 }
-.messages_page .users_list .list::-webkit-scrollbar-track {
+.admin_dashboard .p-datepicker-panel.p-component::-webkit-scrollbar-track {
   background-color: #fff;
 }
-.messages_page .users_list .list::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  border-radius: 100px;
-}
-.messages_page .users_list .list li {
-  border-bottom: 1px solid #E2E8F0;
-}
-.messages_page .users_list .list li:last-child {
-  border-bottom: 0px;
-}
-.messages_page .users_list .list li .item {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  padding: 10px;
-  margin: 10px 0px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s all linear;
-}
-.messages_page .users_list .list li .item:hover {
-  background: rgba(143, 3, 1, 0.0588235294);
-}
-.messages_page .users_list .list li .item.active {
-  background: rgba(143, 3, 1, 0.0588235294);
-}
-.messages_page .users_list .list li .item.online .p_img {
-  position: relative;
-}
-.messages_page .users_list .list li .item.online .p_img::before {
-  position: absolute;
-  content: "";
-  bottom: 1px;
-  right: 1px;
-  background-color: #8F0301;
-  width: 10px;
-  height: 10px;
-  border-radius: 100px;
-}
-.messages_page .users_list .list li .item .info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.messages_page .users_list .list li .item .info .p_img img {
-  width: 45px;
-  height: 45px;
-  border-radius: 100px;
-}
-.messages_page .users_list .list li .item .info .name {
-  color: #475569;
-  font-size: 14px;
-  font-weight: 600;
-}
-.messages_page .users_list .list li .item .info .msg {
-  color: #475569;
-  font-weight: 400;
-  font-size: 13.5px;
-}
-.messages_page .users_list .list li .item .time {
-  color: #8B8F92;
-  font-size: 12px;
-}
-
-.chat_side {
-  border-left: 1px solid #E2E8F0;
-}
-
-.chat_box .header {
-  border-bottom: 1px solid #E2E8F0;
-  padding: 15px;
-}
-.chat_box .header .info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.chat_box .header .info .p_img {
-  position: relative;
-}
-.chat_box .header .info .p_img.active::before {
-  position: absolute;
-  content: "";
-  bottom: 1px;
-  right: 1px;
-  background-color: #8F0301;
-  width: 10px;
-  height: 10px;
-  border-radius: 100px;
-}
-.chat_box .header .info .p_img img {
-  width: 45px;
-  height: 45px;
-  border-radius: 100px;
-}
-.chat_box .header .info .name {
-  color: #475569;
-  font-size: 14px;
-  font-weight: 600;
-}
-.chat_box .header .info .last_seen {
-  color: #00001A;
-  font-weight: 400;
-  font-size: 11.5px;
-}
-.chat_box .msg_list {
-  padding: 20px 15px;
-  height: calc(100vh - 268px);
-  overflow: auto;
-}
-.chat_box .msg_list::-webkit-scrollbar {
-  width: 5px;
-}
-.chat_box .msg_list::-webkit-scrollbar-track {
-  background-color: #fff;
-}
-.chat_box .msg_list::-webkit-scrollbar-thumb {
+.admin_dashboard .p-datepicker-panel.p-component::-webkit-scrollbar-thumb {
   background-color: rgba(143, 3, 1, 0.0588235294);
   border-radius: 100px;
 }
-.chat_box .msg_list .messages {
-  display: flex;
-  gap: 10px;
+.admin_dashboard .p-datepicker-day-view,
+.admin_dashboard .p-datepicker-calendar-container {
+  height: 100% !important;
 }
-.chat_box .msg_list .messages .profile_img img {
-  width: 35px;
-  border-radius: 100px;
+.admin_dashboard .p-datepicker-calendar-container thead th:first-child {
+  display: none;
 }
-.chat_box .msg_list .messages .list li {
-  margin-bottom: 5px;
-}
-.chat_box .msg_list .messages .list li:last-child {
-  margin-bottom: 0px;
-}
-.chat_box .msg_list .messages .list li .msg {
-  font-size: 13.5px;
-  padding: 5px 12px;
-  border-radius: 8px;
-}
-.chat_box .msg_list .messages .msg_time {
-  font-size: 11px;
-  text-align: right;
-  margin-top: 5px;
-}
-.chat_box .msg_list .messages.recieved_msg .msg {
-  color: #475569;
-  background-color: rgba(143, 3, 1, 0.0588235294);
-  border: 2px solid rgba(143, 3, 1, 0.0784313725);
-  border-top-left-radius: 0px !important;
-}
-.chat_box .msg_list .messages.sender_msg {
-  justify-content: end;
-}
-.chat_box .msg_list .messages.sender_msg .msg {
-  color: #fff;
-  background-color: #8F0301;
-  border: 2px solid #8F0301;
-  border-top-right-radius: 0px !important;
-}
-.chat_box .chat_input {
-  border: 2px solid #E2E8F0;
-  margin: 15px;
-  border-radius: 8px;
-  position: relative;
-  height: 43px;
-  display: flex;
-  align-items: center;
-}
-.chat_box .chat_input .form-control {
-  border: none !important;
-  padding-left: 45px !important;
-}
-.chat_box .chat_input .form-control::-moz-placeholder {
-  color: #535353 !important;
-}
-.chat_box .chat_input .form-control::placeholder {
-  color: #535353 !important;
-}
-.chat_box .chat_input .icon i {
-  color: rgba(83, 83, 83, 0.6980392157);
-}
-.chat_box .chat_input .text {
-  color: #8F0301;
-  font-weight: 600;
-  font-size: 14px;
-}
-.chat_box .chat_input .face {
-  position: absolute;
-  top: 50%;
-  left: 15px;
-  transform: translateY(-50%);
-}
-.chat_box .chat_input .links {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
+.admin_dashboard .p-datepicker-calendar-container tbody td:first-child {
+  display: none;
 }/*# sourceMappingURL=style.css.map */

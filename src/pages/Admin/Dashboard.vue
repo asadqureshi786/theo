@@ -26,6 +26,7 @@ export default {
       banner1,
       banner2,
       user: user,
+      dateValue : '',
       timeImg: time,
       profileImg: profile,
       groupImg: group,
@@ -96,7 +97,7 @@ export default {
 </script>
 
 <template>
-  <div class="dashboard">
+  <div class="dashboard admin_dashboard">
 
     <!-- First Row -->
     <div class="gird_col">
@@ -147,7 +148,9 @@ export default {
       </div>
       <div class="right_column">
         <ThemeSwitcher />
-        <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
+        <DatePicker v-model="date"  inline showWeek class="full-width w-full md:w-[100%] sm:w-[30rem]" />
+         
+
       </div>
     </div>
 
@@ -216,3 +219,10 @@ export default {
   </div>
 
 </template>
+
+
+<style scoped >
+
+
+
+</style>

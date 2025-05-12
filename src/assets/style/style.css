@@ -349,12 +349,22 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border: 1px solid #E2E8F0 !important;
 }
 
-.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
   color: #8B8F92 !important;
 }
 
 .main_wrapper {
-  margin-top: 127px;
+  margin-top: 95px;
   margin-bottom: 22px;
   animation-name: mainFadeOut;
   animation-duration: 1s;
@@ -583,6 +593,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 .searchBox.icon_box input {
   padding-left: 35px !important;
+  box-shadow: none !important;
 }
 
 .donut .items li {
@@ -871,14 +882,15 @@ header.protal_header .main_header .header_option .language .text {
 .main_banner .img_left {
   position: absolute;
   bottom: 0;
-  left: -22px;
-  width: 184px;
+  left: -59px;
+  width: 253px;
 }
 .main_banner .img_right {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 235px;
+  width: 260px;
+  opacity: 0.2;
 }
 .main_banner .heading {
   color: rgba(74, 13, 12, 0.8);
@@ -1156,7 +1168,7 @@ header.protal_header .main_header .header_option .language .text {
   display: grid;
   grid-template-columns: 16% 84%;
   border: 2px solid rgba(143, 3, 1, 0.0784313725);
-  margin-top: 35px;
+  margin-top: 1.5rem;
 }
 .player_profile .profile_section .profileImage {
   position: relative;
@@ -1332,7 +1344,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .jobView {
-  margin-top: 35px;
+  margin-top: 1.5rem;
 }
 .jobView .personal_info .top .main {
   display: flex;
@@ -1417,7 +1429,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .agent_view .profile_section {
-  margin-top: 35px;
+  margin-top: 1.5rem;
   display: grid;
   grid-template-columns: 13% 87%;
   gap: 20px;
@@ -1473,7 +1485,7 @@ header.protal_header .main_header .header_option .language .text {
 }
 
 .legal_update .main_section {
-  margin-top: 35px;
+  margin-top: 1.5rem;
 }
 .legal_update .main_section .update_item li {
   margin-bottom: 10px;
@@ -1623,12 +1635,13 @@ header.protal_header .main_header .header_option .language .text {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social cur .icon i {
+.news_feeds .feed_list ul li .bottom_icon .action_social .icon i {
   color: #8B8F92;
   font-size: 18px;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social cur .icon.rotate i {
+.news_feeds .feed_list ul li .bottom_icon .action_social .icon.rotate i {
   transform: scaleX(-1);
 }
 .news_feeds .feed_list ul li .bottom_icon .action_social .title {
@@ -1863,6 +1876,9 @@ header.protal_header .main_header .header_option .language .text {
   transform: translateY(-50%);
 }
 
+.admin_dashboard {
+  margin-top: 130px;
+}
 .admin_dashboard .p-datepicker.p-component {
   display: block;
   height: 100% !important;

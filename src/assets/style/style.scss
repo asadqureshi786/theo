@@ -58,31 +58,48 @@ body {
         }
     }
 }
+
 // PlayerPropos ed SASS End
 
 // TextEditor SASS Start
-.p-editor{
+.p-editor {
+
     // .ql-picker-label{
     //     &:hover{
     //         color:$black;
     //     }
     // }
     .p-editor-toolbar {
-        background: #fff!important;
+        background: #fff !important;
     }
-    .ql-editor{
-        background: #fff!important;
+
+    .ql-editor {
+        background: #fff !important;
     }
+
     .p-editor-toolbar.ql-snow {
-        border:1px solid $cardBorder!important;
+        border: 1px solid $cardBorder !important;
     }
-    .ql-toolbar.ql-snow + .ql-container.ql-snow{
-        border:1px solid $cardBorder!important;
+
+    .ql-toolbar.ql-snow+.ql-container.ql-snow {
+        border: 1px solid $cardBorder !important;
     }
 }
-.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
-    color:$silverCol!important;
+
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+    color: $silverCol !important;
 }
+
 // .p-editor .ql-snow.ql-toolbar button:hover .ql-stroke, .p-editor .ql-snow.ql-toolbar button:focus .ql-stroke {
 //     stroke: red!important;
 //       all: unset!important;
@@ -92,7 +109,7 @@ body {
 
 // Main Wrapper SASS Start
 .main_wrapper {
-    margin-top: 127px;
+    margin-top: 95px;
     margin-bottom: 22px;
     animation-name: mainFadeOut;
     animation-duration: 1s;
@@ -372,6 +389,7 @@ body {
 
         input {
             padding-left: 35px !important;
+            box-shadow: none !important;
         }
     }
 }
@@ -760,15 +778,16 @@ header {
     .img_left {
         position: absolute;
         bottom: 0;
-        left: -22px;
-        width: 184px;
+        left: -59px;
+        width: 253px;
     }
 
     .img_right {
         position: absolute;
         bottom: 0;
-        right: 0;
-        width: 235px;
+        right:0;
+        width: 260px;
+        opacity: 0.2;   
     }
 
     .heading {
@@ -1127,7 +1146,7 @@ header {
         display: grid;
         grid-template-columns: 16% 84%;
         border: 2px solid $primaryLightBorder2;
-        margin-top: 35px;
+        margin-top: 1.5rem;
 
         .profileImage {
             position: relative;
@@ -1359,7 +1378,8 @@ header {
 
 // Job View SASS Start
 .jobView {
-    margin-top: 35px;
+    margin-top: 1.5rem;
+
     .personal_info {
         .top {
             .main {
@@ -1482,9 +1502,9 @@ header {
 
 // Agent View SASS Start
 .agent_view {
-    
+
     .profile_section {
-        margin-top: 35px;
+        margin-top: 1.5rem;
         display: grid;
         grid-template-columns: 13% 87%;
         gap: 20px;
@@ -1547,35 +1567,43 @@ header {
         }
     }
 }
+
 // Agent View SASS End
 
 
 // LegalUpdate SASS Start
-.legal_update{
-    .main_section{
-        margin-top: 35px;
-        .update_item{
-            li{
+.legal_update {
+    .main_section {
+        margin-top: 1.5rem;
+
+        .update_item {
+            li {
                 margin-bottom: 10px;
-                &:last-child{
+
+                &:last-child {
                     margin-bottom: 0px;
                 }
-                .updates{
+
+                .updates {
                     display: flex;
                     align-items: start;
-                    gap:15px;
-                    .sideLogo{
+                    gap: 15px;
+
+                    .sideLogo {
                         width: 40px;
                     }
-                    .readMore{
+
+                    .readMore {
                         font-size: 13.5px;
-                        .icon{
-                            i{
-                                font-size:14px;
+
+                        .icon {
+                            i {
+                                font-size: 14px;
                             }
-                        }   
+                        }
                     }
-                    .cover{
+
+                    .cover {
                         height: 230px;
                         width: 100%;
                         border-radius: 8px;
@@ -1587,111 +1615,130 @@ header {
         }
     }
 }
+
 // LegalUpdate SASS End
 
 // News Feed Section Start
-.news_feed{
-    .list{
-        li{
+.news_feed {
+    .list {
+        li {
             margin-bottom: 29px;
-            &:last-child{
+
+            &:last-child {
                 margin-bottom: 0px;
             }
-            .item{
-                border:1px solid $cardBorder;
+
+            .item {
+                border: 1px solid $cardBorder;
                 border-radius: 14px;
                 overflow: hidden;
                 position: relative;
-                img{
+
+                img {
                     width: 100%;
                     height: 170px;
                     object-fit: cover;
                     object-position: top;
                 }
-                .view_btn{
+
+                .view_btn {
                     position: absolute;
-                    bottom:10px;
+                    bottom: 10px;
                     right: 10px;
                 }
             }
         }
     }
 }
+
 // News Feed Section End
 
 
 // News Feeds SASS Start
-.news_feeds{
-    .editor{
+.news_feeds {
+    .editor {
         position: relative;
-        .btn{
+
+        .btn {
             position: absolute;
-            bottom:10px;
-            right:10px;
+            bottom: 10px;
+            right: 10px;
         }
     }
-    .feed_list{
-        ul{
-            li{
-                .top{
+
+    .feed_list {
+        ul {
+            li {
+                .top {
                     display: flex;
                     justify-content: space-between;
                     align-items: start;
-                    .lside{
+
+                    .lside {
                         display: flex;
                         align-items: center;
-                        gap:10px;
-                        .profile{
+                        gap: 10px;
+
+                        .profile {
                             width: 50px;
                             height: 50px;
                             border-radius: 100px;
                         }
-                        i{
+
+                        i {
                             font-size: 10px;
                         }
-                        .dot{
+
+                        .dot {
                             display: inline-block;
-                            width:3px;
-                            height:3px;
+                            width: 3px;
+                            height: 3px;
                             background: $silverCol;
                             border-radius: 100px;
                         }
                     }
                 }
-                .desc{
+
+                .desc {
                     font-size: 13.5px;
-                    color:$formText;
+                    color: $formText;
                     margin: 20px 0px 10px 0px;
-                    .readMore{
-                        color:$primaryCol;
+
+                    .readMore {
+                        color: $primaryCol;
                     }
                 }
-                .cover_img{
+
+                .cover_img {
                     border-radius: 8px;
                     height: 300px;
                     width: 100%;
                     object-fit: cover;
                 }
-                .social_icon{
+
+                .social_icon {
                     display: flex;
-                    border-bottom:1px solid $lightBorder;
+                    border-bottom: 1px solid $lightBorder;
                     padding-bottom: 10px;
                     padding-top: 20px;
                     display: flex;
                     align-items: center;
-                    gap:6px;
-                    .dot{
-                          display: inline-block;
-                            width:2px;
-                            height:2px;
-                            background: $silverCol;
-                            border-radius: 100px;
+                    gap: 6px;
+
+                    .dot {
+                        display: inline-block;
+                        width: 2px;
+                        height: 2px;
+                        background: $silverCol;
+                        border-radius: 100px;
                     }
-                    .text{
-                        color:$silverCol;
+
+                    .text {
+                        color: $silverCol;
                         font-size: 11.5px;
                     }
-                    .icon{
+
+                    .icon {
                         background-color: #1485BD;
                         border-radius: 100px;
                         width: 22px;
@@ -1699,38 +1746,44 @@ header {
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        i{
-                            color:#fff;
-                            font-size:10px;
+
+                        i {
+                            color: #fff;
+                            font-size: 10px;
                             transform: scaleX(-1);
                         }
                     }
                 }
-                .bottom_icon{
+
+                .bottom_icon {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
                     padding-top: 20px;
-                    .action_social{
+
+                    .action_social {
                         display: flex;
                         align-items: center;
-                        gap:8px;
-                        cur
-                        .icon{
-                            i{
-                                color:$silverCol;
+                        gap: 8px;
+                        cursor: pointer;
+
+                        .icon {
+                            i {
+                                color: $silverCol;
                                 font-size: 18px;
                             }
-                            &.rotate{
-                               i{
-                                 transform: scaleX(-1);
-                               }
+
+                            &.rotate {
+                                i {
+                                    transform: scaleX(-1);
+                                }
                             }
                         }
-                        .title{
-                           color:$silverCol; 
-                           font-size: 13px;
-                           font-weight: 400;
+
+                        .title {
+                            color: $silverCol;
+                            font-size: 13px;
+                            font-weight: 400;
                         }
                     }
                 }
@@ -1738,6 +1791,7 @@ header {
         }
     }
 }
+
 // News Feeds SASS End
 
 // Messages Page SASS Start
@@ -2040,6 +2094,7 @@ header {
 
 // Admin Dashboard Calendar SASS Start
 .admin_dashboard {
+    margin-top:130px;
     .p-datepicker.p-component {
         display: block;
         height: 100% !important;
@@ -2085,5 +2140,3 @@ header {
     }
 }
 // Admin Dashboard Calendar SASS End
-
-

@@ -1,111 +1,92 @@
 <template>
-    <div>
-      <!-- PAGE HEADER WITH TABS -->
-      <div class="page_header">
-        <h3 class="hd">Requests</h3>
-        <div class="r_side">
-          <!-- Tab Headers -->
-         <div class="tabs_header_cs">
-            <button
-            v-for="(tab, index) in tabs"
-            :key="index"
-            @click="activeTab = index"
-            :class="{ active: activeTab === index }"
-          >
-            {{ tab }}
-          </button>
-         </div>
-  
-          <!-- Add Button -->
-          <button class="btn btn-primary" @click="showAgent = true">
-            Add Request
-          </button>
-        </div>
-      </div>
-  
-      <!-- SEPARATE TAB CONTENT SECTION -->
-      <div class="tab-content mt-4">
-        <div v-if="activeTab === 0">
-            <Requests :proposedImages="proposedImages" :requestOthers="requestOthers" :requestsList="requestsList" />
-        </div>
-        <div v-if="activeTab === 1">
-          <p>Header II content: Sed ut perspiciatis unde omnis...</p>
-        </div>
-        <div v-if="activeTab === 2">
-          <p>Header III content: At vero eos et accusamus...</p>
+  <div class="clubs_page">
+    <!-- PAGE HEADER -->
+    <div class="page_header">
+      <h3 class="hd">Clubs</h3>
+      <div class="r_side">
+        <div class="searchBox icon_box">
+          <span class="icon">
+            <i class="pi pi-search"></i>
+          </span>
+          <InputText
+            type="text"
+            class="form-control"
+            placeholder="Search"
+            v-model="searchQuery"
+          />
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  import user from "@/assets/images/users/user1.png";
-  import Requests from '@/components/Requests.vue'
+    <!-- PAGE HEADER -->
 
-  import proposed1 from "@/assets/images/player1.png"
-  import proposed2 from "@/assets/images/player2.png"
-  import proposed3 from "@/assets/images/player3.png"
-  import proposed4 from "@/assets/images/player4.png"
+    <!-- Clubs Card Section Start -->
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="box_grid">
+          <Clubcard :allClubs="allClubs" :searchQuery="searchQuery" />
+        </div>
+      </div>
+    </div>
+    <!-- Clubs Card Section End -->
+  </div>
+</template>
 
-  export default {
-    components : {
-        Requests,
-    },
-    data() {
-      return {
-        activeTab: 0,
-        showAgent: false,
-        requestOthers : true,
-        tabs: ['All', 'Proposed', 'Saved','Accepted','Archived'],
-        requestsList: [
+<script>
+import Clubcard from "@/components/Clubcard.vue";
+export default {
+  name: "Clubs",
+  components: {
+    Clubcard,
+  },
+  data() {
+    return {
+      searchQuery: "",
+      allClubs: [
         {
-          id: 1,
-          profile: user,
-          position: "Striker",
-          league: "FIFA",
-          club: "Real Madrid",
-          agent: "John Cena",
-          date: "10/Nov/2024",
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
         },
         {
-          id: 2,
-          profile: user,
-          position: "GoalKeeper",
-          league: "FIFA",
-          club: "FC Barcelona",
-          agent: "John Cena",
-          date: "10/Nov/2024",
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
         },
         {
-          id: 3,
-          profile: user,
-          position: "Striker",
-          league: "FIFA",
-          club: "Real Madrid",
-          agent: "John Cena",
-          date: "10/Nov/2024",
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
         },
         {
-          id: 4,
-          profile: user,
-          position: "GoalKeeper",
-          league: "FIFA",
-          club: "FC Barcelona",
-          agent: "John Cena",
-          date: "10/Nov/2024",
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
         },
-        ],
-        proposedImages : [proposed1,proposed2,proposed3,proposed4],
-      };
-    },
-  };
-  </script>
-  
-  <style scoped>
-  
-  .active {
-    background-color: #007bff;
-    color: white;
-  }
-  </style>
-  
+        {
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
+        },
+        {
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
+        },
+        {
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
+        },
+        {
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
+        },
+        {
+          total_player: "€-102.30m",
+          current_transfer_record: "Spain",
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped>
+.active {
+  background-color: #007bff;
+  color: white;
+}
+</style>

@@ -55,7 +55,7 @@
   
     <div class="card mt-4">
       <div class="card-body">
-        <div class="player_grid">
+        <div class="box_grid">
           <Agentcard :showMd="showMd" :searchQuery="searchQuery" :allPlayers="allPlayers" />
         </div>
       </div>

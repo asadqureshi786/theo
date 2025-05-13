@@ -1,8 +1,8 @@
 <template>
-    <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
+    <div v-if="data_list.length === 0" class="text-center text-danger">
         No record found.
     </div>
-    <div v-for="item in filteredPlayers" :key="allPlayers.name" class="box_card">
+    <div v-for="item in data_list" :key="data_list.name" class="box_card">
         <img :src="agent" class="profile_picture">
 
         <div class="middle">
@@ -49,9 +49,9 @@
 import agent from "@/assets/images/agent.png"
 import club1 from "@/assets/images/club1.png"
 export default {
-    name: 'Agentcard',
+    name: 'Boxcard',
     props: {
-        allPlayers: Array,
+        data_list: Array,
         searchQuery: String
     },
     data() {
@@ -65,8 +65,8 @@ export default {
     },
 
     computed: {
-        filteredPlayers() {
-            return this.allPlayers.filter((player) => {
+        data_list() {
+            return this.data_list.filter((player) => {
                 const query = this.searchQuery.toLowerCase();
                 return (
                     player.name.toLowerCase().includes(query) ||

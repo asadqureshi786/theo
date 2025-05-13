@@ -11,6 +11,7 @@ import Agentview from './pages/Admin/Agentview.vue'
 import Legalupdates from './pages/Admin/Legalupdates.vue'
 import Newsfeeds from './pages/Admin/Newsfeeds.vue'
 import Messages from './pages/Admin/Messages.vue'
+import Clubview from './pages/Admin/Clubview.vue'
 
 const routes = [
     // {
@@ -68,6 +69,10 @@ const routes = [
             {
                 path : 'messages',
                 component : Messages,
+            },
+            {
+                path : 'club-view',
+                component : Clubview,
             },
         ]
     },

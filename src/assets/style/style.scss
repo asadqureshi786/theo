@@ -622,9 +622,43 @@ body {
                         width: 10px;
                         padding: 0px 20px 0px 20px;
                 }
-                input[type="checkbox"]{
-                    color: red;
+                .table_check_list{
+                    cursor: pointer;
+                    padding-block: 13px;
+                    input[type="checkbox"]{
+                        display:none;
+                    & + .c_checkbox{
+                        width: 20px;
+                        height:20px;
+                        background-color: transparent;
+                        border:2px solid $cardBorder ;
+                        border-radius: 4px;
+                        display: flex;
+                        justify-content: center;
+                        align-items:center;
+                        transition: 0.2s all linear;
+                        i{
+                            color:#fff;
+                            font-size:10px;
+                            transform:scale(0);
+                            transition: 0.2s all linear;
+                            font-weight: 700;
+                        }  
+                    }
+                    &:checked{
+                        & + .c_checkbox{
+                            background-color: $primaryCol;
+                            border-color:$primaryCol;
+                            i{
+                                color:#fff;
+                                transform:scale(1)
+                          }
+                        }
+                    }
                 }
+                }
+                
+
             }
         }
     }
@@ -1120,13 +1154,13 @@ header {
 // Page Header SASS End
 
 // Player Card SASS Start
-.player_grid {
+.box_grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 22px;
 }
 
-.player_card {
+.box_card {
     border: 1.5px solid $cardBorder;
     position: relative;
     display: flex;
@@ -2225,3 +2259,24 @@ header {
     }
 }
 // Admin Dashboard Calendar SASS End
+
+// Club View SASS Start
+.club_view{
+    .info{
+        .total_player{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            gap:10px;
+            .count{
+                background: $primaryLight2;
+                border-radius: 4px;
+                padding: 1px 15px;
+                font-size: 11px;
+                color:$primaryCol;
+                width: fit-content;
+            }
+        }
+    }
+}
+// Club View SASS Start

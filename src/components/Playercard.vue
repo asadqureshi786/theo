@@ -2,7 +2,7 @@
     <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
         No record found.
       </div>
-    <div v-for="item in filteredPlayers" :key="allPlayers.name"  class="player_card">
+    <div v-for="item in filteredPlayers" :key="allPlayers.name"  class="box_card">
         <img :src="item.image" class="profile_picture" >
 
         <div class="middle">

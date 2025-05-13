@@ -767,8 +767,38 @@ h1, h2, h3, h4, h5, h6, p, ul {
   width: 10px;
   padding: 0px 20px 0px 20px;
 }
-.dynamic_table table tbody td input[type=checkbox] {
-  color: red;
+.dynamic_table table tbody td .table_check_list {
+  cursor: pointer;
+  padding-block: 13px;
+}
+.dynamic_table table tbody td .table_check_list input[type=checkbox] {
+  display: none;
+}
+.dynamic_table table tbody td .table_check_list input[type=checkbox] + .c_checkbox {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid #E2E8F0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s all linear;
+}
+.dynamic_table table tbody td .table_check_list input[type=checkbox] + .c_checkbox i {
+  color: #fff;
+  font-size: 10px;
+  transform: scale(0);
+  transition: 0.2s all linear;
+  font-weight: 700;
+}
+.dynamic_table table tbody td .table_check_list input[type=checkbox]:checked + .c_checkbox {
+  background-color: #8F0301;
+  border-color: #8F0301;
+}
+.dynamic_table table tbody td .table_check_list input[type=checkbox]:checked + .c_checkbox i {
+  color: #fff;
+  transform: scale(1);
 }
 
 .video_list ul {
@@ -1147,13 +1177,13 @@ header.protal_header .main_header .header_option .language .text {
   gap: 10px;
 }
 
-.player_grid {
+.box_grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 22px;
 }
 
-.player_card {
+.box_card {
   border: 1.5px solid #E2E8F0;
   position: relative;
   display: flex;
@@ -1164,7 +1194,7 @@ header.protal_header .main_header .header_option .language .text {
   padding: 25px;
   margin-top: 90px;
 }
-.player_card .profile_picture {
+.box_card .profile_picture {
   width: 125px;
   height: 125px;
   -o-object-fit: cover;
@@ -1177,7 +1207,7 @@ header.protal_header .main_header .header_option .language .text {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.player_card .middle {
+.box_card .middle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1185,42 +1215,42 @@ header.protal_header .main_header .header_option .language .text {
   margin: 16px 0px 20px 0px;
   padding-top: 35px;
 }
-.player_card .middle .name {
+.box_card .middle .name {
   font-size: 22px;
   font-weight: 600;
   color: #8F0301;
 }
-.player_card .middle .desc {
+.box_card .middle .desc {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.player_card .middle .desc label {
+.box_card .middle .desc label {
   font-weight: 600;
   color: rgba(74, 13, 12, 0.4784313725);
   font-size: 15px;
 }
-.player_card .middle .desc .text {
+.box_card .middle .desc .text {
   color: rgba(74, 13, 12, 0.4784313725);
   font-size: 15px;
   font-weight: 400;
 }
-.player_card .middle .desc .club_img {
+.box_card .middle .desc .club_img {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.player_card .middle .desc .club_img img {
+.box_card .middle .desc .club_img img {
   width: 20px;
   height: 20px;
 }
-.player_card .middle .club_img {
+.box_card .middle .club_img {
   display: flex;
 }
-.player_card .btn {
+.box_card .btn {
   width: 100%;
 }
-.player_card .status {
+.box_card .status {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -1230,7 +1260,7 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 9px;
   padding: 6px 15px;
 }
-.player_card .trashIcon {
+.box_card .trashIcon {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -1981,4 +2011,20 @@ header.protal_header .main_header .header_option .language .text {
 }
 .admin_dashboard .p-datepicker-calendar-container tbody td:first-child {
   display: none;
+}
+
+.club_view .info .total_player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.club_view .info .total_player .count {
+  background: rgba(143, 3, 1, 0.0588235294);
+  border-radius: 4px;
+  padding: 1px 15px;
+  font-size: 11px;
+  color: #8F0301;
+  width: -moz-fit-content;
+  width: fit-content;
 }/*# sourceMappingURL=style.css.map */

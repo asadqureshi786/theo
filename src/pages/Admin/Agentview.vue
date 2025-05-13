@@ -9,7 +9,7 @@
         <h3 class="hd">Agent View</h3>
       </div>
     </div>
-    <!-- Page Header Section Ennd -->
+    <!-- Page Header Section End -->
 
     <div class="profile_section">
       <div class="lside">
@@ -160,10 +160,58 @@ export default {
       ],
       player_body: [
         {
-          checkbox: `<div class="text-center">
-            <input type="checkbox" />
+          checkbox: `<label for="check1" class="table_check_list" class="text-center">
+            <input id="check1" type="checkbox" />
             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
-            </div>`,
+            </label>`,
+          date: `<div class="text">Dec 12, 2023</div>`,
+          player_name: `<div class="text fw6">Enzo Delgado</div>`,
+          club_name: `<div class="text fw6">Marseille</div>`,
+          role: `<div class="text">Strike</div>`,
+          contract_end: `<div class="text">12/02/2022</div>`,
+          status: `<div class="status">My Player</div>`,
+          action: `<div class="dropdown action_dropdown text-center">
+  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="dots">
+     <i class="pi pi-ellipsis-v" ></i>
+    </span>
+  </div>
+  <ul class="dropdown-menu action_dropdown_menu">
+    <li><a class="dropdown-item" href="#">View</a></li>
+    <li><a class="dropdown-item" href="#">Edit</a></li>
+    <li><a class="dropdown-item" href="#">Delete</a></li>
+  </ul>
+</div>`,
+        },
+         {
+          checkbox: `<label for="check2" class="table_check_list" class="text-center">
+            <input id="check2" type="checkbox" />
+            <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+            </label>`,
+          date: `<div class="text">Dec 12, 2023</div>`,
+          player_name: `<div class="text fw6">Enzo Delgado</div>`,
+          club_name: `<div class="text fw6">Marseille</div>`,
+          role: `<div class="text">Strike</div>`,
+          contract_end: `<div class="text">12/02/2022</div>`,
+          status: `<div class="status">My Player</div>`,
+          action: `<div class="dropdown action_dropdown text-center">
+  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <span class="dots">
+     <i class="pi pi-ellipsis-v" ></i>
+    </span>
+  </div>
+  <ul class="dropdown-menu action_dropdown_menu">
+    <li><a class="dropdown-item" href="#">View</a></li>
+    <li><a class="dropdown-item" href="#">Edit</a></li>
+    <li><a class="dropdown-item" href="#">Delete</a></li>
+  </ul>
+</div>`,
+        },
+         {
+          checkbox: `<label for="check3" class="table_check_list" class="text-center">
+            <input id="check3" type="checkbox" />
+            <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+            </label>`,
           date: `<div class="text">Dec 12, 2023</div>`,
           player_name: `<div class="text fw6">Enzo Delgado</div>`,
           club_name: `<div class="text fw6">Marseille</div>`,

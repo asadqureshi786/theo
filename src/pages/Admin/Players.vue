@@ -102,7 +102,7 @@
 
   <div class="card mt-4">
     <div class="card-body">
-      <div class="player_grid">
+      <div class="box_grid">
         <Playercard :searchQuery="searchQuery" :allPlayers="allPlayers" />
 
         {{ showMd ? "Run" : "Not Run" }}

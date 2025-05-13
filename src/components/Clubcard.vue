@@ -1,24 +1,25 @@
+
 <template>
-    <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
+    <div v-if="filteredClub.length === 0" class="text-center text-danger">
         No record found.
     </div>
-    <div v-for="item in filteredPlayers" :key="allPlayers.name" class="box_card">
-        <img :src="agent" class="profile_picture">
+    <div v-for="item in filteredClub" :key="item.name" class="box_card">
+        <img :src="clubimg" class="profile_picture">
 
         <div class="middle">
-            <p class="name">{{ item.name }}</p>
+            <p class="name">{{ item.total_player }}</p>
             <div class="desc agent">
-                <label>User Level:</label>
-                <p class="text">{{ item.userlevel }}</p>
+                <label>Total Players:</label>
+                <p class="text">{{ item.current_transfer_record }}</p>
             </div>
             <div class="desc club">
-                <label>Country:</label>
+                <label>Current transfer record:</label>
                 <div class="club_img">
-                    <p class="text">{{ item.country }}</p>
+                    <!-- <p class="text">{{ item.country }}</p> -->
                 </div>
             </div>
         </div>
-        <router-link class="btn btn-primary" to="agent-view">View</router-link>
+        <router-link class="btn btn-primary" to="club-view">View</router-link>
 
         <div class="trashIcon">
 
@@ -46,18 +47,18 @@
 </template>
 
 <script>
-import agent from "@/assets/images/agent.png"
+import clubimg from "@/assets/images/clubimg.png"
 import club1 from "@/assets/images/club1.png"
 export default {
-    name: 'Agentcard',
+    name: 'Clubcard',
     props: {
-        allPlayers: Array,
+        allClubs: Array,
         searchQuery: String
     },
     data() {
         return (
             {
-                agent: agent,
+                clubimg : clubimg,
                 club1: club1,
                 city: "karachi",
             }
@@ -65,13 +66,12 @@ export default {
     },
 
     computed: {
-        filteredPlayers() {
-            return this.allPlayers.filter((player) => {
+        filteredClub() {
+            return this.allClubs.filter((player) => {
                 const query = this.searchQuery.toLowerCase();
                 return (
-                    player.name.toLowerCase().includes(query) ||
-                    player.userlevel.toLowerCase().includes(query) ||
-                    player.country.toLowerCase().includes(query)
+                    player.total_player.toLowerCase().includes(query) ||
+                    player.current_transfer_record.toLowerCase().includes(query)
                 );
             });
         },

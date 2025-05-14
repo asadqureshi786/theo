@@ -15,6 +15,8 @@ import Editor from 'primevue/editor';
 
 
 
+
+
 // CSS Animate
 import 'animate.css';
 
@@ -80,6 +82,7 @@ app.component('Dialog', Dialog);
 app.component('FilePond', FilePond) // Register globally
 app.component('Select', Select) // Register globally
 app.component('Editor', Editor) // Register globally
+
 app.use(Toast,  {
     // You can set your default options here
     position: 'top-right',

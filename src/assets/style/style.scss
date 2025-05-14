@@ -657,6 +657,16 @@ body {
                     }
                 }
                 }
+                .flag_imges{
+                    display: flex;
+                    align-items: center;
+                    gap:10px;
+                    img{
+                        width: 20px;
+                        height: 14px;
+                        object-fit: cover;
+                    }
+                }
                 
 
             }
@@ -2280,3 +2290,4 @@ header {
     }
 }
 // Club View SASS Start
+

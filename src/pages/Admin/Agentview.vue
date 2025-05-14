@@ -171,17 +171,17 @@ export default {
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
-  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <span class="dots">
-     <i class="pi pi-ellipsis-v" ></i>
-    </span>
-  </div>
-  <ul class="dropdown-menu action_dropdown_menu">
-    <li><a class="dropdown-item" href="#">View</a></li>
-    <li><a class="dropdown-item" href="#">Edit</a></li>
-    <li><a class="dropdown-item" href="#">Delete</a></li>
-  </ul>
-</div>`,
+                  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="dots">
+                    <i class="pi pi-ellipsis-v" ></i>
+                    </span>
+                  </div>
+                  <ul class="dropdown-menu action_dropdown_menu">
+                    <li><a class="dropdown-item" href="#">View</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>`,
         },
          {
           checkbox: `<label for="check2" class="table_check_list" class="text-center">
@@ -195,17 +195,17 @@ export default {
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
-  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <span class="dots">
-     <i class="pi pi-ellipsis-v" ></i>
-    </span>
-  </div>
-  <ul class="dropdown-menu action_dropdown_menu">
-    <li><a class="dropdown-item" href="#">View</a></li>
-    <li><a class="dropdown-item" href="#">Edit</a></li>
-    <li><a class="dropdown-item" href="#">Delete</a></li>
-  </ul>
-</div>`,
+                  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="dots">
+                    <i class="pi pi-ellipsis-v" ></i>
+                    </span>
+                  </div>
+                  <ul class="dropdown-menu action_dropdown_menu">
+                    <li><a class="dropdown-item" href="#">View</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>`,
         },
          {
           checkbox: `<label for="check3" class="table_check_list" class="text-center">
@@ -219,17 +219,17 @@ export default {
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
-  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <span class="dots">
-     <i class="pi pi-ellipsis-v" ></i>
-    </span>
-  </div>
-  <ul class="dropdown-menu action_dropdown_menu">
-    <li><a class="dropdown-item" href="#">View</a></li>
-    <li><a class="dropdown-item" href="#">Edit</a></li>
-    <li><a class="dropdown-item" href="#">Delete</a></li>
-  </ul>
-</div>`,
+                  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="dots">
+                    <i class="pi pi-ellipsis-v" ></i>
+                    </span>
+                  </div>
+                  <ul class="dropdown-menu action_dropdown_menu">
+                    <li><a class="dropdown-item" href="#">View</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                  </ul>
+                </div>`,
         },
       ],
       selectedCity: null,

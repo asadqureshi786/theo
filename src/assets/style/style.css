@@ -800,6 +800,17 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #fff;
   transform: scale(1);
 }
+.dynamic_table table tbody td .flag_imges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dynamic_table table tbody td .flag_imges img {
+  width: 20px;
+  height: 14px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 
 .video_list ul {
   display: grid;

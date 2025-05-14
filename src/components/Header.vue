@@ -63,11 +63,11 @@
                                 </svg>
     
                                 <span class="text">Clubs</span>
-                                <span class="icon"><i class="pi pi-angle-down"></i></span>
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="players" class="nav_item" exact active-class="active" >
+                            <!-- {{currentPath}}  -->
+                            <router-link :to="currentPath == '/all-request' ? 'all-request' : 'players'" class="nav_item has_dropdown" exact active-class="active" >
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -85,8 +85,14 @@
                                         stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
     
-                                <span class="text">Players</span>
+                                <span class="text"> {{currentPath == '/all-request' ? 'All Request' : 'Players'}} </span>
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
+                                <div class="header_dropdown">
+                                    <router-link :to="currentPath == '/players' ? 'all-request' : 'players'" class="nav_item"   >
+                                         <i class="pi pi-user" ></i>
+                                        {{currentPath == '/players' ? 'All Request' : 'players'}}
+                                    </router-link>
+                                </div>
                             </router-link>
                         </li>
                         <li>
@@ -195,19 +201,28 @@
 </template>
 
 <script>
+// Images
 import logo from '@/assets/images/logo.png'
 import user1 from '@/assets/images/users/user1.png'
+
+// Router Import
+import { useRoute } from "vue-router";
 
 export default {
     name: "Header",
     data() {
-        return (
-            {
+        return {
+                // currentPath: this.$route.path.slice(this.$route.path.lastIndexOf('/')),
                 logo: logo,
                 user1: user1,
-            }
-        )
-    }
+                texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
+        }
+    },
+     computed: {
+    currentPath() {
+      return this.$route.path.slice(this.$route.path.lastIndexOf('/'));
+    },
+  },
 }
 </script>
 

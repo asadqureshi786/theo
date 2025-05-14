@@ -365,6 +365,7 @@ body {
         }
     }
 }
+
 // Modal SASS End
 
 // SearchBox SASS Start
@@ -392,6 +393,7 @@ body {
         }
     }
 }
+
 // SearchBox SASS End
 
 
@@ -449,38 +451,45 @@ body {
         }
     }
 }
+
 // Donut SASS Start
 
 // Action Dropdown SASS Start
-.action_dropdown{
+.action_dropdown {
     padding-block: 13px;
-    .dots{
-        color:#CCCDCE;
+
+    .dots {
+        color: #CCCDCE;
     }
-    .dropdown-toggle::after{
-        content:none;
+
+    .dropdown-toggle::after {
+        content: none;
     }
-     .dropdown-menu{
+
+    .dropdown-menu {
         animation-name: DropDownFade;
         animation-duration: 0.5s;
         animation-iteration-count: 1;
         animation-direction: alternate;
         border: 1px solid $cardBorder;
-        li{
-            .dropdown-item{
+
+        li {
+            .dropdown-item {
                 font-size: 12px;
             }
-        }        
+        }
     }
-    @keyframes DropDownFade{
-    from{
-        opacity : 0;
+
+    @keyframes DropDownFade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+
     }
-    to{
-        opacity : 1;
-    }
-    
-}
 }
 
 // Action Dropdown SASS End
@@ -572,15 +581,18 @@ body {
         }
     }
 }
+
 // Simple Table SASS Start
 
 // Dynamic Table SASS Start
-.dynamic_table{
+.dynamic_table {
     table {
+
         th,
         td {
             padding-inline: 13px;
         }
+
         thead {
             th {
                 background: #F9F9F9;
@@ -603,76 +615,88 @@ body {
         tbody {
             td {
                 vertical-align: middle;
-                .text{
+
+                .text {
                     font-size: 14px;
                     font-weight: 400;
                     padding-block: 13px;
-                    color:#06142E99;
+                    color: #06142E99;
                 }
-                .status{
+
+                .status {
                     background: $primaryLight2;
                     font-size: 12px;
                     font-weight: 400;
-                    color:$primaryCol;
+                    color: $primaryCol;
                     border-radius: 8px;
                     padding: 10px 0px;
                     text-align: center;
                 }
-                &.fit-width{
-                        width: 10px;
-                        padding: 0px 20px 0px 20px;
+
+                &.fit-width {
+                    width: 10px;
+                    padding: 0px 20px 0px 20px;
                 }
-                .table_check_list{
+
+                .table_check_list {
                     cursor: pointer;
                     padding-block: 13px;
-                    input[type="checkbox"]{
-                        display:none;
-                    & + .c_checkbox{
-                        width: 20px;
-                        height:20px;
-                        background-color: transparent;
-                        border:2px solid $cardBorder ;
-                        border-radius: 4px;
-                        display: flex;
-                        justify-content: center;
-                        align-items:center;
-                        transition: 0.2s all linear;
-                        i{
-                            color:#fff;
-                            font-size:10px;
-                            transform:scale(0);
+
+                    input[type="checkbox"] {
+                        display: none;
+
+                        &+.c_checkbox {
+                            width: 20px;
+                            height: 20px;
+                            background-color: transparent;
+                            border: 2px solid $cardBorder ;
+                            border-radius: 4px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             transition: 0.2s all linear;
-                            font-weight: 700;
-                        }  
-                    }
-                    &:checked{
-                        & + .c_checkbox{
-                            background-color: $primaryCol;
-                            border-color:$primaryCol;
-                            i{
-                                color:#fff;
-                                transform:scale(1)
-                          }
+
+                            i {
+                                color: #fff;
+                                font-size: 10px;
+                                transform: scale(0);
+                                transition: 0.2s all linear;
+                                font-weight: 700;
+                            }
+                        }
+
+                        &:checked {
+                            &+.c_checkbox {
+                                background-color: $primaryCol;
+                                border-color: $primaryCol;
+
+                                i {
+                                    color: #fff;
+                                    transform: scale(1)
+                                }
+                            }
                         }
                     }
                 }
-                }
-                .flag_imges{
+
+                .flag_imges {
                     display: flex;
                     align-items: center;
-                    gap:10px;
-                    img{
+                    gap: 10px;
+
+                    img {
                         width: 20px;
                         height: 14px;
                         object-fit: cover;
                     }
                 }
-                
+
 
             }
         }
     }
 }
+
 // Dynamic Table SASS End
 
 // Video List SASS Start
@@ -793,25 +817,72 @@ header {
                             font-weight: 400;
                             font-size: 13.7px;
                             padding: 6px 12px;
+                            transition:0.5s all linear;
+                            border-radius: 6px;
 
                             .text {
                                 position: relative;
                                 top: 0.5px;
+                                transition:0.5s all linear;
                             }
-
-                            &.active {
+                            svg{
+                                transition:0.5s all linear;
+                                
+                            }
+                            
+                            &.active , &:hover {
                                 background: $primaryGr;
-                                border-radius: 6px;
+                                transition:0.5s all linear;
                                 color: #fff;
-
+                                
                                 svg {
                                     color: #fff;
+                                    transition:0.5s all linear;
                                     stroke: #fff;
                                 }
-
+                                
                                 path {
+                                    transition:0.5s all linear;
                                     stroke: #fff;
                                 }
+                            }
+
+                            &.has_dropdown {
+                                position: relative;
+                                .header_dropdown {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    position: absolute;
+                                    bottom: -35PX;
+                                    left: 0;
+                                    background: #fff;
+                                    width: 180px;
+                                    transition: 0.2s all linear;
+
+                                    // padding: 5px;
+                                    .nav_item {
+                                        display: flex;
+                                        font-size: 12px;
+                                        align-items: center;
+                                        // border:1px solid $border1;
+                                        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+                                        border-radius: 4px;
+
+                                        i {
+                                            font-size: 12px;
+                                        }
+
+                                        svg {
+                                            fill: $primaryCol;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:hover .header_dropdown {
+                                opacity: 1;
+                                visibility: visible;
                             }
                         }
                     }
@@ -914,9 +985,9 @@ header {
     .img_right {
         position: absolute;
         bottom: 0;
-        right:0;
+        right: 0;
         width: 260px;
-        opacity: 1;   
+        opacity: 1;
     }
 
     .heading {
@@ -1951,20 +2022,22 @@ header {
         }
 
         .list {
-                height: calc(100vh - 251px);
-                overflow: auto;
-                 &::-webkit-scrollbar {
-            width: 5px;
-        }
+            height: calc(100vh - 251px);
+            overflow: auto;
 
-        &::-webkit-scrollbar-track {
-            background-color: #fff;
-        }
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
 
-        &::-webkit-scrollbar-thumb {
-            background-color: #fff;
-            border-radius: 100px;
-        }
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #fff;
+                border-radius: 100px;
+            }
+
             li {
                 border-bottom: 1px solid $cardBorder;
 
@@ -2047,9 +2120,10 @@ header {
 // Messages Page SASS End
 
 // ChatBox Page SASS Start
-.chat_side{
+.chat_side {
     border-left: 1px solid $cardBorder;
 }
+
 .chat_box {
     .header {
         border-bottom: 1px solid $cardBorder;
@@ -2099,7 +2173,7 @@ header {
     }
 
     .msg_list {
-       
+
         padding: 20px 15px;
         height: calc(100vh - 268px);
         overflow: auto;
@@ -2198,20 +2272,23 @@ header {
                 // color:#535353;
             }
         }
-        .text{
-            color:$primaryCol;
+
+        .text {
+            color: $primaryCol;
             font-weight: 600;
             font-size: 14px;
         }
-        .face{
+
+        .face {
             position: absolute;
-            top:50%;
+            top: 50%;
             left: 15px;
             transform: translateY(-50%);
         }
-        .links{
+
+        .links {
             position: absolute;
-            top:50%;
+            top: 50%;
             right: 15px;
             transform: translateY(-50%);
         }
@@ -2223,19 +2300,21 @@ header {
 
 // Admin Dashboard Calendar SASS Start
 .admin_dashboard {
-    margin-top:130px;
+    margin-top: 130px;
+
     .p-datepicker.p-component {
         display: block;
         height: 100% !important;
     }
-    .p-datepicker-panel.p-component th{
+
+    .p-datepicker-panel.p-component th {
         text-align: center;
     }
 
     .p-datepicker-panel.p-component {
         width: 100% !important;
         height: 100% !important;
-        
+
         &::-webkit-scrollbar {
             width: 5px;
         }
@@ -2255,39 +2334,43 @@ header {
     .p-datepicker-calendar-container {
         height: 100% !important;
     }
-    .p-datepicker-calendar-container{
-        thead{
-            th:first-child{
+
+    .p-datepicker-calendar-container {
+        thead {
+            th:first-child {
                 display: none;
             }
         }
-        tbody{
-            td:first-child{
+
+        tbody {
+            td:first-child {
                 display: none;
             }
         }
     }
 }
+
 // Admin Dashboard Calendar SASS End
 
 // Club View SASS Start
-.club_view{
-    .info{
-        .total_player{
-            display:flex;
+.club_view {
+    .info {
+        .total_player {
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap:10px;
-            .count{
+            gap: 10px;
+
+            .count {
                 background: $primaryLight2;
                 border-radius: 4px;
                 padding: 1px 15px;
                 font-size: 11px;
-                color:$primaryCol;
+                color: $primaryCol;
                 width: fit-content;
             }
         }
     }
 }
-// Club View SASS Start
 
+// Club View SASS Start

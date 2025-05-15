@@ -4,7 +4,7 @@
         <div class="page_header">
             <h3 class="hd">Lagal Update</h3>
             <div class="r_side">
-                <button class="btn btn-primary" @click="showAgent = 'true'">
+                <button class="btn btn-primary" @click="addUpdate = 'true'">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5.08003 5.435C5.03003 5.43 4.97003 5.43 4.91503 5.435C3.72503 5.395 2.78003 4.42 2.78003 3.22C2.78003 1.995 3.77003 1 5.00003 1C6.22503 1 7.22003 1.995 7.22003 3.22C7.21503 4.42 6.27003 5.395 5.08003 5.435Z"
@@ -68,6 +68,68 @@
         <!-- Main Section End -->
 
     </div>
+
+    
+    <!-- Add Update Modal Start -->
+          <Dialog
+        v-model:visible="addUpdate"
+        maximizable
+        modal
+        header="Add Updates"
+        :style="{ width: '40rem' }"
+        :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+      >
+        <from>
+          <div class="row formFileds">
+            <div class="col-12">
+              <div class="form-group">
+                <label> Title</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label> URL</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label> Description</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="col-12 ">
+              <div class="form-group">
+                <label>
+                  Upload Images
+                </label>
+                <FilePond />
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-end gap-2 modal_footer">
+            <Button
+              type="button"
+              class="btn btn-secondary"
+              label="Cancel"
+              severity="secondary"
+              @click="addUpdate = false"
+              >Cancel</Button
+            >
+            <Button
+              type="button"
+              class="btn btn-primary"
+              label="Save"
+              @click="addUpdate = false"
+              >Add</Button
+            >
+          </div>
+        </from>
+      </Dialog>
+    <!-- Add Update Modal End -->
+
+
 </template>
 
 <script>
@@ -85,6 +147,7 @@ export default {
     },
     data() {
         return {
+            addUpdate : false,
             fLogo: fLogo,
             legalUpdate: [
                 {

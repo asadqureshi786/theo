@@ -73,6 +73,8 @@
         </div>
     </div>
 
+
+
 </template>
 
 <script>
@@ -95,6 +97,7 @@ import cover from "@/assets/images/cover.jpg"
             value: 'Whats on your mind?',
             player : player,
             cover : cover,
+         
         }
     }
     }

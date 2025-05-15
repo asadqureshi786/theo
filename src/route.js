@@ -13,6 +13,7 @@ import Newsfeeds from './pages/Admin/Newsfeeds.vue'
 import Messages from './pages/Admin/Messages.vue'
 import Clubview from './pages/Admin/Clubview.vue'
 import AllRequest from './pages/Admin/Allrequest.vue'
+import Settings from './pages/Admin/Settings.vue'
 
 const routes = [
     // {
@@ -78,6 +79,10 @@ const routes = [
             {
                 path : 'all-request',
                 component : AllRequest,
+            },
+            {
+                path : 'settings',
+                component : Settings,
             },
         ]
     },

@@ -66,7 +66,6 @@
                             </router-link>
                         </li>
                         <li>
-                            <!-- {{currentPath}}  -->
                             <router-link :to="currentPath == '/all-request' ? 'all-request' : 'players'" class="nav_item has_dropdown" exact active-class="active" >
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -85,12 +84,12 @@
                                         stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
     
-                                <span class="text"> {{currentPath == '/all-request' ? 'All Request' : 'Players'}} </span>
+                                <span class="text"> {{currentPath == '/all-request' ? 'All Requests' : 'Players'}} </span>
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
                                 <div class="header_dropdown">
                                     <router-link :to="currentPath == '/players' ? 'all-request' : 'players'" class="nav_item"   >
                                          <i class="pi pi-user" ></i>
-                                        {{currentPath == '/players' ? 'All Request' : 'players'}}
+                                        {{currentPath == '/players' ? 'All Requests' : 'Players'}}
                                     </router-link>
                                 </div>
                             </router-link>
@@ -154,7 +153,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <a href="#" class="nav_item">
+                            <router-link to="settings" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -169,7 +168,7 @@
                                 </svg>
     
                             <span class="text">Settings</span>    
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>

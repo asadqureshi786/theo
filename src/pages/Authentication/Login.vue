@@ -36,7 +36,7 @@
                 >Forgot your passowrd?</a>
             </div>
 
-            <button class="btn btn-primary mt-2 w-100">Log in</button>
+            <router-link to="admin/dashboard" class="btn btn-primary mt-2 w-100">Log in</router-link>
 
             <div
               class="dont_have_account d-flex justify-content-center gap-1 mt-4 align-content-center">

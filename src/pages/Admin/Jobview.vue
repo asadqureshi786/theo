@@ -33,7 +33,7 @@
                     <p class="text f19 black fw5">Club Al Nasar</p>
                   </div>
                   <div class="d-flex align-items-center gap-2">
-                    <button class="btn btn-secondary">Received</button>
+                    <!-- <button class="btn btn-secondary">Received</button> -->
                     <button class="btn btn-primary" @click="showPropose = true" >Propose Player</button>
                   </div>
                 </div>

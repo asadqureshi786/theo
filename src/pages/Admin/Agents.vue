@@ -142,19 +142,22 @@
         addPlayer: false,
         showAgent : false,
         allPlayers: [
-          {
+          { 
+            id : 1,
             name: "Cristiano Ronaldo",
             userlevel: "THEO BLACK",
             country: "Spain",
             status: "Pending",
           },
           {
+            id : 2,
             name: "Mesit Ozil",
             userlevel: "THEO BLACK",
             country: "Spain",
             status: "Completed",
           },
           {
+            id : 3,
             name: "Leo Messi",
             userlevel: "THEO BLACK",
             country: "Spain",

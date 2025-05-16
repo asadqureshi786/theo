@@ -48,7 +48,7 @@ const routes = [
                 component : Jobview,
             },
             {
-                path : 'agent-view',
+                path : 'agent-view/:id',
                 component : Agentview,
             },
             {

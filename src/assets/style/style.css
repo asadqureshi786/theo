@@ -371,6 +371,9 @@ h1, h2, h3, h4, h5, h6, p, ul {
   animation-iteration-count: 1;
   animation-direction: alternate;
 }
+.main_wrapper > .container_fluid > div {
+  display: none;
+}
 .main_wrapper .card {
   border: 1.5px solid #E2E8F0;
   border-radius: 12px;
@@ -714,6 +717,13 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-size: 22px;
 }
 
+.simple_table {
+  border: 1px solid rgba(143, 3, 1, 0.1607843137);
+  border-radius: 11px;
+}
+.simple_table table {
+  margin: 0px !important;
+}
 .simple_table table th,
 .simple_table table td {
   padding-inline: 13px;
@@ -736,14 +746,29 @@ h1, h2, h3, h4, h5, h6, p, ul {
   font-weight: 400;
   padding-block: 13px;
 }
+.simple_table table tbody tr:last-child td {
+  border: none !important;
+}
+.simple_table table tbody tr:last-child td:first-child {
+  border-radius: 0px 0px 0px 10px;
+}
+.simple_table table tbody tr:last-child td:last-child {
+  border-radius: 0px 0px 10px 0px;
+}
 
+.dynamic_table {
+  border: 1px solid #E0E0E0;
+  border-radius: 11px;
+}
+.dynamic_table table {
+  margin-bottom: 0px !important;
+}
 .dynamic_table table th,
 .dynamic_table table td {
   padding-inline: 13px;
 }
 .dynamic_table table thead th {
   background: #F9F9F9;
-  border-radius: 8px;
   color: #000;
   font-weight: 500;
   font-size: 15px;
@@ -820,6 +845,15 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 14px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.dynamic_table table tbody tr:last-child td {
+  border: 0px !important;
+}
+.dynamic_table table tbody tr:last-child td:first-child {
+  border-radius: 0px 0px 0px 10px;
+}
+.dynamic_table table tbody tr:last-child td:last-child {
+  border-radius: 0px 0px 10px 0px;
 }
 
 .video_list ul {
@@ -2139,6 +2173,16 @@ header.protal_header .main_header .header_option .language .text {
 }
 .login_page .r_side .login_content .logo_img {
   width: 80px;
+  position: relative;
+}
+.login_page .r_side .login_content .logo_img:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
 }
 .login_page .r_side .login_content .content {
   margin-top: 35px;

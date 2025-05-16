@@ -2,7 +2,7 @@
     <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
         No record found.
     </div>
-    <div v-for="item in filteredPlayers" :key="allPlayers.name" class="box_card">
+    <div v-for="item in filteredPlayers" :key="allPlayers.id" class="box_card">
         <img :src="agent" class="profile_picture">
 
         <div class="middle">
@@ -18,10 +18,9 @@
                 </div>
             </div>
         </div>
-        <router-link class="btn btn-primary" to="agent-view">View</router-link>
+        <router-link class="btn btn-primary" :to="`agent-view/${item.id}`">View</router-link>
 
         <div class="trashIcon">
-
             <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M19.75 5.48177C16.6975 5.17927 13.6267 5.02344 10.565 5.02344C8.75 5.02344 6.935 5.1151 5.12 5.29844L3.25 5.48177"
@@ -40,7 +39,6 @@
                 <path d="M9.20834 11.458H13.7917" stroke="#8F0301" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
             </svg>
-
         </div>
     </div>
 </template>

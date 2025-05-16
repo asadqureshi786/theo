@@ -36,7 +36,7 @@
                                 </div>
                         </div>
                         <p class="desc">Lucas Méndez delivered a standout performance over the weekend, scoring 4 goals and assisting once in a 5-2 win for Estrella CF. The 22-year-old striker continues to demonstrate clinical finishing and composure under pressure. With his contract expiring in six months and no current agent representation listed, Méndez is becoming one of the most attractive free agents in the regional circuit. Definitely one to watch for clubs seeking a versatile forward. <a class="readMore" href="#" >Read Mores</a></p>
-                        <img :src="cover" class="cover_img img-fluid" />
+                        <img :src="cover"  class="cover_img img-fluid" />
                         <div class="social_icon">
                             <div class="icon">
                                 <i class="pi pi-thumbs-up-fill" ></i>
@@ -66,7 +66,7 @@
                         <div class="card-body">
                             <Sideplayers playerHeading="Recent Request" />
                             <div class="mt-4"></div>
-                            <Newsfeed playerHeading="Featured" />
+                            <Newsfeed playerHeading="Newsfeed" />
                         </div>
                     </div>
             </div>

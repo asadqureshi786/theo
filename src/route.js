@@ -14,19 +14,10 @@ import Messages from './pages/Admin/Messages.vue'
 import Clubview from './pages/Admin/Clubview.vue'
 import AllRequest from './pages/Admin/Allrequest.vue'
 import Settings from './pages/Admin/Settings.vue'
+import Login from './pages/Authentication/Login.vue'
+import Signup from './pages/Authentication/Signup.vue'
 
 const routes = [
-    // {
-    //     path : '',
-    //     name : '',
-    //     component : DefaultLayout,
-    //     children : [
-    //         {
-    //             path : 'admin/dashboard',
-    //             component : Dashboard
-    //         }
-    //     ]
-    // },
     {
         path: '/admin',
         name: 'admin',
@@ -87,10 +78,15 @@ const routes = [
         ]
     },
     {
-        path: '/',
-        name: 'home',
-        component: Home,
-    }
+        path: '/login',
+        name: 'login',
+        component: Login,
+    },
+    {
+        path: '/signup',
+        name: 'signup',
+        component: Signup,
+    },
 ]
 
 

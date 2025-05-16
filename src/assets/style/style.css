@@ -2123,4 +2123,73 @@ header.protal_header .main_header .header_option .language .text {
 .setting_page .profile_image_upload .upload_profile_button svg {
   width: 10px;
   height: 10px;
+}
+
+.login_page {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+.login_page .r_side {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 100px;
+}
+.login_page .r_side .login_content .logo_img {
+  width: 80px;
+}
+.login_page .r_side .login_content .content {
+  margin-top: 35px;
+}
+.login_page .r_side .login_content .content .hd {
+  font-size: 24px;
+  font-weight: 600;
+}
+.login_page .r_side .login_content .content .hd_text {
+  font-size: 13px;
+  margin-top: 5px;
+}
+.login_page .r_side .login_content .content form {
+  margin-top: 15px;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list {
+  cursor: pointer;
+  padding-block: 13px;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list input[type=checkbox] {
+  display: none;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list input[type=checkbox] + .c_checkbox {
+  width: 17px;
+  height: 17px;
+  background-color: transparent;
+  border: 2px solid #E2E8F0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s all linear;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list input[type=checkbox] + .c_checkbox i {
+  color: #fff;
+  font-size: 8px;
+  transform: scale(0);
+  transition: 0.2s all linear;
+  font-weight: 700;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list input[type=checkbox]:checked + .c_checkbox {
+  background-color: #8F0301;
+  border-color: #8F0301;
+}
+.login_page .r_side .login_content .content .remember_me .table_check_list input[type=checkbox]:checked + .c_checkbox i {
+  color: #fff;
+  transform: scale(1);
+}
+.login_page .l_side img {
+  height: 100vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=style.css.map */

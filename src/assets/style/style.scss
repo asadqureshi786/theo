@@ -2423,3 +2423,92 @@ header {
     }
 }
 // Setting Page SASS End
+
+// Login Page SASS Start
+.login_page{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    .r_side{
+        height: 100vh;
+        width: 100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding-inline: 100px;
+        .login_content{
+            .logo_img{
+                width: 80px;
+            }
+            .content{
+                margin-top: 35px;
+                .hd{
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+                .hd_text{
+                    font-size: 13px;
+                    margin-top: 5px;
+                }
+                form{
+                    margin-top:15px;
+                }
+                .remember_me{
+                    .table_check_list {
+                    cursor: pointer;
+                    padding-block: 13px;
+
+                    input[type="checkbox"] {
+                        display: none;
+
+                        &+.c_checkbox {
+                            width: 17px;
+                            height: 17px;
+                            background-color: transparent;
+                            border: 2px solid $cardBorder ;
+                            border-radius: 4px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 0.2s all linear;
+
+                            i {
+                                color: #fff;
+                                font-size: 8px;
+                                transform: scale(0);
+                                transition: 0.2s all linear;
+                                font-weight: 700;
+                            }
+                        }
+
+                        &:checked {
+                            &+.c_checkbox {
+                                background-color: $primaryCol;
+                                border-color: $primaryCol;
+
+                                i {
+                                    color: #fff;
+                                    transform: scale(1)
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+                .dont_have_account{
+                    .text{
+                    }
+                }
+            }
+        }
+        
+    }
+    .l_side{
+        img{
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+}
+// Login Page SASS End

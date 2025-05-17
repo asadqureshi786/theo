@@ -30,7 +30,33 @@
         <div class="card main_card mt-3">
           <div class="card-body p-3">
             <h2 class="light6 f19 heading">General Information</h2>
-            <div class="row formFileds">
+            <div class="general_detail">
+              <div class="box">
+                <label>Name</label>
+                <p class="text">John Doe</p>
+              </div>
+              <div class="box">
+                <label>Email</label>
+                <p class="text">john@gmail.com</p>
+              </div>
+              <div class="box">
+                <label>Country</label>
+                <p class="text">Spain</p>
+              </div>
+              <div class="box">
+                <label>City</label>
+                <p class="text">Barcelona</p>
+              </div>
+              <div class="box">
+                <label>Date</label>
+                <p class="text">21-March-2025</p>
+              </div>
+              <div class="box">
+                <label>Certification Status</label>
+                <p class="text">FIFA Certified</p>
+              </div>
+            </div>
+            <div class="row formFileds d-none">
               <div class="col-6">
                 <div class="form-group">
                   <label> Name</label>

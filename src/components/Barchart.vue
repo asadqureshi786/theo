@@ -17,6 +17,13 @@
         text: ''
       },
       tooltip: {},
+        grid: {
+    left: '0%',
+    right: '0%',
+    bottom: '0%',
+    top: '15%',
+    containLabel: true
+  },
       xAxis: {
         type: 'category',
         data: ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']

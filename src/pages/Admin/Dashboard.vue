@@ -148,7 +148,7 @@ export default {
       </div>
       <div class="right_column">
         <ThemeSwitcher />
-        <DatePicker v-model="date"  inline showWeek class="full-width w-full md:w-[100%] sm:w-[30rem]" />
+        <DatePicker v-model="date"  inline showWeek class="full-width w-full md:w-[100%] sm:w-[30rem] custom-datepicker" />
          
 
       </div>
@@ -193,7 +193,7 @@ export default {
           <div class="card-body">
             <div class="card_head mb-4 mt-1">
               <h5 class="hd">Recent Requests</h5>
-              <a href="#" class="link">See All</a>
+              <router-link to="all-request" href="#" class="link">See All</router-link>
             </div>
             <Requests :requestOthers="requestOthers" :requestsList="requestsList" />
           </div>

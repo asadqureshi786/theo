@@ -7,15 +7,15 @@
         <img :src="clubimg" class="profile_picture">
 
         <div class="middle">
-            <p class="name">{{ item.total_player }}</p>
+            <p class="name">{{ item.name }}</p>
             <div class="desc agent">
                 <label>Total Players:</label>
-                <p class="text">{{ item.current_transfer_record }}</p>
+                <p class="text">{{ item.total_player }}</p>
             </div>
             <div class="desc club">
                 <label>Current transfer record:</label>
                 <div class="club_img">
-                    <!-- <p class="text">{{ item.country }}</p> -->
+                    <p class="text">{{ item.current_transfer_record }}</p>
                 </div>
             </div>
         </div>

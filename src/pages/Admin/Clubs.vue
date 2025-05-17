@@ -43,41 +43,45 @@ export default {
       searchQuery: "",
       allClubs: [
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Manchester City',
+          total_player: "20",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'FC Barcelona',
+          total_player: "30",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Liverpool FC',
+          total_player: "40",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Manchester City',
+          total_player: "10",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Liverpool FC',
+          total_player: "20",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Manchester City',
+          total_player: "35",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
+          name : 'Liverpool FC',
+          total_player: "40",
+          current_transfer_record: "€-102.30m",
         },
         {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
-        },
-        {
-          total_player: "€-102.30m",
-          current_transfer_record: "Spain",
-        },
+          name : 'Manchester City',
+          total_player: "9",
+          current_transfer_record: "€-102.30m",
+        }
       ],
     };
   },

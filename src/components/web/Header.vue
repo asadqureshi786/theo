@@ -2,9 +2,9 @@
 
     <header>
         <div class="main_header" >
-            <a href="#home" class="logo">
+            <router-link to="home" class="logo">
                 <img :src="logo" class="img-fluid" alt="">
-            </a>
+            </router-link>
 
            
 

@@ -64,7 +64,7 @@
 
 <script>
 import logo from "@/assets/images/logo.png";
-import cover from "@/assets/images/login/Login3.jpg";
+import cover from "@/assets/images/login/login3.jpg";
 
 export default {
   name: "Signup",

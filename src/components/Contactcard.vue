@@ -74,54 +74,5 @@ export default {
 
 <style lang="scss">
 @import "../assets/style/assets.scss";
-.contact_card {
-  .main_parent {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 24px;
-    li {
-      .card {
-        border: 1.5px solid$border1;
-        .header {
-          border-bottom: 1.5px solid $border1;
-          margin: 15px 15px 0px 15px;
-          padding-bottom: 5px;
-        }
-        .list {
-          margin-block: 15px;
-          li{
-            margin-bottom: 10px;
-            &:last-child{
-                margin-bottom: 0px;
-            }
-            .item {
-              padding: 0px 18px;
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              .icon {
-                background: $primaryLight2;
-                width: 35px;
-                height: 35px;
-                border-radius: 100px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                i {
-                  color: #4a0d0c7a;
-                  font-size: 14px;
-                  font-weight:500
-                }
-              }
-              .text{
-                color:$light6;
-                font-size:13.5px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+
 </style>

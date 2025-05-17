@@ -2184,6 +2184,53 @@ header.protal_header .main_header .header_option .language .text {
   height: 10px;
 }
 
+.contact_card .main_parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 24px;
+}
+.contact_card .main_parent li .card {
+  border: 1.5px solid #D9D9D9;
+}
+.contact_card .main_parent li .card .header {
+  border-bottom: 1.5px solid #D9D9D9;
+  margin: 15px 15px 0px 15px;
+  padding-bottom: 5px;
+}
+.contact_card .main_parent li .card .list {
+  margin-block: 15px;
+}
+.contact_card .main_parent li .card .list li {
+  margin-bottom: 10px;
+}
+.contact_card .main_parent li .card .list li:last-child {
+  margin-bottom: 0px;
+}
+.contact_card .main_parent li .card .list li .item {
+  padding: 0px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact_card .main_parent li .card .list li .item .icon {
+  background: rgba(143, 3, 1, 0.0588235294);
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact_card .main_parent li .card .list li .item .icon i {
+  color: rgba(74, 13, 12, 0.4784313725);
+  font-size: 14px;
+  font-weight: 500;
+}
+.contact_card .main_parent li .card .list li .item .text {
+  color: #00001A;
+  font-size: 13.5px;
+}
+
 .login_page {
   display: grid;
   grid-template-columns: 1fr 1.5fr;

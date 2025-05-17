@@ -173,12 +173,44 @@
                     </ul>
                 </div>
                 <div class="header_option">
-                    <div class="nottification">  
+                    <div class="nottification nt_option" @click="showNotification = !showNotification" >  
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.979 2.91C9.66895 2.91 6.97895 5.6 6.97895 8.91V11.8C6.97895 12.41 6.71895 13.34 6.40895 13.86L5.25895 15.77C4.54895 16.95 5.03895 18.26 6.33895 18.7C10.649 20.14 15.2989 20.14 19.6089 18.7C20.8189 18.3 21.3489 16.87 20.6889 15.77L19.5389 13.86C19.2389 13.34 18.979 12.41 18.979 11.8V8.91C18.979 5.61 16.279 2.91 12.979 2.91Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round"/>
                             <path d="M14.829 3.2C14.519 3.11 14.199 3.04 13.869 3C12.909 2.88 11.989 2.95 11.129 3.2C11.419 2.46 12.139 1.94 12.979 1.94C13.819 1.94 14.539 2.46 14.829 3.2Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M15.979 19.06C15.979 20.71 14.629 22.06 12.979 22.06C12.159 22.06 11.399 21.72 10.859 21.18C10.319 20.64 9.979 19.88 9.979 19.06" stroke="#1E1E1E" stroke-miterlimit="10"/>
                         </svg>
+                        <div class="nottification_dropdown" :class="{'show_n' : showNotification == true}" >
+                            <div class="heading">
+                                <h4 class="hd" >Notifications</h4>
+                            </div>
+                            <div class="list">
+                                <ul class="">
+                                    <!-- <li>
+                                       <div class="item" >
+                                         <div class="rside">
+                                            <img :src="user1" />
+                                            <div>
+                                                <p class="name">Abdul Azi</p>
+                                                <p class="text">Lorem ipsum, dolor sit amet consectetur.</p>
+                                            </div>
+                                        </div>
+                                        <span class="time">1min ago</span>
+                                       </div>
+                                    </li> -->
+                                    <li v-for="noti in notifications" :key="noti.name" >
+                                       <div class="item item2" >
+                                         <div class="rside">
+                                            <img :src="user1" />
+                                            <div class="content" >
+                                                <p class="name">{{noti.name}} <span class="text">{{noti.text}}</span></p>
+                                                <div class="time">{{noti.time}}</div>
+                                            </div>
+                                        </div>
+                                       </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="language">     
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,6 +247,57 @@ export default {
                 logo: logo,
                 user1: user1,
                 texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
+                showNotification : false,
+                notifications : [
+                     {
+                        img: user1,
+                        name: 'Eoin Morgan',
+                        text: 'Lorem ipsum, dolor sit amet consectetur.',
+                        time: '10m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Sarah Taylor',
+                        text: 'Just finished an amazing match!',
+                        time: '15m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'James Anderson',
+                        text: 'Training hard every day. No excuses!',
+                        time: '20m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Katherine Brunt',
+                        text: 'Focus, passion, and a lot of sweat.',
+                        time: '25m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Joe Root',
+                        text: 'Proud of the team’s performance today!',
+                        time: '30m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Heather Knight',
+                        text: 'Rest day before the big game tomorrow.',
+                        time: '35m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Ben Stokes',
+                        text: 'Great energy from the crowd!',
+                        time: '40m ago',
+                    },
+                    {
+                        img: user1,
+                        name: 'Anya Shrubsole',
+                        text: 'Victory tastes even better with teamwork.',
+                        time: '45m ago',
+                    }
+                ]
         }
     },
      computed: {

@@ -25,6 +25,7 @@ export default {
     return {
       banner1,
       banner2,
+      addRequest : false,
       user: user,
       dateValue : '',
       timeImg: time,
@@ -50,6 +51,7 @@ export default {
           count: "2140",
           label: "Total Players",
           percent: "3.46",
+          width:'28px',
         },
       ],
 
@@ -110,7 +112,7 @@ export default {
               <p class="text">
                 Scout talent, finalize deals, and move your players strategically
               </p>
-              <button class="btn btn-primary">Propose Players</button>
+              <button class="btn btn-primary" @click="addRequest = true" >Requests Players</button>
               <img :src="banner2" alt="" class="img_right img-fluid" />
             </div>
           </div>
@@ -123,7 +125,7 @@ export default {
                       <div class="top">
                         <div class="rside">
                           <div class="circle">
-                            <img :src="items.img" alt="" />
+                            <img :src="items.img" :style="`width: ${items.width ? items.width : ''}`" alt="" />
                           </div>
                           <span class="bottomText">
                             <i class="pi pi-arrow-up-right"></i>
@@ -217,6 +219,112 @@ export default {
     </div>
 
   </div>
+
+
+  <!-- Add Request Modal Section Start -->
+  <Dialog
+    v-model:visible="addRequest"
+    maximizable
+    modal
+    header="Add Request"
+    :style="{ width: '40rem' }"
+    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <form>
+      <!-- Corrected from 'from' to 'form' -->
+      <div class="row formFileds">
+        <div class="col-12">
+          <div class="form-group">
+            <label> Job Title</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Country</label>
+            <!-- <input type="text" class="form-control" /> -->
+            <div class="d_select">
+              <Select
+                v-model="selectedCountry"
+                editable
+                :options="countries"
+                optionLabel="name"
+                placeholder="Select a City"
+                class="w-full"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> League</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Club</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Main Position</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Other Position</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Age Reference</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Name</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label> Email</label>
+            <input type="email" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label> Additional Information</label>
+            <textarea type="email" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 modal_footer">
+        <Button
+          type="button"
+          class="btn btn-secondary"
+          label="Cancel"
+          severity="secondary"
+          @click="addRequest = false"
+          >Cancel</Button
+        >
+        <Button
+          type="button"
+          class="btn btn-primary"
+          label="Save"
+          @click="addRequest = false"
+          >Add</Button
+        >
+      </div>
+    </form>
+  </Dialog>
+  <!-- Add Request Modal Section End -->
+
 
 </template>
 

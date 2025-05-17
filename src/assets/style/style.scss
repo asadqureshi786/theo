@@ -1084,7 +1084,7 @@ header {
                     align-items: center;
 
                     img {
-                        width: 16px;
+                        width: 20px;
                     }
                 }
 
@@ -2036,6 +2036,7 @@ header {
                             i {
                                 color: $silverCol;
                                 font-size: 18px;
+                                transition: 0.2s all linear;
                             }
 
                             &.rotate {
@@ -2049,6 +2050,18 @@ header {
                             color: $silverCol;
                             font-size: 13px;
                             font-weight: 400;
+                            transition:0.2s all linear;
+                        }
+                        &.action_social{
+                            transition:0.2s all linear;
+                            &:hover{
+                                span{
+                                    color:$primaryCol;
+                                }
+                                i{
+                                    color:$primaryCol;
+                                }
+                            }
                         }
                     }
                 }
@@ -2534,6 +2547,194 @@ header {
 }
 // Contact Card SASS End
 
+// Notification Dropdown SASS Start
+.nt_option{
+    position: relative;
+    cursor:pointer;
+    .nottification_dropdown{
+        transform: scale(0);
+        transition: 0.2s all linear;
+        transform-origin: top right;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        position:absolute;
+        top:30px;
+        right:0;
+        background:#fff;
+        // border:1px solid $cardBorder;
+        border-radius:8px;
+        width: 330px;
+        .heading{
+            padding:20px;
+            border-bottom:1px solid $cardBorder;
+            .hd{
+                font-size:16px;
+                font-weight: 600;
+            }
+        }
+        .list{
+            padding:20px 20px;
+            max-height: 500px;
+            overflow: auto;
+              &::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $primaryLight;
+                border-radius: 100px;
+            }
+            ul{
+                li{
+                    margin-bottom:15px;
+                    &:last-child{
+                        margin-bottom:0px;
+                    }
+                    .item{
+                        position: relative;
+                        cursor:pointer;
+                        .rside{
+                            display: flex;
+                            align-items:start;
+                            gap:10px;
+                            img{
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 100px;
+                            }
+                            .name{
+                                font-size:13px;
+                                font-weight: bold;
+                            }
+                            .text{
+                                font-size:12px;
+                                font-weight: 400;
+                                color:#525252;
+                            }
+                        }
+                        .time{
+                            font-size: 10px;
+                            text-wrap: nowrap;
+                            color:silver;
+                            position: absolute;
+                            top:0.3px;
+                            right:0;
+                        }
+                        &.item2{
+                            .content{
+                                .name{
+                                    text-wrap: auto;
+                                }
+                                .name , .text{
+                                    font-size: 13px;
+
+                                }
+                                .time{
+                                    position: unset;
+                                    color:$silverCol;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .show_n{
+        transform:scale(1);
+    }
+}
+// Notification Dropdown SASS End
+
+// Comment List SASS Start
+.comment_box{
+    .send{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        right:15px;
+        cursor: pointer;
+        i{
+            color:$primaryText3;
+        }
+    }
+}
+.comment_list{
+    margin-top:20px;
+    border:1px solid $primaryLightBorder2;
+    padding:20px 20px 30px 20px;
+    border-radius:8px;
+    .head{
+        display: flex;
+        align-items: center;
+        margin-bottom:20px;
+        gap:10px;
+        .title{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .count{
+            background-color: $primaryCol;
+            color:#fff;
+            border-radius:100px;
+            border-radius:100px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+           width: 32px;
+            height: 20px;
+            font-size: 11px;
+        }
+    }
+    .list{
+       .comment{
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+        .item{
+            .info{
+                display:flex;
+                align-items: start;
+                gap:13px;
+                .m_sec{
+                    position: relative;
+                    top:5px;
+                }
+                img{
+                    width:35px;
+                    height:35px;
+                    border-radius: 100px;
+                }
+                .name{
+                    font-size:14px;
+                    font-weight:600;
+                    display: flex;
+                    align-items:center;
+                    gap:8px;
+                    
+                }
+                .msg{
+                    font-size:13px;
+                    font-weight:400!important;
+                    padding-top:6px;
+                }
+                .time{
+                    font-size:11px;
+                    font-weight:400;
+                    color:$ltext;
+                    letter-spacing: -0.6px;
+                }
+            }
+          }
+       } 
+    }
+}
+// Comment List SASS End
+
 // Login Page SASS Start
 .login_page{
     display: grid;
@@ -2632,3 +2833,7 @@ header {
 
 }
 // Login Page SASS End
+
+.inputError{
+    border-color:red!important;
+}

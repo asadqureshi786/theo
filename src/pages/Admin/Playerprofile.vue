@@ -64,7 +64,7 @@
                             <label class="" >Contract Expire Date : </label>
                             <span class="" >13 / Apr / 2028</span>
                         </div>
-                        <div class="invite_link">
+                        <div class="invite_link d-none">
                             <span class="icon"><i class="pi pi-paperclip" ></i></span>
                             <span class="text">Invite Link</span>
                         </div>

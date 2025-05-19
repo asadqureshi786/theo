@@ -2,7 +2,7 @@
     <div class="legal_update">
         <!-- Page Header Start -->
         <div class="page_header">
-            <h3 class="hd">Lagal Update</h3>
+            <h3 class="hd">Legal Update</h3>
             <div class="r_side">
                 <button class="btn btn-primary" @click="addUpdate = 'true'">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">

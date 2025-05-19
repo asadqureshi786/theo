@@ -10,6 +10,9 @@
           <p class="last_seen">Last seend 45 min ago</p>
         </div>
       </div>
+      <div class="whatsApp_icon">
+        <i class="pi pi-whatsapp" ></i>
+      </div>
     </div>
 
     <ul class="msg_list">

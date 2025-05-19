@@ -76,38 +76,12 @@
     <Documents class="" />
     <!-- Documents Section Start -->
 
-    <!-- All Players Squad Section Start -->
-    <div class="d-flex mt-5 justify-content-between align-items-center">
-      <div class="light_head ">Players  <!-- Correct usage --> </div>
-      <div class="tabs_header_cs">
-        <button
-          v-for="(tab, index) in tabs"
-          :key="index"
-          @click="activeTab = index"
-          :class="{ active: activeTab === index }"
-        >
-          {{ tab }}
-        </button>
-      </div>
-    </div>
-    <div class="tab-content mt-4">
-      <div v-if="activeTab === 0">
-        <Dynamictable :t_head="player_head" :t_body="player_body" />
-      </div>
-      <div v-if="activeTab === 1">
-         <Dynamictable :t_head="player_head" :t_body="player_body" />
-      </div>
-      <div v-if="activeTab === 2">
-         <Dynamictable :t_head="player_head" :t_body="player_body" />
-      </div>
-      <div v-if="activeTab === 3">
-         <Dynamictable :t_head="player_head" :t_body="player_body" />
-      </div>
-      <div v-if="activeTab === 4">
-         <Dynamictable :t_head="player_head" :t_body="player_body" />
-      </div>
-    </div>
-    <!-- All Players Squad Section End -->
+        <!-- Table Section Start -->
+    <div class="light_head mb-3 mt-5">Players</div>
+    <Dynamictable :t_head="player_head" :t_body="player_body" />
+    <!-- Table Section Start -->
+
+
 
 
 
@@ -200,8 +174,7 @@ export default {
       frLogo : frLogo,
       clubImg: clubimg,
       AddContact : false,
-      activeTab: 0,
-      tabs: ["All", "My Squad", "Followed", "Approached", "Accepted"],
+    
       player_head: [
         {
           key: "checkbox",

@@ -2216,6 +2216,9 @@ header {
     .header {
         border-bottom: 1px solid $cardBorder;
         padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
         // border-left: 1px solid $cardBorder;
 
         .info {
@@ -2256,6 +2259,19 @@ header {
                 color: $light6;
                 font-weight: 400;
                 font-size: 11.5px;
+            }
+        }
+        .whatsApp_icon{
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height:40px;
+            border-radius: 100px;
+            i{
+                color:#fff;
+                font-size: 20px;
             }
         }
     }
@@ -2876,23 +2892,53 @@ header {
     border-color:red!important;
 }
 
+@media only screen and (min-width: 768px) {
+    .mobile_menu_icon{
+        display: none;
+    }
+    
+}
+
 @media only screen and (max-width: 768px) {
     .main_header{
         position: relative;
         .nav_links{
-            ul{
                 position: absolute;
-                flex-direction: column;
                 left: 0;
                 top: 53px;
                 width: 100%;
                 align-items: baseline;
                 background: white;
-                align-items: start!important;
                 border-radius: 0px 0px 8px 8px;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-                padding: 20px!important;
+                // max-height: 0px;
+                height: 0px;
+                // overflow: hidden;
+                transition: 0.2s all linear;
+                &.show{
+                    // max-height: ;
+                    height:100%;
+                    // overflow: auto;
+                }
+                ul{
+                    padding: 15px!important;
+                    align-items: start!important;
+                    flex-direction: column;
+                li{
+                    width:100%;
+                    .nav_item{
+                        .icon{
+                            position: absolute;
+                            right:10px;
+                            top:56%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
             }
+        }
+        .mobile_menu_icon{
+            cursor: pointer;
         }
     }
 }

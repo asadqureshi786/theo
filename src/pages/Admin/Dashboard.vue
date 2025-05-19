@@ -165,7 +165,7 @@ export default {
         <div class="card">
           <div class="card-body">
             <div class="card_head b_bottom">
-              <h5 class="hd">Player Stats</h5>
+              <h5 class="hd">Total Sales</h5>
               <div class="box_icon">
                 <i class="pi pi-calendar"></i>
               </div>
@@ -178,7 +178,7 @@ export default {
         <div class="card">
           <div class="card-body">
             <div class="card_head b_bottom">
-              <h5 class="hd">Player Stats</h5>
+              <h5 class="hd">Deal Status</h5>
               <div class="box_icon">
                 <i class="pi pi-calendar"></i>
               </div>
@@ -208,7 +208,7 @@ export default {
         <div class="card">
           <div class="card-body">
             <div class="card_head b_bottom">
-              <h5 class="hd">Player Stats</h5>
+              <h5 class="hd">Players Stats </h5>
               <div class="box_icon">
                 <i class="pi pi-calendar"></i>
               </div>

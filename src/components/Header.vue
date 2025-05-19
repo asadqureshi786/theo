@@ -66,33 +66,18 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link :to="currentPath == '/all-request' ? 'all-request' : 'players'" class="nav_item has_dropdown" exact active-class="active" >
-    
-                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M8.11287 9.05833C8.02954 9.05 7.92954 9.05 7.83787 9.05833C5.85454 8.99167 4.27954 7.36667 4.27954 5.36667C4.27954 3.325 5.92954 1.66667 7.97954 1.66667C10.0212 1.66667 11.6795 3.325 11.6795 5.36667C11.6712 7.36667 10.0962 8.99167 8.11287 9.05833Z"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M14.1545 3.33333C15.7712 3.33333 17.0712 4.64167 17.0712 6.25C17.0712 7.825 15.8212 9.10833 14.2629 9.16667C14.1962 9.15833 14.1212 9.15833 14.0462 9.16667"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M3.94622 12.1333C1.92955 13.4833 1.92955 15.6833 3.94622 17.025C6.23788 18.5583 9.99622 18.5583 12.2879 17.025C14.3045 15.675 14.3045 13.475 12.2879 12.1333C10.0045 10.6083 6.24622 10.6083 3.94622 12.1333Z"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M15.7629 16.6667C16.3629 16.5417 16.9295 16.3 17.3962 15.9417C18.6962 14.9667 18.6962 13.3583 17.3962 12.3833C16.9379 12.0333 16.3795 11.8 15.7879 11.6667"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-    
-                                <span class="text"> {{currentPath == '/all-request' ? 'All Requests' : 'Players'}} </span>
-                                <span class="icon"><i class="pi pi-angle-down"></i></span>
-                                <div class="header_dropdown">
-                                    <router-link :to="currentPath == '/players' ? 'all-request' : 'players'" class="nav_item"   >
-                                         <i class="pi pi-user" ></i>
-                                        {{currentPath == '/players' ? 'All Requests' : 'Players'}}
-                                    </router-link>
-                                </div>
-                            </router-link>
+                        <router-link :to="isAllRequest ? 'all-request' : 'players'" class="nav_item has_dropdown" exact active-class="active">
+  <!-- SVG code here -->
+  <span class="text"> {{ isAllRequest ? 'All Requests' : 'Players' }} </span>
+  <span class="icon"><i class="pi pi-angle-down"></i></span>
+
+  <div class="header_dropdown">
+    <router-link :to="isAllRequest ? 'players' : 'all-request'" class="nav_item">
+      <i class="pi pi-user"></i>
+      {{ isAllRequest ? 'Players' : 'All Requests' }}
+    </router-link>
+  </div>
+</router-link>
                         </li>
                         <li>
                             <router-link to="legal-updates" exact active-class="active"  class="nav_item">
@@ -306,11 +291,14 @@ export default {
                 ]
         }
     },
-     computed: {
-    currentPath() {
-      return this.$route.path.slice(this.$route.path.lastIndexOf('/'));
-    },
+  computed: {
+  currentPath() {
+    return this.$route.path; // Pure path return karo
   },
+  isAllRequest() {
+    return this.$route.path === '/all-request';
+  }
+}
 }
 </script>
 

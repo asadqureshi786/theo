@@ -5,6 +5,7 @@ import user from "@/assets/images/users/user1.png";
 import time from "@/assets/images/time.png";
 import profile from "@/assets/images/profile.png";
 import group from "@/assets/images/group.png";
+import {countries} from "@/components/Countrylist.js"
 
 // Charts
 import Donut from "@/components/Donut.vue";
@@ -26,6 +27,7 @@ export default {
       banner1,
       banner2,
       addRequest : false,
+      countries : countries,
       user: user,
       dateValue : '',
       timeImg: time,

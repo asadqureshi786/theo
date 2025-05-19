@@ -66,18 +66,16 @@
                             </router-link>
                         </li>
                         <li>
-                        <router-link :to="isAllRequest ? 'all-request' : 'players'" class="nav_item has_dropdown" exact active-class="active">
-  <!-- SVG code here -->
-  <span class="text"> {{ isAllRequest ? 'All Requests' : 'Players' }} </span>
-  <span class="icon"><i class="pi pi-angle-down"></i></span>
+                            <router-link to=""  class="nav_item has_dropdown" exact active-class="active">
+                                <!-- SVG code here -->
+                                <span class="text"> Players</span> 
+                                <span class="icon"><i class="pi pi-angle-down"></i></span>
 
-  <div class="header_dropdown">
-    <router-link :to="isAllRequest ? 'players' : 'all-request'" class="nav_item">
-      <i class="pi pi-user"></i>
-      {{ isAllRequest ? 'Players' : 'All Requests' }}
-    </router-link>
-  </div>
-</router-link>
+                                <div class="header_dropdown">
+                                    <router-link to="players" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
+                                    <router-link to="all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
+                                </div>
+                            </router-link>
                         </li>
                         <li>
                             <router-link to="legal-updates" exact active-class="active"  class="nav_item">
@@ -291,14 +289,11 @@ export default {
                 ]
         }
     },
-  computed: {
-  currentPath() {
-    return this.$route.path; // Pure path return karo
-  },
-  isAllRequest() {
-    return this.$route.path === '/all-request';
-  }
-}
+    computed: {
+    currentPath() {
+        return this.$route.path.slice(this.$route.path.lastIndexOf('/')); // Pure path return karo
+    },
+    }
 }
 </script>
 

@@ -896,20 +896,30 @@ header {
                                     opacity: 0;
                                     visibility: hidden;
                                     position: absolute;
-                                    bottom: -35PX;
+                                    bottom: -88px;
                                     left: 0;
                                     background: #fff;
                                     width: 180px;
                                     transition: 0.2s all linear;
-
+                                        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+                                        border-radius: 4px;
+                                           padding: 10px;
                                     // padding: 5px;
                                     .nav_item {
                                         display: flex;
                                         font-size: 12px;
                                         align-items: center;
-                                        // border:1px solid $border1;
-                                        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-                                        border-radius: 4px;
+                                        padding:0px;
+                                        padding:6px 12px;
+                                        // &.router-link-active{
+                                        // }
+
+                                        &.active{
+                                                background: linear-gradient(180deg, rgba(143, 3, 1, 0.9) 58.17%, rgba(74, 13, 12, 0.9) 100%);
+                                                transition: 0.5s all linear;
+                                                color: #fff;
+                                        }
+
 
                                         i {
                                             font-size: 12px;

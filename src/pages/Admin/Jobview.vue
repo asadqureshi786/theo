@@ -29,7 +29,7 @@
                 </div>
                 <div class="main">
                   <div class="d-flex align-items-center gap-4">
-                    <p class="text f19 black fw5">LeagueL Liga</p>
+                    <p class="text f19 black fw5">League Liga</p>
                     <p class="text f19 black fw5">Club Al Nasar</p>
                   </div>
                   <div class="d-flex align-items-center gap-2">

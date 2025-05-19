@@ -66,9 +66,9 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to=""  class="nav_item has_dropdown" exact active-class="active">
+                            <router-link to=""  class="nav_item has_dropdown" :class="(currentPath == '/all-request' || currentPath == '/players') ? 'active' : ''" >
                                 <!-- SVG code here -->
-                                <span class="text"> Players</span> 
+                                <span class="text"> Players  </span> 
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
 
                                 <div class="header_dropdown">

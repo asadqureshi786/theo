@@ -2526,4 +2526,23 @@ header.protal_header .main_header .header_option .language .text {
 
 .inputError {
   border-color: red !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .main_header {
+    position: relative;
+  }
+  .main_header .nav_links ul {
+    position: absolute;
+    flex-direction: column;
+    left: 0;
+    top: 53px;
+    width: 100%;
+    align-items: baseline;
+    background: white;
+    align-items: start !important;
+    border-radius: 0px 0px 8px 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    padding: 20px !important;
+  }
 }/*# sourceMappingURL=style.css.map */

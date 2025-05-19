@@ -105,7 +105,6 @@
       <div class="box_grid">
         <Playercard :searchQuery="searchQuery" :allPlayers="allPlayers" />
 
-        {{ showMd ? "Run" : "Not Run" }}
       </div>
     </div>
   </div>

@@ -116,7 +116,7 @@
           <div class="card-body">
             <Sideplayers playerHeading="Recent Request" />
             <div class="mt-4"></div>
-            <Newsfeed playerHeading="Newsfeed" />
+            <Newsfeed playerHeading="Legal Updates" />
           </div>
         </div>
       </div>

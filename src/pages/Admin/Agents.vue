@@ -13,6 +13,7 @@
             v-model="searchQuery"
           />
         </div>
+        <button class="btn btn-secondary icon"><i class="pi pi-paperclip" ></i>Invite Link</button>
         <button class="btn btn-primary" @click="showAgent = 'true'">
           <svg
             width="13"
@@ -49,7 +50,7 @@
   
           Add Agent
         </button>
-        <button class="btn btn-secondary icon"><i class="pi pi-paperclip" ></i>Invite Link</button>
+        
    
       </div>
     </div>

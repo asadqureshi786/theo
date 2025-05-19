@@ -2548,10 +2548,10 @@ header {
 // Contact Card SASS End
 
 // Notification Dropdown SASS Start
-.nt_option{
+.customDropdwon{
     position: relative;
     cursor:pointer;
-    .nottification_dropdown{
+    .option_dropdown{
         transform: scale(0);
         transition: 0.2s all linear;
         transform-origin: top right;
@@ -2562,7 +2562,6 @@ header {
         background:#fff;
         // border:1px solid $cardBorder;
         border-radius:8px;
-        width: 330px;
         .heading{
             padding:20px;
             border-bottom:1px solid $cardBorder;
@@ -2642,6 +2641,32 @@ header {
                 }
             }
         }
+        &.nottification_dropdown{
+            width: 330px;
+        }
+        &.profile_dropdown{
+            top:43px;
+            .logout{
+                display:flex;
+                align-items:center;
+                gap:10px;
+                font-size: 12px;
+                color:$ltext;
+                font-weight: 500;
+                text-decoration: none;
+                transition: 0.2s all linear;
+                margin:5px;
+                padding: 5px 13px;
+                border-radius: 8px;
+
+                i{
+                    font-size:13px;
+                }
+                &:hover{
+                    background: $primaryLight;
+                }
+            }
+        }
     }
     .show_n{
         transform:scale(1);
@@ -2660,6 +2685,9 @@ header {
         i{
             color:$primaryText3;
         }
+    }
+    input{
+        padding-right:40px!important;
     }
 }
 .comment_list{

@@ -173,13 +173,13 @@
                     </ul>
                 </div>
                 <div class="header_option">
-                    <div class="nottification nt_option" @click="showNotification = !showNotification" >  
+                    <div class="nottification customDropdwon" @click="showNotification = !showNotification" >  
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.979 2.91C9.66895 2.91 6.97895 5.6 6.97895 8.91V11.8C6.97895 12.41 6.71895 13.34 6.40895 13.86L5.25895 15.77C4.54895 16.95 5.03895 18.26 6.33895 18.7C10.649 20.14 15.2989 20.14 19.6089 18.7C20.8189 18.3 21.3489 16.87 20.6889 15.77L19.5389 13.86C19.2389 13.34 18.979 12.41 18.979 11.8V8.91C18.979 5.61 16.279 2.91 12.979 2.91Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round"/>
                             <path d="M14.829 3.2C14.519 3.11 14.199 3.04 13.869 3C12.909 2.88 11.989 2.95 11.129 3.2C11.419 2.46 12.139 1.94 12.979 1.94C13.819 1.94 14.539 2.46 14.829 3.2Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M15.979 19.06C15.979 20.71 14.629 22.06 12.979 22.06C12.159 22.06 11.399 21.72 10.859 21.18C10.319 20.64 9.979 19.88 9.979 19.06" stroke="#1E1E1E" stroke-miterlimit="10"/>
                         </svg>
-                        <div class="nottification_dropdown" :class="{'show_n' : showNotification == true}" >
+                        <div class="option_dropdown nottification_dropdown" :class="{'show_n' : showNotification == true}" >
                             <div class="heading">
                                 <h4 class="hd" >Notifications</h4>
                             </div>
@@ -218,8 +218,13 @@
                         </svg>
                         <div class="text" >EN <span class="icon"><i class="pi pi-angle-down"></i></span></div>
                     </div>
-                    <div class="profile">
+                    <div class="profile customDropdwon" @click="showProfile = !showProfile" >
                         <img :src="user1" class="img-fluid" alt="">
+                        <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
+                            <router-link to="/login" class="logout">
+                                <i class="pi pi-sign-out" ></i>Logout
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,6 +253,7 @@ export default {
                 user1: user1,
                 texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
                 showNotification : false,
+                showProfile : false,
                 notifications : [
                      {
                         img: user1,

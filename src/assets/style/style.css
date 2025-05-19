@@ -2242,11 +2242,11 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 13.5px;
 }
 
-.nt_option {
+.customDropdwon {
   position: relative;
   cursor: pointer;
 }
-.nt_option .nottification_dropdown {
+.customDropdwon .option_dropdown {
   transform: scale(0);
   transition: 0.2s all linear;
   transform-origin: top right;
@@ -2256,61 +2256,60 @@ header.protal_header .main_header .header_option .language .text {
   right: 0;
   background: #fff;
   border-radius: 8px;
-  width: 330px;
 }
-.nt_option .nottification_dropdown .heading {
+.customDropdwon .option_dropdown .heading {
   padding: 20px;
   border-bottom: 1px solid #E2E8F0;
 }
-.nt_option .nottification_dropdown .heading .hd {
+.customDropdwon .option_dropdown .heading .hd {
   font-size: 16px;
   font-weight: 600;
 }
-.nt_option .nottification_dropdown .list {
+.customDropdwon .option_dropdown .list {
   padding: 20px 20px;
   max-height: 500px;
   overflow: auto;
 }
-.nt_option .nottification_dropdown .list::-webkit-scrollbar {
+.customDropdwon .option_dropdown .list::-webkit-scrollbar {
   width: 3px;
 }
-.nt_option .nottification_dropdown .list::-webkit-scrollbar-track {
+.customDropdwon .option_dropdown .list::-webkit-scrollbar-track {
   background-color: #fff;
 }
-.nt_option .nottification_dropdown .list::-webkit-scrollbar-thumb {
+.customDropdwon .option_dropdown .list::-webkit-scrollbar-thumb {
   background-color: rgba(143, 3, 1, 0.0392156863);
   border-radius: 100px;
 }
-.nt_option .nottification_dropdown .list ul li {
+.customDropdwon .option_dropdown .list ul li {
   margin-bottom: 15px;
 }
-.nt_option .nottification_dropdown .list ul li:last-child {
+.customDropdwon .option_dropdown .list ul li:last-child {
   margin-bottom: 0px;
 }
-.nt_option .nottification_dropdown .list ul li .item {
+.customDropdwon .option_dropdown .list ul li .item {
   position: relative;
   cursor: pointer;
 }
-.nt_option .nottification_dropdown .list ul li .item .rside {
+.customDropdwon .option_dropdown .list ul li .item .rside {
   display: flex;
   align-items: start;
   gap: 10px;
 }
-.nt_option .nottification_dropdown .list ul li .item .rside img {
+.customDropdwon .option_dropdown .list ul li .item .rside img {
   width: 40px;
   height: 40px;
   border-radius: 100px;
 }
-.nt_option .nottification_dropdown .list ul li .item .rside .name {
+.customDropdwon .option_dropdown .list ul li .item .rside .name {
   font-size: 13px;
   font-weight: bold;
 }
-.nt_option .nottification_dropdown .list ul li .item .rside .text {
+.customDropdwon .option_dropdown .list ul li .item .rside .text {
   font-size: 12px;
   font-weight: 400;
   color: #525252;
 }
-.nt_option .nottification_dropdown .list ul li .item .time {
+.customDropdwon .option_dropdown .list ul li .item .time {
   font-size: 10px;
   text-wrap: nowrap;
   color: silver;
@@ -2318,17 +2317,42 @@ header.protal_header .main_header .header_option .language .text {
   top: 0.3px;
   right: 0;
 }
-.nt_option .nottification_dropdown .list ul li .item.item2 .content .name {
+.customDropdwon .option_dropdown .list ul li .item.item2 .content .name {
   text-wrap: auto;
 }
-.nt_option .nottification_dropdown .list ul li .item.item2 .content .name, .nt_option .nottification_dropdown .list ul li .item.item2 .content .text {
+.customDropdwon .option_dropdown .list ul li .item.item2 .content .name, .customDropdwon .option_dropdown .list ul li .item.item2 .content .text {
   font-size: 13px;
 }
-.nt_option .nottification_dropdown .list ul li .item.item2 .content .time {
+.customDropdwon .option_dropdown .list ul li .item.item2 .content .time {
   position: unset;
   color: #8B8F92;
 }
-.nt_option .show_n {
+.customDropdwon .option_dropdown.nottification_dropdown {
+  width: 330px;
+}
+.customDropdwon .option_dropdown.profile_dropdown {
+  top: 43px;
+}
+.customDropdwon .option_dropdown.profile_dropdown .logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(16, 24, 40, 0.6980392157);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s all linear;
+  margin: 5px;
+  padding: 5px 13px;
+  border-radius: 8px;
+}
+.customDropdwon .option_dropdown.profile_dropdown .logout i {
+  font-size: 13px;
+}
+.customDropdwon .option_dropdown.profile_dropdown .logout:hover {
+  background: rgba(143, 3, 1, 0.0392156863);
+}
+.customDropdwon .show_n {
   transform: scale(1);
 }
 
@@ -2341,6 +2365,9 @@ header.protal_header .main_header .header_option .language .text {
 }
 .comment_box .send i {
   color: rgba(143, 3, 1, 0.5411764706);
+}
+.comment_box input {
+  padding-right: 40px !important;
 }
 
 .comment_list {

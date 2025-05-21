@@ -171,7 +171,7 @@
                     </ul>
                 </div>
                 <div class="header_option">
-                    <div class="nottification customDropdwon" @click="showNotification = !showNotification" >  
+                    <div class="nottification customDropdwon" @click="showNotification = !showNotification , showProfile = false" >  
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.979 2.91C9.66895 2.91 6.97895 5.6 6.97895 8.91V11.8C6.97895 12.41 6.71895 13.34 6.40895 13.86L5.25895 15.77C4.54895 16.95 5.03895 18.26 6.33895 18.7C10.649 20.14 15.2989 20.14 19.6089 18.7C20.8189 18.3 21.3489 16.87 20.6889 15.77L19.5389 13.86C19.2389 13.34 18.979 12.41 18.979 11.8V8.91C18.979 5.61 16.279 2.91 12.979 2.91Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round"/>
                             <path d="M14.829 3.2C14.519 3.11 14.199 3.04 13.869 3C12.909 2.88 11.989 2.95 11.129 3.2C11.419 2.46 12.139 1.94 12.979 1.94C13.819 1.94 14.539 2.46 14.829 3.2Z" stroke="#1E1E1E" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -210,13 +210,15 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="language">     
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.959 1C13.4603 3.73835 14.8817 7.29203 14.959 11C14.8817 14.708 13.4603 18.2616 10.959 21M10.959 1C8.4577 3.73835 7.03623 7.29203 6.95898 11C7.03623 14.708 8.4577 18.2616 10.959 21M10.959 1C5.43614 1 0.958984 5.47715 0.958984 11C0.958984 16.5228 5.43614 21 10.959 21M10.959 1C16.4818 1 20.959 5.47715 20.959 11C20.959 16.5228 16.4818 21 10.959 21M1.459 8H20.459M1.45898 14H20.459" stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         <div class="text" >EN <span class="icon"><i class="pi pi-angle-down"></i></span></div>
                     </div>
-                    <div class="profile customDropdwon" @click="showProfile = !showProfile" >
+
+                    <div class="profile customDropdwon" @click="showProfile = !showProfile , showNotification = false" >
                         <img :src="user1" class="img-fluid" alt="">
                         <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
                             <router-link to="/login" class="logout">
@@ -228,12 +230,7 @@
                     <div class="mobile_menu_icon" @click="showMenu = !showMenu" >
                         <i class="pi pi-bars"></i>
                     </div>
-
-
                 </div>
-
-               
-
             </div>
         </div>
     </header>

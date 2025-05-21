@@ -24,6 +24,10 @@ const routes = [
         component: DefaultLayout,
         children : [
             {
+                path : '',
+                component : Dashboard,
+            },
+            {
                 path : 'dashboard',
                 component : Dashboard,
             },
@@ -79,7 +83,7 @@ const routes = [
     },
     {
         path: '/',
-        name: 'home',
+        name: '',
         component: Home,
     },
     {

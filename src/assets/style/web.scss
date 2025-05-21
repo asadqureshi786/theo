@@ -556,6 +556,23 @@
         }
       }
     }
+
+        .language {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    .text {
+                        font-size: 11px;
+                        display: flex;
+                        align-items: center;
+                        
+                        span{
+                          position: relative;
+                          top:1.1px;
+                        }
+                    }
+                }
   }
 
   // Footer SASS End

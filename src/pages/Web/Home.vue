@@ -17,7 +17,7 @@
             
             <div class="row justify-content-center">
                 <div class="col-md-9">
-                    <img class="img-fluid" data-aos="fade-up"   data-aos-duration="2000" :src="BannerImg" alt="">
+                    <img class="img-fluid" data-aos="fade-up"   data-aos-duration="2000" :src="french == true ? frenchImg : BannerImg" alt=""> 
                 </div>
             </div>
         </div>
@@ -96,16 +96,16 @@
 
         <div class="start_managing">
             <div class="container">
-                <h1 class="hd" data-aos="fade-up" data-aos-duration="1500" >Start Managing Your Players Today</h1>
+                <h1 class="hd" data-aos="fade-up" data-aos-duration="1500" >{{ $t('s3_m_hd') }}</h1>
                 <div class="content">
-                    <p class="text" data-aos="fade-up" data-aos-duration="1700" >Get full access to your agency tools with a THEO subscription.</p>
-                        <p class="text" data-aos="fade-up" data-aos-duration="1900" > Stay in the loop. Drop your email & get early updates.</p>
+                    <p class="text" data-aos="fade-up" data-aos-duration="1700" >{{ $t('s3_text1') }}</p>
+                        <p class="text" data-aos="fade-up" data-aos-duration="1900" >{{ $t('s3_text2') }}</p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-4">
                         <div class="coming_notify" data-aos="fade-up" data-aos-duration="2100" >
-                            <input type="email" placeholder="Email"  class="form-control" >
-                        <button class="btn btn-white"   > Notify Me</button>
+                            <input type="email" :placeholder="$t('email')"   class="form-control" >
+                        <button class="btn btn-white">{{ $t('notify_me') }}</button>
 
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="from-group">
                                         <label for="">
-                                            Email
+                                            {{ $t('email') }}
                                         </label>
                                         <input type="text" class="form-control" placeholder="example@gmail.com" >
                                     </div>
@@ -192,7 +192,7 @@
             </div>
         </div>
 
-        <Footer/>
+        <Footer :handleInteraction="handleInteraction" />
 
 
    </div>
@@ -206,6 +206,7 @@ import Plans from "@/components/web/Plans.vue";
 
 // Images
 import BannerImg from "@/assets/images/web/banner.png"
+import frenchImg from "@/assets/images/web/french.png"
 import sideImage1 from "@/assets/images/web/sideImage1.png"
 import Star from "@/assets/images/web/star.png"
 
@@ -224,12 +225,34 @@ import Star from "@/assets/images/web/star.png"
             return(
                 {
                     BannerImg : BannerImg,
+                    french : false,
+                    frenchImg : frenchImg,
                     sideImage1 : sideImage1,
                     Star : Star,
                     visible: false,
+                    language : '',
                 }
             )
+        },
+
+        mounted() {
+             document.addEventListener("click", this.handleInteraction);
+        },
+
+       methods: {
+        handleInteraction() {
+        console.log(localStorage.getItem("lang"));
+        console.log("running");
+        this.language = localStorage.getItem("lang");
+        if(this.language == 'fr'){
+            this.french = true;
         }
+        else{
+            this.french = false;
+            }
+        }
+    }
+
     }
 </script>
 

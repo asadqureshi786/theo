@@ -12,6 +12,9 @@ import Select from 'primevue/select';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
 
+// Language 
+import i18n from './i18n'
+
 
 
 
@@ -97,8 +100,11 @@ app.use(Toast,  {
 // Make AOS globally available
 app.config.globalProperties.$AOS = AOS;
 
+// SetBase Url
+app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
 
 app.use(route);
+app.use(i18n);
 app.mount('#app');
 // createApp(App).use(PrimeVue).use(route).mount('#app');
 

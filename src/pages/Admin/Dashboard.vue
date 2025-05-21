@@ -14,6 +14,9 @@ import Barchart from "@/components/Barchart.vue";
 // Components
 import Requests from '@/components/Requests.vue'
 
+// import Axios
+import axios from 'axios';
+
 
 export default {
   name: "Dashboard",
@@ -35,6 +38,7 @@ export default {
       groupImg: group,
       date: null,
       requestOthers : false,
+      users: [],
       topLeads: [
         {
           img: time,
@@ -97,6 +101,24 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.fetchUsers();
+     console.log(this.$baseURL+'theo/public/api/test-api'); // http://192.168.100.122:4000
+    //  console.log(this.$baseURL+'http://192.168.100.19:84/theo/public/api/test-api'); // http://192.168.100.122:4000
+  },
+    methods: {
+    async fetchUsers() {
+      console.log(this.$baseURL+'theo/public/api/test-api');
+      try {
+        const response = await axios.get(this.$baseURL+'theo/public/api/test-api');
+        this.users = response.data;
+        console.log('Users:', this.users);
+
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    },
+  },
 };
 </script>
 
@@ -108,6 +130,11 @@ export default {
       <div class="left_column">
         <div class="row custom_gap">
           <div class="col-md-12">
+<!-- 
+            <li v-for="iuser in users" :key="iuser.id">
+              <span>{{iuser.name}}</span>
+            </li> -->
+
             <div class="main_banner">
               <img :src="banner1" class="img-fluid img_left" alt="" />
               <h1 class="heading">Your transfer window is open!</h1>

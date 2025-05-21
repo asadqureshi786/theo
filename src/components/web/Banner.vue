@@ -1,10 +1,10 @@
 <template>
   <div class="banner" data-aos="fade-up" data-aos-duration="1000" >
-    <h1 class="hd"  >An All-in-One Digital Office Built for Sports Agents</h1>
+    <h1 class="hd"> {{ $t('s1_m_hd')}}</h1>
     <div class="content">
-      <p class="text">All your agent activities—in one powerful platform. Connect with clubs, manage players, track deals, collaborate with agents, and stay updated</p>
+      <p class="text">{{ $t('s1_text1') }}</p>
       <p class="text">
-        with market moves—everything you need, finally in one place.
+        {{ $t('s1_text2') }}
       </p>
     </div>
     <!-- <button class="btn btn-simple" >Get Started</button> -->
@@ -20,12 +20,12 @@
                 type="email"
                 v-model="email"
                 class="form-control"
-                placeholder="Email"
+               :placeholder="$t('email')"
               />
             </div>
             <button class="btn btn-primary">
                 <div v-if="loading" class="spinner-border" role="status"> <span class="visually-hidden">Loading...</span></div>
-              Get Notified
+                    {{ $t('get_notified') }}
             </button>
           </div>
         </form>

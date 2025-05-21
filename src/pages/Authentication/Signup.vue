@@ -11,26 +11,24 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="text" class="form-control" />
+                  <input type="email" v-model="form.email" class="form-control" />
                 </div>
               </div>
 
               <div class="col-md-12">
                 <div class="form-group">
                   <label>Password</label>
-                  <input type="text" class="form-control" />
+                  <input type="password" v-model="form.password" class="form-control" />
                 </div>
               </div>
               
               <div class="col-md-12">
                 <div class="form-group">
-                  <label>Password</label>
-                  <input type="text" class="form-control" />
+                  <label>Confirm Password</label>
+                  <input type="password" v-model="form.password_confirmation" class="form-control" />
                 </div>
               </div>
               
-            
-
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
@@ -45,7 +43,7 @@
                 >Forgot your passowrd?</a>
             </div>
 
-            <button class="btn btn-primary mt-2 w-100">Sign up</button>
+            <button type="button" @click="handleSubmit" class="btn btn-primary mt-2 w-100">Sign up</button>
 
             <div
               class="dont_have_account d-flex justify-content-center gap-1 mt-4 align-content-center">
@@ -66,13 +64,47 @@
 import logo from "@/assets/images/logo.png";
 import cover from "@/assets/images/login/login3.jpg";
 
+
+// import Axios
+import axios from 'axios';
+
+
+
 export default {
   name: "Signup",
   data() {
     return {
       logo: logo,
       sideCover: cover,
+      form: {
+        email: "",
+        password: "",
+        password_confirmation: "",
+      },
     };
   },
+
+  mounted() {
+    this.handleSubmit();
+  },
+
+  methods: {
+   async handleSubmit() {
+     try {
+        const response = await axios.post(this.$baseURL+'theo/public/api/register',this.form);
+        this.users = response.data;
+        console.log('Users:', this.users);
+        if(response.status == 200){
+          this.form.reset();
+        };
+        console.log();
+
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    },
+  },
+
+
 };
 </script>

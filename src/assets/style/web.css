@@ -916,6 +916,8 @@ h1, h2, h3, h4, h5, h6, p, ul {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+    white-space: pre;
+    padding-bottom: 20px;
   }
   .website .footer .list {
     flex-direction: column;

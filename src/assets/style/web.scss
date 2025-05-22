@@ -776,10 +776,24 @@
     }
 
     .plans {
+      position: relative;
+          background-position: -73px!important;
+      &::before{
+        position: absolute;
+        content:'';
+        top:0;
+        background : #ffa3a259;
+        left:0;
+        right:0;
+        bottom:0;
+      }
+     p{
+      font-size:12px;
+     }
       height: 50vh;
 
       .text {
-        font-size: 16px;
+        font-size: 15px;
       }
     }
 

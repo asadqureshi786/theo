@@ -83,6 +83,12 @@ export default {
       this.loading = true;
       console.log(`https://jetnetixsolutions.com/Backend/theo-email/email.php?to=${this.email}`);
       try {
+
+            if(this.email.length == 0 ){
+              this.loading = false;
+              toast.error("Please Enter Your Email");
+              return;
+            }
             const response = await axios.post(`https://jetnetixsolutions.com/Backend/theo-email/email.php?to=${this.email}`);
             this.users = response.data;
 

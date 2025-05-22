@@ -890,10 +890,24 @@ h1, h2, h3, h4, h5, h6, p, ul {
     margin-bottom: 30px;
   }
   .website .plans {
+    position: relative;
+    background-position: -73px !important;
     height: 50vh;
   }
+  .website .plans::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    background: rgba(255, 163, 162, 0.3490196078);
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .website .plans p {
+    font-size: 12px;
+  }
   .website .plans .text {
-    font-size: 16px;
+    font-size: 15px;
   }
   .website .start_managing .hd {
     font-size: 30px;

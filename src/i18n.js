@@ -6,7 +6,7 @@ const messages = {
     get_notified: 'Get notified',
     notify_me : 'Notify Me',
     all_footer : '2025 © THEO All rights reserved.',
-    follow : 'Follow Us: welcome',
+    follow : 'Follow Us:',
     email : 'Email',
     
     // Banner Section Start
@@ -37,7 +37,7 @@ fr: {
     get_notified : 'être averti',
     notify_me : 'prévenez-moi',
     all_footer : '2025 © THEO Tous droits réservés.',
-    follow : 'Suivez-nous : bienvenue.',
+    follow : 'Suivez-nous:',
     email : 'E-mail',
    
     

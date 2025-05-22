@@ -46,8 +46,7 @@ fr: {
     s1_text1: `Toutes les opérations de votre agence, rationalisées sur une plateforme intelligente. Conçue par des agents sportifs pour des agents sportifs, THEO vous aide à garder une longueur d'avance :
 Gérez vos joueurs avec précision, Anticipez les échéances des contrats et les périodes de transfert, Collaborez avec des clubs de confiance et d'autres agents, Suivez les transactions et explorez les opportunités avec des joueurs indépendants, Créez votre propre espace de travail et votre cercle d'influence : votre espace, vos règles
 `,
-    s1_text2: `Toutes les opérations de votre agence sont centralisées sur une plateforme unique et intelligente. Conçue par des agents sportifs pour des agents sportifs, THEO vous aide à garder une longueur d'avance :
-Enfin, une plateforme numérique où tout est connecté.`,
+    s1_text2: `Enfin, un hub numérique où tout se connecte..`,
     s1_text3: `Restez vigilant. Gardez le contrôle. Restez connecté.`,
     // Banner Section End
 

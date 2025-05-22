@@ -30,8 +30,8 @@
             
 
 
-            <button class="btn btn-primary">
-                <div v-if="loading" class="spinner-border" role="status"> <span class="visually-hidden">Loading...</span></div>
+            <button class="btn btn-primary":disabled="loading" >
+                <div v-if="loading" class="spinner-border" :disabled="loading" role="status"> <span class="visually-hidden">Loading...</span></div>
                     {{ $t('get_notified') }}
             </button>
 
@@ -86,12 +86,22 @@ export default {
             const response = await axios.post(`https://jetnetixsolutions.com/Backend/theo-email/email.php?to=${this.email}`);
             this.users = response.data;
 
-            if(response)
-           
+            if(response.status == 200){
+              this.loading = false;
+              toast.success("Email Send Successfully!");
+              this.email = "";
+            }
+            else{
+              this.loading = false;
+              toast.error("Email Not Send");
+            }
+            
             console.log('Response:', response);
-
+            
           } catch (error) {
-            console.error('Error fetching users:', error);
+            toast.error('Error fetching users:', error);
+            this.loading = false;
+            // console.error('Error fetching users:', error);
           }
 
 

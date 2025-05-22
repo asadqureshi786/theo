@@ -141,11 +141,14 @@
   }
 
   header {
-    // background: #8F030105;
-    padding: 15px 20px;
-    // border: 1px solid #8F03010F;
+    background: #8F030105;
+    padding: 20px 25px;
+    border: 1px solid #8F03010F;
     border-radius: 16px;
     margin-top: 47px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .icon {
       position: relative;
@@ -573,12 +576,15 @@
         }
       }
     }
+  }
 
     .language {
       display: flex;
       align-items: center;
       gap: 6px;
       position: relative;
+      z-index: 1;
+      cursor: pointer;
 
       .text {
         font-size: 11px;
@@ -617,7 +623,6 @@
         }
       }
     }
-  }
 
   // Footer SASS End
 

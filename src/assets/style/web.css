@@ -411,9 +411,14 @@ h1, h2, h3, h4, h5, h6, p, ul {
   color: #c3c3c3;
 }
 .website header {
-  padding: 15px 20px;
+  background: rgba(143, 3, 1, 0.0196078431);
+  padding: 20px 25px;
+  border: 1px solid rgba(143, 3, 1, 0.0588235294);
   border-radius: 16px;
   margin-top: 47px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .website header .icon {
   position: relative;
@@ -739,22 +744,24 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .website .footer .list .follow_us .links i {
   color: #292d32;
 }
-.website .footer .language {
+.website .language {
   display: flex;
   align-items: center;
   gap: 6px;
   position: relative;
+  z-index: 1;
+  cursor: pointer;
 }
-.website .footer .language .text {
+.website .language .text {
   font-size: 11px;
   display: flex;
   align-items: center;
 }
-.website .footer .language .text span {
+.website .language .text span {
   position: relative;
   top: 1.1px;
 }
-.website .footer .language .dropdown {
+.website .language .dropdown {
   position: absolute;
   bottom: -65px;
   left: 0;
@@ -764,7 +771,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
-.website .footer .language .dropdown div {
+.website .language .dropdown div {
   font-size: 13px;
   color: black;
   background-color: #fff;
@@ -773,7 +780,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   transition: 0.2s all linear;
   cursor: pointer;
 }
-.website .footer .language .dropdown div:hover {
+.website .language .dropdown div:hover {
   background-color: #8F0301;
   width: 100%;
   color: #fff;

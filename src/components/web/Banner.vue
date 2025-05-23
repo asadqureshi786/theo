@@ -3,22 +3,13 @@
     <h1 class="hd"> {{ $t('s1_m_hd')}}</h1>
     <div class="content">
       <p class="text">{{ $t('s1_text1') }}</p>
-      <!-- <p class="text">
-        {{ $t('s1_text2') }}
-      </p>
-      <p class="text">
-        {{ $t('s1_text3') }}
-      </p> -->
     </div>
-    <!-- <button class="btn btn-simple" >Get Started</button> -->
 
     <div class="row justify-content-center">
       <div class="col-md-4">
         <form @submit.prevent="sendEmail">
           <div class="getNotiy">
             <div class="from-group">
-              <!-- <label for="">Email</label> -->
-
               <input
                 type="email"
                 v-model="email"
@@ -26,23 +17,12 @@
                :placeholder="$t('email')"
               />
             </div>
-
-            
-
-
             <button class="btn btn-primary":disabled="loading" >
                 <div v-if="loading" class="spinner-border" :disabled="loading" role="status"> <span class="visually-hidden">Loading...</span></div>
                     {{ $t('get_notified') }}
             </button>
-
-       
           </div>
-
-
-
         </form>
-
-        
       </div>
       <div class="content mt-4" >
           <div class="row">

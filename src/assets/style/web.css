@@ -470,17 +470,17 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding: 6px 14px 8px 14px !important;
   font-size: 17px;
 }
+.website .spinner-border {
+  width: 15px;
+  height: 15px;
+  border-width: 2px;
+  margin-right: 6px;
+}
 .website .banner {
   text-align: center;
   display: flex;
   flex-direction: column;
   padding: 50px 0px 0px 0px;
-}
-.website .banner .spinner-border {
-  width: 15px;
-  height: 15px;
-  border-width: 2px;
-  margin-right: 6px;
 }
 .website .banner .hd {
   font-size: 46px;

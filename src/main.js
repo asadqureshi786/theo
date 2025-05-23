@@ -11,6 +11,7 @@ import Dialog from 'primevue/dialog';
 import Select from 'primevue/select';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
+import ProgressSpinner from 'primevue/progressspinner';
 
 // Language 
 import i18n from './i18n'
@@ -87,6 +88,7 @@ app.component('FilePond', FilePond) // Register globally
 app.component('Select', Select) // Register globally
 app.component('Editor', Editor) // Register globally
 app.component('FileUpload', FileUpload) // Register globally
+app.component('ProgressSpinner', ProgressSpinner) // Register globally
 
 app.use(Toast,  {
     // You can set your default options here

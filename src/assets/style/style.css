@@ -302,6 +302,19 @@ h1, h2, h3, h4, h5, h6, p, ul {
   row-gap: 15px;
 }
 
+.btn.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn.spinner .p-progressspinner {
+  margin: unset;
+}
+.btn.spinner .p-progressspinner svg circle {
+  stroke: #fff !important;
+}
+
 .light_head {
   font-size: 25px;
   font-weight: 500;
@@ -364,6 +377,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
 .ql-editor h5,
 .ql-editor h6 {
   color: #8B8F92 !important;
+}
+
+.transition {
+  transition: 0.2s all linear;
 }
 
 .main_wrapper {
@@ -433,6 +450,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 
 .form-group {
   position: relative;
+  margin-bottom: 8px;
 }
 .form-group label {
   font-size: 14px;
@@ -452,6 +470,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   top: 74%;
   right: 15px;
   transform: translateY(-50%);
+}
+.form-group .validate {
+  font-size: 11.5px;
+  position: absolute;
+  left: 0px;
+  bottom: -19px;
 }
 
 .form-control {

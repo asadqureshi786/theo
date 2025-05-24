@@ -1,5 +1,5 @@
 <template>
-  <div class="login_page">
+  <div class="login_page auth_page">
     <div class="r_side">
       <div class="login_content">
         <img :src="logo" class="img-fluid logo_img" />
@@ -49,11 +49,8 @@
               <a href="#" class="primaryCol f13 fw5 text-decoration-none"
                 >Forgot your passowrd?</a>
             </div>
-
             <button type="button" @click="handleSubmit" class="btn btn-primary spinner mt-2 w-100"> <Spinner v-if="loading" /> Sign up</button>
-
-            <div
-              class="dont_have_account  d-flex justify-content-center gap-1 mt-4 align-content-center"  >
+            <div class="dont_have_account  d-flex justify-content-center gap-1 mt-4 align-content-center"  >
               <p class="text f13 fw5">Already have an account?</p>
               <router-link to="login" href="#" class="text f13 fw5">  Sign in </router-link>
             </div>
@@ -71,7 +68,6 @@
 // Images
 import logo from "@/assets/images/logo.png";
 import cover from "@/assets/images/login/login3.jpg";
-
 
 // import Axios
 import axios from 'axios';
@@ -108,13 +104,6 @@ export default {
        const response = await axios.post(this.$baseURL+'theo/public/api/register',this.form);
        this.users = response.data;
        if(response.status == 200){
-    //  if (response.data.access_token) {
-        // const decodedToken = jwtDecode(response.data.access_token);
-    //     console.log(decodedToken)
-
-    //     // const userRole = decodedToken.user_data.role;
-
-    //  }
         sessionStorage.setItem('token', response.data.access_token);
         setTimeout(() => {
             this.$router.push({ path: '/admin' });
@@ -124,7 +113,6 @@ export default {
             this.form.password_confirmation = '';
         }, 500);
          toast.success("Signup complete! Welcome to the CRM.");
-        
           this.errors = {};
         } else {
           console.error('Error:', response.statusText);
@@ -137,7 +125,5 @@ export default {
       }
     },
   },
-
-
 };
 </script>

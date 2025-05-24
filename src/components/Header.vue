@@ -221,9 +221,9 @@
                     <div class="profile customDropdwon" @click="showProfile = !showProfile , showNotification = false" >
                         <img :src="user1" class="img-fluid" alt="">
                         <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
-                            <router-link to="/login" class="logout">
+                            <div @click="logout" class="logout">
                                 <i class="pi pi-sign-out" ></i>Logout
-                            </router-link>
+                            </div>
                         </div>
                     </div>
                      <!-- Mobile Toggle -->
@@ -310,6 +310,12 @@ export default {
                     }
                 ]
         }
+    },
+    methods : {
+        logout() {
+            sessionStorage.removeItem('token');
+            this.$router.push({ path: '/login' });
+        },
     },
     computed: {
     currentPath() {

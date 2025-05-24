@@ -209,7 +209,6 @@ body {
 // Form SASS Start
 .form-group {
      position: relative;
-     margin-bottom: 8px;
     label {
         font-size: 14px;
         margin-bottom: 7px;
@@ -2911,6 +2910,11 @@ header {
         }
     }
 
+}
+.auth_page{
+    .form-group{
+        margin-bottom:4px;
+    }
 }
 // Login Page SASS End
 

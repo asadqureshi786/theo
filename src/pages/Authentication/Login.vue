@@ -118,53 +118,83 @@ export default {
   },
 
   methods: {
-    async handleSubmit() {
-      console.log(this.$baseURL + "theo/public/api/login");
-      console.log(this.form);
-      this.loading = true;
-      try {
-        if (this.form.email.length == 0 && this.form.password.length == 0) {
-          // this.loading = false;
-          this.errors.email = "The email field is required.";
-          this.errors.password = "The password field is required.";
-        } else if (this.form.email.length == 0) {
-          this.errors.email = "The email field is required.";
-          this.errors.password = "";
-        } else if (this.form.password.length == 0) {
-          this.errors.password = "The password field is required.";
-          this.errors.email = "";
-        } else {
-          this.errors.email = "";
-          this.errors.password = "";
+async handleSubmit() {
+  console.log(this.$baseURL + "theo/public/api/login");
+  console.log(this.form);
 
-          const response = await axios.post(
-            this.$baseURL + "theo/public/api/login",
-            this.form
-          );
-          this.users = response.data;
-          if (response.status == 200) {
-            sessionStorage.setItem("token", response.data.access_token);
-            console.log(response.data.access_token);
-            setTimeout(() => {
-              this.$router.push({ path: "/admin" });
-              this.loading = false;
-              this.form.email = "";
-              this.form.password = "";
-              this.form.password_confirmation = "";
-            }, 500);
-            toast.success("Login complete! Welcome to the CRM.");
-            this.errors = {};
-          } else {
-            console.error("Error:", response.statusText);
-            this.loading = false;
-          }
-        }
-      } catch (error) {
+  this.loading = true;
+  this.errors = {}; // clear errors before validation
+
+  // Validation
+  if (this.form.email.length === 0 && this.form.password.length === 0) {
+    this.errors.email = "The email field is required.";
+    this.errors.password = "The password field is required.";
+    this.loading = false;
+    return; // stop execution
+  } else if (this.form.email.length === 0) {
+    this.errors.email = "The email field is required.";
+    this.errors.password = "";
+    this.loading = false;
+    return;
+  } else if (this.form.password.length === 0) {
+    this.errors.password = "The password field is required.";
+    this.errors.email = "";
+    this.loading = false;
+    return;
+  }
+
+  // If validation passed
+  this.errors.email = "";
+  this.errors.password = "";
+
+  try {
+    
+    axios.defaults.withCredentials = true;
+    await axios.get(this.$baseURL+'theo/public/sanctum/csrf-cookie');
+
+    const response = await axios.post(
+      this.$baseURL + "theo/public/api/login",
+      this.form
+    );
+
+    this.users = response.data;
+
+    if (response.status === 200 && response.data.access_token) {
+      sessionStorage.setItem("token", response.data.access_token);
+      console.log(response.data.access_token);
+
+      toast.success("Login complete! Welcome to the CRM.");
+
+      setTimeout(() => {
+        this.$router.push({ path: "/admin/dashboard" });
         this.loading = false;
-        toast.error(error.response.data.message);
-        // this.errors = error.response.data;
-      }
-    },
+
+        // Clear form fields
+        this.form.email = "";
+        this.form.password = "";
+        this.form.password_confirmation = "";
+      }, 500);
+
+      this.errors = {};
+    } else {
+      console.error("Error:", response.statusText || "Login failed");
+      this.loading = false;
+    }
+  } catch (error) {
+    this.loading = false;
+
+    // Defensive check if error.response exists
+    if (error.response && error.response.data && error.response.data.message) {
+      toast.error(error.response.data.message);
+    } else {
+      toast.error("An unexpected error occurred");
+    }
+
+    // Optionally set this.errors from backend errors here
+    // this.errors = error.response?.data?.errors || {};
+  }
+}
+
   },
 };
 </script>

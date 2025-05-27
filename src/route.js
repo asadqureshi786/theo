@@ -110,4 +110,23 @@ const router = createRouter({
     routes
 })
 
+
+
+
+// router.beforeEach(async (to, from, next) => {
+//     const publicPages = ['/login', '/signup','/home'];
+//     const authRequired = !publicPages.includes(to.path);
+
+//     if (authRequired) {
+//         try {
+//             await axios.get('/api/user'); // Laravel Sanctum auth check
+//             next(); // Authenticated, continue
+//         } catch (error) {
+//             next('/login'); // Not authenticated, redirect
+//         }
+//     } else {
+//         next(); // Public page, continue
+//     }
+// });
+
 export default router;

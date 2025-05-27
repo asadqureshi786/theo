@@ -12,7 +12,8 @@ import Select from 'primevue/select';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
 import ProgressSpinner from 'primevue/progressspinner';
-
+// import Axios
+import axios from 'axios';
 // Language 
 import i18n from './i18n'
 
@@ -104,6 +105,7 @@ app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
 app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+// axios.defaults.withCredentials = true;   
 
 app.use(route);
 app.use(i18n);

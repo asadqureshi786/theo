@@ -111,8 +111,8 @@ export default {
       console.log(this.$baseURL+'theo/public/api/test-api');
       try {
         const response = await axios.get(this.$baseURL+'theo/public/api/test-api');
-        this.users = response.data;
-        console.log('Users:', this.users);
+        // this.users = response.data;
+        // console.log('Users:', this.users);
 
       } catch (error) {
         console.error('Error fetching users:', error);

@@ -101,9 +101,8 @@ export default {
    async handleSubmit() {
      this.loading = true;
      try {
-      console.log(this.$baseURL+'testproject/api/register',this.form);
-       const response = await axios.post(this.$baseURL+'testproject/api/register',this.form);
-       console.log(response);
+      console.log(this.$baseURL+'theo/api/register',this.form);
+       const response = await axios.post(this.$baseURL+'theo/api/register',this.form);
        this.users = response.data;
        if(response.status == 200){
         sessionStorage.setItem('token', response.data.access_token);
@@ -122,9 +121,8 @@ export default {
         };
         
       } catch (error) {
-        // this.loading = false;
-        console.error("Error during signup:", error);
-        // this.errors = error.response.data;
+        this.loading = false;
+        this.errors = error.response.data;
 
         // if (error.response && error.response.data) {
         //   this.errors = error.response.data.errors || {};

@@ -177,7 +177,13 @@ export default {
     async fetchAgent() {
       try {
         // axios.defaults.withCredentials = true;
-        const response = await axios.get(this.$baseURL + "theo/public/api/admin/agents");
+        // Fetch CSRF cookie
+         await axios.get("http://192.168.100.19:84/theo/sanctum/csrf-cookie", {
+            withCredentials: true
+          });
+        const response = await axios.get(this.$baseURL + "theo/public/api/admin/agents",{
+           withCredentials: true,
+        });
         console.log(response.data);
         // if (response.status == 200) {
         //   sessionStorage.setItem("token", response.data.access_token);

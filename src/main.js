@@ -105,7 +105,8 @@ app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
 app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
-// axios.defaults.withCredentials = true;   
+// axios.defaults.withCredentials = true;
+
 
 app.use(route);
 app.use(i18n);

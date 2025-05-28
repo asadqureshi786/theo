@@ -52,23 +52,23 @@
                 <span class="text f13 fw5">Remember me</span>
               </div>
               <a href="#" class="primaryCol f13 fw5 text-decoration-none"
-                >Forgot your passowrd?</a
+                >Forgot your password?</a
               >
             </div>
 
             <button
               type="button"
               @click="handleSubmit"
-              to="admin/dashboard"
               class="btn btn-primary spinner mt-2 w-100"
-            ><Spinner v-if="loading" />
+            >
+              <Spinner v-if="loading" />
               Log in
             </button>
 
             <div
               class="dont_have_account d-flex justify-content-center gap-1 mt-4 align-content-center"
             >
-              <p class="text f13 fw5">Dont' have an account?</p>
+              <p class="text f13 fw5">Don't have an account?</p>
               <router-link to="signup" href="#" class="text f13 fw5"
                 >Register here
               </router-link>
@@ -86,15 +86,11 @@
 <script>
 import logo from "@/assets/images/logo.png";
 import cover from "@/assets/images/login/login1.jpg";
-
-// import Axios
 import axios from "axios";
-
-// import Toast
 import { useToast } from "vue-toastification";
-const toast = useToast();
-
 import Spinner from "@/components/Spinner.vue";
+
+const toast = useToast();
 
 export default {
   name: "Login",
@@ -116,85 +112,64 @@ export default {
       },
     };
   },
-
   methods: {
-async handleSubmit() {
-  console.log(this.$baseURL + "theo/public/api/login");
-  console.log(this.form);
-
-  this.loading = true;
-  this.errors = {}; // clear errors before validation
-
-  // Validation
-  if (this.form.email.length === 0 && this.form.password.length === 0) {
-    this.errors.email = "The email field is required.";
-    this.errors.password = "The password field is required.";
-    this.loading = false;
-    return; // stop execution
-  } else if (this.form.email.length === 0) {
-    this.errors.email = "The email field is required.";
-    this.errors.password = "";
-    this.loading = false;
-    return;
-  } else if (this.form.password.length === 0) {
-    this.errors.password = "The password field is required.";
-    this.errors.email = "";
-    this.loading = false;
-    return;
-  }
-
-  // If validation passed
-  this.errors.email = "";
-  this.errors.password = "";
-
-  try {
-
-    // axios.defaults.withCredentials = true;
-    await axios.get(this.$baseURL+'theo/public/sanctum/csrf-cookie');
-
-    const response = await axios.post(
-      this.$baseURL + "theo/public/api/login",
-      this.form
-    );
-
-    this.users = response.data;
-
-    if (response.status === 200 && response.data.access_token) {
-      sessionStorage.setItem("token", response.data.access_token);
-      console.log(response.data.access_token);
-
-      toast.success("Login complete! Welcome to the CRM.");
-
-      setTimeout(() => {
-        this.$router.push({ path: "/admin/dashboard" });
-        this.loading = false;
-
-        // Clear form fields
-        this.form.email = "";
-        this.form.password = "";
-        this.form.password_confirmation = "";
-      }, 500);
-
+    async handleSubmit() {
+      this.loading = true;
       this.errors = {};
-    } else {
-      console.error("Error:", response.statusText || "Login failed");
-      this.loading = false;
-    }
-  } catch (error) {
-    this.loading = false;
 
-    // Defensive check if error.response exists
-    if (error.response && error.response.data && error.response.data.message) {
-      toast.error(error.response.data.message);
-    } else {
-      toast.error("An unexpected error occurred");
-    }
+      // Validation
+      if (this.form.email.length === 0 && this.form.password.length === 0) {
+        this.errors.email = "The email field is required.";
+        this.errors.password = "The password field is required.";
+        this.loading = false;
+        return;
+      } else if (this.form.email.length === 0) {
+        this.errors.email = "The email field is required.";
+        this.loading = false;
+        return;
+      } else if (this.form.password.length === 0) {
+        this.errors.password = "The password field is required.";
+        this.loading = false;
+        return;
+      }
 
-    // Optionally set this.errors from backend errors here
-    // this.errors = error.response?.data?.errors || {};
-  }
-}
+      try {
+        // Fetch CSRF cookie
+         await axios.get("http://192.168.100.19:84/theo/sanctum/csrf-cookie", {
+            withCredentials: true
+          });
 
+        // Login request
+        const response = await axios.post("http://192.168.100.19:84/theo/api/login",this.form,{
+              withCredentials: true
+            }
+        );
+
+        if (response.status === 200) {
+          toast.success("Login complete! Welcome to the CRM.");
+          setTimeout(() => {
+            this.$router.push({ path: "/admin/dashboard" });
+            this.loading = false;
+            // Clear form fields
+            this.form.email = "";
+            this.form.password = "";
+          }, 500);
+        } else {
+          this.loading = false;
+        }
+      } catch (error) {
+        this.loading = false;
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.message
+        ) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error("An unexpected error occurred");
+        }
+      }
+    },
   },
 };
 </script>

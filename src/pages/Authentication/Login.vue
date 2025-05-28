@@ -148,8 +148,8 @@ async handleSubmit() {
   this.errors.password = "";
 
   try {
-    
-    axios.defaults.withCredentials = true;
+
+    // axios.defaults.withCredentials = true;
     await axios.get(this.$baseURL+'theo/public/sanctum/csrf-cookie');
 
     const response = await axios.post(

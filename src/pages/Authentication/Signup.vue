@@ -101,7 +101,9 @@ export default {
    async handleSubmit() {
      this.loading = true;
      try {
-       const response = await axios.post(this.$baseURL+'theo/public/api/register',this.form);
+      console.log(this.$baseURL+'testproject/api/register',this.form);
+       const response = await axios.post(this.$baseURL+'testproject/api/register',this.form);
+       console.log(response);
        this.users = response.data;
        if(response.status == 200){
         sessionStorage.setItem('token', response.data.access_token);
@@ -120,8 +122,16 @@ export default {
         };
         
       } catch (error) {
-        this.loading = false;
-        this.errors = error.response.data;
+        // this.loading = false;
+        console.error("Error during signup:", error);
+        // this.errors = error.response.data;
+
+        // if (error.response && error.response.data) {
+        //   this.errors = error.response.data.errors || {};
+        //   toast.error(error.response.data.message || "An error occurred during signup.");
+        // } else {
+        //   toast.error("Network error. Please try again later.");
+        // }
       }
     },
   },

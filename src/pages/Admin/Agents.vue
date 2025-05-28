@@ -176,7 +176,7 @@ export default {
   methods: {
     async fetchAgent() {
       try {
-        axios.defaults.withCredentials = true;
+        // axios.defaults.withCredentials = true;
         const response = await axios.get(this.$baseURL + "theo/public/api/admin/agents");
         console.log(response.data);
         // if (response.status == 200) {

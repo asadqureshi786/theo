@@ -104,7 +104,14 @@ app.use(Toast,  {
 app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
+// app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
 app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+// axios.defaults.withCredentials = true
+
+
+
+
+ 
 // axios.defaults.withCredentials = true;
 
 

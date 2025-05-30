@@ -22,7 +22,7 @@ const routes = [
         path: '/admin',
         name: 'admin',
         component: DefaultLayout,
-        meta: { requiresAuth: true },
+        // meta: { requiresAuth: true },
         children : [
             {
                 path : '',
@@ -114,20 +114,30 @@ const router = createRouter({
 
 
 
-// router.beforeEach(async (to, from, next) => {
-//     const publicPages = ['/login', '/signup','/home'];
-//     const authRequired = !publicPages.includes(to.path);
-
-//     if (authRequired) {
-//         try {
-//             await axios.get('/api/user'); // Laravel Sanctum auth check
-//             next(); // Authenticated, continue
-//         } catch (error) {
-//             next('/login'); // Not authenticated, redirect
+// router.beforeEach((to, from, next) => {
+//     const token = localStorage.getItem('token'); // ya jo bhi key hai tumhari
+//     if (to.matched.some(record => record.meta.requiresAuth)) {
+//         if (!token || token === 'null' || token === '') {
+//             // agar token nahi hai, to login page pe bhejo
+//             next('/login');
+//         } else {
+//             // token hai, allow access
+//             next();
 //         }
 //     } else {
-//         next(); // Public page, continue
+//         // agar route ko auth ki zarurat nahi, to continue as usual
+//         next();
 //     }
 // });
 
+// router.beforeEach((to, from, next) => {
+//     const isAuthenticated = !!sessionStorage.getItem('token'); 
+//     if (to.meta.requiresAuth && !isAuthenticated) {
+//         next('/login');
+//     } else if ((to.path === '/login' || to.path === '/signup') && isAuthenticated) {
+//         next('/admin/dashboard');
+//     } else {
+//         next();
+//     }
+// });
 export default router;

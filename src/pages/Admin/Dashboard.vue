@@ -102,7 +102,8 @@ export default {
     };
   },
   mounted() {
-    this.fetchUsers();
+    // this.fetchUsers();
+    this.getData();
      console.log(this.$baseURL+'theo/public/api/test-api'); // http://192.168.100.122:4000
     //  console.log(this.$baseURL+'http://192.168.100.19:84/theo/public/api/test-api'); // http://192.168.100.122:4000
   },
@@ -118,6 +119,42 @@ export default {
         console.error('Error fetching users:', error);
       }
     },
+
+    //  async getData() {
+    //   console.log(this.$baseURL+'theo/public/api/test-api');
+    //   try {
+    //     const response = await axios.post(this.$baseURL+'theo/api/me', { 
+    //       withCredentials: true // 👈 Important for HttpOnly cookies
+    //        }
+    //     );
+    //     // this.users = response.data;
+    //     console.log("user Data",response);
+
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // },
+
+    async getData() {
+  console.log("Ye Wala",this.$baseURL + 'theo/api/me',{withCredentials: true});
+  try {
+    const response = await axios.get(
+      this.$baseURL + 'theo/api/me',
+      {
+        withCredentials: true
+      }
+    );
+    console.log("user Data", response);
+  } catch (error) {
+    console.log("Unauthenticated error:", error);
+  }
+}
+
+
+
+
+
+
   },
 };
 </script>

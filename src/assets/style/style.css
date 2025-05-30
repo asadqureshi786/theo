@@ -299,7 +299,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 .formFileds.row {
-  row-gap: 15px;
+  row-gap: 17px;
 }
 
 .btn.spinner {
@@ -476,6 +476,12 @@ h1, h2, h3, h4, h5, h6, p, ul {
   left: 0px;
   bottom: -19px;
 }
+.form-group .validate.show {
+  opacity: 1;
+  animation-name: fadeValidate;
+  transition: 0.2s all linear;
+  animation-delay: 1s;
+}
 
 .form-control {
   background: transparent !important;
@@ -484,6 +490,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding: 7px 12px !important;
   color: #475569 !important;
   font-size: 14px !important;
+  transition: 0.2s all linear;
+}
+.form-control.errorBorder {
+  border: 2px solid #8F0301 !important;
 }
 .form-control::-moz-placeholder {
   color: #475569 !important;

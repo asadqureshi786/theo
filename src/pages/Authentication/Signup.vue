@@ -98,34 +98,30 @@ export default {
   },
 
   methods: {
-   async handleSubmit() {
+  async handleSubmit() {
      this.loading = true;
      try {
-      console.log(this.$baseURL+'theo/api/register',this.form);
        const response = await axios.post(this.$baseURL+'theo/api/register',this.form);
-       this.users = response.data;
-       if(response.status == 200){
-        sessionStorage.setItem('token', response.data.access_token);
+       console.log(response);
+       toast.success("Signup complete! Welcome to the CRM.");
+       if(response.status == 201) {
         setTimeout(() => {
-            this.$router.push({ path: '/admin' });
+            this.$router.push({ path: '/login' });
             this.loading = false;
             this.form.email = '';
             this.form.password = '';
             this.form.password_confirmation = '';
         }, 500);
-         toast.success("Signup complete! Welcome to the CRM.");
           this.errors = {};
-        } else {
-          console.error('Error:', response.statusText);
-          this.loading = false;
-        };
+        } 
         
       } catch (error) {
         this.loading = false;
+        console.log("hein",error.response.data)
         this.errors = error.response.data;
-
+        // console.log("rukjs",error)
         // if (error.response && error.response.data) {
-        //   this.errors = error.response.data.errors || {};
+        //   this.errors = error.response.data || {};
         //   toast.error(error.response.data.message || "An error occurred during signup.");
         // } else {
         //   toast.error("Network error. Please try again later.");

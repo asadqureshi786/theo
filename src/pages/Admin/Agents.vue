@@ -59,7 +59,6 @@
     <div class="card-body">
       <div class="box_grid">
         <Agentcard
-          :showMd="showMd"
           :searchQuery="searchQuery"
           :allPlayers="allPlayers"
         />
@@ -76,31 +75,35 @@
     :style="{ width: '40rem' }"
     :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
   >
-    <form>
+    <form @submit.prevent="addAgent"> 
       <!-- Corrected from 'from' to 'form' -->
       <div class="row formFileds">
         <div class="col-6">
           <div class="form-group">
             <label> Name</label>
-            <input type="text" class="form-control" />
+            <input  type="text" v-model="addAgents.name" class="form-control" />
+              <small v-if="errors.name" class="text-danger validate">{{errors.name[0]}}</small>
+            </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="form-group">
+          <div class="col-6">
+            <div class="form-group">
             <label> Email</label>
-            <input type="text" class="form-control" />
+            <input  type="email" v-model="addAgents.email" class="form-control" />
+            <small  v-if="errors.email" class="text-danger validate">{{errors.email[0]}}</small>
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label> Country</label>
-            <input type="text" class="form-control" />
+            <input  type="text" v-model="addAgents.country" class="form-control" />
+            <small  v-if="errors.country" class="text-danger validate">{{errors.country[0]}}</small>
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label> Plan</label>
-            <input type="text" class="form-control" />
+            <input type="text" v-model="addAgents.plan" class="form-control" />
+            <small v-if="errors.plan" class="text-danger validate">{{errors.plan[0]}}</small>
           </div>
         </div>
       </div>
@@ -114,11 +117,10 @@
           >Cancel</Button
         >
         <Button
-          type="button"
-          class="btn btn-primary"
+          type="submit"
+          class="btn btn-primary spinner"
           label="Save"
-          @click="showAgent = false"
-          >Add</Button
+          > <Spinner v-if="loading"  /> Add</Button
         >
       </div>
     </form>
@@ -130,21 +132,32 @@ import Agentcard from "@/components/Agentcard.vue";
 import Profile1 from "@/assets/images/profile1.jpg";
 import Profile2 from "@/assets/images/profile2.jpg";
 
+// Toast
+import { useToast } from "vue-toastification";
+const toast = useToast();
+
+// Spinner
+import Spinner from "@/components/Spinner.vue";
+
 // import Axios
 import axios from "axios";
 
 export default {
   name: "Players",
   components: {
-    Agentcard,
+  Agentcard,
+  },
+  components : {
+    Spinner,
   },
   data() {
     return {
       Profile1: Profile1,
       Profile2: Profile2,
       searchQuery: "",
-      addPlayer: false,
       showAgent: false,
+      loading : false,
+      token : '',
       allPlayers: [
         {
           id: 1,
@@ -168,43 +181,72 @@ export default {
           status: "Pending",
         },
       ],
+      addAgents : {
+        profile : "",
+        name: "",
+        email: "",
+        country: "",
+        plan: ""
+      },
+      errors: {
+        name: "",
+        email: "",
+        country: "",
+        plan: "",
+      },
     };
   },
+
   mounted() {
-    this.fetchAgent();
+    this.token = localStorage.getItem("token");
+    if (!this.token) {
+      this.$router.push({ path: "/login" });
+    }
   },
+
   methods: {
-    async fetchAgent() {
-      try {
-        // axios.defaults.withCredentials = true;
-        // Fetch CSRF cookie
-         await axios.get("http://192.168.100.19:84/theo/sanctum/csrf-cookie", {
-            withCredentials: true
+     async addAgent() {
+      this.loading = true;
+       this.errors = {};
+       try {
+         console.log(this.$baseURL+"theo/api/admin/agents/save",this.addAgents,{
+            headers: {
+              'Accept' : 'application/json',
+              Authorization: `Bearer ${this.token}`, 
+            },
           });
-        const response = await axios.get(this.$baseURL + "theo/public/api/admin/agents",{
-           withCredentials: true,
-        });
-        console.log(response.data);
-        // if (response.status == 200) {
-        //   sessionStorage.setItem("token", response.data.access_token);
-        //   setTimeout(() => {
-        //     this.$router.push({ path: "/admin" });
-        //     this.loading = false;
-        //     this.form.email = "";
-        //     this.form.password = "";
-        //     this.form.password_confirmation = "";
-        //   }, 500);
-        //   toast.success("Signup complete! Welcome to the CRM.");
-        //   this.errors = {};
-        // } else {
-        //   console.error("Error:", response.statusText);
-        //   this.loading = false;
-        // }
+        const response = await axios.post(this.$baseURL+"theo/api/admin/agents/save",this.addAgents,{
+            headers: {
+              'Accept' : 'application/json',
+              Authorization: `Bearer ${this.token}`, 
+            },
+          }
+        )
+        
+        if (response.status === 201) {
+          this.loading = false;
+          this.showAgent = false;
+          this.addAgents = {
+            profile: "",
+            name: "",
+            email: "",
+            country: "",
+            plan: ""
+          };
+          toast.success("Agent added successfully!");
+        } else {
+          toast.error("Failed to add agent.");
+          this.loading = false;
+        }
       } catch (error) {
-        this.loading = false;
-        this.errors = error.response.data;
+         this.loading = false;
+         if(error.response.data){
+           this.errors = error.response.data;
+         }else{
+          toast.error("error")
+         }
       }
-    }, // Add any methods if needed
+    },
   },
 };
 </script>

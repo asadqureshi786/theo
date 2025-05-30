@@ -10,7 +10,7 @@ body {
 @import './assets.scss';
 
 .formFileds.row {
-    row-gap: 15px;
+    row-gap: 17px;
 }
 
 // Spinner SASS Start
@@ -233,8 +233,28 @@ body {
         position: absolute;
         left: 0px;
         bottom: -19px;
+        // opacity: 0;
+        &.show{
+        opacity: 1;
+        animation-name: fadeValidate;
+        transition: 0.2s all linear;
+        animation-delay: 1s;
+        }
+//         @keyframes fadeValidate {
+//     0%{
+//         opacity: 0;
+//         transform: translateY(100px);
+//     }
+//     100%{
+//         transform: translateY(0px);
+//         opacity: 1;
+//     }
+// }
     }
+  
 }
+
+
 
 .form-control {
     background: transparent !important;
@@ -243,6 +263,10 @@ body {
     padding: 7px 12px !important;
     color: $formText !important;
     font-size: 14px !important;
+    transition: 0.2s all linear;
+    &.errorBorder{
+        border:2px solid $primaryCol!important;
+    }
 
     &::placeholder {
         color: $formText !important;

@@ -102,6 +102,7 @@ export default {
       logo: logo,
       sideCover: cover,
       loading: false,
+      // token : '',
       form: {
         email: "",
         password: "",
@@ -134,23 +135,20 @@ export default {
       }
 
       try {
-        // Fetch CSRF cookie
-         await axios.get("http://192.168.100.19:84/theo/sanctum/csrf-cookie", {
-            withCredentials: true
-          });
-
-        // Login request
-        const response = await axios.post("http://192.168.100.19:84/theo/api/login",this.form,{
-              withCredentials: true
-            }
+        const response = await axios.post(
+          this.$baseURL + "theo/api/login",
+          this.form
         );
+        localStorage.setItem('token', response.data.token);
+
 
         if (response.status === 200) {
           toast.success("Login complete! Welcome to the CRM.");
+          this.$router.push({ path: "/admin/dashboard" });
+          this.token = response.data.access_token;
+          localStorage.setItem("token", this.token);
           setTimeout(() => {
-            this.$router.push({ path: "/admin/dashboard" });
             this.loading = false;
-            // Clear form fields
             this.form.email = "";
             this.form.password = "";
           }, 500);
@@ -166,7 +164,7 @@ export default {
         ) {
           toast.error(error.response.data.message);
         } else {
-          toast.error("An unexpected error occurred");
+          toast.error(error.response.data.message);
         }
       }
     },

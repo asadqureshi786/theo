@@ -12,6 +12,9 @@ import Select from 'primevue/select';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
 import ProgressSpinner from 'primevue/progressspinner';
+import ConfirmationService from 'primevue/confirmationservice';
+import ConfirmDialog from 'primevue/confirmdialog';
+
 // import Axios
 import axios from 'axios';
 // Language 
@@ -90,6 +93,7 @@ app.component('Select', Select) // Register globally
 app.component('Editor', Editor) // Register globally
 app.component('FileUpload', FileUpload) // Register globally
 app.component('ProgressSpinner', ProgressSpinner) // Register globally
+app.component('ConfirmDialog', ConfirmDialog) // Register globally
 
 app.use(Toast,  {
     // You can set your default options here
@@ -100,6 +104,8 @@ app.use(Toast,  {
     pauseOnHover: true,
     draggable: true
 });
+app.use(ConfirmationService);
+
 // Make AOS globally available
 app.config.globalProperties.$AOS = AOS;
 

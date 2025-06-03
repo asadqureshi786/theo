@@ -60,7 +60,11 @@
       <div class="box_grid">
         <Agentcard
           :searchQuery="searchQuery"
-          :allPlayers="allPlayers"
+          :allAgents="allAgents"
+          :onDelete="deleteAgent"
+          :soloAgent="soloAgent"
+          :agentDetail="agentDetail",
+          :fetchAgents= "fetchAgents"
         />
       </div>
     </div>
@@ -125,10 +129,16 @@
       </div>
     </form>
   </Dialog>
+
+
+
+
 </template>
 
 <script>
 import Agentcard from "@/components/Agentcard.vue";
+
+
 import Profile1 from "@/assets/images/profile1.jpg";
 import Profile2 from "@/assets/images/profile2.jpg";
 
@@ -146,10 +156,9 @@ export default {
   name: "Players",
   components: {
   Agentcard,
+  Spinner,
   },
-  components : {
-    Spinner,
-  },
+
   data() {
     return {
       Profile1: Profile1,
@@ -157,30 +166,9 @@ export default {
       searchQuery: "",
       showAgent: false,
       loading : false,
+      agentDetail : '',
       token : '',
-      allPlayers: [
-        {
-          id: 1,
-          name: "Cristiano Ronaldo",
-          userlevel: "THEO BLACK",
-          country: "Spain",
-          status: "Pending",
-        },
-        {
-          id: 2,
-          name: "Mesit Ozil",
-          userlevel: "THEO BLACK",
-          country: "Spain",
-          status: "Completed",
-        },
-        {
-          id: 3,
-          name: "Leo Messi",
-          userlevel: "THEO BLACK",
-          country: "Spain",
-          status: "Pending",
-        },
-      ],
+      allAgents : [],
       addAgents : {
         profile : "",
         name: "",
@@ -202,19 +190,16 @@ export default {
     if (!this.token) {
       this.$router.push({ path: "/login" });
     }
+    this.fetchAgents();
   },
 
   methods: {
+
+    // Add Agent Function Start
      async addAgent() {
       this.loading = true;
        this.errors = {};
        try {
-         console.log(this.$baseURL+"theo/api/admin/agents/save",this.addAgents,{
-            headers: {
-              'Accept' : 'application/json',
-              Authorization: `Bearer ${this.token}`, 
-            },
-          });
         const response = await axios.post(this.$baseURL+"theo/api/admin/agents/save",this.addAgents,{
             headers: {
               'Accept' : 'application/json',
@@ -234,6 +219,7 @@ export default {
             plan: ""
           };
           toast.success("Agent added successfully!");
+          this.fetchAgents();
         } else {
           toast.error("Failed to add agent.");
           this.loading = false;
@@ -247,6 +233,70 @@ export default {
          }
       }
     },
+    // Add Agent Function End
+
+    // Fetch Agent Function Start
+    async fetchAgents(){
+      try{
+        const agents = await axios.get(this.$baseURL+"theo/api/admin/agents",{
+           headers: {
+              'Accept' : 'application/json',
+              Authorization: `Bearer ${this.token}`, 
+            },
+        });
+        this.allAgents = agents.data
+        // console.log(agents.data);
+      }catch(error){
+
+      }
+    },
+    // Fetch Agent Function End
+
+
+
+    
+    // Get Agent ID JS Start
+    async soloAgent(agentId){
+      try{
+        const response = await axios.get(this.$baseURL+`theo/api/admin/agents/edit/${agentId}`,{
+            headers: {
+              'Accept' : 'application/json',
+              Authorization: `Bearer ${this.token}`, 
+            },
+        })
+
+      this.agentDetail = response.data;
+      return response.data;
+        
+      }catch(error){
+        console.log(error)
+      }
+    },
+    // Get Agent ID JS End
+
+    // Delete Agents Function Start
+    async deleteAgent(agentId) {
+      try {
+        const response = await axios.delete(`${this.$baseURL}theo/api/admin/agents/delete/${agentId}`, {
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
+
+        if (response.status === 200) {
+          toast.error("Agent deleted successfully!");
+          this.fetchAgents();
+        } else {
+          toast.error("Failed to delete agent.");
+        }
+      } catch (error) {
+        consol.log(error)
+        toast.error("Error deleting agent.");
+      }
+    }
+    // Delete Agents Function End
+
   },
 };
 </script>

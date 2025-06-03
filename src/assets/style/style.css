@@ -302,6 +302,50 @@ h1, h2, h3, h4, h5, h6, p, ul {
   row-gap: 17px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.confirmation_modal {
+  width: 350px;
+  border-radius: 8px !important;
+}
+.confirmation_modal .p-confirmdialog-icon {
+  color: #8F0301;
+  font-size: 25px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.confirmation_modal .p-dialog-header {
+  display: none;
+}
+.confirmation_modal .p-dialog-content {
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.confirmation_modal .p-dialog-content .p-confirmdialog-message {
+  font-size: 17px;
+  color: #001727;
+  font-weight: 500;
+}
+.confirmation_modal .p-dialog-footer .p-button {
+  padding: 3px 18px;
+  border-radius: 8px !important;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 100%;
+}
+.confirmation_modal .p-dialog-footer .p-button-danger {
+  background: #8F0301;
+  color: #fff;
+  border: 1px solid #8F0301;
+}
+
 .btn.spinner {
   display: flex;
   align-items: center;
@@ -1402,10 +1446,20 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 9px;
   padding: 6px 15px;
 }
-.box_card .trashIcon {
+.box_card .action_icon {
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.box_card .action_icon > div {
+  cursor: pointer;
+}
+.box_card .action_icon svg, .box_card .action_icon i {
+  width: 20px;
+  height: 20px;
 }
 
 .player_profile .profile_section {

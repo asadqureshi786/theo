@@ -12,6 +12,54 @@ body {
 .formFileds.row {
     row-gap: 17px;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
+
+// Confirmation Modal SASS Start
+.confirmation_modal{
+    width:350px;
+    border-radius: 8px!important;
+    .p-confirmdialog-icon{
+        color: $primaryCol;
+        font-size: 25px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .p-dialog-header{
+        display: none;
+    }
+    .p-dialog-content{
+        padding-top:20px;
+            flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+        .p-confirmdialog-message{
+            font-size: 17px;
+            color: $darkCol;
+            font-weight: 500;
+        }
+    }
+    .p-dialog-footer{
+        .p-button{
+            padding: 3px 18px;
+            border-radius: 8px!important;
+            font-size: 14px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .p-button-danger{
+            background: $primaryCol;
+            color:#fff;
+            border: 1px solid $primaryCol;
+        }
+    }
+}
+// Confirmation Modal SASS End
 
 // Spinner SASS Start
 .btn.spinner{
@@ -1432,10 +1480,20 @@ header {
         padding: 6px 15px;
     }
 
-    .trashIcon {
+    .action_icon {
         position: absolute;
         top: 8px;
         right: 8px;
+        display: flex;
+        align-items: center;
+        gap:5px;
+        & > div{
+            cursor:pointer;
+        }
+        svg,i{
+            width:20px;
+            height:20px;
+        }
     }
 }
 

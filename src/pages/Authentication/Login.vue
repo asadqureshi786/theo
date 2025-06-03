@@ -162,9 +162,9 @@ export default {
           error.response.data &&
           error.response.data.message
         ) {
-          toast.error(error.response.data.message);
+          toast.error(error.response.data);
         } else {
-          toast.error(error.response.data.message);
+          toast.error(error.response.data);
         }
       }
     },

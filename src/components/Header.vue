@@ -313,7 +313,7 @@ export default {
     },
     methods : {
         logout() {
-            sessionStorage.removeItem('token');
+            localStorage.removeItem('token');
             this.$router.push({ path: '/login' });
         },
     },

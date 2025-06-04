@@ -163,7 +163,7 @@ export default {
     mounted() {
       this.token = localStorage.getItem("token");
       if (!this.token) {
-        this.$router.push({ path: "/login" });
+          this.$router.push({ path: "/login" });
       }
       this.getUserInfo();
     },

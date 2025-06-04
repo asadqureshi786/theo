@@ -1870,6 +1870,13 @@ header.protal_header .main_header .header_option .language .text {
   bottom: 10px;
   right: 10px;
 }
+.news_feeds .feed_list ul li .p-button.p-speeddial-rotate {
+  background: transparent;
+  border: none;
+}
+.news_feeds .feed_list ul li .desc img {
+  width: 100%;
+}
 .news_feeds .feed_list ul li .top {
   display: flex;
   justify-content: space-between;
@@ -1973,10 +1980,10 @@ header.protal_header .main_header .header_option .language .text {
 .news_feeds .feed_list ul li .bottom_icon .action_social.action_social {
   transition: 0.2s all linear;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social.action_social:hover span {
+.news_feeds .feed_list ul li .bottom_icon .action_social.active span {
   color: #8F0301;
 }
-.news_feeds .feed_list ul li .bottom_icon .action_social.action_social:hover i {
+.news_feeds .feed_list ul li .bottom_icon .action_social.active i {
   color: #8F0301;
 }
 

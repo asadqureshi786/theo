@@ -14,6 +14,7 @@ import FileUpload from 'primevue/fileupload';
 import ProgressSpinner from 'primevue/progressspinner';
 import ConfirmationService from 'primevue/confirmationservice';
 import ConfirmDialog from 'primevue/confirmdialog';
+import SpeedDial from 'primevue/speeddial';
 
 // import Axios
 import axios from 'axios';
@@ -94,6 +95,7 @@ app.component('Editor', Editor) // Register globally
 app.component('FileUpload', FileUpload) // Register globally
 app.component('ProgressSpinner', ProgressSpinner) // Register globally
 app.component('ConfirmDialog', ConfirmDialog) // Register globally
+app.component('SpeedDial', SpeedDial) // Register globally
 
 app.use(Toast,  {
     // You can set your default options here

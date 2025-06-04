@@ -7,12 +7,17 @@
     <div class="row">
       <div class="col-md-8">
         <div class="editor">
-          <Editor v-model="value" editorStyle="height: 220px" />
-          <button class="btn btn-primary px-4">Post</button>
+          <Editor v-model="editorValue" editorStyle="height: 220px" />
+          <button
+            @click.prevent="addNewsfeed"
+            class="btn spinner btn-primary px-4"
+          >
+            <Spinner v-if="loading" /> Post
+          </button>
         </div>
         <div class="feed_list">
           <ul>
-            <li>
+            <li v-for="news in newsFeeds" :key="news.id">
               <div class="card mt-4">
                 <div class="card-body">
                   <div class="top">
@@ -27,44 +32,20 @@
                         </div>
                       </div>
                     </div>
-                    <div class="action">
-                      <svg
-                        width="27"
-                        height="26"
-                        viewBox="0 0 27 26"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M21.0833 10.8335C22.275 10.8335 23.25 11.8085 23.25 13.0002C23.25 14.1918 22.275 15.1668 21.0833 15.1668C19.8917 15.1668 18.9167 14.1918 18.9167 13.0002C18.9167 11.8085 19.8917 10.8335 21.0833 10.8335Z"
-                          stroke="#707070"
-                          stroke-width="1.5"
-                        />
-                        <path
-                          d="M5.91671 10.8335C7.10837 10.8335 8.08337 11.8085 8.08337 13.0002C8.08337 14.1918 7.10837 15.1668 5.91671 15.1668C4.72504 15.1668 3.75004 14.1918 3.75004 13.0002C3.75004 11.8085 4.72504 10.8335 5.91671 10.8335Z"
-                          stroke="#707070"
-                          stroke-width="1.5"
-                        />
-                        <path
-                          d="M13.5 10.8335C14.6916 10.8335 15.6666 11.8085 15.6666 13.0002C15.6666 14.1918 14.6916 15.1668 13.5 15.1668C12.3083 15.1668 11.3333 14.1918 11.3333 13.0002C11.3333 11.8085 12.3083 10.8335 13.5 10.8335Z"
-                          stroke="#707070"
-                          stroke-width="1.5"
-                        />
-                      </svg>
+                    <div class="action" :style="{ height: '' }">
+                      <SpeedDial
+                        :model="getMenuItems(news)"
+                        showIcon="pi pi-ellipsis-h"
+                        :transitionDelay="80"
+                        direction="left"
+                        :style="{ left: 'calc(50% - 2rem)', bottom: 0 }"
+                      />
+                      <Toast />
                     </div>
                   </div>
-                  <p class="desc">
-                    Lucas Méndez delivered a standout performance over the
-                    weekend, scoring 4 goals and assisting once in a 5-2 win for
-                    Estrella CF. The 22-year-old striker continues to
-                    demonstrate clinical finishing and composure under pressure.
-                    With his contract expiring in six months and no current
-                    agent representation listed, Méndez is becoming one of the
-                    most attractive free agents in the regional circuit.
-                    Definitely one to watch for clubs seeking a versatile
-                    forward. <a class="readMore" href="#">Read Mores</a>
-                  </p>
-                  <img :src="cover" class="cover_img img-fluid" />
+                  <p class="desc" v-html="news.content"></p>
+
+                  <!-- <img :src="cover" class="cover_img img-fluid" /> -->
                   <div class="social_icon">
                     <div class="icon">
                       <i class="pi pi-thumbs-up-fill"></i>
@@ -73,21 +54,30 @@
                     <div class="dot"></div>
                     <p class="text">4 Comments</p>
                   </div>
-                  
+
                   <div class="bottom_icon">
-                    <div class="action_social">
+                    <div
+                      class="action_social" :class="{'active' : news.liked}"
+                      @click.prevent="postLiked(news.id)"
+                    >
                       <span class="icon rotate"
                         ><i class="pi pi-thumbs-up"></i
                       ></span>
                       <span class="title">Like</span>
                     </div>
-                    <div class="action_social" @click="showComment = !showComment">
+                    <div
+                      class="action_social"
+                      @click="showComment = !showComment"
+                    >
                       <span class="icon"><i class="pi pi-comments"></i></span>
                       <span class="title">Comment</span>
                     </div>
                   </div>
 
-                  <div class="comment_box mt-3 position-relative" v-if="showComment" >
+                  <div
+                    class="comment_box mt-3 position-relative"
+                    v-if="showComment"
+                  >
                     <input
                       type="text"
                       class="form-control"
@@ -95,16 +85,14 @@
                       v-model="userInput.text"
                       ref="commentInput"
                       @keydown.enter="addComment"
-                      :class="{'inputError' : showError}"
+                      :class="{ inputError: showError }"
                     />
                     <div class="send" @click="addComment">
-                        <i class="pi pi-send" ></i>
+                      <i class="pi pi-send"></i>
                     </div>
                   </div>
 
-                  <Commentlist :comments="comments"/>
-                  
-
+                  <Commentlist :comments="comments" />
                 </div>
               </div>
             </li>
@@ -132,49 +120,174 @@ import Commentlist from "@/components/Commentlist.vue";
 import player from "@/assets/images/player2.png";
 import cover from "@/assets/images/cover.jpg";
 
+// Toast
+import { useToast } from "vue-toastification";
+const toast = useToast();
+
+// Spinner
+import Spinner from "@/components/Spinner.vue";
+
+// import Axios
+import axios from "axios";
+
 export default {
   name: "Newsfeeds",
   components: {
     Sideplayers,
     Newsfeed,
     Commentlist,
+    Spinner,
   },
   data() {
     return {
-      value: "Whats on your mind?",
+      editorValue: "",
       player: player,
       cover: cover,
-      showComment : false,
-      showError : false,
-      userInput : {
-        name : "John Dow",
-        time : "1 min ago",
-        text : '',
+      like : false,
+      showComment: false,
+      loading: false,
+      token: localStorage.getItem("token"),
+      showError: false,
+      newsFeeds: [],
+      userInput: {
+        name: "John Dow",
+        time: "1 min ago",
+        text: "",
       },
-      comments : [
+      comments: [
         {
-            name : "Asadullah",
-            text : "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
-            time : "2 hours ago",
-        }
-      ]
+          name: "Asadullah",
+          text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
+          time: "2 hours ago",
+        },
+      ],
     };
   },
+
+  mounted() {
+    this.fetchNewsFeed();
+  },
+
   methods: {
     addComment() {
-      if(this.userInput.text.trim().length <= 0) {
+      if (this.userInput.text.trim().length <= 0) {
         this.$refs.commentInput.focus();
         this.showError = true;
-        // return;  
-      }
-      else{
-      this.showError = false;
-      this.comments.push({...this.userInput});
-      console.log(this.comments);
-      this.userInput.text = '';
+        // return;
+      } else {
+        this.showError = false;
+        this.comments.push({ ...this.userInput });
+        console.log(this.comments);
+        this.userInput.text = "";
       }
     },
     // Add any methods you need here
+
+    // Add Newsfeed JS Start
+    async addNewsfeed() {
+      this.loading = true;
+      try {
+        const response = await axios.post(
+          this.$baseURL + "theo/api/admin/posts",
+          { content: this.editorValue },
+          {
+            headers: {
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        if (response.status === 201) {
+          this.editorValue = "";
+          this.loading = false;
+          this.fetchNewsFeed();
+          toast.success("Newsfeed added successfully!");
+        } else {
+          this.loading = false;
+          toast.error("Failed to add newsfeed.");
+        }
+        console.log("Newsfeed added successfully:", response);
+      } catch (error) {
+        if (error.response.data.errors) {
+          toast.error(error.response.data.errors.content[0]);
+        }
+        this.loading = false;
+        console.error("Error adding newsfeed:", error);
+      }
+    },
+    // Add Newsfeed JS End
+
+    // Fetch Newsfeed JS Start
+    async fetchNewsFeed() {
+      try {
+        const response = await axios.get(
+          this.$baseURL + `theo/api/admin/posts`,
+          {
+            headers: {
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        if (response.status == 200) {
+          this.newsFeeds = response.data;
+        }
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
+    // Fetch Newsfeed JS End
+
+    // Get Action Items
+    getMenuItems(item) {
+      return [
+        {
+          label: "Delete",
+          icon: "pi pi-trash",
+          command: () => this.deletePost(item.id), // Pass item ID
+        },
+      ];
+    },
+
+    // Delete Posts
+    async deletePost(id) {
+      try {
+        const response = await axios.delete(
+          this.$baseURL + `theo/api/admin/posts/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        if (response.status == 200) {
+          this.fetchNewsFeed();
+          toast.success("Post Deleted successfully");
+        }
+      } catch (error) {
+        console.log(error.response);
+      }
+    },
+
+    // Likes Count JS Start
+    async postLiked(id) {
+      try {
+        const response = await axios.post(
+          this.$baseURL + `theo/api/admin/posts/${id}/like`,
+          {}, // empty body
+          {
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        if(response.status == 200){
+          console.log(response.data);
+          this.fetchNewsFeed();
+        }
+      } catch (error) {}
+    },
+    // Likes Count JS End
   },
 };
 </script>

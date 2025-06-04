@@ -2051,6 +2051,15 @@ header {
     .feed_list {
         ul {
             li {
+                .p-button.p-speeddial-rotate{
+                    background: transparent;
+                    border:none;
+                }
+                .desc{
+                    img{
+                        width:100%;
+                    }
+                }
                 .top {
                     display: flex;
                     justify-content: space-between;
@@ -2171,14 +2180,22 @@ header {
                         }
                         &.action_social{
                             transition:0.2s all linear;
-                            &:hover{
+                            // &:hover{
+                            //     span{
+                            //         color:$primaryCol;
+                            //     }
+                            //     i{
+                            //         color:$primaryCol;
+                            //     }
+                            // }
+                        }
+                        &.active{
                                 span{
                                     color:$primaryCol;
                                 }
                                 i{
                                     color:$primaryCol;
                                 }
-                            }
                         }
                     }
                 }

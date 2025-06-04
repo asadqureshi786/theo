@@ -8,6 +8,17 @@
           <span class="icon">
             <i class="pi pi-search"></i>
           </span>
+          <div class="form-group">
+             <Select
+                v-model="selectedCountry"
+                editable
+                :options="countries"
+                optionLabel="name"
+                placeholder="Select a City"
+                class="w-full"
+              />
+          </div>
+          <label class="visually-hidden" for="searchInput">Search</label>
           <InputText
             type="text"
             class="form-control"
@@ -33,6 +44,10 @@
 
 <script>
 import Clubcard from "@/components/Clubcard.vue";
+
+// import Countries
+import {countries} from "@/components/Countrylist.js"
+
 export default {
   name: "Clubs",
   components: {
@@ -41,6 +56,8 @@ export default {
   data() {
     return {
       searchQuery: "",
+      countries : countries,
+
       allClubs: [
         {
           name : 'Manchester City',

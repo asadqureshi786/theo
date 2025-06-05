@@ -13,7 +13,7 @@
           v-model="searchQuery"
         />
       </div>
-      <button class="btn btn-primary" @click="addPlayer = true">
+      <button class="btn btn-primary d-none" @click="addPlayer = true">
         <svg
           width="13"
           height="12"

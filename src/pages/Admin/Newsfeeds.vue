@@ -50,14 +50,14 @@
                     <div class="icon">
                       <i class="pi pi-thumbs-up-fill"></i>
                     </div>
-                    <p class="text">88</p>
+                    <p class="text">{{news.likes_count}}</p>
                     <div class="dot"></div>
                     <p class="text">4 Comments</p>
                   </div>
 
                   <div class="bottom_icon">
                     <div
-                      class="action_social" :class="{'active' : news.liked}"
+                      class="action_social" :class="{'active' : news.is_liked == true}"
                       @click.prevent="postLiked(news.id)"
                     >
                       <span class="icon rotate"
@@ -82,19 +82,21 @@
                       type="text"
                       class="form-control"
                       placeholder="Write a comment"
-                      v-model="userInput.text"
+                      v-model="userInput.comment"
                       ref="commentInput"
-                      @keydown.enter="addComment"
+                      @keydown.enter="addComment(news.id)"
                       :class="{ inputError: showError }"
                     />
-                    <div class="send" @click="addComment">
+                    <div class="send" @click="addComment(news.id)">
                       <i class="pi pi-send"></i>
                     </div>
                   </div>
 
-                  <Commentlist :comments="comments" />
+                  
+                  
                 </div>
               </div>
+              <Commentlist  :id="news.id" :count="news.comments_count"  :comments="news.comments" />
             </li>
           </ul>
         </div>
@@ -150,17 +152,9 @@ export default {
       showError: false,
       newsFeeds: [],
       userInput: {
-        name: "John Dow",
-        time: "1 min ago",
-        text: "",
+        comment : "",
       },
-      comments: [
-        {
-          name: "Asadullah",
-          text: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum",
-          time: "2 hours ago",
-        },
-      ],
+      comments: [],
     };
   },
 
@@ -169,20 +163,6 @@ export default {
   },
 
   methods: {
-    addComment() {
-      if (this.userInput.text.trim().length <= 0) {
-        this.$refs.commentInput.focus();
-        this.showError = true;
-        // return;
-      } else {
-        this.showError = false;
-        this.comments.push({ ...this.userInput });
-        console.log(this.comments);
-        this.userInput.text = "";
-      }
-    },
-    // Add any methods you need here
-
     // Add Newsfeed JS Start
     async addNewsfeed() {
       this.loading = true;
@@ -229,8 +209,9 @@ export default {
         );
         if (response.status == 200) {
           this.newsFeeds = response.data;
+          this.comments = response.data;
+          console.error(response.data);
         }
-        console.log(response.data);
       } catch (error) {
         console.log(error.response);
       }
@@ -282,12 +263,45 @@ export default {
           }
         );
         if(response.status == 200){
-          console.log(response.data);
+          console.error(response.data);
           this.fetchNewsFeed();
         }
       } catch (error) {}
     },
     // Likes Count JS End
+
+  
+
+    // Add Comment JS Start
+    async addComment(id) {
+      console.log(  this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+          })
+      try {
+        const response = await axios.post(
+          this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        console.log(response)
+        if(response.status == 200){
+          this.fetchNewsFeed();
+          this.userInput.comment = "";
+          toast.success("Comment added successfully!");
+          this.fetchNewsFeed();
+        } else {
+          toast.error("Failed to add comment.");
+        }
+      } catch (error) {}
+    },
+    // Add Comment JS End
+
   },
 };
 </script>

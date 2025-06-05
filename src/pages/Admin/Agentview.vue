@@ -120,8 +120,8 @@
     </div>
 
     <!-- Documents Section Start -->
-    <div class="light_head mt-5">Documents</div>
-    <Documents class="" />
+    <div class="light_head d-none mt-5">Documents</div>
+    <Documents class="d-none" />
     <!-- Documents Section Start -->
 
      <!-- All Players Squad Section Start -->

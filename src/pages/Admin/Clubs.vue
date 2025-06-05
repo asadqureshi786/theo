@@ -4,20 +4,34 @@
     <div class="page_header">
       <h3 class="hd">Clubs</h3>
       <div class="r_side">
-        <div class="searchBox icon_box">
-          <span class="icon">
-            <i class="pi pi-search"></i>
-          </span>
-          <div class="form-group">
-             <Select
+             <div class="form-group">
+              <div class="d_select">
+              <Select
                 v-model="selectedCountry"
                 editable
                 :options="countries"
                 optionLabel="name"
-                placeholder="Select a City"
+                placeholder="Country"
                 class="w-full"
               />
+              </div>
           </div>
+          <div class="form-group">
+              <div class="d_select">
+              <Select
+                v-model="selectedCountry"
+                editable
+                :options="countries"
+                optionLabel="name"
+                placeholder="League"
+                class="w-full"
+              />
+              </div>
+          </div>
+        <div class="searchBox icon_box">
+          <span class="icon">
+            <i class="pi pi-search"></i>
+          </span>
           <label class="visually-hidden" for="searchInput">Search</label>
           <InputText
             type="text"

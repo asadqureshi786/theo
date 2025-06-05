@@ -174,6 +174,17 @@
             <!-- <small v-if="errors.plan" class="text-danger validate">{{errors.plan[0]}}</small> -->
           </div>
         </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label>Certification Status</label>
+            <input
+              type="text"
+              v-model="updateAgents.plan"
+              class="form-control"
+            />
+            <small v-if="errors.certification_status" class="text-danger validate">{{errors.certification_status[0]}}</small>
+          </div>
+        </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
         <Button
@@ -239,12 +250,16 @@ export default {
         email: "",
         country: "",
         plan: "None",
+        certification_status: "",
+
       },
       errors: {
         name: "",
         email: "",
         country: "",
         plan: "",
+       certification_status: "",
+
       },
     };
   },

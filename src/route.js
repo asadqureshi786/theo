@@ -22,7 +22,7 @@ const routes = [
         path: '/admin',
         name: 'admin',
         component: DefaultLayout,
-        // meta: { requiresAuth: true },
+        meta: { requiresAuth: true },
         children : [
             {
                 path : '',
@@ -113,22 +113,26 @@ const router = createRouter({
 
 
 
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
 
-// router.beforeEach((to, from, next) => {
-//     const token = localStorage.getItem('token'); // ya jo bhi key hai tumhari
-//     if (to.matched.some(record => record.meta.requiresAuth)) {
-//         if (!token || token === 'null' || token === '') {
-//             // agar token nahi hai, to login page pe bhejo
-//             next('/login');
-//         } else {
-//             // token hai, allow access
-//             next();
-//         }
-//     } else {
-//         // agar route ko auth ki zarurat nahi, to continue as usual
-//         next();
-//     }
-// });
+    // Agar already login hai, aur user login ya signup page pe jaa raha hai, to home ya dashboard pe redirect kar do
+    if (token && (to.path === '/login' || to.path === '/signup')) {
+        next('/admin/dashboard');
+        return;
+    }
+
+    // Agar route auth require karta hai aur token nahi hai, to login pe bhejo
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (!token || token === 'null' || token === '') {
+            next('/login');
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 // router.beforeEach((to, from, next) => {
 //     const isAuthenticated = !!sessionStorage.getItem('token'); 

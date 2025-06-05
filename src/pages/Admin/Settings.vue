@@ -215,7 +215,12 @@ export default {
           formData.append('email', this.general.email);
           formData.append('country', this.general.country);
           formData.append('address', this.general.address);
-          formData.append('profile', this.selectedFile); // image file
+          // formData.append('profile', this.selectedFile); // image file
+          if (this.selectedFile == null) {
+            formData.append("", "");
+          } else {
+            formData.append("profile", this.selectedFile);
+          }
 
              try {
               const response = await axios.post(this.$baseURL+"theo/api/admin/settings/update-profile",formData,{

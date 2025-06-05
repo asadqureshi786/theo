@@ -13,7 +13,7 @@
           v-model="searchQuery"
         />
       </div>
-      <button class="btn btn-secondary icon">
+      <button class="btn btn-secondary icon d-none">
         <i class="pi pi-paperclip"></i>Invite Link
       </button>
       <button class="btn btn-primary" @click="showAgent = 'true'">
@@ -110,6 +110,13 @@
             <small v-if="errors.plan" class="text-danger validate">{{errors.plan[0]}}</small>
           </div>
         </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label>Certification Status</label>
+            <input type="text" v-model="addAgents.certification_status" class="form-control" />
+            <small v-if="errors.certification_status" class="text-danger validate">{{errors.certification_status[0]}}</small>
+          </div>
+        </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
         <Button
@@ -174,13 +181,15 @@ export default {
         name: "",
         email: "",
         country: "",
-        plan: ""
+        plan: "",
+        certification_status: "",
       },
       errors: {
         name: "",
         email: "",
         country: "",
         plan: "",
+        certification_status: "",
       },
     };
   },

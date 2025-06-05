@@ -306,6 +306,11 @@ h1, h2, h3, h4, h5, h6, p, ul {
   cursor: pointer;
 }
 
+.trash_icon svg, .trash_icon i {
+  width: 18px;
+  height: 18px;
+}
+
 .confirmation_modal {
   width: 350px;
   border-radius: 8px !important;

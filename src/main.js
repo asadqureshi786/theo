@@ -113,7 +113,7 @@ app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
 // app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
-app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
 // axios.defaults.withCredentials = true
 
 

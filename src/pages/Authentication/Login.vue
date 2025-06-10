@@ -139,14 +139,12 @@ export default {
           this.$baseURL + "theo/api/login",
           this.form
         );
-        localStorage.setItem('token', response.data.token);
-
-
         if (response.status === 200) {
           toast.success("Login complete! Welcome to the CRM.");
           this.$router.push({ path: "/admin/dashboard" });
           this.token = response.data.access_token;
           localStorage.setItem("token", this.token);
+          localStorage.setItem("role", response.data.role);
           setTimeout(() => {
             this.loading = false;
             this.form.email = "";

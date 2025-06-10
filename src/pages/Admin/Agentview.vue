@@ -17,7 +17,7 @@
         <button class="btn btn-primary w-100">Send Message</button>
       </div>
       <div class="rside">
-        <p class="name light6 fw6 f24">Julien Mercier</p>
+        <p class="name light6 fw6 f24">{{detail.name}}</p>
         <div class="dts my-1">
           <p class="text">Deals Completed:</p>
           <p class="count">15</p>
@@ -33,27 +33,23 @@
             <div class="general_detail">
               <div class="box">
                 <label>Name</label>
-                <p class="text">John Doe</p>
+                <p class="text">{{detail.name}}</p>
               </div>
               <div class="box">
                 <label>Email</label>
-                <p class="text">john@gmail.com</p>
+                <p class="text">{{detail.email}}</p>
               </div>
               <div class="box">
                 <label>Country</label>
-                <p class="text">Spain</p>
-              </div>
-              <div class="box">
-                <label>City</label>
-                <p class="text">Barcelona</p>
+                <p class="text">{{detail.country}}</p>
               </div>
               <div class="box">
                 <label>Date</label>
-                <p class="text">21-March-2025</p>
+                <p class="text">{{detail.created_at}}</p>
               </div>
               <div class="box">
                 <label>Certification Status</label>
-                <p class="text">FIFA Certified</p>
+                <p class="text">{{detail.certification_status}}</p>
               </div>
             </div>
             <div class="row formFileds d-none">
@@ -165,6 +161,12 @@ import Documents from "@/components/Documents.vue";
 import Simpletable from "@/components/Simpletable.vue";
 import Dynamictable from "@/components/Dynamictable.vue";
 
+// Routes
+import { useRoute } from 'vue-router';
+
+// Axios
+import axios from "axios";
+
 // Images
 import Agent from "@/assets/images/agent.png";
 
@@ -178,8 +180,11 @@ export default {
   data() {
     return {
       Agent: Agent,
-        activeTab: 0,
+      routeId : '',
+      token : localStorage.getItem('token'),
+      activeTab: 0,
       tabs: ["All", "My Squad", "Followed", "Approached", "Accepted"],
+      detail : {},
       player_head: [
         {
           key: "checkbox",
@@ -220,10 +225,10 @@ export default {
             <input id="check1" type="checkbox" />
             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
             </label>`,
-          date: `<div class="text">Dec 12, 2023</div>`,
-          player_name: `<div class="text fw6">Enzo Delgado</div>`,
-          club_name: `<div class="text fw6">Marseille</div>`,
-          role: `<div class="text">Strike</div>`,
+            date: `<div class="text">Dec 12, 2023</div>`,
+            player_name: `<div class="text fw6">Enzo Delgado</div>`,
+            club_name: `<div class="text fw6">Marseille</div>`,
+            role: `<div class="text">Strike</div>`,
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
@@ -231,39 +236,39 @@ export default {
                   <span class="dots">
                     <i class="pi pi-ellipsis-v" ></i>
                     </span>
-                  </div>
+                    </div>
                   <ul class="dropdown-menu action_dropdown_menu">
                     <li><a class="dropdown-item" href="#">View</a></li>
                     <li><a class="dropdown-item" href="#">Edit</a></li>
                     <li><a class="dropdown-item" href="#">Delete</a></li>
-                  </ul>
+                    </ul>
                 </div>`,
-        },
+              },
          {
           checkbox: `<label for="check2" class="table_check_list" class="text-center">
             <input id="check2" type="checkbox" />
             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
             </label>`,
-          date: `<div class="text">Dec 12, 2023</div>`,
-          player_name: `<div class="text fw6">Enzo Delgado</div>`,
+            date: `<div class="text">Dec 12, 2023</div>`,
+            player_name: `<div class="text fw6">Enzo Delgado</div>`,
           club_name: `<div class="text fw6">Marseille</div>`,
           role: `<div class="text">Strike</div>`,
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
                   <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="dots">
+                    <span class="dots">
                     <i class="pi pi-ellipsis-v" ></i>
                     </span>
-                  </div>
+                    </div>
                   <ul class="dropdown-menu action_dropdown_menu">
                     <li><a class="dropdown-item" href="#">View</a></li>
                     <li><a class="dropdown-item" href="#">Edit</a></li>
                     <li><a class="dropdown-item" href="#">Delete</a></li>
                   </ul>
-                </div>`,
-        },
-         {
+                  </div>`,
+                },
+                {
           checkbox: `<label for="check3" class="table_check_list" class="text-center">
             <input id="check3" type="checkbox" />
             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
@@ -275,11 +280,11 @@ export default {
           contract_end: `<div class="text">12/02/2022</div>`,
           status: `<div class="status">My Player</div>`,
           action: `<div class="dropdown action_dropdown text-center">
-                  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span class="dots">
+            <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="dots">
                     <i class="pi pi-ellipsis-v" ></i>
                     </span>
-                  </div>
+                    </div>
                   <ul class="dropdown-menu action_dropdown_menu">
                     <li><a class="dropdown-item" href="#">View</a></li>
                     <li><a class="dropdown-item" href="#">Edit</a></li>
@@ -530,10 +535,37 @@ export default {
       ],
     };
   },
+  mounted(){
+    // this.routeId = route.para
+    const route = useRoute()
+    this.routeId = route.params.id;
+    this.getAgent();
+  },
   methods: {
     goback() {
       window.history.back();
     },
+
+    // Get Agent View JS Start
+    async getAgent(){
+      console.log("Your Api",this.$baseURL+`theo/api/admin/agents`)
+      try{
+        const response = await axios.get(this.$baseURL+`theo/api/admin/agents/${this.routeId}`,{
+             headers: {
+              'Accept' : 'application/json',
+              Authorization: `Bearer ${this.token}`, 
+            },
+        })
+        if(response.status == 200){
+          this.detail = response.data;
+          console.log(response.data)
+        }
+      }catch(error){  
+        console.log(error)
+      }
+    }
+    // Get Agent View JS End
+
   },
 };
 </script>

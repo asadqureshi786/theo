@@ -15,7 +15,7 @@ import ProgressSpinner from 'primevue/progressspinner';
 import ConfirmationService from 'primevue/confirmationservice';
 import ConfirmDialog from 'primevue/confirmdialog';
 import SpeedDial from 'primevue/speeddial';
-
+import { createPinia } from 'pinia'
 // import Axios
 import axios from 'axios';
 // Language 
@@ -112,8 +112,8 @@ app.use(ConfirmationService);
 app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
-// app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
-app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
+app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+// app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
 // axios.defaults.withCredentials = true
 
 
@@ -122,9 +122,11 @@ app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
  
 // axios.defaults.withCredentials = true;
 
+const pinia = createPinia()
 
 app.use(route);
 app.use(i18n);
+app.use(pinia);
 app.mount('#app');
 // createApp(App).use(PrimeVue).use(route).mount('#app');
 

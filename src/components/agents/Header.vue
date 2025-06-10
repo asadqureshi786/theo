@@ -21,20 +21,6 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="agents" exact active-class="active" class="nav_item">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M10 9.99996C12.3012 9.99996 14.1667 8.13448 14.1667 5.83329C14.1667 3.53211 12.3012 1.66663 10 1.66663C7.69882 1.66663 5.83334 3.53211 5.83334 5.83329C5.83334 8.13448 7.69882 9.99996 10 9.99996Z"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path
-                                        d="M17.1583 18.3333C17.1583 15.1083 13.95 12.5 10 12.5C6.05001 12.5 2.84167 15.1083 2.84167 18.3333"
-                                        stroke="#8F0301" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <span class="text">Agents</span>
-                            </router-link>
-                        </li>
-                        <li>
                             <router-link to="clubs" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -248,10 +234,15 @@ import user1 from '@/assets/images/users/user1.png'
 // Router Import
 import { useRoute } from "vue-router";
 
+// Use Auth 
+// import { useAuthStore } from "./stores/auth";
+
+
 export default {
     name: "Header",
     data() {
         return {
+                // auth: useAuthStore()
                 // currentPath: this.$route.path.slice(this.$route.path.lastIndexOf('/')),
                 logo: logo,
                 user1: user1,

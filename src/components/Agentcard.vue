@@ -6,7 +6,7 @@
     <img :src="agent" class="profile_picture" />
 
     <div class="middle">
-      <p class="name">{{ item.name }}</p>
+      <p class="name">{{ item.name ? item.name : '-'  }}</p>
       <div class="desc agent">
         <label>User Level:</label>
         <p class="text">THEO BLACK</p>
@@ -18,7 +18,8 @@
         </div>
       </div>
     </div>
-    <router-link class="btn btn-primary" to="agent-view">View</router-link>
+    <router-link class="btn btn-primary" :to="`${item.id}`">View</router-link>
+
     <ConfirmDialog class="confirmation_modal"></ConfirmDialog>
     <div class="action_icon">
       <div

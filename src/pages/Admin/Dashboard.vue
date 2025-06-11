@@ -101,61 +101,7 @@ export default {
       ],
     };
   },
-  mounted() {
-    // this.fetchUsers();
-    this.getData();
-     console.log(this.$baseURL+'theo/public/api/test-api'); // http://192.168.100.122:4000
-    //  console.log(this.$baseURL+'http://192.168.100.19:84/theo/public/api/test-api'); // http://192.168.100.122:4000
-  },
-    methods: {
-    async fetchUsers() {
-      console.log(this.$baseURL+'theo/public/api/test-api');
-      try {
-        const response = await axios.get(this.$baseURL+'theo/public/api/test-api');
-        // this.users = response.data;
-        // console.log('Users:', this.users);
-
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    },
-
-    //  async getData() {
-    //   console.log(this.$baseURL+'theo/public/api/test-api');
-    //   try {
-    //     const response = await axios.post(this.$baseURL+'theo/api/me', { 
-    //       withCredentials: true // 👈 Important for HttpOnly cookies
-    //        }
-    //     );
-    //     // this.users = response.data;
-    //     console.log("user Data",response);
-
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
-
-    async getData() {
-  console.log("Ye Wala",this.$baseURL + 'theo/api/me',{withCredentials: true});
-  try {
-    const response = await axios.get(
-      this.$baseURL + 'theo/api/me',
-      {
-        withCredentials: true
-      }
-    );
-    console.log("user Data", response);
-  } catch (error) {
-    console.log("Unauthenticated error:", error);
-  }
-}
-
-
-
-
-
-
-  },
+ 
 };
 </script>
 
@@ -215,7 +161,6 @@ export default {
         </div>
       </div>
       <div class="right_column">
-        <ThemeSwitcher />
         <DatePicker v-model="date"  inline showWeek class="full-width w-full md:w-[100%] sm:w-[30rem] custom-datepicker" />
          
 
@@ -371,20 +316,20 @@ export default {
         </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
-        <Button
+        <button
           type="button"
           class="btn btn-secondary"
           label="Cancel"
           severity="secondary"
           @click="addRequest = false"
-          >Cancel</Button
+          >Cancel</button
         >
-        <Button
+        <button
           type="button"
           class="btn btn-primary"
           label="Save"
           @click="addRequest = false"
-          >Add</Button
+          >Add</button
         >
       </div>
     </form>

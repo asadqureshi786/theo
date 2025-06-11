@@ -61,7 +61,6 @@ export default {
   methods: {
     async sendEmail() {
       this.loading = true;
-      console.log(`https://jetnetixsolutions.com/Backend/theo-email/email.php?to=${this.email}`);
       try {
 
             if(this.email.length == 0 ){

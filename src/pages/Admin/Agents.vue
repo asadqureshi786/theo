@@ -119,19 +119,19 @@
         </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
-        <Button
+        <button
           type="button"
           class="btn btn-secondary"
           label="Cancel"
           severity="secondary"
           @click="showAgent = false"
-          >Cancel</Button
+          >Cancel</button
         >
-        <Button
+        <button
           type="submit"
           class="btn btn-primary spinner"
           label="Save"
-          > <Spinner v-if="loading"  /> Add</Button
+          > <Spinner v-if="loading"  /> Add</button
         >
       </div>
     </form>

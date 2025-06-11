@@ -188,21 +188,21 @@
         </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
-        <Button
+        <button
           type="button"
           class="btn btn-secondary"
           label="Cancel"
           severity="secondary"
           @click="editAgent = false"
-          >Cancel</Button
+          >Cancel</button
         >
-        <Button
+        <button
           type="submit"
           class="btn btn-primary spinner"
           @click.prevent="updateAgent(updateAgents.id)"
           label="Save"
         >
-          <Spinner v-if="loading" /> Update</Button
+          <Spinner v-if="loading" /> Update</button
         >
       </div>
     </form>
@@ -292,7 +292,7 @@ export default {
           this.onDelete(agentId);
         },
         reject: () => {
-          console.log("Delete cancelled");
+          // console.log("Delete cancelled");
         },
       });
     },
@@ -310,8 +310,6 @@ export default {
     // Update Agent JS Start
     async updateAgent(id) {
       (this.loading = true), (this.errors = {});
-      console.error(this.$baseURL + `theo/api/admin/agents/update/${id}`);
-      console.error(this.token);
       try {
         const response = await axios.put(
           this.$baseURL + `theo/api/admin/agents/update/${id}`,
@@ -326,7 +324,6 @@ export default {
         if (response.status == 200) {
           this.fetchAgents();
           this.loading = false;
-          console.error("This Response", response);
           this.editAgent = false;
           toast.success("Agent Successfully Updated");
         }

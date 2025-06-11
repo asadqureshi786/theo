@@ -79,20 +79,20 @@
             </div>
           </div>
           <div class="flex justify-end gap-2 modal_footer">
-            <Button
+            <button
               type="button"
               class="btn btn-secondary"
               label="Cancel"
               severity="secondary"
               @click="addPlayer = false"
-              >Cancel</Button
+              >Cancel</button
             >
-            <Button
+            <button
               type="button"
               class="btn btn-primary"
               label="Save"
               @click="addPlayer = false"
-              >Add</Button
+              >Add</button
             >
           </div>
         </from>

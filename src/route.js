@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "./pages/Admin/Dashboard.vue";
-import Clubs from "./pages/Admin/Clubs.vue";
+import clubs from "./pages/Admin/Clubs.vue";
 import Agents from "./pages/Admin/Agents.vue";
 import Players from "./pages/Admin/Players.vue";
 import Playerprofile from "./pages/Admin/Playerprofile.vue";
@@ -25,7 +25,6 @@ import AgentSettings from "./pages/Agents/Settings.vue";
 const routes = [
   {
     path: "/admin",
-    name: "admin",
     component: DefaultLayout,
     meta: { requiresAuth: true },
     children: [
@@ -39,7 +38,7 @@ const routes = [
       },
       {
         path: "clubs",
-        component: Clubs,
+        component: clubs,
       },
       {
         path: "agents",
@@ -89,7 +88,6 @@ const routes = [
   },
   {
     path: "/agent",
-    name: "agent",
     component: AgentLayout,
     meta: { requiresAuth: true },
     children: [
@@ -138,7 +136,6 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  console.log("Yehi He", role);
 
   if (token && (to.path === "/login" || to.path === "/signup")) {
     if (role == "admin") {

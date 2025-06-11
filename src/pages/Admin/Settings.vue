@@ -191,7 +191,6 @@ export default {
                 Authorization: `Bearer ${this.token}`, 
               },
             });
-            console.log( this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile )
             if(response.status == 200){
              this.general = {...response.data.user};
               this.src = this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile ? this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile : dp;
@@ -206,7 +205,6 @@ export default {
 
         // Update General JS Start
          async updateGeneral(){
-          // console.log("Running")
           this.loading = true;
           this.errors = {};
 

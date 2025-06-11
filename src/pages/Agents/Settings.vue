@@ -280,6 +280,11 @@ export default {
             else{
               toast.error("error")
             }
+             this.security = {
+                  current_password : '',
+                  new_password : '',
+                  password_confirmation : '', 
+              }
           }
         }
         // Update Password JS End

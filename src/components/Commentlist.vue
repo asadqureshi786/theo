@@ -99,11 +99,6 @@ import axios from "axios";
         },
         methods : {
             async deleteComment(commentID){
-                console.log(this.$baseURL+`theo/api/admin/posts/${commentID}/comment/${this.id}`,{
-                          headers: {
-                            Authorization: `Bearer ${this.token}`,
-                        },
-                    });
                 try {
                     const response = await axios.delete(this.$baseURL+`theo/api/admin/posts/${this.id}/comment/${commentID}`,{
                           headers: {
@@ -113,9 +108,7 @@ import axios from "axios";
                     if(response.status == 200){
                         toast.error("Comment deleted successfully!")
                     }
-                    console.log(response);
                 } catch (error) {
-                    console.log(error.response);
                     toast.error(error.response.data.message)
                     
                 }

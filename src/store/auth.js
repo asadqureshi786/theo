@@ -18,7 +18,7 @@ export const useAuthStore = defineStore('counter', {
                   Authorization: `Bearer ${this.token}`, 
                 },
             })
-      
+            // Checking
           try {
             const response = await axios.get(baseURL+"theo/api/agent/me",{
               headers: {

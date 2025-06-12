@@ -1,0 +1,3087 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+*,
+html,
+body {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+
+@import './assets.scss';
+
+.formFileds.row {
+    row-gap: 17px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.trash_icon{
+        svg,i{
+            width:18px;
+            height:18px;
+        }
+}
+
+.spinner_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 155px);
+}
+
+// Confirmation Modal SASS Start
+.confirmation_modal{
+    width:350px;
+    border-radius: 8px!important;
+    .p-confirmdialog-icon{
+        color: $primaryCol;
+        font-size: 25px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .p-dialog-header{
+        display: none;
+    }
+    .p-dialog-content{
+        padding-top:20px;
+            flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+        .p-confirmdialog-message{
+            font-size: 17px;
+            color: $darkCol;
+            font-weight: 500;
+        }
+    }
+    .p-dialog-footer{
+        .p-button{
+            padding: 3px 18px;
+            border-radius: 8px!important;
+            font-size: 14px;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .p-button-danger{
+            background: $primaryCol;
+            color:#fff;
+            border: 1px solid $primaryCol;
+        }
+    }
+}
+// Confirmation Modal SASS End
+
+// Spinner SASS Start
+.btn.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    .p-progressspinner{
+        margin:unset;
+        svg{
+            circle{
+                stroke: #fff!important;
+            }
+        }
+    }
+}
+// Spinner SASS End
+
+.light_head {
+    font-size: 25px;
+    font-weight: 500;
+    color: $light5;
+}
+
+// PlayerProposed SASS Start
+.player_proposed {
+    .text {
+        padding-left: 62px;
+        font-weight: 400;
+        color: #8B8F92;
+        font-size: 14px;
+    }
+
+    .img {
+        position: relative;
+
+        img {
+            width: 22px !important;
+            height: 22px;
+            border-radius: 100px;
+        }
+
+        .img0 {
+            position: absolute;
+            left: 0;
+        }
+
+        .img1 {
+            position: absolute;
+            left: 12px;
+        }
+
+        .img2 {
+            position: absolute;
+            left: 22px;
+        }
+
+        .img3 {
+            position: absolute;
+            left: 32px;
+        }
+    }
+}
+
+// PlayerPropos ed SASS End
+
+// TextEditor SASS Start
+.p-editor {
+
+    // .ql-picker-label{
+    //     &:hover{
+    //         color:$black;
+    //     }
+    // }
+    .p-editor-toolbar {
+        background: #fff !important;
+    }
+
+    .ql-editor {
+        background: #fff !important;
+    }
+
+    .p-editor-toolbar.ql-snow {
+        border: 1px solid $cardBorder !important;
+    }
+
+    .ql-toolbar.ql-snow+.ql-container.ql-snow {
+        border: 1px solid $cardBorder !important;
+    }
+}
+
+.ql-editor p,
+.ql-editor ol,
+.ql-editor ul,
+.ql-editor pre,
+.ql-editor blockquote,
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor h4,
+.ql-editor h5,
+.ql-editor h6 {
+    color: $silverCol !important;
+}
+
+// .p-editor .ql-snow.ql-toolbar button:hover .ql-stroke, .p-editor .ql-snow.ql-toolbar button:focus .ql-stroke {
+//     stroke: red!important;
+//       all: unset!important;
+//     // stroke: var(--p-editor-toolbar-item-hover-color);
+// }
+// TextEditor SASS End
+
+
+  .transition {
+        transition: 0.2s all linear;
+    }   
+
+// Main Wrapper SASS Start
+.main_wrapper {
+    margin-top: 95px;
+    margin-bottom: 22px;
+    animation-name: mainFadeOut;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    & > .container_fluid > div{
+        display: none;
+    }
+    .card {
+        border: 1.5px solid $cardBorder;
+        border-radius: 12px;
+        height: 100%;
+
+        .card-body {
+            padding: 25px;
+
+            .card_head {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .hd {
+                    font-weight: 600;
+                    font-size: 22px;
+                }
+
+                .link {
+                    font-size: 12px;
+                    text-decoration: none;
+                    color: $ltext;
+                    font-weight: 600;
+                    font-size: 16px;
+                }
+
+                .box_icon {
+                    border: 1.5px solid $cardBorder;
+                    width: 45px;
+                    height: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 8px;
+
+                    i {
+                        font-size: 14px;
+                        color: $ltext;
+                    }
+                }
+
+                &.b_bottom {
+                    border-bottom: 1px solid $cardBorder;
+                    padding-bottom: 22px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes mainFadeOut {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Main Wrapper SASS End
+
+.container-fluid {
+    padding: 0px 30px;
+}
+
+// Form SASS Start
+.form-group {
+     position: relative;
+    label {
+        font-size: 14px;
+        margin-bottom: 7px;
+        font-weight: 500;
+        color: $darkCol;
+        .subTxt {
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+            color: #475467;
+            font-weight: 300;
+        }
+    }
+    .password{
+            cursor:pointer;
+            position: absolute;
+            top:74%;
+            right: 15px;
+            transform: translateY(-50%);
+    }
+    .validate{
+        font-size: 11.5px;
+        position: absolute;
+        left: 0px;
+        bottom: -19px;
+        // opacity: 0;
+        &.show{
+        opacity: 1;
+        animation-name: fadeValidate;
+        transition: 0.2s all linear;
+        animation-delay: 1s;
+        }
+//         @keyframes fadeValidate {
+//     0%{
+//         opacity: 0;
+//         transform: translateY(100px);
+//     }
+//     100%{
+//         transform: translateY(0px);
+//         opacity: 1;
+//     }
+// }
+    }
+  
+}
+
+
+
+.form-control {
+    background: transparent !important;
+    border: 1.6px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 7px 12px !important;
+    color: $formText !important;
+    font-size: 14px !important;
+    transition: 0.2s all linear;
+    &.errorBorder{
+        border:2px solid $primaryCol!important;
+    }
+
+    &::placeholder {
+        color: $formText !important;
+        font-size: 14px !important;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.d_select {
+    .p-component {
+        height: 37px;
+        width: 100%;
+        background: transparent !important;
+        border: 1.6px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 7px 12px !important;
+        color: $formText !important;
+        font-size: 14px !important;
+        box-shadow: none !important;
+    }
+}
+
+.p-select-label {
+    color: $formText !important;
+    padding: 0px !important;
+    font-size: 14px !important;
+}
+
+.p-select-overlay.p-component {
+    border: 1px solid $cardBorder;
+    background-color: #fff !important;
+
+    .p-select-list-container {
+        &::-webkit-scrollbar-track {
+            background-color: red !important;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+        }
+
+        .p-select-list {
+            .p-select-option {
+                color: $formText !important;
+                font-size: 14px !important;
+
+                &.p-focus {
+                    background: $primaryCol !important;
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+}
+
+.d_date {
+    .p-inputwrapper {
+        width: 100%;
+    }
+
+    .p-inputtext {
+        background: transparent !important;
+        border: 1.6px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 7px 12px !important;
+        color: $formText !important;
+        font-size: 14px !important;
+        box-shadow: none !important;
+
+        &::placeholder {
+            color: $formText !important;
+            font-size: 14px !important;
+        }
+    }
+}
+
+.p-datepicker-panel.p-component {
+    width: fit-content !important;
+    min-width: fit-content !important;
+    background: #fff;
+    border: 1px solid $cardBorder;
+
+    .p-datepicker-title {
+        button {
+            color: $light4;
+            font-size: 15px;
+        }
+    }
+
+    .p-datepicker-day-cell.p-datepicker-today {
+        span {
+            color: #fff !important;
+        }
+    }
+
+    .p-datepicker-header {
+        padding-bottom: 0px !important;
+        background: #fff !important;
+        border-bottom: 1px solid $cardBorder;
+    }
+
+    th {
+        .p-datepicker-weekday {
+            color: $light6;
+            font-weight: 400;
+        }
+    }
+
+    td {
+        .p-datepicker-day {
+            color: $light4;
+        }
+    }
+
+    th,
+    td {
+        font-size: 14px;
+    }
+}
+
+// Form SASS End
+
+// Modal SASS Start
+.p-dialog-header-actions{
+    & button:first-child{
+        display:none
+    }
+}
+.p-dialog.p-component {
+    background: #fff;
+    box-shadow: 0px 8px 8px -4px #10182808;
+    box-shadow: 0px 20px 24px -4px #10182814;
+    border: none;
+
+    .p-dialog-title {
+        color: $darkCol;
+    }
+
+    .p-dialog-header {
+        border-bottom: 1px solid $cardBorder;
+        margin-bottom: 15px;
+        padding: 10px 20px;
+    }
+
+
+
+    .modal_footer {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        margin-top: 20px;
+
+        .btn {
+            min-width: 100px;
+        }
+    }
+}
+
+// Modal SASS End
+
+// SearchBox SASS Start
+.searchBox {
+    position: relative;
+
+    &.icon_box {
+        .icon {
+            width: fit-content;
+            height: fit-content;
+            line-height: 0px;
+            position: absolute;
+            top: 50%;
+            left: 13px;
+            transform: translateY(-50%);
+
+            i {
+                color: $formText;
+            }
+        }
+
+        input {
+            padding-left: 35px !important;
+            box-shadow: none !important;
+        }
+    }
+}
+
+// SearchBox SASS End
+
+
+// Donut SASS Start
+.donut {
+    .items {
+        li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                border-radius: 100px;
+                background: $primaryCol;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+
+            &:nth-child(2):before {
+                background: #F6DED8;
+            }
+
+            &:nth-child(3):before {
+                background: #FFD2C7;
+            }
+
+            .label {
+                font-weight: 600;
+                font-size: 15px !important;
+            }
+
+            .count {
+                border: 1.5px solid $primaryLightBorder2;
+                border-radius: 4px;
+                background: $primaryLight;
+                color: $primaryCol;
+                font-size: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0px 8px;
+                height: 19px;
+            }
+        }
+    }
+}
+
+// Donut SASS Start
+
+// Action Dropdown SASS Start
+.action_dropdown {
+    padding-block: 13px;
+
+    .dots {
+        color: #CCCDCE;
+    }
+
+    .dropdown-toggle::after {
+        content: none;
+    }
+
+    .dropdown-menu {
+        animation-name: DropDownFade;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        animation-direction: alternate;
+        border: 1px solid $cardBorder;
+
+        li {
+            .dropdown-item {
+                font-size: 12px;
+            }
+        }
+    }
+
+    @keyframes DropDownFade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+
+    }
+}
+
+// Action Dropdown SASS End
+
+// All Doc SASS Start
+.all_doc {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    li {
+        border: 1px solid $cardBorder;
+        border-radius: 12px;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+
+        .doc {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            img {
+                width: 35px;
+            }
+
+            .dt {
+                .name {
+                    font-size: 13.5px;
+                    font-weight: 500;
+                }
+
+                .size {
+                    font-size: 13px;
+                    font-weight: 400;
+                    color: $gtext;
+                }
+            }
+        }
+
+        .download {
+            i {
+                color: $silverCol;
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+// ALl DOc SASS Start
+
+
+
+// Simple Table SASS Start
+.simple_table {
+   border: 1px solid #8F030129;
+    border-radius: 11px;
+    table {
+        margin:0px!important;
+        th,
+        td {
+            padding-inline: 13px;
+        }
+
+        thead {
+            th {
+                background: #8F0301CC;
+                color: #fff;
+                font-weight: 500;
+                font-size: 17.5px;
+                padding-block: 15px;
+
+                &:first-child {
+                    border-radius: 10px 0px 0px 0px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 10px 0px 0px;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                font-size: 14px;
+                font-weight: 400;
+                padding-block: 13px;
+            }
+            tr:last-child{
+                td{
+                    border:none!important;
+                        &:first-child {
+                    border-radius: 0px 0px 0px 10px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 0px 10px 0px;
+                }
+                }
+            }
+        }
+    }
+}
+
+// Simple Table SASS Start
+
+// Dynamic Table SASS Start
+.dynamic_table {
+    // border:1px solid $primaryLightBorder2;
+    border: 1px solid #E0E0E0;
+    border-radius: 11px;
+    table {
+        margin-bottom:0px!important;
+        th,
+        td {
+            padding-inline: 13px;
+        }
+
+        thead {
+            th {
+                background: #F9F9F9;
+                color: $black;
+                font-weight: 500;
+                font-size: 15px;
+                padding-block: 15px;
+
+                &:first-child {
+                    border-radius: 10px 0px 0px 0px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 10px 0px 0px;
+                }
+            }
+        }
+
+        tbody {
+            td {
+                vertical-align: middle;
+
+                .text {
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding-block: 13px;
+                    color: #06142E99;
+                }
+
+                .status {
+                    background: $primaryLight2;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: $primaryCol;
+                    border-radius: 8px;
+                    padding: 10px 0px;
+                    text-align: center;
+                }
+
+                &.fit-width {
+                    width: 10px;
+                    padding: 0px 20px 0px 20px;
+                }
+
+                .table_check_list {
+                    cursor: pointer;
+                    padding-block: 13px;
+
+                    input[type="checkbox"] {
+                        display: none;
+
+                        &+.c_checkbox {
+                            width: 20px;
+                            height: 20px;
+                            background-color: transparent;
+                            border: 2px solid $cardBorder ;
+                            border-radius: 4px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 0.2s all linear;
+
+                            i {
+                                color: #fff;
+                                font-size: 10px;
+                                transform: scale(0);
+                                transition: 0.2s all linear;
+                                font-weight: 700;
+                            }
+                        }
+
+                        &:checked {
+                            &+.c_checkbox {
+                                background-color: $primaryCol;
+                                border-color: $primaryCol;
+
+                                i {
+                                    color: #fff;
+                                    transform: scale(1)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .flag_imges {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    img {
+                        width: 20px;
+                        height: 14px;
+                        object-fit: cover;
+                    }
+                }
+
+
+            }
+             tr:last-child{
+                 td{
+                     border:0px!important;
+                    &:first-child {
+                    border-radius: 0px 0px 0px 10px;
+                }
+
+                    &:last-child {
+                        border-radius: 0px 0px 10px 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dynamic Table SASS End
+
+// Video List SASS Start
+.video_list {
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+
+        li {
+            .video_main {
+                width: 100%;
+                height: 250px;
+                border-radius: 8px;
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 8px;
+                }
+
+                .backdrop {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0.3);
+                }
+
+                .play_button {
+                    background: rgba(255, 255, 255, 0.5);
+                    border-radius: 100px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        width: 60px;
+                        height: 60%;
+                    }
+                }
+
+                .time_duration {
+                    background: rgba(0, 0, 0, 0.3);
+                    border-radius: 100px;
+                    color: #fff;
+                    padding: 2px 5px;
+                    position: absolute;
+                    border-radius: 4px;
+                    bottom: 5px;
+                    right: 5px;
+                    font-size: 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+// Video List SASS End
+
+// Portal Header SASS Start
+header {
+    &.protal_header {
+        background: #fff;
+        box-shadow: 0px 2px 6px 0px #0000001F;
+        padding: 13px 0px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        .icon {
+            position: relative;
+            top: 2px;
+        }
+
+        .main_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .logo {
+                img {
+                    width: 102px;
+                }
+            }
+
+            .nav_links {
+                ul {
+                    list-style: none;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin: 0px;
+
+                    li {
+                        .nav_item {
+                            display: flex;
+                            align-items: start;
+                            gap: 6px;
+                            text-decoration: none;
+                            color: $primaryCol;
+                            font-weight: 400;
+                            font-size: 13.7px;
+                            padding: 6px 12px;
+                            transition:0.5s all linear;
+                            border-radius: 6px;
+
+                            .text {
+                                position: relative;
+                                top: 0.5px;
+                                transition:0.5s all linear;
+                            }
+                            svg{
+                                transition:0.5s all linear;
+                                
+                            }
+                            
+                            &.active , &:hover {
+                                background: $primaryGr;
+                                transition:0.5s all linear;
+                                color: #fff;
+                                
+                                svg {
+                                    color: #fff;
+                                    transition:0.5s all linear;
+                                    stroke: #fff;
+                                }
+                                
+                                path {
+                                    transition:0.5s all linear;
+                                    stroke: #fff;
+                                }
+                            }
+
+                            &.has_dropdown {
+                                position: relative;
+                                .header_dropdown {
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    position: absolute;
+                                    bottom: -88px;
+                                    left: 0;
+                                    background: #fff;
+                                    width: 180px;
+                                    transition: 0.2s all linear;
+                                        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+                                        border-radius: 4px;
+                                           padding: 10px;
+                                    // padding: 5px;
+                                    .nav_item {
+                                        display: flex;
+                                        font-size: 12px;
+                                        align-items: center;
+                                        padding:0px;
+                                        padding:6px 12px;
+                                        // &.router-link-active{
+                                        // }
+
+                                        &.active{
+                                                background: linear-gradient(180deg, rgba(143, 3, 1, 0.9) 58.17%, rgba(74, 13, 12, 0.9) 100%);
+                                                transition: 0.5s all linear;
+                                                color: #fff;
+                                        }
+
+
+                                        i {
+                                            font-size: 12px;
+                                        }
+
+                                        svg {
+                                            fill: $primaryCol;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:hover .header_dropdown {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .header_option {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .profile {
+                    img {
+                        width: 40px;
+                        object-fit: contain;
+                        border-radius: 100px;
+                        border: 1px solid $primaryLightBorder1;
+                    }
+                }
+
+                .language {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    .text {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Portal Header SASS End
+
+// Tab Content SASS Start
+.tabs_header_cs {
+    border: 1px solid $primaryLightBorder1;
+    border-radius: 8px;
+
+    button {
+        margin: 0px;
+        border: 0px;
+        background-color: transparent;
+        color: $primaryCol;
+        transition: 0.2s all linear;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 7px 14px;
+        border-right: 1px solid $primaryLightBorder1;
+
+        &.active {
+            background: $primaryLight1;
+            color: $primaryCol;
+        }
+    }
+
+    button:first-child {
+        border-radius: 7px 0px 0px 7px;
+    }
+
+    button:last-child {
+        border-radius: 0px 7px 7px 0px;
+        border: 0px;
+    }
+}
+
+// Tab Content SASS End
+
+
+// Dashboard SASS Start
+.dashboard {
+    .gird_col {
+        display: grid;
+        grid-template-columns: 2.7fr 1fr;
+        gap: 33px;
+    }
+
+    .custom_gap {
+        gap: 33px;
+    }
+}
+
+.main_banner {
+    background-color: $primaryLight;
+    border: 1.5px solid $primaryLightBorder2;
+    border-radius: 12px;
+    padding: 35px 200px;
+    position: relative;
+    margin: 0px 0px 0px 25px;
+
+    .img_left {
+        position: absolute;
+        bottom: 0;
+        left: -59px;
+        width: 253px;
+    }
+
+    .img_right {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 260px;
+        opacity: 1;
+    }
+
+    .heading {
+        color: $primaryText1;
+        font-weight: 600;
+        font-size: 31px;
+        margin: 0px;
+    }
+
+    .text {
+        color: $primaryText2;
+        font-weight: 400;
+        font-size: 23px;
+        margin: 0px;
+        padding: 8px 100px 16px 0px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+}
+
+// Dashboard SASS End
+
+
+// Top Leads Cards SASS Start
+.top_leads {
+      display: flex;
+    justify-content: space-between;
+    /* gap: 260px; */
+    align-items: center;
+    padding: 7px 50px;
+
+    li {
+        position: relative;
+
+        .data {
+            .top {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .circle {
+                    border-radius: 100px;
+                    background: #8F03011A;
+                    border-radius: 100px;
+                    width: 60px;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 20px;
+                    }
+                }
+
+                .rside {
+                    .bottomText {
+                        font-size: 12px;
+                        color: $primaryText3;
+                        display: block;
+                        margin-top: 10px;
+
+                        i {
+                            font-size: 10px;
+                            padding-right: 3px;
+                            color: $primaryText3;
+                        }
+                    }
+                }
+
+                .lside {
+                    .bottomText {
+                        font-size: 13px;
+                        position: relative;
+                        top: 7px;
+                    }
+                }
+
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: -60px;
+                bottom: 0;
+                width: 2px;
+                height: 100%;
+                background-color: $primaryLightBorder2;
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 0;
+                right: -70px;
+                bottom: 0;
+                width: 2px;
+                height: 100%;
+                background-color: $primaryLightBorder2;
+            }
+        }
+    }
+}
+
+// Top Leads Cards SASS End
+
+
+
+// Request Item SASS Start
+.request_items {
+    .item {
+        background-color: $primaryLight;
+        border: 1px solid $primaryLightBorder2;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+
+        .rside {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .img {
+                img {
+                    width: 60px;
+                    border-radius: 100px;
+                }
+            }
+
+            .detail {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                .top {
+                    display: flex;
+                    gap: 20px;
+
+                    &>div {
+                        display: flex;
+                        gap: 4px;
+
+                        label {
+                            font-weight: 500;
+                            color: $primaryCol;
+                            font-size: 16px;
+                        }
+
+                        .text {
+                            font-weight: 400;
+                            color: $primaryCol;
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .bottom {
+                    display: flex;
+                    gap: 4px;
+
+                    label {
+                        font-weight: 500;
+                        color: $silverCol;
+                        font-size: 15px;
+                    }
+
+                    .text {
+                        font-weight: 400;
+                        color: $silverCol;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .lside {
+            text-align: right;
+
+            .date {
+                color: $silverCol;
+                font-size: 13px;
+                font-style: italic;
+                margin-bottom: 10px;
+            }
+
+            .btn {
+                min-width: 70px;
+            }
+        }
+    }
+
+    .req_checkbox {
+        background-color: red;
+    }
+
+    .action {
+        color: #292D3299;
+        cursor: pointer;
+    }
+}
+
+// Request Item SASS End
+
+// Page Header SASS Start
+.page_header {
+    display: flex;
+    justify-content: space-between;
+
+    .heading_icon {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        i {
+            font-size: 17px;
+        }
+    }
+
+    .hd {
+        font-weight: 600;
+        color: $light6;
+        ;
+    }
+
+    .r_side {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+    }
+}
+
+// Page Header SASS End
+
+// Player Card SASS Start
+.box_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 22px;
+}
+
+.box_card {
+    border: 1.5px solid $cardBorder;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    width: 100%;
+    align-items: center;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 90px;
+
+    .profile_picture {
+        width: 125px;
+        height: 125px;
+        object-fit: cover;
+        border: 2px solid #8F03013D;
+        border-radius: 100px;
+        background-color: white;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        // transform: translateX(-50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin: 16px 0px 20px 0px;
+        padding-top: 35px;
+
+        .name {
+            font-size: 22px;
+            font-weight: 600;
+            color: $primaryCol;
+        }
+
+        .desc {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            label {
+                font-weight: 600;
+                color: $pltext;
+                font-size: 15px;
+            }
+
+            .text {
+                color: $pltext;
+                font-size: 15px;
+                font-weight: 400;
+            }
+
+            .club_img {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .club_img {
+            display: flex;
+        }
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .status {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: $primaryLight;
+        color: $primaryCol;
+        border-radius: 6px;
+        font-size: 9px;
+        padding: 6px 15px;
+    }
+
+    .action_icon {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: flex;
+        align-items: center;
+        gap:5px;
+        & > div{
+            cursor:pointer;
+        }
+        svg,i{
+            width:20px;
+            height:20px;
+        }
+    }
+}
+
+// Player Card SASS End
+
+
+// Player Profile SASS Start
+.player_profile {
+    .profile_section {
+        display: grid;
+        grid-template-columns: 16% 84%;
+        border: 2px solid $primaryLightBorder2;
+        margin-top: 1.5rem;
+
+        .profileImage {
+            position: relative;
+            border: 3px solid rgb(133 121 119);
+            border-radius: 12px;
+            transform: scale(1.04);
+            overflow: hidden;
+
+            &::before {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.57) 0%, rgba(255, 255, 255, 0) 100%, rgba(0, 212, 255, 0) 100%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                content: '';
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+            }
+
+            img {
+                height: 100%;
+                object-fit: cover;
+
+            }
+
+            position: relative;
+
+            .profile_number {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                color: #fff;
+                font-size: 50px;
+                font-weight: 500;
+                z-index: 1;
+
+            }
+        }
+
+        .profile_instruction {
+            .main_col {
+                padding: 10px 30px;
+
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .right_side {
+                        .player_name {
+                            font-size: 38px;
+                            color: #8F0301CC;
+                        }
+
+                        .teamAgent {
+                            li {
+                                margin-bottom: 10px;
+
+                                &:last-child {
+                                    margin-bottom: 0px;
+                                }
+
+                                &>div {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+
+                                    label {
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+
+                            .sm_img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+
+                    .left_side {
+                        .fcol {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            justify-content: end;
+                            margin-bottom: 5px;
+
+                            .status {
+                                padding: 3px 10px 2px 10px;
+                                font-weight: 4c00;
+                                border-radius: 4px;
+                                color: $primaryCol;
+                                background: $primaryLight;
+                                font-size: 9px;
+                            }
+
+                            .text {
+                                font-size: 10px;
+                            }
+                        }
+
+                        .contract_expiry {
+                            border: 1px solid $lightBorder;
+                            border-radius: 12px;
+
+                            .header {
+                                border-bottom: 1px solid $lightBorder;
+                                padding: 5px 15px;
+                                font-size: 11px;
+                                text-align: center;
+                            }
+
+                            .counter {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 8px 15px;
+                                position: relative;
+                                gap: 25px;
+
+                                &:before {
+                                    background: $lightBorder;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 1px;
+                                    height: 80%;
+                                    content: '';
+                                }
+
+                                &>div {
+                                    text-align: center;
+
+                                    .count {
+                                        font-size: 14px;
+                                    }
+
+                                    .text {
+                                        font-size: 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .ft_bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .contract_dates {
+                        label {
+                            font-size: 12px;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            font-style: italic;
+                            color: $gtext;
+                        }
+                    }
+
+                    .invite_link {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+
+                        .icon {
+                            color: $primaryCol;
+
+                            i {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .text {
+                            font-style: italic;
+                            font-size: 13px;
+                            color: $primaryCol;
+                            border-bottom: 1px solid $primaryCol;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .profile_detail {
+            background: $primaryLight;
+            border: 1.6px solid $primaryLightBorder2;
+            padding: 25px 30px;
+            border-left: none;
+            ;
+            border-radius: 0px 0px 12px 0px;
+
+            ul {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    // grid-template-columns: 50% 50%;
+                    margin-bottom: 5px;
+
+                    &:last-child {
+                        margin-bottom: 0px;
+                    }
+
+                    label {
+                        font-weight: 500;
+                        font-size: 16.5px;
+                    }
+
+                    .text {
+                        font-weight: 400;
+                        font-size: 16.5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Player Profile SASS End
+
+
+// Job View SASS Start
+.jobView {
+    margin-top: 1.5rem;
+
+    .personal_info {
+        .top {
+            .main {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .bookmark_icon {
+                    i {
+                        font-size: 22px;
+                        color: $primaryCol;
+                    }
+                }
+            }
+        }
+
+        .middle {
+            .info {
+                background: $primaryLight;
+                padding: 20px;
+                border-radius: 8px;
+                height: 100%;
+                display: flex;
+                // justify-content:center;
+                align-items: center;
+
+                ul {
+                    width: 100%;
+
+                    li {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        margin-bottom: 10px;
+
+                        &:last-child {
+                            margin-bottom: 0px;
+                        }
+
+                        label {
+                            font-weight: 500;
+                        }
+
+                        .data {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            .more_info {
+                .hd {
+                    margin-top: 25px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+
+// Job View SASS End
+
+// Side Player SASS Start
+.sidePlayer {
+    .hd {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .players {
+        li {
+            margin-bottom: 5px;
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+
+            .box {
+                display: flex;
+                gap: 10px;
+                border: 1px solid #8F03010F;
+                border-radius: 8px;
+                padding: 6px;
+
+                img {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 100px;
+                    border: 2px solid $primaryLightBorder2;
+                }
+
+                .profile {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1px;
+                    position: relative;
+                    top: 2px;
+                }
+
+                &>div div {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    .dot {
+                        width: 5px;
+                        height: 5px;
+                        background-color: $silverCol;
+                        border-radius: 100px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Side Player SASS End
+
+// Agent View SASS Start
+.agent_view {
+
+    .profile_section {
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: 13% 87%;
+        gap: 20px;
+
+        .card {
+            height: fit-content;
+        }
+
+        .lside {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            img {
+                border-radius: 16px;
+                width: 100%;
+                height: 145px;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+
+        .rside {
+            .name {
+                letter-spacing: 0.5px;
+            }
+
+            .dts {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                .text {
+                    font-size: 13px;
+                    color: $darkCol;
+                    font-weight: 500;
+
+                }
+
+                .count {
+                    background: #8F030114;
+                    color: $primaryCol;
+                    padding: 2px 10px 1px 10px;
+                    border-radius: 4px;
+                    font-size: 9px;
+                    font-weight: 500;
+                    width: fit-content;
+                }
+            }
+
+            .main_card {
+                border-width: 2px;
+
+                .heading {
+                    border-bottom: 1.6px solid $cardBorder;
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .general_detail{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+        gap:20px;
+        margin-top: 10px;
+        .box{
+            width: 100%;
+            border:1px solid $primaryLight;
+            border-radius: 8px;
+            padding:10px 15px;
+            background-color: $primaryLight;
+            .text{
+                font-size:16px;
+                font-weight:400;
+            }
+            label{
+                font-size:15px;
+                font-weight:600;
+            }
+        }
+    }
+}
+
+// Agent View SASS End
+
+
+// LegalUpdate SASS Start
+.legal_update {
+    .main_section {
+        margin-top: 1.5rem;
+
+        .update_item {
+            li {
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                .updates {
+                    display: flex;
+                    align-items: start;
+                    gap: 15px;
+
+                    .sideLogo {
+                        width: 40px;
+                    }
+
+                    .readMore {
+                        font-size: 13.5px;
+
+                        .icon {
+                            i {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .cover {
+                        height: 230px;
+                        width: 100%;
+                        border-radius: 8px;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// LegalUpdate SASS End
+
+// News Feed Section Start
+.news_feed {
+    .list {
+        li {
+            margin-bottom: 29px;
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+
+            .item {
+                border: 1px solid $cardBorder;
+                border-radius: 14px;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 170px;
+                    object-fit: cover;
+                    object-position: top;
+                }
+
+                .view_btn {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                }
+            }
+        }
+    }
+}
+
+// News Feed Section End
+
+
+// News Feeds SASS Start
+.news_feeds {
+    .editor {
+        position: relative;
+
+        .btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    }
+
+    .feed_list {
+        ul {
+            li {
+                .p-button.p-speeddial-rotate{
+                    background: transparent;
+                    border:none;
+                }
+                .desc{
+                    img{
+                        width:100%;
+                    }
+                }
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+
+                    .lside {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        .profile {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 100px;
+                        }
+
+                        i {
+                            font-size: 10px;
+                        }
+
+                        .dot {
+                            display: inline-block;
+                            width: 3px;
+                            height: 3px;
+                            background: $silverCol;
+                            border-radius: 100px;
+                        }
+                    }
+                }
+
+                .desc {
+                    font-size: 13.5px;
+                    color: $formText;
+                    margin: 20px 0px 10px 0px;
+
+                    .readMore {
+                        color: $primaryCol;
+                    }
+                }
+
+                .cover_img {
+                    border-radius: 8px;
+                    height: 300px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .social_icon {
+                    display: flex;
+                    border-bottom: 1px solid $lightBorder;
+                    padding-bottom: 10px;
+                    padding-top: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+
+                    .dot {
+                        display: inline-block;
+                        width: 2px;
+                        height: 2px;
+                        background: $silverCol;
+                        border-radius: 100px;
+                    }
+
+                    .text {
+                        color: $silverCol;
+                        font-size: 11.5px;
+                    }
+
+                    .icon {
+                        background-color: #1485BD;
+                        border-radius: 100px;
+                        width: 22px;
+                        height: 22px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        i {
+                            color: #fff;
+                            font-size: 10px;
+                            transform: scaleX(-1);
+                        }
+                    }
+                }
+
+                .bottom_icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    padding-top: 20px;
+
+                    .action_social {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+
+                        .icon {
+                            i {
+                                color: $silverCol;
+                                font-size: 18px;
+                                transition: 0.2s all linear;
+                            }
+
+                            &.rotate {
+                                i {
+                                    transform: scaleX(-1);
+                                }
+                            }
+                        }
+
+                        .title {
+                            color: $silverCol;
+                            font-size: 13px;
+                            font-weight: 400;
+                            transition:0.2s all linear;
+                        }
+                        &.action_social{
+                            transition:0.2s all linear;
+                            // &:hover{
+                            //     span{
+                            //         color:$primaryCol;
+                            //     }
+                            //     i{
+                            //         color:$primaryCol;
+                            //     }
+                            // }
+                        }
+                        &.active{
+                                span{
+                                    color:$primaryCol;
+                                }
+                                i{
+                                    color:$primaryCol;
+                                }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// News Feeds SASS End
+
+// Messages Page SASS Start
+.messages_page {
+    display: grid;
+    grid-template-columns: 1.2fr 3fr;
+    border: 1px solid $cardBorder;
+    border-radius: 8px;
+
+    .hd {
+        padding: 22.5px 15px;
+        border-bottom: 1px solid $cardBorder;
+    }
+
+    .users_list {
+        padding: 10px 15px;
+
+        .searchBox {
+            input {
+                border-radius: 8px !important;
+                border-width: 1px !important;
+
+                // font-size: 13px!important;
+                &::placeholder {
+                    // font-size: 13px!important;
+                }
+            }
+        }
+
+        .list {
+            height: calc(100vh - 251px);
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #fff;
+                border-radius: 100px;
+            }
+
+            li {
+                border-bottom: 1px solid $cardBorder;
+
+                &:last-child {
+                    border-bottom: 0px;
+                }
+
+                .item {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: start;
+                    padding: 10px;
+                    margin: 10px 0px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: 0.2s all linear;
+
+                    &:hover {
+                        background: $primaryLight2;
+                    }
+
+                    &.active {
+                        background: $primaryLight2;
+                    }
+
+                    &.online {
+                        .p_img {
+                            position: relative;
+
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                bottom: 1px;
+                                right: 1px;
+                                background-color: $primaryCol;
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 100px;
+                            }
+                        }
+                    }
+
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+
+                        .p_img {
+                            img {
+                                width: 45px;
+                                height: 45px;
+                                border-radius: 100px;
+                            }
+                        }
+
+                        .name {
+                            color: $formText;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+
+                        .msg {
+                            color: $formText;
+                            font-weight: 400;
+                            font-size: 13.5px;
+                        }
+                    }
+
+                    .time {
+                        color: $silverCol;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+// Messages Page SASS End
+
+// ChatBox Page SASS Start
+.chat_side {
+    border-left: 1px solid $cardBorder;
+}
+
+.chat_box {
+    .header {
+        border-bottom: 1px solid $cardBorder;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        // border-left: 1px solid $cardBorder;
+
+        .info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .p_img {
+                position: relative;
+
+                &.active {
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        bottom: 1px;
+                        right: 1px;
+                        background-color: $primaryCol;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 100px;
+                    }
+                }
+
+                img {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 100px;
+                }
+            }
+
+            .name {
+                color: $formText;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .last_seen {
+                color: $light6;
+                font-weight: 400;
+                font-size: 11.5px;
+            }
+        }
+        .whatsApp_icon{
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height:40px;
+            border-radius: 100px;
+            i{
+                color:#fff;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .msg_list {
+
+        padding: 20px 15px;
+        height: calc(100vh - 268px);
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $primaryLight2;
+            border-radius: 100px;
+        }
+
+
+        .messages {
+            display: flex;
+            gap: 10px;
+
+            .profile_img {
+                img {
+                    width: 35px;
+                    border-radius: 100px;
+                    // border: 2px solid $primaryLightBorder2;
+                }
+            }
+
+            .list {
+                li {
+                    margin-bottom: 5px;
+
+                    &:last-child {
+                        margin-bottom: 0px;
+                    }
+
+                    .msg {
+                        font-size: 13.5px;
+                        padding: 5px 12px;
+                        border-radius: 8px;
+                    }
+                }
+            }
+
+            .msg_time {
+                font-size: 11px;
+                text-align: right;
+                margin-top: 5px;
+            }
+
+            &.recieved_msg {
+                .msg {
+                    color: $formText;
+                    background-color: $primaryLight2;
+                    border: 2px solid $primaryLightBorder2;
+                    border-top-left-radius: 0px !important;
+                }
+            }
+
+            &.sender_msg {
+                justify-content: end;
+
+                .msg {
+                    color: #fff;
+                    background-color: $primaryCol;
+                    border: 2px solid $primaryCol;
+                    border-top-right-radius: 0px !important;
+                }
+            }
+        }
+    }
+
+    .chat_input {
+        border: 2px solid #E2E8F0;
+        margin: 15px;
+        border-radius: 8px;
+        position: relative;
+        height: 43px;
+        display: flex;
+        align-items: center;
+
+        .form-control {
+            border: none !important;
+            padding-left: 45px !important;
+
+            &::placeholder {
+                color: #535353 !important;
+            }
+        }
+
+        .icon {
+            i {
+                color: #535353B2;
+                // color:#535353;
+            }
+        }
+
+        .text {
+            color: $primaryCol;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        .links {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+// ChatBox Page SASS End
+
+
+// Admin Dashboard Calendar SASS Start
+.admin_dashboard {
+    margin-top: 130px;
+
+    .p-datepicker.p-component {
+        display: block;
+        height: 100% !important;
+    }
+
+    .p-datepicker-panel.p-component th {
+        text-align: center;
+    }
+
+    .p-datepicker-panel.p-component {
+        width: 100% !important;
+        height: 100% !important;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $primaryLight2;
+            border-radius: 100px;
+        }
+
+    }
+
+    .p-datepicker-day-view,
+    .p-datepicker-calendar-container {
+        height: 95% !important;
+    }
+
+    .p-datepicker-calendar-container {
+        thead {
+            th:first-child {
+                display: none;
+            }
+        }
+
+        tbody {
+            td:first-child {
+                display: none;
+            }
+        }
+    }
+}
+
+// Admin Dashboard Calendar SASS End
+
+// Club View SASS Start
+.club_view {
+    .info {
+        .total_player {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            .count {
+                background: $primaryLight2;
+                border-radius: 4px;
+                padding: 1px 15px;
+                font-size: 11px;
+                color: $primaryCol;
+                width: fit-content;
+            }
+        }
+    }
+}
+
+// Club View SASS Start
+
+
+// Setting Page SASS Start
+.setting_page{
+    .update_button{
+        display: flex;
+        justify-content: end;
+        .btn{
+            display: flex;
+            align-items: center;
+            gap:10px;
+            i{
+                font-size:14px;
+            }
+        }
+    }
+    .profile_image_upload{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        img{
+            border-radius:100px;
+            width:150px;
+            height:150px;
+             border: 6px solid $primaryLight2;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        }
+        .upload_profile_button{
+            font-size: 12px;
+            padding: 5px 20px;;
+            color:$primaryCol;
+            border:1px solid $primaryLightBorder1;
+            svg{
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}
+// Setting Page SASS End
+
+// Contact Card SASS Start
+.contact_card {
+  .main_parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    li {
+      .card {
+        border: 1.5px solid$border1;
+        .header {
+          border-bottom: 1.5px solid $border1;
+          margin: 15px 15px 0px 15px;
+          padding-bottom: 5px;
+        }
+        .list {
+          margin-block: 15px;
+          li{
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+            .item {
+              padding: 0px 18px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              .icon {
+                background: $primaryLight2;
+                width: 35px;
+                height: 35px;
+                border-radius: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                i {
+                  color: #4a0d0c7a;
+                  font-size: 14px;
+                  font-weight:500
+                }
+              }
+              .text{
+                color:$light6;
+                font-size:13.5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Contact Card SASS End
+
+// Notification Dropdown SASS Start
+.customDropdwon{
+    position: relative;
+    cursor:pointer;
+    .option_dropdown{
+        transform: scale(0);
+        transition: 0.2s all linear;
+        transform-origin: top right;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        position:absolute;
+        top:30px;
+        right:0;
+        background:#fff;
+        // border:1px solid $cardBorder;
+        border-radius:8px;
+        .heading{
+            padding:20px;
+            border-bottom:1px solid $cardBorder;
+            .hd{
+                font-size:16px;
+                font-weight: 600;
+            }
+        }
+        .list{
+            padding:20px 20px;
+            max-height: 500px;
+            overflow: auto;
+              &::-webkit-scrollbar {
+                width: 3px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #fff;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $primaryLight;
+                border-radius: 100px;
+            }
+            ul{
+                li{
+                    margin-bottom:15px;
+                    &:last-child{
+                        margin-bottom:0px;
+                    }
+                    .item{
+                        position: relative;
+                        cursor:pointer;
+                        .rside{
+                            display: flex;
+                            align-items:start;
+                            gap:10px;
+                            img{
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 100px;
+                            }
+                            .name{
+                                font-size:13px;
+                                font-weight: bold;
+                            }
+                            .text{
+                                font-size:12px;
+                                font-weight: 400;
+                                color:#525252;
+                            }
+                        }
+                        .time{
+                            font-size: 10px;
+                            text-wrap: nowrap;
+                            color:silver;
+                            position: absolute;
+                            top:0.3px;
+                            right:0;
+                        }
+                        &.item2{
+                            .content{
+                                .name{
+                                    text-wrap: auto;
+                                }
+                                .name , .text{
+                                    font-size: 13px;
+
+                                }
+                                .time{
+                                    position: unset;
+                                    color:$silverCol;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.nottification_dropdown{
+            width: 330px;
+        }
+        &.profile_dropdown{
+            top:43px;
+            .logout{
+                display:flex;
+                align-items:center;
+                gap:10px;
+                font-size: 12px;
+                color:$ltext;
+                font-weight: 500;
+                text-decoration: none;
+                transition: 0.2s all linear;
+                margin:5px;
+                padding: 5px 13px;
+                border-radius: 8px;
+
+                i{
+                    font-size:13px;
+                }
+                &:hover{
+                    background: $primaryLight;
+                }
+            }
+        }
+    }
+    .show_n{
+        transform:scale(1);
+    }
+}
+// Notification Dropdown SASS End
+
+// Comment List SASS Start
+.comment_box{
+    .send{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        right:15px;
+        cursor: pointer;
+        i{
+            color:$primaryText3;
+        }
+    }
+    input{
+        padding-right:40px!important;
+    }
+}
+.comment_list{
+    margin-top:20px;
+    border:1px solid $primaryLightBorder2;
+    padding:20px 20px 30px 20px;
+    border-radius:8px;
+    .head{
+        display: flex;
+        align-items: center;
+        margin-bottom:20px;
+        gap:10px;
+        .title{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .count{
+            background-color: $primaryCol;
+            color:#fff;
+            border-radius:100px;
+            border-radius:100px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+           width: 32px;
+            height: 20px;
+            font-size: 11px;
+        }
+    }
+    .list{
+       .comment{
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0px;
+        }
+        .item{
+            .info{
+                display:flex;
+                align-items: start;
+                gap:13px;
+                .m_sec{
+                    position: relative;
+                    top:5px;
+                }
+                img{
+                    width:35px;
+                    height:35px;
+                    border-radius: 100px;
+                }
+                .name{
+                    font-size:14px;
+                    font-weight:600;
+                    display: flex;
+                    align-items:center;
+                    gap:8px;
+                    
+                }
+                .msg{
+                    font-size:13px;
+                    font-weight:400!important;
+                    padding-top:6px;
+                }
+                .time{
+                    font-size:11px;
+                    font-weight:400;
+                    color:$ltext;
+                    letter-spacing: -0.6px;
+                }
+            }
+          }
+       } 
+    }
+}
+// Comment List SASS End
+
+// Login Page SASS Start
+.login_page{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    .r_side{
+        height: 100vh;
+        width: 100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding-inline: 100px;
+        .login_content{
+            .logo_img{
+                width: 80px;
+                position: relative;
+                &:before{
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    content: '';
+                    background:rgba(0,0,0,0.5);
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .content{
+                margin-top: 35px;
+                .hd{
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+                .hd_text{
+                    font-size: 13px;
+                    margin-top: 5px;
+                }
+                form{
+                    margin-top:15px;
+                }
+                .remember_me{
+                    .table_check_list {
+                    cursor: pointer;
+                    padding-block: 13px;
+
+                    input[type="checkbox"] {
+                        display: none;
+
+                        &+.c_checkbox {
+                            width: 17px;
+                            height: 17px;
+                            background-color: transparent;
+                            border: 2px solid $cardBorder ;
+                            border-radius: 4px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 0.2s all linear;
+
+                            i {
+                                color: #fff;
+                                font-size: 8px;
+                                transform: scale(0);
+                                transition: 0.2s all linear;
+                                font-weight: 700;
+                            }
+                        }
+
+                        &:checked {
+                            &+.c_checkbox {
+                                background-color: $primaryCol;
+                                border-color: $primaryCol;
+
+                                i {
+                                    color: #fff;
+                                    transform: scale(1)
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+                .dont_have_account{
+                    .text{
+                    }
+                }
+            }
+        }
+        
+    }
+    .l_side{
+        img{
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+}
+.auth_page{
+    .form-group{
+        margin-bottom:4px;
+    }
+}
+// Login Page SASS End
+
+.inputError{
+    border-color:red!important;
+}
+
+@media only screen and (min-width: 768px) {
+    .mobile_menu_icon{
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .main_header{
+        position: relative;
+        .nav_links{
+                position: absolute;
+                left: 0;
+                top: 53px;
+                width: 100%;
+                align-items: baseline;
+                background: white;
+                border-radius: 0px 0px 8px 8px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                // max-height: 0px;
+                height: 0px;
+                // overflow: hidden;
+                transition: 0.2s all linear;
+                &.show{
+                    // max-height: ;
+                    height:100%;
+                    // overflow: auto;
+                }
+                ul{
+                    padding: 15px!important;
+                    align-items: start!important;
+                    flex-direction: column;
+                li{
+                    width:100%;
+                    .nav_item{
+                        .icon{
+                            position: absolute;
+                            right:10px;
+                            top:56%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+        .mobile_menu_icon{
+            cursor: pointer;
+        }
+    }
+}

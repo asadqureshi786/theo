@@ -1,0 +1,159 @@
+// Remove Padding And Margin
+h1,h2,h3,h4,h5,h6,p,ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+// Colors
+$primaryGr:linear-gradient(180deg, rgba(143, 3, 1, 0.9) 58.17%, rgba(74, 13, 12, 0.9) 100%);
+$primaryCol:#8F0301;
+$primaryCol2:#8F0301CC;
+$drPrimary:#4A0D0C;
+$primaryLightBorder1:#8F030152;
+$primaryLightBorder2:#8F030114;
+$primaryLight:#8F03010A;
+$primaryLight1:#8F030133;
+$primaryLight2:#8F03010F;
+$primaryText1:#4A0D0CCC;
+$primaryText2:#4A0D0CB2;
+$primaryText3:#8F03018A;
+$cardBorder:#E2E8F0;
+$lightBorder:#858FA34F;
+
+// TextColor
+$silverCol:#8B8F92;
+$ltext:#101828B2;
+$gtext:#384046;
+$darkCol:#001727;
+$formText:#475569;
+$pltext:#4A0D0C7A;
+$black : #000;
+$light4: #292D32CC;
+$light5:#424441;
+$light6:#00001A;
+
+
+$border1 : #D9D9D9;
+
+
+
+// Custom Class
+.black {
+    color:$black;
+}
+.primaryCol{
+    color:$primaryCol;
+}
+.primaryCol2{
+    color:$primaryCol2;
+}
+.primaryText1{
+    color:$primaryText1;
+}
+.primaryText2{
+    color:$primaryText2;
+}
+.primaryText3{
+    color:$primaryText3;
+}
+.ltext{
+    color:$ltext;
+}
+.gtext{
+    color:$gtext;
+}
+.silverCol{
+    color:$silverCol;
+}
+.darkCol{
+    color:$darkCol;
+}
+.formText{
+    color:$formText;
+}
+.pltext{
+    color:$pltext;
+}
+.drPrimary{
+    color:$drPrimary;
+}
+.light5{
+    color:$light5;
+}
+.light6{
+    color:$light6;
+}
+.light4{
+    color:$light4;
+}
+
+// FontWeight
+.fw1{font-weight: 100;}
+.fw2{font-weight: 200;}
+.fw3{font-weight: 300;}
+.fw4{font-weight: 400;}
+.fw5{font-weight: 500;}
+.fw6{font-weight: 600;}
+.fw7{font-weight: 700;}
+.fw8{font-weight: 800;}
+
+
+// FontSize
+.f11{font-size: 11px;}.f12{font-size: 12px;}.f13{font-size: 13px;}.f14{font-size: 14px;}.f15{font-size: 15px;}.f16{font-size: 16px;}
+.f17{font-size: 17px;}.f18{font-size: 18px;}.f19{font-size: 19px;}.f20{font-size: 20px;}.f21{font-size: 21px;}.f22{font-size: 22px;}
+.f23{font-size: 23px;}.f24{font-size: 24px;}.f25{font-size: 25px;}.f26{font-size: 26px;}.f27{font-size: 27px;}.f28{font-size: 28px;}
+.f29{font-size: 29px;}.f30{font-size: 30px;}.f31{font-size: 31px;}.f32{font-size: 32px;}.f33{font-size: 33px;}.f34{font-size: 34px;}
+.f35{font-size: 35px;}.f36{font-size: 36px;}.f37{font-size: 37px;}.f38{font-size: 38px;}.f39{font-size: 39px;}.f40{font-size: 40px;}
+.f41{font-size: 41px;}.f42{font-size: 42px;}.f43{font-size: 43px;}.f44{font-size: 44px;}.f45{font-size: 45px;}.f46{font-size: 46px;}
+.f47{font-size: 47px;}.f48{font-size: 48px;}.f49{font-size: 49px;}.f50{font-size: 50px;}
+
+
+// $lightText:rgb(108, 115, 127);
+// $darktext:#6C737F;
+// $darkLight:rgb(148, 163, 184);
+
+// // $lightBorder:rgb(212 212 212);
+// $lightBorder: rgb(230, 231, 233);
+// $cardBorder: #eeeeee;
+// $lightBackground:#FAFAFA;
+// $lightColor:#f1f1f1 ;
+// $dark2:#48464B;
+// $black:#131118;
+
+
+// Button Style
+.btn{
+    font-size: 12px;
+    padding: 8px 12px 9px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    &.icon{
+        gap: 7px;
+        align-items: center;
+        display: flex;
+        i{
+            font-size: 12px;
+        }
+    }
+    &.btn-primary{
+        background: $primaryGr;
+        border: 1px solid $primaryCol;
+    }
+    &.btn-secondary{
+        background: transparent;
+        color:$primaryCol;
+        border: 1px solid $primaryCol;
+    }
+    &.btn-simple{
+        background: $primaryCol;
+        color: #fff;
+        font-size: 15px;
+        padding: 8px 18px;
+        border-radius: 8px;
+    }
+}
+
+
+
+

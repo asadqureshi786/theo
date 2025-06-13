@@ -55,7 +55,7 @@
             <h4 class="light6 fw6">Manchester City</h4>
             <div class="total_player mt-2 text-center">
               <p class="light4 f13">Total Players:</p>
-              <div class="primaryLight1 f13 count">28</div>
+              <div class="primaryLight1 f13 count">{{player_count}}</div>
             </div>
             <p class="light4 fw5 mt-1 f13">
               Current transfer record: <span class="fw4">€102.30m</span>
@@ -67,7 +67,7 @@
 
     <!-- Contacts Section Start -->
     <div class="contact_lis">
-      <Contactcard class="mt-5" />
+      <Contactcard :fetchContact="fetchContact" :routeId="routeId" :contactList="contactList" class="mt-5" />
     </div>
     <!-- Contacts Section End -->
 
@@ -94,30 +94,34 @@
       :style="{ width: '40rem' }"
       :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
     >
-      <form> <!-- Corrected from 'from' to 'form' -->
+      <form @submit.prevent="addContact" > <!-- Corrected from 'from' to 'form' -->
         <div class="row formFileds">
           <div class="col-12">
             <div class="form-group">
               <label> Name</label>
-              <input type="text" class="form-control" />
+              <input type="text" v-model="contact.name" class="form-control" />
+              <small v-if="c_Error.name" class="text-danger validate">{{c_Error.name[0]}}</small>
+
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <label> Role</label>
-              <input type="text" class="form-control" />
+              <input type="text" v-model="contact.role" class="form-control" />
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <label> Email</label>
-              <input type="email" class="form-control" />
+              <input type="email" v-model="contact.email" class="form-control" />
+              <small v-if="c_Error.email" class="text-danger validate">{{c_Error.email[0]}}</small>
+
             </div>
           </div>
           <div class="col-12">
             <div class="form-group">
               <label> Phone Number</label>
-              <input type="text" class="form-control" />
+              <input type="text" v-model="contact.phone" class="form-control" />
             </div>
           </div>
          
@@ -128,15 +132,14 @@
             class="btn btn-secondary"
             label="Cancel"
             severity="secondary"
-            @click="AddContact = false"
+            @click="AddContact = false ; c_Error = []"
             >Cancel</Button
           >
           <Button
-            type="button"
-            class="btn btn-primary"
+            type="submit"
+            class="btn btn-primary spinner"
             label="Save"
-            @click="AddContact = false"
-            >Add</Button
+            ><Spinner  v-if="loading" /> Add</Button
           >
         </div>
       </form>
@@ -161,19 +164,49 @@ import frLogo from "@/assets/images/flag/france.png"
 // Images
 import clubimg from "@/assets/images/clubimg.png";
 
+// Routes
+import { useRoute } from 'vue-router';
+
+// Axios
+import axios from "axios"
+
+// Toast
+import { useToast } from "vue-toastification";
+const toast = useToast();
+
+
+// Spinner
+import Spinner from "@/components/Spinner.vue";
+
+
+
 export default {
   name: "Clubview",
   components: {
     Documents,
     Contactcard,
-    Dynamictable
+    Dynamictable,
+    Spinner,
   },
   data() {
     return {
       ukLogo : ukLogo,
       frLogo : frLogo,
       clubImg: clubimg,
+      routeId : '',
+      loading : false,
+      c_Error : [],
       AddContact : false,
+      player_count : '-',
+      contactList : [],
+      player_data : [],
+      token : localStorage.getItem('token'),
+      contact : {
+        name : '',
+        role : '',
+        email : '',
+        phone: '',
+      },
     
       player_head: [
         {
@@ -209,27 +242,97 @@ export default {
           label: "Contract End",
         },
       ],
-      player_body: [
-        {
-          checkbox: `<label for="check1" class="table_check_list" class="text-center">
-            <input id="check1" type="checkbox" />
-            <div class="c_checkbox"><i class="pi pi-check" ></i></div>
-            </label>`,
-          join_date: `<div class="text">Dec 12, 2023</div>`,
-          player_name: `<div class="text fw6">Enzo Delgado</div>`,
-          dob: `<div class="text fw6">Marseille</div>`,
-          nationality: `<div class="flag_imges "><img class="img-fluid" src="${ukLogo}" ><img class="img-fluid" src="${frLogo}" ></div>`,
-          role: `<div class="text">Striker</div>`,
-          mv: `<div class="text">€25.00m</div>`,
-          contract_end: `<div class="text">12/02/2022</div>`,
-        },
-      ],
+
+      player_body: [],
     };
+  },
+  mounted(){
+    const route = useRoute()
+    this.routeId = route.params.id;
+    this.fetchContact();
   },
   methods: {
     goback() {
       window.history.back();
     },
+    // Add Contact JS Start
+
+     async addContact(){
+      try {
+
+        this.loading = true;
+        this.c_Error = [];
+        const response = await axios.post(this.$baseURL+`theo/api/admin/clubs/${this.routeId}/store-contact`,this.contact,{
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
+        console.log(response)
+        if(response.status == 200){
+          this.loading = false;
+          this.AddContact = false;
+          this.fetchContact();
+          toast.success("Contact added successfully!");
+          this.contact = {
+            name :"",
+            role :"",
+            email :"",
+            phone :"",
+          }
+        }
+      } catch (error) {
+        this.loading = false;
+        this.c_Error = error.response.data; 
+        console.log(error.response.data)
+      }
+    },
+    // Add Contact JS End
+
+    // Fetch Contact JS Start
+    async fetchContact(){
+      try {
+        const response = await axios.get(this.$baseURL+`theo/api/admin/clubs/${this.routeId}`,{
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        })
+        if(response.status == 200){
+            this.contactList = response.data.contacts;
+            this.player_count = response.data.players_count;
+            this.player_data =  response.data.players;
+            this.player_body = this.player_data.map((player,index)=>({
+
+            checkbox: `<label for="check1" class="table_check_list" class="text-center">
+                        <input id="check1" type="checkbox" />
+                        <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+                      </label>`,
+
+            join_date: `<div class="text">${player.joining_date.slice(0, -8)}</div>`,
+
+            player_name: `<div class="text fw6">${player.name}</div>`,
+
+            dob: `<div class="text fw6">${player.dob.slice(0, -8)}</div>`,
+
+            // nationality: `<div class="flag_imges "><img class="img-fluid" src="${ukLogo}" ><img class="img-fluid" src="${frLogo}" ></div>`,
+
+            nationality: `<div class="text">${player.citizenship}</div>`,
+
+            role: `<div class="text">${player.position}</div>`,
+
+            mv: `<div class="text">€${player.mv}m</div>`,
+
+            contract_end: `<div class="text">${player.contract_expire}</div>`,
+            }))
+        }
+      } catch (error) {
+        console.log(error.response.data)
+      }
+    }
+    // Fetch Contact JS End
+
+
   },
 };
 </script>

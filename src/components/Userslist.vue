@@ -5,12 +5,11 @@
                 <span class="icon">
                     <i class="pi pi-search"></i>
                 </span>
-                <InputText type="text" class="form-control" placeholder="Search" v-model="searchQuery" />
+                <InputText type="text" v-model="searchInput" @keypress="searchUser" class="form-control" placeholder="Search"/>
             </div>
         </div>
-
         <ul class="list">
-            <li v-for="item in users" :key="item.name" >
+            <li v-for="item in filterChat" :key="item.name" >
                 <div class="item" :class="{'active': item.active === true , 'online': item.online === true  }" >
                     <div class="info">
                         <div class="p_img">
@@ -38,6 +37,7 @@ export default {
     name: 'Userslist',
     data(){
         return{
+            searchInput : '',
             users : [
                 { img : user1 , name : 'Eion Morgan' , msg : 'This player is really cool.', time : '5h' , active : true , online : true },
                 { img : user2 , name : 'Ian Bell' , msg : 'This player is really cool.', time : '5h' , active : false , online : true },
@@ -49,6 +49,16 @@ export default {
                 { img : user5 , name : 'Chris Gayle' , msg : 'This player is really cool.', time : '5h' , active : false , online : false },
             ]
         }
+    },
+    computed : {
+       filterChat(){
+            return this.users.filter((player)=>{
+                const query = this.searchInput.toLowerCase();
+                return(
+                    player.name.toLowerCase().includes(query)
+                )
+            })
+       }
     }
 }
 </script>

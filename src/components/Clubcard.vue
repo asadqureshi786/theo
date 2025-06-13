@@ -4,12 +4,12 @@
         No record found.
     </div>
     <div v-for="item in filteredClub" :key="item.name" class="box_card">
-        <img :src="clubimg" class="profile_picture">
+        <img :src="item.logo_url" class="profile_picture">
 
         <div class="middle">
             <p class="name">{{ item.name }}</p>
             <div class="desc agent">
-                <label>Total Players:</label>
+                <label>Total Players: {{item.players_count}} </label>
                 <p class="text">{{ item.total_player }}</p>
             </div>
             <div class="desc club">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <router-link class="btn btn-primary" to="club-view">View</router-link>
+        <router-link class="btn btn-primary" :to="`club-view/${item.id}`">View</router-link>
 
        
     </div>
@@ -49,8 +49,8 @@ export default {
             return this.allClubs.filter((player) => {
                 const query = this.searchQuery.toLowerCase();
                 return (
-                    player.total_player.toLowerCase().includes(query) ||
-                    player.current_transfer_record.toLowerCase().includes(query)
+                    player.name.toLowerCase().includes(query)
+                    //  || player.current_transfer_record.toLowerCase().includes(query)
                 );
             });
         },

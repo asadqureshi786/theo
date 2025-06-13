@@ -155,7 +155,8 @@ export default {
         }
       } catch (error) {
         this.loading = false;
-        console.log(error.response.data)
+
+          toast.error(error);
         if (
           error.response &&
           error.response.data &&

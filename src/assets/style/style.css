@@ -311,6 +311,42 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 18px;
 }
 
+.action_icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.action_icon > div {
+  line-height: 0px;
+}
+.action_icon svg, .action_icon i {
+  width: 20px;
+  height: 20px;
+}
+
+.no_record_found {
+  border: 1px solid #D9D9D9;
+  border-radius: 20px;
+  padding: 100px 0px;
+}
+.no_record_found h4 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(16, 24, 40, 0.6980392157);
+}
+.no_record_found i {
+  font-size: 20px;
+}
+
+.spinner_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 155px);
+}
+
 .confirmation_modal {
   width: 350px;
   border-radius: 8px !important;
@@ -2325,6 +2361,11 @@ header.protal_header .main_header .header_option .language .text {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
+}
+.contact_card .main_parent .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .contact_card .main_parent li .card {
   border: 1.5px solid #D9D9D9;

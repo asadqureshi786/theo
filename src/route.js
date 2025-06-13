@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from "./pages/Admin/Dashboard.vue";
 import clubs from "./pages/Admin/Clubs.vue";
 import Agents from "./pages/Admin/Agents.vue";
+import Test from "./pages/Admin/Test.vue";
 import Players from "./pages/Admin/Players.vue";
 import Playerprofile from "./pages/Admin/Playerprofile.vue";
 import Home from "./pages/Web/Home.vue";
@@ -73,7 +74,7 @@ const routes = [
         component: Messages,
       },
       {
-        path: "club-view",
+        path: "club-view/:id",
         component: Clubview,
       },
       {
@@ -83,6 +84,10 @@ const routes = [
       {
         path: "settings",
         component: Settings,
+      },
+      {
+        path: "test",
+        component: Test,
       },
     ],
   },

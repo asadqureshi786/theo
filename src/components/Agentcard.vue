@@ -22,13 +22,7 @@
 
     <ConfirmDialog class="confirmation_modal"></ConfirmDialog>
     <div class="action_icon">
-      <div
-        class="edit_icon"
-        @click="
-          editAgent = 'false';
-          handleId(item.id);
-        "
-      >
+      <div class="edit_icon" @click=" editAgent = 'false'; handleId(item.id);">
         <svg
           viewBox="0 0 24 24"
           fill="none"

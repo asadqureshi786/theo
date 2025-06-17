@@ -6,7 +6,7 @@
           <img :src="profileImg" alt="" />
         </div>
         <div>
-          <p class="name">Eion Morgan</p>
+          <p class="name">{{agent.name }}</p>
           <p class="last_seen">Last seend 45 min ago</p>
         </div>
       </div>
@@ -17,21 +17,21 @@
 
     <ul class="msg_list">
       <li
-        v-for="(msg, index) in messages"
+        v-for="(msg, index) in msgs"
         :key="index"
         :class="[
-          msg.type === 'receiver' ? 'recieved_msg' : 'sender_msg',
+          msg.sender_id !== userId ? 'recieved_msg' : 'sender_msg',
           'messages',
         ]"
       >
-        <div v-if="msg.type === 'receiver'" class="profile_img">
-          <img :src="msg.profile" alt="" />
-        </div>
 
+      <!-- <div v-if="msg.type === 'receiver'" class="profile_img">
+        <img :src="msg.profile" alt="" />
+      </div> -->
         <div>
           <ul class="list">
-            <li v-for="(m, idx) in msg.msg" :key="idx">
-              <p class="msg">{{ m }}</p>
+            <li>
+              <p class="msg">{{ msg.message }}</p>
             </li>
           </ul>
           <div class="msg_time">{{ msg.time }}</div>
@@ -45,7 +45,7 @@
 
     <div class="chat_input">
       <div class="icon face"><i class="pi pi-face-smile"></i></div>
-      <input type="text" class="form-control" placeholder="Type a message" />
+      <input type="text"  @keydown.enter="sendChat" v-model="formData.message" class="form-control" placeholder="Type a message" />
       <div class="d-flex links aling-items-center gap-3">
         <div class="icon d-flex g-4 align-items-center">
           <svg
@@ -81,7 +81,7 @@
           <span class="text">Ask AI</span>
         </div>
         <div class="icon"><i class="pi pi-paperclip"></i></div>
-        <div class="icon"><i class="pi pi-send"></i></div>
+        <div  @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
       </div>
     </div>
   </div>
@@ -90,118 +90,75 @@
 <script>
 import user1 from "@/assets/images/chatUser4.png";
 
+import { useAuthStore } from '@/store/auth.js';
+import axios from "axios";
+
 export default {
   name: "Chatbox",
+  props: {
+    agentDetail: Object,
+    messages: Array,
+   
+  },
   data() {
     return {
       profileImg: user1,
-      messages: [
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Hey! How are you doing today?"],
-          time: "Friday 2:00pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: ["Hey! I’m good, just working on a new project."],
-          time: "Friday 2:02pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Oh nice! What’s the project about?"],
-          time: "Friday 2:05pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: [
-            "It’s a new chat UI for our app.",
-            "Trying to make it more interactive.",
-          ],
-          time: "Friday 2:07pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Sounds interesting! Need any help?"],
-          time: "Friday 2:10pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: ["Thanks! I’ll let you know if I get stuck. 😊"],
-          time: "Friday 2:12pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Cool! What tools or frameworks are you using for this UI?"],
-          time: "Friday 2:14pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: [
-            "Mostly Vue 3 with some custom CSS.",
-            "Also trying out Tailwind for styling.",
-          ],
-          time: "Friday 2:15pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Tailwind is awesome!", "You’ll be able to move fast with it."],
-          time: "Friday 2:17pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: [
-            "Yeah exactly. Also thinking of adding transitions for message animations.",
-          ],
-          time: "Friday 2:18pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: [
-            "That’ll make it feel smooth and modern.",
-            "Let me know if you need help with transitions.",
-          ],
-          time: "Friday 2:20pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: [
-            "For sure!",
-            "Do you have any reference or examples I can look at?",
-          ],
-          time: "Friday 2:21pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["Yep, I’ll send over a GitHub repo I used in my last project."],
-          time: "Friday 2:22pm",
-        },
-        {
-          type: "sender",
-          profile: user1,
-          msg: ["Awesome, thanks a lot! That would really help."],
-          time: "Friday 2:23pm",
-        },
-        {
-          type: "receiver",
-          profile: user1,
-          msg: ["No problem! Glad to help."],
-          time: "Friday 2:24pm",
-        },
-      ],
+      formData : {
+        message : '',
+        receiver_id : '',
+      },
+      token: localStorage.getItem('token'),
+      agent: {}, 
+      msgs : [],
+      user : useAuthStore(),
+      userId : '',
     };
   },
+  async mounted() {
+    const res = await this.user.fetchUser();
+    this.userId = res.user.id;
+  },
+  watch: {
+    agentDetail: {
+      immediate: true,
+      handler(newVal) {
+        this.agent = newVal;
+        this.formData.receiver_id = this.agent.id;
+        // console.log("This one",this.agent.id)
+      },
+    },
+    messages : {
+      immediate: true,
+      handler(newVal){
+      this.msgs = newVal
+      }
+    }
+  },
+    methods : {
+    async sendChat(){
+      console.log(this.$baseURL+`theo/api/admin/messages/send/${this.agent.id}`, {
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        });
+      try{
+        const response = await axios.post(this.$baseURL+`theo/api/admin/messages/send?${this.agent.id}`,this.formData, {
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        })
+
+        if(response.status == 200){
+          this.formData.message = '';
+        }
+
+        console.log(response);
+      }catch(error){
+        console.log(error)
+      }
+    }
+  }
 };
 </script>

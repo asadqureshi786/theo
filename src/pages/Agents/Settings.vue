@@ -185,7 +185,7 @@ export default {
         async getUserInfo() {
           this.loading = true;
           try {
-            const response = await axios.get(this.$baseURL+"theo/api/agent/me",{
+            const response = await axios.get(this.$baseURL+"theo/api/me",{
               headers: {
                 'Accept' : 'application/json',
                 Authorization: `Bearer ${this.token}`, 

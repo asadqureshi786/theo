@@ -2242,6 +2242,8 @@ header.protal_header .main_header .header_option .language .text {
 .chat_box .chat_input .form-control {
   border: none !important;
   padding-left: 45px !important;
+  padding-right: 145px !important;
+  background-color: red;
 }
 .chat_box .chat_input .form-control::-moz-placeholder {
   color: #535353 !important;

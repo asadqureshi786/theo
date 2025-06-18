@@ -9,7 +9,7 @@
             </div>
         </div>
         <ul class="list">
-            <li v-for="item in allAgents" :key="item.name">
+            <li v-for="item in filterChat" :key="item.name">
                 <div class="item" :class="{ 'active': item.active === true, 'online': item.online === true }" @click="agentID(item.id)" >
                     <div class="info">
                         <div class="p_img">

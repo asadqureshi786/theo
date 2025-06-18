@@ -21,6 +21,7 @@ import Signup from "./pages/Authentication/Signup.vue";
 
 // Agents Routes
 import AgentDashboard from "./pages/Agents/Dashboard.vue";
+import AgentMessages from "./pages/Agents/Messages.vue";
 import AgentSettings from "./pages/Agents/Settings.vue";
 
 const routes = [
@@ -50,7 +51,7 @@ const routes = [
         component: Players,
       },
       {
-        path: "player-profile",
+        path: "player-profile/:id",
         component: Playerprofile,
       },
       {
@@ -103,6 +104,10 @@ const routes = [
       {
         path: "dashboard",
         component: AgentDashboard,
+      },
+      {
+        path: "messages",
+        component: AgentMessages,
       },
       {
         path: "settings",

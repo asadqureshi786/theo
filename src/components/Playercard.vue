@@ -1,7 +1,8 @@
 <template>
-    <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
+    <!-- <div v-if="filteredPlayers.length === 0" class="text-center text-danger">
         No record found.
-      </div>
+      </div> -->
+      <!-- {{filteredPlayers.length}} -->
     <div v-for="item in filteredPlayers" :key="allPlayers.name"  class="box_card">
         <img :src="item.image" class="profile_picture" >
 
@@ -9,19 +10,19 @@
             <p class="name">{{item.name}}</p>
             <div class="desc agent" >
                 <label>Agent:</label>
-                <p class="text">{{item.agent}}</p>
+                <p class="text">agent</p>
             </div>
             <div class="desc club" >
                 <label>Club:</label>
                 <div class="club_img">
-                    <img :src="club1" >
-                    <p class="text">{{item.club}}</p>
+                    <img :src="item.club.logo_url" >
+                    <p class="text">{{item.club.name}}</p>
                 </div>
             </div>
         </div>
-        <router-link class="btn btn-primary" to="player-profile" >View</router-link>
+        <router-link class="btn btn-primary" :to="`player-profile/${item.id}`" >View</router-link>
 
-        <div class="status">{{item.status}}</div>
+        <div class="status">status</div>
     </div>
 </template>
 
@@ -49,9 +50,10 @@ export default {
       return this.allPlayers.filter((player) => {
         const query = this.searchQuery.toLowerCase();
         return (
-          player.name.toLowerCase().includes(query) ||
-          player.agent.toLowerCase().includes(query) ||
+          player.name.toLowerCase().includes(query)    ||
           player.club.toLowerCase().includes(query)
+        //    ||
+        //   player.club.toLowerCase().includes(query)
         );
       });
     },

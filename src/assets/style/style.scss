@@ -2532,6 +2532,8 @@ header {
         .form-control {
             border: none !important;
             padding-left: 45px !important;
+            padding-right: 145px !important;
+            background-color: red;
 
             &::placeholder {
                 color: #535353 !important;

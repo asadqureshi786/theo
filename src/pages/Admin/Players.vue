@@ -114,6 +114,10 @@
 import Playercard from "@/components/Playercard.vue";
 import Profile1 from "@/assets/images/profile1.jpg";
 import Profile2 from "@/assets/images/profile2.jpg";
+
+import axios from "axios";
+
+
 export default {
   name: "Players",
   components: {
@@ -125,72 +129,42 @@ export default {
       Profile2: Profile2,
       searchQuery: "",
       addPlayer: false,
+      token: localStorage.getItem('token'),
       allPlayers: [
-        {
-          image: Profile1,
-          name: "Cristiano Ronaldo",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "Al Nasar",
-          status: "Pending",
-        },
-        {
-          image: Profile2,
-          name: "Mesit Ozil",
-          agent: "Zidane",
-          club: "Real Madrid",
-          status: "Completed",
-        },
-        {
-          image: Profile1,
-          name: "Leo Messi",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "FC Barcelona",
-          status: "Pending",
-        },
-        {
-          image: Profile1,
-          name: "Cristiano Ronaldo",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "Al Nasar",
-          status: "Pending",
-        },
-        {
-          image: Profile2,
-          name: "Mesit Ozil",
-          agent: "Zidane",
-          club: "Real Madrid",
-          status: "Completed",
-        },
-        {
-          image: Profile1,
-          name: "Leo Messi",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "FC Barcelona",
-          status: "Pending",
-        },
-        {
-          image: Profile1,
-          name: "Cristiano Ronaldo",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "Al Nasar",
-          status: "Pending",
-        },
-        {
-          image: Profile2,
-          name: "Mesit Ozil",
-          agent: "Zidane",
-          club: "Real Madrid",
-          status: "Completed",
-        },
-        {
-          image: Profile1,
-          name: "Leo Messi",
-          agent: "Sheikh Mohammad Bin Salman",
-          club: "FC Barcelona",
-          status: "Pending",
-        },
+        // {
+        //   image: Profile1,
+        //   name: "Cristiano Ronaldo",
+        //   agent: "Sheikh Mohammad Bin Salman",
+        //   club: "Al Nasar",
+        //   status: "Pending",
+        // },
       ],
     };
   },
+
+  mounted(){
+    this.fetchPlayers();
+  },
+
+  methods : {
+    async fetchPlayers(){
+          try {
+        const response = await axios.get(this.$baseURL+`theo/api/admin/players`, {
+          headers: {
+            'Accept': 'application/json',
+            Authorization: `Bearer ${this.token}`,
+          },
+        }) 
+        if(response.status == 200){
+          console.log(response.data)
+          this.allPlayers = response.data;
+          console.log(response.data);
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+
 };
 </script>

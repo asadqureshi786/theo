@@ -3,17 +3,17 @@
 
         <!-- Page Header Section Start -->
         <div class="page_header">
-            <div class="heading_icon " >
-                <div id="goBack" @click="goback" class="cursor-pointer" ><i class="pi pi-chevron-left"></i></div>
-               <h3 class="hd">Player Portfolio</h3>
+            <div class="heading_icon ">
+                <div id="goBack" @click="goback" class="cursor-pointer"><i class="pi pi-chevron-left"></i></div>
+                <h3 class="hd">Player Portfolio</h3>
             </div>
-          </div>
+        </div>
         <!-- Page Header Section End -->
 
         <!-- Profile Card Section Start -->
-         <div class="profile_section  ">
+        <div class="profile_section  ">
             <div class="profileImage">
-                <img :src="fullProfile" class="img-fluid" alt="">
+                <img :src="playerData.image" class="img-fluid" alt="">
                 <div class="profile_number">
                     #20
                 </div>
@@ -22,26 +22,26 @@
                 <div class="main_col">
                     <div class="top">
                         <div class="right_side">
-                            <h1 class=" player_name fw6 pb-2" >Kylian Mbappé</h1>
-                            <ul class="teamAgent" >
-                               <li>
-                                    <div class="mid_sec" >
-                                        <img class="rounded-circle sm_img object-fit-cover"  :src="Profile1" >
-                                        <label>Paris Saint-Germain</label>
+                            <h1 class=" player_name fw6 pb-2">{{playerData.name}}</h1>
+                            <ul class="teamAgent">
+                                <li>
+                                    <div class="mid_sec">
+                                        <img class="rounded-circle sm_img object-fit-cover" :src="Profile1">
+                                        <label>{{playerData.citizenship}}</label>
                                     </div>
-                               </li> 
-                               <li>
-                                <div class="mid_sec" >
-                                    <img class="rounded-circle sm_img object-fit-cover"  :src="club1" >
-                                    <label>Agent: James Worth</label>
-                                </div>
-                               </li>
+                                </li>
+                                <li>
+                                    <div class="mid_sec">
+                                        <img class="rounded-circle sm_img object-fit-cover" :src="club1">
+                                        <label>Agent: James Worth</label>
+                                    </div>
+                                </li>
                             </ul>
-                        
+
                         </div>
                         <div class="left_side">
-                            <div class="fcol" >
-                                <p class="primaryText1 text" >Scout Status:</p>
+                            <div class="fcol">
+                                <p class="primaryText1 text">Scout Status:</p>
                                 <span class="status">Followed </span>
                             </div>
                             <div class="contract_expiry">
@@ -60,12 +60,12 @@
                         </div>
                     </div>
                     <div class="ft_bottom">
-                        <div class="contract_dates" >
-                            <label class="" >Contract Expire Date : </label>
-                            <span class="" >13 / Apr / 2028</span>
+                        <div class="contract_dates">
+                            <label class="">Contract Expire Date : </label>
+                            <span class="">{{playerData.contract_expire}}</span>
                         </div>
                         <div class="invite_link d-none">
-                            <span class="icon"><i class="pi pi-paperclip" ></i></span>
+                            <span class="icon"><i class="pi pi-paperclip"></i></span>
                             <span class="text">Invite Link</span>
                         </div>
                     </div>
@@ -76,51 +76,48 @@
                             <ul>
                                 <li>
                                     <label>Date of birth:</label>
-                                    <p class="text" >Dec 20, 1998s</p>
+                                    <p class="text">{{playerData.dob}}</p>
                                 </li>
                                 <li>
                                     <label>Place of birth:</label>
-                                    <p class="text">Pariss</p>
+                                    <p class="text">{{playerData.pob}}</p>
                                 </li>
                                 <li>
                                     <label>Age:</label>
-                                    <p class="text">24 years</p>
+                                    <p class="text">{{playerData.age}}</p>
                                 </li>
                                 <li>
                                     <label>Height:</label>
-                                    <p class="text">1,78 m</p>
+                                    <p class="text">{{playerData.height}}</p>
                                 </li>
                                 <li>
                                     <label>Citizenship</label>
-                                    <p class="text">France</p>
+                                    <p class="text">{{playerData.citizenship}}</p>
                                 </li>
-                                <li>
-                                    <label>Age:</label>
-                                    <p class="text">24 years</p>
+                               <li>
+                                    <label>Position:</label>
+                                    <p class="text">{{playerData.position}}</p>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-md-5 offset-md-2">
                             <ul>
-                                <li>
-                                    <label>Position:</label>
-                                    <p class="text">Attack - Left Winger</p>
-                                </li>
+                                
                                 <li>
                                     <label>Foot:</label>
-                                    <p class="text">Right</p>
+                                    <p class="text">{{playerData.foot}}</p>
                                 </li>
                                 <li>
                                     <label>Joined:</label>
-                                    <p class="text">Jul 1, 2018</p>
+                                    <p class="text">{{playerData.joining_date}}</p>
                                 </li>
                                 <li>
                                     <label>Contract expires:</label>
                                     <p class="text">Jun 30, 2024</p>
                                 </li>
                                 <li>
-                                    <label>Jun 30, 2024</label>
-                                    <p class="text">Player option 1 year</p>
+                                    <label>Market Value</label>
+                                    <p class="text">{{playerData.mv}} </p>
                                 </li>
                                 <li>
                                     <label>Date of last contract:</label>
@@ -131,29 +128,29 @@
                     </div>
                 </div>
             </div>
-         </div>    
+        </div>
         <!-- Profile Card Section End -->
-        
-        
+
+
         <!-- Documents Start -->
         <div class="light_head mt-5">
             Documents
         </div>
-         <Documents class="" />
+        <Documents class="" />
         <!-- Documents End -->
 
         <!-- Video List Components Start -->
         <div class="light_head mt-5">
             Videos
         </div>
-         <Videolist/>
+        <Videolist />
         <!-- Video List Components End -->
 
         <!-- Transfer History Compenent Start -->
         <div class="light_head mt-5">
             Transfer History
         </div>
-        <Simpletable class="mt-3" :headers="dealHeaders" :data="deals"/>
+        <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" />
         <!-- Transfer History Compenent End -->
 
 
@@ -174,38 +171,93 @@ import Documents from "@/components/Documents.vue"
 import Videolist from "@/components/Videolist.vue"
 import Simpletable from "@/components/Simpletable.vue"
 
+// Axios
+import axios from "axios";
+
+// Route
+import { useRoute } from 'vue-router';
+
 export default {
-    name : 'Playerprofile',
-    components : {
+    name: 'Playerprofile',
+    components: {
         Documents,
         Videolist,
         Simpletable
     },
-    data(){
-        return(
-            {
-                Profile1 : Profile1,
-                club1 : club1,
-                fullProfile : fullProfile,
-
+    data() {
+        return (
+            {   
+                token : localStorage.getItem('token'),
+                Profile1: Profile1,
+                club1: club1,
+                fullProfile: fullProfile,
+                playerData : {},
                 dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
                 deals: [
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
-                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M","End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
+                    ["18/19", "01/Jul/2018", "AS Monaco", "Paris SG", "$120.00 M", "End of Loan"],
                     // Add more deal data here
                 ],
             }
         )
     },
-    methods : {
-        goback(){
+    mounted() {
+        const route = useRoute()
+        this.fetchPlayera(route.params.id)
+    },
+    methods: {
+        goback() {
             window.history.back();
+        },
+        async fetchPlayera(id) {
+            try {
+                const response = await axios.get(this.$baseURL + `theo/api/admin/players/${id}`, {
+                    headers: {
+                        'Accept': 'application/json',
+                        Authorization: `Bearer ${this.token}`,
+                    },
+                })
+                if (response.status == 200) {
+                    // console.log(response);
+                    this.playerData = response.data
+                    this.playerData.dob = response.data.dob.slice(0,-8)
+                    this.playerData.joining_date = response.data.joining_date.slice(0,-8)
+                    // this.contactList = response.data.contacts;
+                    // this.player_count = response.data.players_count;
+                    // this.player_data =  response.data.players;
+                    // this.player_body = this.player_data.map((player,index)=>({
+
+                    // checkbox: `<label for="check1" class="table_check_list" class="text-center">
+                    //             <input id="check1" type="checkbox" />
+                    //             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+                    //           </label>`,
+
+                    // join_date: `<div class="text">${player.joining_date.slice(0, -8)}</div>`,
+
+                    // player_name: `<div class="text fw6">${player.name}</div>`,
+
+                    // dob: `<div class="text fw6">${player.dob.slice(0, -8)}</div>`,
+
+                    // // nationality: `<div class="flag_imges "><img class="img-fluid" src="${ukLogo}" ><img class="img-fluid" src="${frLogo}" ></div>`,
+
+                    // nationality: `<div class="text">${player.citizenship}</div>`,
+
+                    // role: `<div class="text">${player.position}</div>`,
+
+                    // mv: `<div class="text">€${player.mv}m</div>`,
+
+                    // contract_end: `<div class="text">${player.contract_expire}</div>`,
+                    // }))
+                }
+            } catch (error) {
+                console.log(error.response.data)
+            }
         }
     }
 }

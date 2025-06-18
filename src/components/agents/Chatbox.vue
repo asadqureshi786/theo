@@ -47,7 +47,7 @@
       <div class="icon face"><i class="pi pi-face-smile"></i></div>
       <input type="text"  @keydown.enter="sendChat" v-model="formData.message" class="form-control" placeholder="Type a message" />
       <div class="d-flex links aling-items-center gap-3">
-        <div class="icon d-flex g-4 align-items-center">
+        <div class="icon d-flex g-4 align-items-center ">
           <svg
             width="16"
             height="16"
@@ -80,8 +80,11 @@
           </svg>
           <span class="text">Ask AI</span>
         </div>
-        <div class="icon"><i class="pi pi-paperclip"></i></div>
-        <div  @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
+        <div class="icon d-flex justify-content-center align-items-center"><i class="pi pi-paperclip"></i></div>
+        <div  v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
+        <spinner/>
+        </div>
+        <div  v-else @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
       </div>
     </div>
   </div>
@@ -93,8 +96,14 @@ import user1 from "@/assets/images/chatUser4.png";
 import { useAuthStore } from '@/store/auth.js';
 import axios from "axios";
 
+// Spinner
+import spinner from "@/components/Spinner.vue";
+
 export default {
   name: "Chatbox",
+  components : {
+    spinner,
+  },
   props: {
     agentDetail: Object,
     messages: Array,
@@ -103,6 +112,7 @@ export default {
   data() {
     return {
       profileImg: user1,
+      loader : false,
       formData : {
         message : '',
         receiver_id : '',
@@ -117,12 +127,13 @@ export default {
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
-
-    setInterval(()=>{
+    console.log(this.agent.id);
+    if(this.agent.id >=1){
+          setInterval(()=>{
       this.allMessages(this.agent.id);
-    },3000)
-
-
+      console.log("Ub Chala");
+    },1000)
+    }
   },
   watch: {
     agentDetail: {
@@ -130,7 +141,6 @@ export default {
       handler(newVal) {
         this.agent = newVal;
         this.formData.receiver_id = this.agent.id;
-        // console.log("This one",this.agent.id)
       },
     },
     messages : {
@@ -141,15 +151,11 @@ export default {
     }
   },
     methods : {
-    async sendChat(){
-      console.log(this.$baseURL+`theo/api/admin/messages/send/${this.agent.id}`, {
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
+      async sendChat(){
+        this.loader = true;
+        // console.log(this.formData.receiver_id)
       try{
-        const response = await axios.post(this.$baseURL+`theo/api/admin/messages/send?${this.agent.id}`,this.formData, {
+        const response = await axios.post(this.$baseURL+`theo/api/agent/messages/send`,this.formData, {
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
@@ -158,9 +164,11 @@ export default {
 
         if(response.status == 200){
           this.formData.message = '';
+          this.loader = false;
         }
         console.log(response);
       }catch(error){
+        this.loader = false;
         console.log(error)
       }
     },

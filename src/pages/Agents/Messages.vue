@@ -15,8 +15,8 @@
 
 <script>
 // Components
-import Userslist from "@/components/Userslist.vue";
-import Chatbox from "@/components/Chatbox.vue";
+import Userslist from "@/components/agents/Userslist.vue";
+import Chatbox from "@/components/agents/Chatbox.vue";
 import axios from "axios";
 
 export default {
@@ -46,7 +46,7 @@ export default {
   methods: {
     async allAgentsFun() {
       try {
-        const response = await axios.get(this.$baseURL + "theo/api/admin/messages", {
+        const response = await axios.get(this.$baseURL + "theo/api/agent/messages", {
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
@@ -63,7 +63,7 @@ export default {
     async allMessages(id) {
       this.chatActive = false;
       try {
-        const response = await axios.get(this.$baseURL+`theo/api/admin/messages/${id}`, {
+        const response = await axios.get(this.$baseURL+`theo/api/agent/messages/${id}`, {
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,

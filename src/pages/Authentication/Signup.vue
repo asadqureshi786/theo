@@ -10,6 +10,15 @@
             <div class="row formFileds">
               <div class="col-md-12">
                 <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" v-model="form.name" class="form-control" />
+                  <small v-if="errors.email" class="text-danger validate">{{ errors.name[0] }}</small>
+
+                </div>
+              </div>
+             
+              <div class="col-md-12">
+                <div class="form-group">
                   <label>Email</label>
                   <input type="email" v-model="form.email" class="form-control" />
                   <small v-if="errors.email" class="text-danger validate">{{ errors.email[0] }}</small>
@@ -89,6 +98,7 @@ export default {
       sideCover: cover,
       loading : false,
       form: {
+        name : "",
         email: "",
         password: "",
         password_confirmation: "",
@@ -109,6 +119,7 @@ export default {
             this.$router.push({ path: '/login' });
             this.loading = false;
             this.form.email = '';
+            this.form.name = '';
             this.form.password = '';
             this.form.password_confirmation = '';
         }, 500);

@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <ul class="msg_list">
+    <ul class="msg_list" ref="scrollBox">
       <li
         v-for="(msg, index) in msgs"
         :key="index"
@@ -128,12 +128,12 @@ export default {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
     console.log(this.agent.id);
-    if(this.agent.id >=1){
+    // if(this.agent.id >=1){
           setInterval(()=>{
       this.allMessages(this.agent.id);
-      console.log("Ub Chala");
+      // console.log("Ub Chala");
     },1000)
-    }
+    // }
   },
   watch: {
     agentDetail: {
@@ -163,6 +163,7 @@ export default {
         })
 
         if(response.status == 200){
+          this.scrollToBottom();
           this.formData.message = '';
           this.loader = false;
         }
@@ -172,6 +173,12 @@ export default {
         console.log(error)
       }
     },
+    scrollToBottom() {
+      const el = this.$refs.scrollBox
+      if (el) {
+        el.scrollTop = el.scrollHeight
+      }
+    }
   }
 };
 </script>

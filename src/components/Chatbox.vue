@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <ul class="msg_list">
+    <ul class="msg_list" ref="scrollBox">
       <li
         v-for="(msg, index) in msgs"
         :key="index"
@@ -80,8 +80,10 @@
           </svg>
           <span class="text">Ask AI</span>
         </div>
-        <div class="icon"><i class="pi pi-paperclip"></i></div>
-        <div  @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
+        <div  v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
+        <spinner/>
+        </div>
+        <div  v-else @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
       </div>
     </div>
   </div>
@@ -93,8 +95,14 @@ import user1 from "@/assets/images/chatUser4.png";
 import { useAuthStore } from '@/store/auth.js';
 import axios from "axios";
 
+// Spinner
+import spinner from "@/components/Spinner.vue";
+
 export default {
   name: "Chatbox",
+  components: {
+    spinner,
+  },
   props: {
     agentDetail: Object,
     messages: Array,
@@ -103,6 +111,7 @@ export default {
   data() {
     return {
       profileImg: user1,
+      loader : false,
       formData : {
         message : '',
         receiver_id : '',
@@ -119,7 +128,7 @@ export default {
     this.userId = res.user.id;
 
     setInterval(()=>{
-      this.allMessages(this.agent.id);
+      this.allMessages(this.agent.id)
     },3000)
 
 
@@ -142,12 +151,8 @@ export default {
   },
     methods : {
     async sendChat(){
-      console.log(this.$baseURL+`theo/api/admin/messages/send/${this.agent.id}`, {
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
+        this.loader = true;
+
       try{
         const response = await axios.post(this.$baseURL+`theo/api/admin/messages/send?${this.agent.id}`,this.formData, {
           headers: {
@@ -158,12 +163,24 @@ export default {
 
         if(response.status == 200){
           this.formData.message = '';
+          this.scrollToBottom();
+            this.loader = false;
         }
         console.log(response);
       }catch(error){
         console.log(error)
+          this.loader = false;
       }
     },
+
+    scrollToBottom() {
+      console.log("Running Bpi");
+      const el = this.$refs.scrollBox
+      if (el) {
+        el.scrollTop = el.scrollHeight
+      }
+    }
+
   }
 };
 </script>

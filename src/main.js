@@ -112,8 +112,8 @@ app.use(ConfirmationService);
 app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
-// app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
-app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
+app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+// app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
 // app.config.globalProperties.$baseURL = 'https://cac1-2407-aa80-14-a690-3544-273a-2bf2-b871.ngrok-free.app/';
 // axios.defaults.withCredentials = true
 

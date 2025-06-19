@@ -2177,7 +2177,7 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 20px;
 }
 .chat_box .msg_list {
-  padding: 20px 15px;
+  padding: 20px 15px 0px 15px;
   height: calc(100vh - 268px);
   overflow: auto;
 }

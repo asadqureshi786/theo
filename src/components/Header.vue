@@ -248,6 +248,9 @@ import user1 from '@/assets/images/users/user1.png'
 // Router Import
 import { useRoute } from "vue-router";
 
+// Import Axios
+import axios from "axios";
+
 export default {
     name: "Header",
     data() {
@@ -257,6 +260,7 @@ export default {
                 user1: user1,
                 texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
                 showNotification : false,
+                token : localStorage.getItem('token'),
                 showProfile : false,
                 showMenu : false,
                 notifications : [
@@ -312,10 +316,21 @@ export default {
         }
     },
     methods : {
-        logout() {
+        async logout() {
+            try {
+                const response = await axios.post(this.$baseURL+`theo/api/logout`,{},{
+                headers : {
+                     'Accept': 'application/json',
+                      Authorization: `Bearer ${this.token}`,
+                }
+            });
+            console.log(response)
             localStorage.removeItem('token');
             localStorage.removeItem('role');
             this.$router.push({ path: '/login' });
+            } catch (error) {
+                console.log(error);
+            }
         },
     },
     computed: {

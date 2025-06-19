@@ -55,6 +55,7 @@ export default {
         if (response.status == 200) {
           this.allAgents = response.data;
         }
+        console.log("This One is",response.data)
       } catch (error) {
         console.log(error);
       }
@@ -74,6 +75,7 @@ export default {
           this.messages = response.data.messages ;
           this.chatActive = true;
         }
+        console.log(response.data.conversation_with)
       } catch (error) {
         console.log(error)
       }

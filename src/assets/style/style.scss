@@ -9,6 +9,10 @@ body {
 
 @import './assets.scss';
 
+.cursor_pointer{
+    cursor:pointer;
+}
+
 .formFileds.row {
     row-gap: 17px;
 }

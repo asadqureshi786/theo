@@ -298,6 +298,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   border-radius: 8px;
 }
 
+.cursor_pointer {
+  cursor: pointer;
+}
+
 .formFileds.row {
   row-gap: 17px;
 }

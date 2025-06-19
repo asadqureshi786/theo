@@ -12,12 +12,7 @@ export const useAuthStore = defineStore('counter', {
   // state: () => ({ count: 0 })
   actions: {
     async fetchUser(){
-     console.log(baseURL+"theo/api/me",{
-              headers: {
-                'Accept' : 'application/json',
-                Authorization: `Bearer ${this.token}`, 
-              },
-            });
+      
           try {
             
             const response = await axios.get(baseURL+"theo/api/me",{
@@ -27,7 +22,6 @@ export const useAuthStore = defineStore('counter', {
               },
             });
             if(response.status == 200){
-              console.log("ye auth wali he",response.data);
               return response.data;
             }
           } catch (error) {

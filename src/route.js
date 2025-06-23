@@ -21,6 +21,7 @@ import Signup from "./pages/Authentication/Signup.vue";
 
 // Agents Routes
 import AgentDashboard from "./pages/Agents/Dashboard.vue";
+import AgentCircle from "./pages/Agents/AgentCircle.vue";
 import AgentMessages from "./pages/Agents/Messages.vue";
 import AgentSettings from "./pages/Agents/Settings.vue";
 
@@ -104,6 +105,10 @@ const routes = [
       {
         path: "dashboard",
         component: AgentDashboard,
+      },
+      {
+        path: "agent_circle",
+        component: AgentCircle,
       },
       {
         path: "messages",

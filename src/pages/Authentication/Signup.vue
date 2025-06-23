@@ -8,7 +8,7 @@
           <p class="hd_text">Enter your email and password to signup.</p>
           <form>
             <div class="row formFileds">
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label>Name</label>
                   <input type="text" v-model="form.name" class="form-control" />
@@ -17,10 +17,23 @@
                 </div>
               </div>
              
-              <div class="col-md-12">
+              <div class="col-md-6">
                 <div class="form-group">
                   <label>Email</label>
                   <input type="email" v-model="form.email" class="form-control" />
+                  <small v-if="errors.email" class="text-danger validate">{{ errors.email[0] }}</small>
+
+                </div>
+              </div>
+           
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Plans</label>
+                  <select name="" class="form-control" id="">
+                    <option value="">THEO BLUE – €948</option>
+                    <option value=""> THEO GOLD  – €1548</option>
+                    <option value=""> THEO BLACK – €2388</option>
+                  </select>
                   <small v-if="errors.email" class="text-danger validate">{{ errors.email[0] }}</small>
 
                 </div>

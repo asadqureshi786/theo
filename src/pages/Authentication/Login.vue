@@ -156,12 +156,8 @@ export default {
       } catch (error) {
         this.loading = false;
 
-          toast.error(error);
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.message
-        ) {
+          // toast.error(error);
+        if (error.response && error.response.data && error.response.data.message) {
           toast.error(error.response.data.error);
         } else {
           toast.error(error.response.data.error);

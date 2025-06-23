@@ -197,16 +197,13 @@ export default {
       this.loader = false;
     }
   },
-
-
+  
     scrollToBottom() {
       const el = this.$refs.scrollBox
       if (el) {
         el.scrollTop = el.scrollHeight
       }
     },
-
-
 
   }
 };

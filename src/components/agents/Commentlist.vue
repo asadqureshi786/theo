@@ -100,7 +100,7 @@ import axios from "axios";
         methods : {
             async deleteComment(commentID){
                 try {
-                    const response = await axios.delete(this.$baseURL+`theo/api/admin/posts/${this.id}/comment/${commentID}`,{
+                    const response = await axios.delete(this.$baseURL+`theo/api/agent/posts/${this.id}/comment/${commentID}`,{
                           headers: {
                             Authorization: `Bearer ${this.token}`,
                         },

@@ -2688,6 +2688,11 @@ header.protal_header .main_header .header_option .language .text {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.login_page .stripe_card {
+  border: 1.6px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 10px;
+}
 
 .auth_page .form-group {
   margin-bottom: 4px;

@@ -3064,6 +3064,12 @@ header {
         }
     }
 
+    .stripe_card{
+        border:1.6px solid $cardBorder;
+        border-radius: 8px; 
+        padding:10px;
+    }
+
 }
 .auth_page{
     .form-group{

@@ -71,7 +71,7 @@
     </div>
     <!-- Contacts Section End -->
 
-  
+
 
         <!-- Table Section Start -->
     <div class="light_head mb-3 mt-5">Players</div>
@@ -151,7 +151,7 @@
 
 // Components
 import Documents from "@/components/Documents.vue";
-import Contactcard from "@/components/Contactcard.vue";
+import Contactcard from "@/components/agents/Contactcard.vue";
 import Dynamictable from "@/components/Dynamictable.vue";
 
 // Images
@@ -256,9 +256,10 @@ export default {
 
      async addContact(){
       try {
+
         this.loading = true;
         this.c_Error = [];
-        const response = await axios.post(this.$baseURL+`theo/api/admin/clubs/${this.routeId}/store-contact`,this.contact,{
+        const response = await axios.post(this.$baseURL+`theo/api/agent/clubs/${this.routeId}/store-contact`,this.contact,{
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
@@ -288,13 +289,12 @@ export default {
     // Fetch Contact JS Start
     async fetchContact(){
       try {
-        const response = await axios.get(this.$baseURL+`theo/api/admin/clubs/${this.routeId}`,{
+        const response = await axios.get(this.$baseURL+`theo/api/agent/clubs/${this.routeId}`,{
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
           },
         })
-        console.log("this ones" , response)
         if(response.status == 200){
             this.contactList = response.data.contacts;
             this.player_count = response.data.players_count;
@@ -306,7 +306,7 @@ export default {
                         <div class="c_checkbox"><i class="pi pi-check" ></i></div>
                       </label>`,
 
-            join_date: `<div class="text">${player.joining_date ? player.joining_date.slice(0, -8) : '-'}</div>`,
+          join_date: `<div class="text">${player.joining_date ? player.joining_date.slice(0, -8) : '-'}</div>`,
 
             player_name: `<div class="text fw6">${player.name}</div>`,
 
@@ -324,7 +324,7 @@ export default {
             }))
         }
       } catch (error) {
-        console.log(error)
+        console.log(error.response.data)
       }
     }
     // Fetch Contact JS End

@@ -15,7 +15,7 @@
           <div class="header primaryCol  fw5">
             {{ item.name }}
             <div class="action_icon">
-              <div class="edit_icon cursor-pointer" @click="editContact = true; contact_id = item.id ;contact = {club_id : route_id , id: item.id, name: item.name, role: item.role, email: item.email, phone: item.phone }">
+              <div class="edit_icon" @click=" editAgent = 'false'; handleId(item.id);">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#8F0301">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                   <g
@@ -121,68 +121,6 @@
 
   <ConfirmDialog class="confirmation_modal"></ConfirmDialog>
 
-
-     <!-- Edit Contact Modal Section Start -->
-      <Dialog
-    v-model:visible="editContact"
-      maximizable
-      modal
-      header="Edit Contact"
-      :style="{ width: '40rem' }"
-      :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
-    >
-      <form  > <!-- Corrected from 'from' to 'form' -->
-        <div class="row formFileds">
-          <div class="col-12">
-            <div class="form-group">
-              <label> Name</label>
-              <input type="text" v-model="contact.name" class="form-control" />
-              <small v-if="c_Error.name" class="text-danger validate">{{c_Error.name[0]}}</small>
-
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <label> Role</label>
-              <input type="text" v-model="contact.role" class="form-control" />
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <label> Email</label>
-              <input type="email" v-model="contact.email" class="form-control" />
-              <small v-if="c_Error.email" class="text-danger validate">{{c_Error.email[0]}}</small>
-
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="form-group">
-              <label> Phone Number</label>
-              <input type="text" v-model="contact.phone" class="form-control" />
-            </div>
-          </div>
-         
-        </div>
-        <div class="flex justify-end gap-2 modal_footer">
-          <Button
-            type="button"
-            class="btn btn-secondary"
-            label="Cancel"
-            severity="secondary"
-            @click="editContact = false ; c_Error = []"
-            >Cancel</Button
-          >
-          <Button
-            type="submit"
-            class="btn btn-primary spinner"
-            label="Save"
-            @click="updateContact"
-            ><Spinner  v-if="loading" /> Update</Button
-          >
-        </div>
-      </form>
-    </Dialog>
-    <!-- Edit Contact Modal Section End -->
 </template>
 
 <script>
@@ -192,12 +130,6 @@ import axios from "axios";
 import { useToast } from "vue-toastification";
 const toast = useToast();
 
-// Spinner
-import Spinner from "@/components/Spinner.vue";
-
-// Routes
-import { useRoute } from 'vue-router';
-
 export default {
   name: "Contactcard",
   props: {
@@ -205,47 +137,48 @@ export default {
     routeId : String,
     fetchContact : Function,
   },
-  components: {
-    Spinner,
-  },
   data() {
     return {
       token : localStorage.getItem('token'),
-      editContact : false,
-      contact_id : '',
-      route_id : '',
-      contact : {
-        club_id : '',
-        id : '',
-        name : '',
-        role : '',
-        email : '',
-        phone: '',
-      },
-      c_Error : [],
-      loading: false,
-    
-  
+      contacts: [
+        {
+          header: "John William",
+          email: "abc@mail.com",
+          name: "Sporting Director",
+          number: "+1-238-9453",
+        },
+        {
+          header: "Emily Smith",
+          email: "emily.smith@mail.com",
+          name: "Marketing Manager",
+          number: "+1-567-1234",
+        },
+        {
+          header: "Michael Johnson",
+          email: "michael.johnson@mail.com",
+          name: "Head Coach",
+          number: "+1-789-6543",
+        },
+        {
+          header: "Sarah Brown",
+          email: "sarah.brown@mail.com",
+          name: "Team Doctor",
+          number: "+1-345-9876",
+        },
+      ],
     };
   },
-
-  mounted(){
-    const route = useRoute()
-    this.route_id = route.params.id;
-    // this.fetchContact();
-  },
-
   methods : {
     // Delete Contact 
       async deleteContact(contactID) {
-        console.log(`${this.$baseURL}theo/api/admin/clubs/${this.routeId}/delete-contact/${contactID}`, {
+        console.log(`${this.$baseURL}theo/api/agent/clubs/${this.routeId}/delete-contact/${contactID}`, {
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
           },
         });
       try {
-        const response = await axios.delete(`${this.$baseURL}theo/api/admin/clubs/${this.routeId}/delete-contact/${contactID}`, {
+        const response = await axios.delete(`${this.$baseURL}theo/api/agent/clubs/${this.routeId}/delete-contact/${contactID}`, {
           headers: {
             'Accept': 'application/json',
             Authorization: `Bearer ${this.token}`,
@@ -284,45 +217,6 @@ export default {
           // console.log("Delete cancelled");
         },
       });
-    },
-
-    // Handle Edit
-    async updateContact(e){
-      e.preventDefault();
-      // console.log(this.contact);
-      // return
-      this.loading = true;
-      this.c_Error = [];
-      try {
-          const response = await axios.put(`${this.$baseURL}theo/api/admin/clubs/${this.route_id}/update-contacts/${this.contact_id}`,this.contact,{
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
-        if(response.status === 200){
-          this.editContact = false;
-          this.contact = {
-            club_id : this.route_id,
-            id : '',
-            name : '',
-            role : '',
-            email : '',
-            phone: '',
-          };
-          this.c_Error = [];
-          this.fetchContact();
-          this.loading = false;
-          toast.success("Contact updated successfully!");
-        } else {
-          toast.error("Failed to update contact.");
-          this.loading = false;
-        }
-        console.log(response);
-      } catch (error) {
-        this.loading = false;
-        console.log(error);
-      }
     }
     
   }

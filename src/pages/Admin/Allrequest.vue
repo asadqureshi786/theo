@@ -17,9 +17,9 @@
         </div>
 
         <!-- Add Button -->
-        <button class="btn btn-primary" @click="addRequest = true">
+        <!-- <button class="btn btn-primary" @click="addRequest = true">
           Add Request
-        </button>
+        </button> -->
       </div>
     </div>
 

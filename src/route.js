@@ -21,6 +21,9 @@ import Signup from "./pages/Authentication/Signup.vue";
 
 // Agents Routes
 import AgentDashboard from "./pages/Agents/Dashboard.vue";
+import AgentClubs from "./pages/Agents/Clubs.vue";
+import AgentClubview from "./pages/Agents/Clubview.vue";
+import AgentAllrequest from "./pages/Agents/Allrequest.vue";
 import AgentCircle from "./pages/Agents/AgentCircle.vue";
 import AgentMessages from "./pages/Agents/Messages.vue";
 import AgentSettings from "./pages/Agents/Settings.vue";
@@ -105,6 +108,18 @@ const routes = [
       {
         path: "dashboard",
         component: AgentDashboard,
+      },
+      {
+        path: "clubs",
+        component: AgentClubs,
+      },
+      {
+        path: "club-view/:id",
+        component: AgentClubview,
+      },
+      {
+        path: "all-request",
+        component: AgentAllrequest,
       },
       {
         path: "agent_circle",

@@ -1,6 +1,6 @@
 <template>
   <div class="page_header">
-    <h3 class="hd">Newsfeed</h3>
+    <h3 class="hd">Agent Circle</h3>
   </div>
 
   <div class="news_feeds mt-4">
@@ -104,7 +104,7 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <Sideplayers playerHeading="Recent Request" />
+            <Sideplayers playerHeading="My Circle" />
           </div>
         </div>
       </div>
@@ -162,13 +162,13 @@ export default {
     // Add Newsfeed JS Start
     async addNewsfeed() {
       this.loading = true;
-      console.log(this.$baseURL + "theo/api/admin/posts",{ content: this.editorValue },{
+      console.log(this.$baseURL + "theo/api/agent/posts",{ content: this.editorValue, type: "agent_circle" },{
             headers: {
               Authorization: `Bearer ${this.token}`,
             },
-          })
+          });
       try {
-        const response = await axios.post(this.$baseURL + "theo/api/admin/posts",{ content: this.editorValue },{
+        const response = await axios.post(this.$baseURL + "theo/api/agent/posts",{ content: this.editorValue, type: "agent_circle" },{
             headers: {
               Authorization: `Bearer ${this.token}`,
             },
@@ -197,7 +197,7 @@ export default {
     async fetchNewsFeed() {
       try {
         const response = await axios.get(
-          this.$baseURL + `theo/api/admin/posts`,
+          this.$baseURL + `theo/api/agent/posts`,
           {
             headers: {
               Authorization: `Bearer ${this.token}`,
@@ -230,7 +230,7 @@ export default {
     async deletePost(id) {
       try {
         const response = await axios.delete(
-          this.$baseURL + `theo/api/admin/posts/${id}`,
+          this.$baseURL + `theo/api/agent/posts/${id}`,
           {
             headers: {
               Authorization: `Bearer ${this.token}`,
@@ -250,7 +250,7 @@ export default {
     async postLiked(id) {
       try {
         const response = await axios.post(
-          this.$baseURL + `theo/api/admin/posts/${id}/like`,
+          this.$baseURL + `theo/api/agent/posts/${id}/like`,
           {}, // empty body
           {
             headers: {
@@ -271,7 +271,7 @@ export default {
 
     // Add Comment JS Start
     async addComment(id) {
-      console.log(  this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
+      console.log(  this.$baseURL + `theo/api/agent/posts/${id}/comment`,this.userInput,{
             headers: {
               Accept: "application/json",
               Authorization: `Bearer ${this.token}`,
@@ -279,7 +279,7 @@ export default {
           })
       try {
         const response = await axios.post(
-          this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
+          this.$baseURL + `theo/api/agent/posts/${id}/comment`,this.userInput,{
             headers: {
               Accept: "application/json",
               Authorization: `Bearer ${this.token}`,

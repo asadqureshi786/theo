@@ -141,7 +141,7 @@ export default {
   data() {
     
     return {
-      addRequest: true,
+      addRequest: false,
       token: localStorage.getItem('token'),
       selectedCountry: null,
       leagues : [],
@@ -178,11 +178,9 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         })
-        console.log(response);
         if (response.status == 200) {
           this.allCountries = response.data;
         }
-        console.log(response);
       } catch (error) {
         console.log(error)
       }
@@ -206,7 +204,6 @@ export default {
           this.leagues = '';
           this.selectedLeague = 'League';
         }
-        console.log();
       } catch (error) {
         console.log(error)
       }
@@ -216,12 +213,6 @@ export default {
     // Select All Clubs
     async fetchAllClub() {
       this.leagueID = this.selectedLeague?.id;
-      console.log(this.$baseURL + `theo/api/agent/requests/${this.countryID}/leagues/${this.leagueID}/clubs`, {
-            headers: {
-              'Accept': 'application/json',
-              Authorization: `Bearer ${this.token}`,
-            },
-          });
       if(this.leagueID){
         try {
           const response = await axios.get(this.$baseURL + `theo/api/agent/requests/${this.leagueID}/clubs`, {
@@ -255,10 +246,8 @@ export default {
             },
           });
           if (response.status == 201) {
-                // console.log(response);
                 toast.success(response.data);
             }
-            console.log(response);
         } catch (error) {
             this.errors = error.response.data;
             if(error.response.data){
@@ -270,7 +259,6 @@ export default {
         
         }
     }
-
   },
 
 };

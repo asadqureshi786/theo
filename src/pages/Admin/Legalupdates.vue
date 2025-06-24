@@ -230,6 +230,7 @@ export default {
       } else {
         formData.append("image", this.selectedFile);
       }
+      
       try {
         const response = await axios.post(
           this.$baseURL + "theo/api/admin/legal-updates/save",

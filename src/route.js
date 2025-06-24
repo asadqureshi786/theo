@@ -24,6 +24,10 @@ import AgentDashboard from "./pages/Agents/Dashboard.vue";
 import AgentClubs from "./pages/Agents/Clubs.vue";
 import AgentClubview from "./pages/Agents/Clubview.vue";
 import AgentAllrequest from "./pages/Agents/Allrequest.vue";
+import AgentJobview from "./pages/Agents/Jobview.vue";
+import AgentPlayer from "./pages/Agents/Players.vue";
+import AgentPlayerprofile from "./pages/Agents/Playerprofile.vue";
+import AgentScoutPlayer from "./pages/Agents/ScoutPlayer.vue";
 import AgentCircle from "./pages/Agents/AgentCircle.vue";
 import AgentMessages from "./pages/Agents/Messages.vue";
 import AgentSettings from "./pages/Agents/Settings.vue";
@@ -120,6 +124,22 @@ const routes = [
       {
         path: "all-request",
         component: AgentAllrequest,
+      },
+      {
+        path: "job-view/:id",
+        component: AgentJobview,
+      },
+      {
+        path: "players",
+        component: AgentPlayer,
+      },
+      {
+        path: "player-profile/:id",
+        component: AgentPlayerprofile,
+      },
+      {
+        path: "squad-player",
+        component: AgentScoutPlayer,
       },
       {
         path: "agent_circle",

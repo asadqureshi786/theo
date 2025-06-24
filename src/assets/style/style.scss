@@ -375,8 +375,68 @@ body {
     }
 }
 
+// Multi Select SASS Start
+.p-multiselect-label.p-placeholder,
+.p-multiselect-label
+{
+    padding: 0px!important;
+}
+.p-multiselect-label{
+    color:$formText !important;
+}
+.p-multiselect-overlay.p-component{
+        background: #fff !important;
+        border: 1.6px solid #E2E8F0 !important;
+        border-radius: 10px !important;
+        padding: 7px 12px !important;
+        color: $formText !important;
+        font-size: 14px !important;
+        box-shadow: none !important;
+        .p-multiselect-label-container{
+            padding: 0px!important;
+        }
+        
+        .p-multiselect-header{
+            padding-inline: 16px !important;
+            .p-checkbox-box{
+                  background: transparent !important;
+                  border: 1.6px solid #E2E8F0 !important;
+            }
+            .p-multiselect-filter-container{
+                input{
+                     background: transparent !important;
+    border: 1.6px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 7px 12px !important;
+    color: $formText !important;
+    font-size: 14px !important;
+                }
+            }
+        }
+        ul{
+            .p-multiselect-option{
+                &:hover{
+                        span{
+                    color:#fff;;
+                }
+                }
+                span{
+                    color:$formText;
+                }
+                .p-checkbox-box{
+                       background: #fff !important;
+                        border: 1.6px solid #E2E8F0 !important;
+                }
+                &:hover.focus{
+                    display: none!important;
+                }
+            }
+        }
+}
+
+// Multi Select SASS End
 .d_select {
-    .p-component {
+    .p-component{
         height: 37px;
         width: 100%;
         background: transparent !important;
@@ -1902,6 +1962,19 @@ header {
                     }
                 }
             }
+        }
+    }
+    &.myCircle{
+        li > div{
+                display: flex;
+                gap: 10px;
+                border: 1px solid #8F03010F;
+                border-radius: 8px;
+                padding: 6px;
+                .box{
+                    border:none;
+                    padding:0px;
+                }
         }
     }
 }

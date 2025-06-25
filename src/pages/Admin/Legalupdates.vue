@@ -231,6 +231,17 @@ export default {
         formData.append("image", this.selectedFile);
       }
       
+      console.log(
+          this.$baseURL + "theo/api/admin/legal-updates/save",
+          formData,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${this.token}`,
+            },
+          })
+      
       try {
         const response = await axios.post(
           this.$baseURL + "theo/api/admin/legal-updates/save",

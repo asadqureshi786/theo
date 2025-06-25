@@ -1173,6 +1173,11 @@ header {
             }
         }
     }
+    &.agent_header{
+        .nav_links ul li .nav_item.has_dropdown .header_dropdown {
+            bottom: -122px!important;
+        }
+    }
 }
 
 // Portal Header SASS End

@@ -1,5 +1,5 @@
 <template>
-    <header class="protal_header" >
+    <header class="protal_header agent_header" >
         <div class="container-fluid">
             <div class="main_header">
                 <a href="" class="logo">

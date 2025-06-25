@@ -99,10 +99,11 @@
             </button>
             <button
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-primary spinner"
               label="Save"
               @click="addPlayer"
             >
+            <Spinner v-if="loading" />
               Add
             </button>
           </div>
@@ -115,11 +116,22 @@
 <script>
 // Axios
 import axios from "axios";
+
+// Toast
+import { useToast } from "vue-toastification";
+const toast = useToast();
+
+// Spinner
+import Spinner from "@/components/Spinner.vue";
 export default {
   name: "ScoutPlayer",
+  components : {
+    Spinner
+  },
   data() {
     return {
-      showModal: true,
+      showModal: false,
+      loading : false,
       searchQuery: "",
       token : localStorage.getItem("token"),
       formData: {
@@ -138,22 +150,19 @@ export default {
       e.preventDefault();
 
       try {
+        this.loading = true;
+        
+        const Sendform = new FormData();
+        Sendform.append('transferMarketUrl', this.formData.transferMarketUrl);
+        // Sendform.append('documents', this.formData.documents);
 
-        const form = new FormData();
-        form.append('transferMarketUrl', this.formData.transferMarketUrl);
-        form.append('documents', this.formData.documents);
-
-        // this.formData.documents.forEach((file) => {
-        //   form.append('documents', file);
-        // });
-        console.log(this.$baseURL + `theo/api/agent/squad-players/fetch`,form,{
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${this.token}`,
-            },
-          });
-        const response = await axios.post(this.$baseURL + `theo/api/agent/squad-players/fetch`,form,{
+        this.formData.documents.forEach((file,index) => {
+          Sendform.append(`documents[]`, file);
+        });
+        console.log("this one",Sendform)
+          const response = await axios.post(
+          this.$baseURL + "theo/api/agent/squad-players/fetch",Sendform,
+          {
             headers: {
               Accept: "application/json",
               "Content-Type": "multipart/form-data",
@@ -161,13 +170,25 @@ export default {
             },
           }
         );
-        console.log("Response:", response);
-        // if (response.status == 200) {
-        //   console.log(response.data);
-        //   this.allPlayers = response.data;
-        //   console.log(response.data);
-        // }
-      } catch (error) {}
+        if (response.status === 201) {
+          console.log(response)
+          this.loading = false;
+          // this.loading = false;
+          toast.success(response.data);
+          // this.fetchLegal();
+          // this.addUpdate = false,
+          //   this.form = {
+          //     title: "",
+          //     url: "",
+          //     description: "",
+          //   };
+        }
+        console.log(response);
+        
+      } catch (error) {
+        this.loading = false;
+        console.log(error);
+      }
     },
   },
 };

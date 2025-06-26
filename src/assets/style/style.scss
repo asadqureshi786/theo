@@ -26,6 +26,23 @@ body {
         }
 }
 
+.fix_not_Found{
+    width: 100%;
+    height: calc(100vh - 180px);
+    border: 1px solid $lightBorder;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-style: italic;
+    color:$light5;
+    font-weight: 400;
+    gap:10px;
+    i{
+        font-size: 18px;
+    }
+}
 
 
     .action_icon {
@@ -61,7 +78,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(100vh - 155px);
+    height: calc(100vh - 180px);
 }
 
 // Confirmation Modal SASS Start
@@ -679,7 +696,7 @@ body {
     padding-block: 13px;
 
     .dots {
-        color: #CCCDCE;
+        color: #9b9b9b;
     }
 
     .dropdown-toggle::after {
@@ -1101,7 +1118,8 @@ header {
                                     opacity: 0;
                                     visibility: hidden;
                                     position: absolute;
-                                    bottom: -88px;
+                                    // bottom: -88px;
+                                    bottom: -122px!important;
                                     left: 0;
                                     background: #fff;
                                     width: 180px;
@@ -1173,11 +1191,7 @@ header {
             }
         }
     }
-    &.agent_header{
-        .nav_links ul li .nav_item.has_dropdown .header_dropdown {
-            bottom: -122px!important;
-        }
-    }
+ 
 }
 
 // Portal Header SASS End
@@ -1366,6 +1380,10 @@ header {
 
 // Request Item SASS Start
 .request_items {
+    &.squad_request{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
     .item {
         background-color: $primaryLight;
         border: 1px solid $primaryLightBorder2;
@@ -1389,6 +1407,11 @@ header {
                 img {
                     width: 60px;
                     border-radius: 100px;
+                }
+                .main_profile{
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
                 }
             }
 
@@ -1462,8 +1485,56 @@ header {
         color: #292D3299;
         cursor: pointer;
     }
+    &.sm{ 
+     .main_profile{
+          width: 50px!important;
+          height: 50px!important;
+          object-fit: cover;
+      }
+      label{
+        font-size: 13.5px!important;
+      }
+      .detail{
+        gap:6px!important;
+      }
+      .bottom .text{
+        font-size: 13.5px!important;
+      }
+      .player_proposed img{
+        width: 16px!important;
+        height: 16px!important;
+      }
+      .player_proposed .img{
+        top:1px;
+      }
+      .rside .detail .top > div .text{
+        font-size: 13.5px;
+      }
+    }
 }
-
+.share_req_modal{
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .profile{
+            display: flex;
+            align-items: center;
+            gap:10px;
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 100px;
+                border:3px solid $primaryLight1;
+            }
+            .txt{
+                font-size: 14px;
+                color:$formText;
+                font-weight: 600;
+            }
+        }
+    }
+}
 // Request Item SASS End
 
 // Page Header SASS Start

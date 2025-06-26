@@ -1,5 +1,5 @@
 <template>
-  <div class="page_header">
+  <div class="page_header mb-4">
     <h3 class="hd">Squad Players</h3>
     <div class="r_side">
       <div class="searchBox icon_box">
@@ -68,6 +68,8 @@
                   class="form-control"
                 />
                 {{transferMarketUrl}}
+                <small v-if="errors.transferMarketUrl" class="text-danger validate">{{ errors.transferMarketUrl[0] }}</small>
+
               </div>
             </div>
             <div class="col-12">
@@ -111,6 +113,17 @@
       </Dialog>
     </div>
   </div>
+      <div class="spinner_center"  v-if="spinner" >
+      <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
+    </div>
+
+    <div v-if="notFound" class="fix_not_Found mt-4">
+        <i class="pi pi-exclamation-circle" ></i>No Record Found
+    </div>
+
+    <SquadPlayerCard v-else :searchQuery="searchQuery" :allPlayers="allPlayers" />
+   
+
 </template>
 
 <script>
@@ -121,24 +134,34 @@ import axios from "axios";
 import { useToast } from "vue-toastification";
 const toast = useToast();
 
-// Spinner
+// Components
 import Spinner from "@/components/Spinner.vue";
+import SquadPlayerCard from "@/components/agents/SquadPlayerCard.vue";
 export default {
   name: "ScoutPlayer",
   components : {
-    Spinner
+    Spinner,
+    SquadPlayerCard
   },
   data() {
     return {
       showModal: false,
       loading : false,
       searchQuery: "",
+      errors : {},
+      spinner : false,
+      notFound : false,
       token : localStorage.getItem("token"),
       formData: {
         transferMarketUrl: "",
         documents: [],
       },
+      allPlayers : [],
     };
+  },
+
+  mounted(){
+    this.fetchPlayer();
   },
 
   methods: {
@@ -146,19 +169,20 @@ export default {
       this.formData.documents = fileItems.map((fileItem) => fileItem.file);
     },
 
+    // Add Player
     async addPlayer(e) {
       e.preventDefault();
 
       try {
         this.loading = true;
-        
+        this.errors = {};
+
         const Sendform = new FormData();
         Sendform.append('transferMarketUrl', this.formData.transferMarketUrl);
-        // Sendform.append('documents', this.formData.documents);
-
         this.formData.documents.forEach((file,index) => {
           Sendform.append(`documents[]`, file);
         });
+
         console.log("this one",Sendform)
           const response = await axios.post(
           this.$baseURL + "theo/api/agent/squad-players/fetch",Sendform,
@@ -173,23 +197,45 @@ export default {
         if (response.status === 201) {
           console.log(response)
           this.loading = false;
-          // this.loading = false;
-          toast.success(response.data);
-          // this.fetchLegal();
-          // this.addUpdate = false,
-          //   this.form = {
-          //     title: "",
-          //     url: "",
-          //     description: "",
-          //   };
+          toast.success(response.data.message);
         }
         console.log(response);
         
       } catch (error) {
         this.loading = false;
+        this.errors = error.response.data;
         console.log(error);
       }
     },
+
+    // Fetch Squad Player
+    async fetchPlayer(){
+     this.spinner = true;
+      try {
+        const response = await axios.get(this.$baseURL+"theo/api/agent/squad-players/all-players",{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+        })
+        this.allPlayers = response.data;
+        if(response.status == 200){
+          this.spinner = false;
+          if(response.data.length === 0){
+            this.notFound = true;
+          }
+          else{
+            this.notFound = false;
+          }
+        }
+      } catch (error) {
+        this.spinner = false;
+        
+      }
+    }
+
+
+
   },
 };
 </script>

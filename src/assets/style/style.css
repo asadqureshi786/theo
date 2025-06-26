@@ -315,6 +315,24 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 18px;
 }
 
+.fix_not_Found {
+  width: 100%;
+  height: calc(100vh - 180px);
+  border: 1px solid rgba(133, 143, 163, 0.3098039216);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-style: italic;
+  color: #424441;
+  font-weight: 400;
+  gap: 10px;
+}
+.fix_not_Found i {
+  font-size: 18px;
+}
+
 .action_icon {
   display: flex;
   align-items: center;
@@ -348,7 +366,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: calc(100vh - 155px);
+  height: calc(100vh - 180px);
 }
 
 .confirmation_modal {
@@ -836,7 +854,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
   padding-block: 13px;
 }
 .action_dropdown .dots {
-  color: #CCCDCE;
+  color: #9b9b9b;
 }
 .action_dropdown .dropdown-toggle::after {
   content: none;
@@ -1165,7 +1183,7 @@ header.protal_header .main_header .nav_links ul li .nav_item.has_dropdown .heade
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  bottom: -88px;
+  bottom: -122px !important;
   left: 0;
   background: #fff;
   width: 180px;
@@ -1216,9 +1234,6 @@ header.protal_header .main_header .header_option .language {
 }
 header.protal_header .main_header .header_option .language .text {
   font-size: 11px;
-}
-header.agent_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
-  bottom: -122px !important;
 }
 
 .tabs_header_cs {
@@ -1360,6 +1375,10 @@ header.agent_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
   background-color: rgba(143, 3, 1, 0.0784313725);
 }
 
+.request_items.squad_request {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .request_items .item {
   background-color: rgba(143, 3, 1, 0.0392156863);
   border: 1px solid rgba(143, 3, 1, 0.0784313725);
@@ -1381,6 +1400,12 @@ header.agent_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
 .request_items .item .rside .img img {
   width: 60px;
   border-radius: 100px;
+}
+.request_items .item .rside .img .main_profile {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .request_items .item .rside .detail {
   display: flex;
@@ -1437,6 +1462,53 @@ header.agent_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
 .request_items .action {
   color: rgba(41, 45, 50, 0.6);
   cursor: pointer;
+}
+.request_items.sm .main_profile {
+  width: 50px !important;
+  height: 50px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.request_items.sm label {
+  font-size: 13.5px !important;
+}
+.request_items.sm .detail {
+  gap: 6px !important;
+}
+.request_items.sm .bottom .text {
+  font-size: 13.5px !important;
+}
+.request_items.sm .player_proposed img {
+  width: 16px !important;
+  height: 16px !important;
+}
+.request_items.sm .player_proposed .img {
+  top: 1px;
+}
+.request_items.sm .rside .detail .top > div .text {
+  font-size: 13.5px;
+}
+
+.share_req_modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.share_req_modal .header .profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.share_req_modal .header .profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  border: 3px solid rgba(143, 3, 1, 0.2);
+}
+.share_req_modal .header .profile .txt {
+  font-size: 14px;
+  color: #475569;
+  font-weight: 600;
 }
 
 .page_header {

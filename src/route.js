@@ -5,6 +5,7 @@ import Agents from "./pages/Admin/Agents.vue";
 import Test from "./pages/Admin/Test.vue";
 import Players from "./pages/Admin/Players.vue";
 import Playerprofile from "./pages/Admin/Playerprofile.vue";
+import SquadRequest from "./pages/Admin/SquadRequest.vue";
 import Home from "./pages/Web/Home.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AgentLayout from "@/layouts/AgentLayout.vue";
@@ -61,6 +62,10 @@ const routes = [
       {
         path: "player-profile/:id",
         component: Playerprofile,
+      },
+      {
+        path: "squad-request",
+        component: SquadRequest,
       },
       {
         path: "job-view",

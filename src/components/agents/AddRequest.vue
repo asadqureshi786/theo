@@ -107,20 +107,20 @@
         </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
-        <Button
+        <button
           type="button"
           class="btn btn-secondary"
           label="Cancel"
           severity="secondary"
           @click="addRequest = false"
-          >Cancel</Button
+          >Cancel</button
         >
-        <Button
+        <button
           type="submit"
           class="btn btn-primary"
           label="Save"
           @click="addRequestFunction"
-          >Add</Button
+          >Add</button
         >
       </div>
     </form>
@@ -139,7 +139,6 @@ const toast = useToast();
 export default {
   name: "AddRequest",
   data() {
-    
     return {
       addRequest: false,
       token: localStorage.getItem('token'),

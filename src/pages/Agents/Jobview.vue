@@ -19,7 +19,7 @@
               <div class="top">
                 <div class="main">
                   <div class="lside">
-                    <h5 class="primaryCol2 f30 fw6">Postion: Goalkeeper</h5>
+                    <h5 class="primaryCol2 f30 fw6">Postion: {{request.main_position ? request.main_position : '-'}}</h5>
                   </div>
                   <div class="rside">
                     <div class="bookmark_icon">
@@ -29,8 +29,8 @@
                 </div>
                 <div class="main">
                   <div class="d-flex align-items-center gap-4">
-                    <p class="text f19 black fw5">League Liga</p>
-                    <p class="text f19 black fw5">Club Al Nasar</p>
+                    <p class="text f19 black fw5">League {{request.league.name ? request.league.name : '-'}}</p>
+                    <p class="text f19 black fw5">Club {{request.club.name ? request.club.name : '-'}}</p>
                   </div>
                   <div class="d-flex align-items-center gap-2">
                     <!-- <button class="btn btn-secondary">Received</button> -->
@@ -42,7 +42,7 @@
                     <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
                     <Playerproposed :proposedImages="proposedImages" />
                   </div>
-                  <p class="ltext mt-4 f11">Posted: 10/November/2023</p>
+                  <p class="ltext mt-4 f11">Posted: {{request.created_at ? request.created_at.slice(0,-17) : '-'}}</p>
                 </div>
               </div>
 
@@ -57,11 +57,11 @@
                         </li>
                         <li>
                           <label>Position Main:</label>
-                          <p class="data">Defender</p>
+                          <p class="data">{{request.main_position ? request.main_position : '-'}}</p>
                         </li>
                         <li>
                           <label>Position Others:</label>
-                          <p class="data">Left back, Midfield</p>
+                          <p class="data">{{request.other_position ? request.other_position : '-'}}</p>
                         </li>
                         <li>
                           <label>Foot:</label>
@@ -87,11 +87,11 @@
                         </li>
                         <li>
                           <label>League:</label>
-                          <p class="data">Defender</p>
+                          <p class="data">{{request.league.name ? request.league.name : '-'}}</p>
                         </li>
                         <li>
                           <label>Club:</label>
-                          <p class="data">Al Nasar</p>
+                          <p class="data">{{request.club.name ? request.club.name : '-'}}</p>
                         </li>
                         <li>
                           <label>Nature of Transfer:</label>
@@ -111,27 +111,7 @@
                 <div class="more_info">
                   <h5 class="f18 hd">More Information</h5>
                   <p class="desc">
-                    Olympique Ardent Football Club (Ardent meaning Passionate)
-                    is a professional French football club based in Lyon.
-                    Founded on August 12, 1953, the club plays its home matches
-                    at the Stade du Flambeau. Their traditional home colors are
-                    navy blue and crimson red.
-                    <br />
-                    <br />
-                    Olympique Ardent is regarded as one of the most competitive
-                    clubs in French football, with 26 official titles.
-                    Domestically, the club has claimed seven Ligue 1
-                    championships, five Coupe de France titles, four Coupe de la
-                    Ligue trophies, and three Trophée des Champions. On the
-                    international stage, they achieved a historic feat in 1999
-                    by winning both the UEFA Cup Winners’ Cup and the UEFA Super
-                    Cup. The club also added the UEFA Intertoto Cup in 2004 and
-                    triumphed in the Coupe des Nations Francophones in 2022.
-                    <br />
-                    <br />
-                    Known for its dynamic youth academy and passionate fan base,
-                    Olympique Ardent continues to be a symbol of ambition,
-                    resilience, and pride in French football.
+                    {{request.additional_information ? request.additional_information : '-'}}
                   </p>
                 </div>
               </div>
@@ -180,20 +160,20 @@
         </div>
       </div>
       <div class="flex justify-end gap-2 modal_footer">
-        <Button
+        <button
           type="button"
           class="btn btn-secondary"
           label="Cancel"
           severity="secondary"
           @click="showPropose = false"
-          >Cancel</Button
+          >Cancel</button
         >
-        <Button
+        <button
           type="button"
           class="btn btn-primary"
           label="Save"
           @click="showPropose = false"
-          >Propose</Button
+          >Propose</button
         >
       </div>
     </form>
@@ -214,6 +194,9 @@ import Sideplayers from "@/components/Sideplayers.vue";
 // Routes
 import { useRoute } from 'vue-router';
 
+
+import axios from "axios";
+
 export default {
   name: "Jobview",
   components: {
@@ -222,12 +205,14 @@ export default {
   },
   data() {
     return {
+      token : localStorage.getItem('token'),
       proposedImages: [proposed1, proposed2, proposed3, proposed4],
       playerHeading: "",
       showPropose : false,
       routeId : '',
       selectedCity: null,
-            cities: [
+      request : {},
+      cities: [
                 { name: 'New York', code: 'NY' },
                 { name: 'Rome', code: 'RM' },
                 { name: 'London', code: 'LDN' },
@@ -268,18 +253,52 @@ export default {
                 { name: 'Prague', code: 'PRG' },
                 { name: 'Budapest', code: 'BUD' }
             ],
+      
     };
   },
 
-  mounted() {
-    const route = useRoute();
+ 
+
+  
+    mounted(){
+       const route = useRoute();
     this.routeId = route.params.id;
-  },
+      this.fetchData();
+      console.log("THis Page");
+    },
 
   methods: {
     goback() {
       window.history.back();
     },
+
+    // Fetch Squad Player
+    async fetchData(){   
+      try {
+        const response = await axios.get(this.$baseURL+`theo/api/agent/requests/${this.routeId}`,{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+        })
+        // this.allPlayers = response.data;
+        console.log(response)
+        if(response.status == 200){
+          this.request = response.data
+          // this.spinner = false;
+          // if(response.data.length === 0){
+          //   this.notFound = true;
+          // }
+          // else{
+          //   this.notFound = false;
+          // }
+        }
+      } catch (error) {
+        // this.spinner = false;
+        
+      }
+    }
+
   },
 };
 </script>

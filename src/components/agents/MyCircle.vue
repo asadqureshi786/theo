@@ -231,7 +231,7 @@ export default {
 
     // Remove Agent from Circle
      removeAgent(agentId) {
-          this.$confirm.require({
+        this.$confirm.require({
         message: "Are you sure you want to delete?",
         header: "",
         icon: "pi pi-exclamation-circle",

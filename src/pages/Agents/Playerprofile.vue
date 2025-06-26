@@ -48,11 +48,11 @@
                                 <div class="header">Contract Expiry Timer</div>
                                 <div class="counter">
                                     <div>
-                                        <p class="count primaryCol">06</p>
+                                        <p class="count primaryCol">{{playerData.remaining_months ? playerData.remaining_months : '-'}}</p>
                                         <p class="text">Months Left</p>
                                     </div>
                                     <div>
-                                        <p class="count primaryCol">10</p>
+                                        <p class="count primaryCol">{{playerData.remaining_days ? playerData.remaining_days : '-' }}</p>
                                         <p class="text">DaysLeft</p>
                                     </div>
                                 </div>
@@ -217,14 +217,14 @@ export default {
         },
         async fetchPlayera(id) {
             try {
-                const response = await axios.get(this.$baseURL + `theo/api/admin/players/${id}`, {
+                const response = await axios.get(this.$baseURL + `theo/api/agent/players/${id}`, {
                     headers: {
                         'Accept': 'application/json',
                         Authorization: `Bearer ${this.token}`,
                     },
                 })
                 if (response.status == 200) {
-                    // console.log(response);
+                    console.log(response.data);
                     this.playerData = response.data
                     this.playerData.dob = response.data.dob.slice(0,-8)
                     this.playerData.joining_date = response.data.joining_date.slice(0,-8)

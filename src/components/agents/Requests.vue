@@ -170,7 +170,7 @@ export default {
       },
       shareModal: false,
       sendOption: [
-        { name: 'My Cricle' , value : 'my_circle' },
+        { name: 'My Circle' , value : 'my_circle' },
         { name: 'Private', value : 'private' },
         { name: 'Public', value : 'public' },
       ],

@@ -13,6 +13,7 @@ import MultiSelect from 'primevue/MultiSelect';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
 import ProgressSpinner from 'primevue/progressspinner';
+import Skeleton from 'primevue/skeleton';
 import ConfirmationService from 'primevue/confirmationservice';
 import ConfirmDialog from 'primevue/confirmdialog';
 import SpeedDial from 'primevue/speeddial';
@@ -98,6 +99,7 @@ app.component('FileUpload', FileUpload) // Register globally
 app.component('ProgressSpinner', ProgressSpinner) // Register globally
 app.component('ConfirmDialog', ConfirmDialog) // Register globally
 app.component('SpeedDial', SpeedDial) // Register globally
+app.component('Skeleton', Skeleton) // Register globally
 
 app.use(Toast,  {
     // You can set your default options here
@@ -114,8 +116,8 @@ app.use(ConfirmationService);
 app.config.globalProperties.$AOS = AOS;
 
 // SetBase Url
-// app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
-app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
+app.config.globalProperties.$baseURL = 'http://192.168.100.19:84/';
+// app.config.globalProperties.$baseURL = 'https://jetnetixsolutions.com/Backend/';
 // app.config.globalProperties.$baseURL = 'https://cac1-2407-aa80-14-a690-3544-273a-2bf2-b871.ngrok-free.app/';
 // axios.defaults.withCredentials = true
 

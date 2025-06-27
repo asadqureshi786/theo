@@ -28,8 +28,13 @@ import AgentAllrequest from "./pages/Agents/Allrequest.vue";
 import AgentJobview from "./pages/Agents/Jobview.vue";
 import AgentPlayer from "./pages/Agents/Players.vue";
 import AgentPlayerprofile from "./pages/Agents/Playerprofile.vue";
-import AgentScoutPlayer from "./pages/Agents/ScoutPlayer.vue";
+import AgentSquadPlayer from "./pages/Agents/SquadPlayer.vue";
+import AgentScoutPlayer from "./pages/Agents/ScoutPlayers.vue";
+import AgentScoutProfile from "./pages/Agents/ScoutProfile.vue";
+import AgentSquadProfile from "./pages/Agents/SquadProfile.vue";
 import AgentCircle from "./pages/Agents/AgentCircle.vue";
+import AgentLegalupdates from "./pages/Agents/Legalupdates.vue";
+import AgentNewsfeeds from "./pages/Agents/Newsfeeds.vue";
 import AgentMessages from "./pages/Agents/Messages.vue";
 import AgentSettings from "./pages/Agents/Settings.vue";
 
@@ -68,7 +73,7 @@ const routes = [
         component: SquadRequest,
       },
       {
-        path: "job-view",
+        path: "job-view/:id",
         component: Jobview,
       },
       {
@@ -144,11 +149,31 @@ const routes = [
       },
       {
         path: "squad-player",
+        component: AgentSquadPlayer,
+      },
+      {
+        path: "scout-player",
         component: AgentScoutPlayer,
+      },
+      {
+        path: "scout-profile/:id",
+        component: AgentScoutProfile,
+      },
+      {
+        path: "squad-profile/:id",
+        component: AgentSquadProfile,
       },
       {
         path: "agent_circle",
         component: AgentCircle,
+      },
+      {
+        path: "legal-updates",
+        component: AgentLegalupdates,
+      },
+      {
+        path: "news-feeds",
+        component: AgentNewsfeeds,
       },
       {
         path: "messages",

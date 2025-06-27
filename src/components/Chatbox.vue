@@ -133,9 +133,9 @@ export default {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
 
-    // setInterval(()=>{
+    setInterval(()=>{
       this.allMessages(this.agent.id)
-    // },3000)
+    },3000)
 
 
   },

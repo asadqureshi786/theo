@@ -121,8 +121,7 @@
         <i class="pi pi-exclamation-circle" ></i>No Record Found
     </div>
 
-    <SquadPlayerCard v-else :searchQuery="searchQuery" :allPlayers="allPlayers" />
-   
+    <SquadPlayerCard v-else :searchQuery="searchQuery" :squadView="squadView" :allPlayers="allPlayers" />
 
 </template>
 
@@ -138,7 +137,7 @@ const toast = useToast();
 import Spinner from "@/components/Spinner.vue";
 import SquadPlayerCard from "@/components/agents/SquadPlayerCard.vue";
 export default {
-  name: "ScoutPlayer",
+  name: "SquadPlayer",
   components : {
     Spinner,
     SquadPlayerCard
@@ -151,6 +150,7 @@ export default {
       errors : {},
       spinner : false,
       notFound : false,
+      squadView : true,
       token : localStorage.getItem("token"),
       formData: {
         transferMarketUrl: "",
@@ -197,6 +197,7 @@ export default {
         if (response.status === 201) {
           console.log(response)
           this.loading = false;
+          this.showModal = false;
           toast.success(response.data.message);
         }
         console.log(response);
@@ -204,6 +205,12 @@ export default {
       } catch (error) {
         this.loading = false;
         this.errors = error.response.data;
+        if(error.response.data.error == '"Failed to fetch player data"'){
+          toast.error(error.response.data.error);
+        }
+        else{
+          this.errors = {};
+        }
         console.log(error);
       }
     },

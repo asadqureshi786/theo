@@ -19,9 +19,14 @@
                             <p class="text">{{ item.position }}</p>
                         </div>
                     </div>
-                    <router-link class="btn btn-primary" :to="`player-profile/${item.id}`">View</router-link>
+                    <router-link class="btn btn-primary" v-if="scoutViewButton" :to="`scout-profile/${item.id}`">View</router-link>
+                    <router-link class="btn btn-primary" v-else-if="squadView" :to="`squad-profile/${item.id}`">View</router-link>
+                    <router-link class="btn btn-primary" v-else :to="`player-profile/${item.id}`">View</router-link>
+               
 
-                    <div class="status">{{ item.status == 'accepted' ? 'Accepted' : 'Rejected' }}</div>
+
+                    <div class="status" v-if="scoutViewButton" >{{ item.status ? item.status : '-'  }}</div>
+                    <div class="status" v-else>{{ item.status == 'accepted' ? 'Accepted' : 'Rejected' }}</div>
                 </div>
             </div>
         </div>
@@ -35,7 +40,9 @@ export default {
     name: 'Playercard',
     props: {
         allPlayers: Array,
-        searchQuery: String
+        searchQuery: String,
+        scoutViewButton : Boolean,
+        squadView : Boolean,
     },
     data() {
         return (
@@ -45,6 +52,12 @@ export default {
                 city: "karachi",
             }
         )
+    },
+
+    mounted() {
+        // You can fetch data here if needed
+        // this.fetchPlayers();
+        console.log(this.allPlayers);
     },
 
     computed: {

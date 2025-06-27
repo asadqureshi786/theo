@@ -43,23 +43,20 @@
                 </li>
               </ul>
             </div>
-            <div class="left_side text-end">
-                 <div class="form-group p-0 m-0">
-            <div class="d_select">
-              <Select editable v-model="statusValue" @change="setStatus" optionValue="value" :options="statusOPT" optionLabel="name"
-                placeholder="Select club" class="w-full" />
-              <small v-if="errors" class="text-danger validate">{{ errors }}</small>
-            </div>
-          </div>
-            </div>
+          
           </div>
           <div class="ft_bottom">
             <div>
               <div class="contract_dates">
                 <label class="">Contract Expire Date : </label>
-                <span class="">{{ playerData.contract_expire }}</span>
+                <span class="">{{ playerData.contract_expire ? playerData.contract_expire : '-' }}</span>
+              </div>
+              <div class="fcol mt-1">
+                <p class="primaryText1 text">Scout Status:</p>
+                <span class="status">{{playerData.status ? playerData.status : '-'}}</span>
               </div>
             </div>
+
           </div>
         </div>
         <div class="profile_detail">
@@ -68,27 +65,27 @@
               <ul>
                 <li>
                   <label>Date of birth:</label>
-                  <p class="text">{{ playerData.dob }}</p>
+                  <p class="text">{{ playerData.dob ? playerData.dob : '' }}</p>
                 </li>
                 <li>
                   <label>Place of birth:</label>
-                  <p class="text">{{ playerData.pob }}</p>
+                  <p class="text">{{ playerData.pob ? playerData.pob : '' }}</p>
                 </li>
                 <li>
                   <label>Age:</label>
-                  <p class="text">{{ playerData.age }}</p>
+                  <p class="text">{{ playerData.age ? playerData.age : '' }}</p>
                 </li>
                 <li>
                   <label>Height:</label>
-                  <p class="text">{{ playerData.height }}</p>
+                  <p class="text">{{ playerData.height ? playerData.height : '-' }}</p>
                 </li>
                 <li>
                   <label>Citizenship</label>
-                  <p class="text">{{ playerData.citizenship }}</p>
+                  <p class="text">{{ playerData.citizenship ? playerData.citizenship : '' }}</p>
                 </li>
                 <li>
                   <label>Position:</label>
-                  <p class="text">{{ playerData.position }}</p>
+                  <p class="text">{{ playerData.position ? playerData.position : '' }}</p>
                 </li>
               </ul>
             </div>
@@ -96,23 +93,23 @@
               <ul>
                 <li>
                   <label>Foot:</label>
-                  <p class="text">{{ playerData.foot }}</p>
+                  <p class="text">{{ playerData.foot ?playerData.foot : '-' }}</p>
                 </li>
                 <li>
                   <label>Joined:</label>
-                  <p class="text">{{ playerData.joining_date }}</p>
+                  <p class="text">{{ playerData.joining_date ? playerData.joining_date : '-' }}</p>
                 </li>
                 <li>
                   <label>Contract expires:</label>
-                  <p class="text">Jun 30, 2024</p>
+                  <p class="text">{{playerData.contract_expire ? playerData.contract_expire : '-'}}</p>
                 </li>
                 <li>
                   <label>Market Value</label>
-                  <p class="text">{{ playerData.mv }}</p>
+                  <p class="text">{{ playerData.mv ? playerData.mv : '-' }}</p>
                 </li>
                 <li>
                   <label>Date of last contract:</label>
-                  <p class="text">May 21, 2022</p>
+                  <p class="text">{{playerData.last_contract ? playerData.last_contract : '-'}}</p>
                 </li>
               </ul>
             </div>
@@ -138,9 +135,9 @@
 
     <!-- Transfer History Compenent Start -->
     <div class="light_head mt-5">Transfer History</div>
-        <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" />
-    </div>
+    <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" />
     <!-- Transfer History Compenent End -->
+  </div>
 </template>
 
 <script>
@@ -160,12 +157,8 @@ import axios from "axios";
 // Route
 import { useRoute } from "vue-router";
 
-// Toast
-import { useToast } from "vue-toastification";
-const toast = useToast();
-
 export default {
-  name: "Playerprofile",
+  name: "SquadProfile",
   components: {
     Documents,
     Videolist,
@@ -178,12 +171,6 @@ export default {
       club1: club1,
       fullProfile: fullProfile,
       playerData: {},
-      statusValue : '',
-      statusOPT : [
-        {name : 'Follow' , value : 'follow'},
-        {name : 'Approach' , value : 'approach'},
-        {name : 'Cancel' , value : 'cancel'},
-      ],
       dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
       deals: [
         [
@@ -262,8 +249,6 @@ export default {
     goback() {
       window.history.back();
     },
-
-    // Fetch Player
     async fetchPlayera(id) {
       try {
         const response = await axios.get(
@@ -279,7 +264,10 @@ export default {
           console.log(response.data);
           this.playerData = response.data;
           this.playerData.dob = response.data.dob.slice(0, -8);
-          this.playerData.joining_date = response.data.joining_date.slice(0,-8);
+          this.playerData.joining_date = response.data.joining_date.slice(
+            0,
+            -8
+          );
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;
           // this.player_data =  response.data.players;
@@ -309,34 +297,6 @@ export default {
         }
       } catch (error) {
         console.log(error.response.data);
-      }
-    },
-
-    // Set Status
-    async setStatus() {
-        // console.log(this.$baseURL + `theo/api/agent/players/${this.playerData.id}/status`,{status: this.statusValue});
-        // return
-      try {
-        const response = await axios.post(
-          this.$baseURL + `theo/api/agent/players/${this.playerData.id}/status`,
-          { status: this.statusValue },
-          {
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${this.token}`,
-            },
-          }
-        );
-        if(response.status == 200) {
-        //    console.log(response);
-         this.$router.push({ path: "/agent/scout-player" });
-           toast.success(response.data.message);
-           this.statusValue = '';
-        }
-        
-      } catch (error) {
-        console.log(error.response.data);
-        this.errors = error.response.data.error;
       }
     },
   },

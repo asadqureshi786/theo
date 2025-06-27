@@ -245,8 +245,7 @@ export default {
             },
           });
           if (response.status == 201) {
-                toast.success(response.data.message);
-                this.addRequest = false;
+                toast.success(response.data);
             }
         } catch (error) {
             this.errors = error.response.data;

@@ -1,5 +1,6 @@
 <template>
     <ul class="request_items">
+      {{ requestsLists}}
         <li class="item" v-for="request in requestsList" :key="request.id">
           <div class="rside">
             <input v-if="requestOthers" class="req_checkbox" type="checkbox" />

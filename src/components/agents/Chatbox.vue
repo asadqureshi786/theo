@@ -129,10 +129,10 @@ export default {
     this.userId = res.user.id;
     console.log(this.agent.id);
     // if(this.agent.id >=1){
-          // setInterval(()=>{
+          setInterval(()=>{
       this.allMessages(this.agent.id);
       // console.log("Ub Chala");
-    // },3000)
+    },3000)
     // }
   },
   watch: {

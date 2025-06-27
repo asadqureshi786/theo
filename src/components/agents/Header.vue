@@ -74,7 +74,8 @@
                                
                                 <div class="header_dropdown">
                                     <router-link to="players" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
-                                    <router-link to="squad-player" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
+                                    <router-link to="squad-player" :class="{'active' : currentPath == '/squad-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
+                                    <router-link to="scout-player" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Scout Players</router-link>
                                     <router-link to="all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
                                 </div>
                             </router-link>

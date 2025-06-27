@@ -1,119 +1,11 @@
-<script>
-import banner1 from "@/assets/images/banner1.png";
-import banner2 from "@/assets/images/banner2.png";
-import user from "@/assets/images/users/user1.png";
-import time from "@/assets/images/time.png";
-import profile from "@/assets/images/profile.png";
-import group from "@/assets/images/group.png";
-import {countries} from "@/components/Countrylist.js"
-
-// Charts
-import Donut from "@/components/Donut.vue";
-import Barchart from "@/components/Barchart.vue";
-
-// Components
-import Requests from '@/components/Requests.vue'
-
-// import Axios
-import axios from 'axios';
-
-
-export default {
-  name: "Dashboard",
-  components: {
-    Donut,
-    Barchart,
-    Requests,
-  },
-  data() {
-    return {
-      banner1,
-      banner2,
-      addRequest : false,
-      countries : countries,
-      user: user,
-      dateValue : '',
-      timeImg: time,
-      profileImg: profile,
-      groupImg: group,
-      date: null,
-      requestOthers : false,
-      users: [],
-      topLeads: [
-        {
-          img: time,
-          count: "245",
-          label: "Club Request",
-          percent: "3.46",
-        },
-        {
-          img: profile,
-          count: "543",
-          label: "Total Agents",
-          percent: "3.46",
-        },
-        {
-          img: group,
-          count: "2140",
-          label: "Total Players",
-          percent: "3.46",
-          width:'28px',
-        },
-      ],
-
-      requestsList: [
-        {
-          id: 1,
-          profile: user,
-          position: "Striker",
-          league: "FIFA",
-          club: "Real Madrid",
-          agent: "John Cena",
-          date: "10/Nov/2024",
-        },
-        {
-          id: 2,
-          profile: user,
-          position: "GoalKeeper",
-          league: "FIFA",
-          club: "FC Barcelona",
-          agent: "John Cena",
-          date: "10/Nov/2024",
-        },
-        {
-          id: 3,
-          profile: user,
-          position: "Striker",
-          league: "FIFA",
-          club: "Real Madrid",
-          agent: "John Cena",
-          date: "10/Nov/2024",
-        },
-        {
-          id: 4,
-          profile: user,
-          position: "GoalKeeper",
-          league: "FIFA",
-          club: "FC Barcelona",
-          agent: "John Cena",
-          date: "10/Nov/2024",
-        },
-      ],
-    };
-  },
- 
-};
-</script>
-
 <template>
   <div class="dashboard admin_dashboard">
-
     <!-- First Row -->
     <div class="gird_col">
       <div class="left_column">
         <div class="row custom_gap">
           <div class="col-md-12">
-<!-- 
+            <!-- 
             <li v-for="iuser in users" :key="iuser.id">
               <span>{{iuser.name}}</span>
             </li> -->
@@ -122,9 +14,12 @@ export default {
               <img :src="banner1" class="img-fluid img_left" alt="" />
               <h1 class="heading">Your transfer window is open!</h1>
               <p class="text">
-                Scout talent, finalize deals, and move your players strategically
+                Scout talent, finalize deals, and move your players
+                strategically
               </p>
-              <button class="btn btn-primary" @click="addRequest = true" >Requests Players</button>
+              <button class="btn btn-primary" @click="addRequest = true">
+                Requests Players
+              </button>
               <img :src="banner2" alt="" class="img_right img-fluid" />
             </div>
           </div>
@@ -137,7 +32,13 @@ export default {
                       <div class="top">
                         <div class="rside">
                           <div class="circle">
-                            <img :src="items.img" :style="`width: ${items.width ? items.width : ''}`" alt="" />
+                            <img
+                              :src="items.img"
+                              :style="`width: ${
+                                items.width ? items.width : ''
+                              }`"
+                              alt=""
+                            />
                           </div>
                           <span class="bottomText">
                             <i class="pi pi-arrow-up-right"></i>
@@ -146,7 +47,9 @@ export default {
                         </div>
                         <div class="lside">
                           <div class="info">
-                            <h4 class="hd f26 fw6 primaryCol">{{ items.count }}</h4>
+                            <h4 class="hd f26 fw6 primaryCol">
+                              {{ items.count }}
+                            </h4>
                             <p class="txt ltext f15 fw4">{{ items.label }}</p>
                           </div>
                           <span class="bottomText">Since Last Month</span>
@@ -161,12 +64,14 @@ export default {
         </div>
       </div>
       <div class="right_column">
-        <DatePicker v-model="date"  inline showWeek class="full-width w-full md:w-[100%] sm:w-[30rem] custom-datepicker" />
-         
-
+        <DatePicker
+          v-model="date"
+          inline
+          showWeek
+          class="full-width w-full md:w-[100%] sm:w-[30rem] custom-datepicker"
+        />
       </div>
     </div>
-
 
     <!-- Second Row -->
     <div class="gird_col my-4 py-2">
@@ -192,45 +97,82 @@ export default {
                 <i class="pi pi-calendar"></i>
               </div>
             </div>
-            <Donut text1="Proposed" text2="Negotiation" text3="Completed"></Donut>
+            <Donut
+              text1="Approach"
+              text2="Follow"
+              :status_counts="status_counts"
+            ></Donut>
           </div>
         </div>
       </div>
     </div>
 
-
     <!-- Third Row -->
-    <div class="gird_col">
+    <div class="">
       <div class="left_column">
         <div class="card">
           <div class="card-body">
             <div class="card_head mb-4 mt-1">
               <h5 class="hd">Recent Requests</h5>
-              <router-link to="all-request" href="#" class="link">See All</router-link>
+              <router-link to="all-request" href="#" class="link"
+                >See All</router-link
+              >
             </div>
-            <Requests :requestOthers="requestOthers" :requestsList="requestsList" />
-          </div>
-        </div>
-      </div>
-      <div class="right_column">
-
-        <div class="card">
-          <div class="card-body">
-            <div class="card_head b_bottom">
-              <h5 class="hd">Players Stats </h5>
-              <div class="box_icon">
-                <i class="pi pi-calendar"></i>
+      
+              <ul class="request_items">
+        <li class="item" v-for="request in requestsList" :key="request.id">
+          <div class="rside">
+            <input v-if="requestOthers" class="req_checkbox" type="checkbox" />
+            <div class="img">
+              <img :src="request.club.logo_url" alt="" />
+            </div>
+            <div class="detail">
+              <div class="top">
+                <div class="position">
+                  <label  for="">Position:</label>
+                  <p class="text">{{ request.main_position }}</p>
+                </div>
+                <div class="league">
+                  <label for="">League:</label>
+                  <p class="text">{{ request.league.name }}</p>
+                </div>
+                <div class="position">
+                  <label for="">Club:</label>
+                  <p class="text">{{ request.club.name }}</p>
+                </div>
+              </div>
+              <div class="bottom d-flex gap-3">
+                <div class="d-flex align-items-center gap-1" >
+                  <label for="">Agent:</label>
+                  <p class="text">{{ request.user.name }}</p>
+                </div>
+                
+                
+                <Playerproposed v-if="requestOthers" :proposedImages="proposedImages"   />
+                
               </div>
             </div>
-            <Donut text1="Signed" text2="Approached" text3="Followed"></Donut>
+          </div>
+          <div class="lside d-flex align-items-start gap-2">
+            <div>
+              <p class="date">Posted: {{ request.created_at ? request.created_at.slice(0,-17) : '' }}  </p>
+            <div  :class="{ 'd-flex gap-2': requestOthers }">
+              <button v-if="requestOthers" class="btn btn-secondary">Unsaved </button>
+              <router-link :to="`job-view/${request.id}`" class="btn btn-primary">View</router-link>
+            </div>
+            </div>
+            <div class="action">
+              <i v-if="requestOthers" class="pi pi-ellipsis-v" ></i>
+            </div>
+          </div>
+        </li>
+      </ul>
           </div>
         </div>
-
       </div>
+   
     </div>
-
   </div>
-
 
   <!-- Add Request Modal Section Start -->
   <Dialog
@@ -322,26 +264,128 @@ export default {
           label="Cancel"
           severity="secondary"
           @click="addRequest = false"
-          >Cancel</button
         >
+          Cancel
+        </button>
         <button
           type="button"
           class="btn btn-primary"
           label="Save"
           @click="addRequest = false"
-          >Add</button
         >
+          Add
+        </button>
       </div>
     </form>
   </Dialog>
   <!-- Add Request Modal Section End -->
-
-
 </template>
 
+<script>
+import banner1 from "@/assets/images/banner1.png";
+import banner2 from "@/assets/images/banner2.png";
+import user from "@/assets/images/users/user1.png";
+import time from "@/assets/images/time.png";
+import profile from "@/assets/images/profile.png";
+import group from "@/assets/images/group.png";
+import { countries } from "@/components/Countrylist.js";
 
-<style scoped >
+// Charts
+import Donut from "@/components/Donut.vue";
+import Barchart from "@/components/Barchart.vue";
 
+// Axios
+import axios from "axios";
 
+// Components
+import Requests from "@/components/Requests.vue";
 
-</style>
+export default {
+  name: "Dashboard",
+  components: {
+    Donut,
+    Barchart,
+    Requests,
+  },
+  data() {
+    return {
+      banner1,
+      banner2,
+      addRequest: false,
+      countries: countries,
+      user: user,
+      dateValue: "",
+      timeImg: time,
+      profileImg: profile,
+      groupImg: group,
+      date: null,
+      requestOthers: false,
+      users: [],
+      token: localStorage.getItem("token"),
+      totalClubs: "",
+      totalAgents: "",
+      totalPlayers: "",
+      topLeads: [],
+      requestsList: [],
+
+      status_counts : {},
+
+ 
+    };
+  },
+
+  mounted() {
+    this.fetchAgents();
+    // this.fetchUsers();
+  },
+
+  methods: {
+    // Fetch Agent Function Start
+    async fetchAgents() {
+      try {
+        const response = await axios.get(
+          this.$baseURL + "theo/api/admin/dashboard",
+          {
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+          }
+        );
+        console.log(response)
+        if (response.status === 200) {
+          this.totalClubs = response.data.total_clubs;
+          this.totalAgents = response.data.total_agents;
+          this.totalPlayers = response.data.total_players;
+          this.status_counts = response.data.status_counts;
+            this.topLeads = [
+                {
+                  img: this.timeImg,
+                  count: this.totalClubs ?? "0",
+                  label: "Club Request",
+                  percent: "3.46",
+                },
+                {
+                  img: this.profileImg,
+                  count: this.totalAgents ?? "0",
+                  label: "Total Agents",
+                  percent: "3.46",
+                },
+                {
+                  img: this.groupImg,
+                  count: this.totalPlayers ?? "0",
+                  label: "Total Players",
+                  percent: "3.46",
+                  width: "28px",
+                },
+            ];
+            this.requestsList = response.data.recent_requests;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    // Fetch Agent Function End
+  },
+};
+</script>

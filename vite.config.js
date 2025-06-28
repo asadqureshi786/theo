@@ -6,8 +6,10 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-   base: '/', // <-- This is important
-  //  base: '/update/', // <-- This is important
+  //  base: '/', // <-- This is important
+   base: '/update/', // <-- This is important
+      // base: '/frontend/theo/', // <-- This is important
+
   plugins: [
     vue(),
     vueDevTools(),

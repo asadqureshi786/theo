@@ -118,55 +118,56 @@
                 >See All</router-link
               >
             </div>
-      
-              <ul class="request_items">
-        <li class="item" v-for="request in requestsList" :key="request.id">
-          <div class="rside">
-            <input v-if="requestOthers" class="req_checkbox" type="checkbox" />
-            <div class="img">
-              <img :src="request.club.logo_url" alt="" />
-            </div>
-            <div class="detail">
-              <div class="top">
-                <div class="position">
-                  <label  for="">Position:</label>
-                  <p class="text">{{ request.main_position }}</p>
+            
+            <!-- Request Items -->
+            <ul class="request_items">
+              <li class="item" v-for="request in requestsList" :key="request.id">
+                <div class="rside">
+                  <input v-if="requestOthers" class="req_checkbox" type="checkbox" />
+                  <div class="img">
+                    <img :src="request.club.logo_url" alt="" />
+                  </div>
+                  <div class="detail">
+                    <div class="top">
+                      <div class="position">
+                        <label  for="">Position:</label>
+                        <p class="text">{{ request.main_position }}</p>
+                      </div>
+                      <div class="league">
+                        <label for="">League:</label>
+                        <p class="text">{{ request.league.name }}</p>
+                      </div>
+                      <div class="position">
+                        <label for="">Club:</label>
+                        <p class="text">{{ request.club.name }}</p>
+                      </div>
+                    </div>
+                    <div class="bottom d-flex gap-3">
+                      <div class="d-flex align-items-center gap-1" >
+                        <label for="">Agent:</label>
+                        <p class="text">{{ request.user.name }}</p>
+                      </div>
+                      
+                      
+                      <Playerproposed v-if="requestOthers" :proposedImages="proposedImages"   />
+                      
+                    </div>
+                  </div>
                 </div>
-                <div class="league">
-                  <label for="">League:</label>
-                  <p class="text">{{ request.league.name }}</p>
+                <div class="lside d-flex align-items-start gap-2">
+                  <div>
+                    <p class="date">Posted: {{ request.created_at ? request.created_at.slice(0,-17) : '' }}  </p>
+                  <div  :class="{ 'd-flex gap-2': requestOthers }">
+                    <button v-if="requestOthers" class="btn btn-secondary">Unsaved </button>
+                    <router-link :to="`job-view/${request.id}`" class="btn btn-primary">View</router-link>
+                  </div>
+                  </div>
+                  <div class="action">
+                    <i v-if="requestOthers" class="pi pi-ellipsis-v" ></i>
+                  </div>
                 </div>
-                <div class="position">
-                  <label for="">Club:</label>
-                  <p class="text">{{ request.club.name }}</p>
-                </div>
-              </div>
-              <div class="bottom d-flex gap-3">
-                <div class="d-flex align-items-center gap-1" >
-                  <label for="">Agent:</label>
-                  <p class="text">{{ request.user.name }}</p>
-                </div>
-                
-                
-                <Playerproposed v-if="requestOthers" :proposedImages="proposedImages"   />
-                
-              </div>
-            </div>
-          </div>
-          <div class="lside d-flex align-items-start gap-2">
-            <div>
-              <p class="date">Posted: {{ request.created_at ? request.created_at.slice(0,-17) : '' }}  </p>
-            <div  :class="{ 'd-flex gap-2': requestOthers }">
-              <button v-if="requestOthers" class="btn btn-secondary">Unsaved </button>
-              <router-link :to="`job-view/${request.id}`" class="btn btn-primary">View</router-link>
-            </div>
-            </div>
-            <div class="action">
-              <i v-if="requestOthers" class="pi pi-ellipsis-v" ></i>
-            </div>
-          </div>
-        </li>
-      </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

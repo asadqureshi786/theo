@@ -2,7 +2,7 @@
   <div class="login_page auth_page">
     <div class="r_side">
       <div class="login_content">
-        <img :src="logo" class="img-fluid logo_img" />
+        <img :src="mainlogo" class="img-fluid logo_img" />
         <div class="content">
           <h2 class="hd">Welcome Back !</h2>
           <p class="hd_text">
@@ -99,7 +99,7 @@ export default {
   },
   data() {
     return {
-      logo: logo,
+      mainlogo: logo,
       sideCover: cover,
       loading: false,
       // token : '',

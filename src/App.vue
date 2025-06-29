@@ -1,11 +1,11 @@
-<template>
-  <RouterView></RouterView>
-</template>
+  <template>
+    <RouterView></RouterView>
+  </template>
 
-<script>
-import { useAuthStore } from "./store/auth.js"
+  <script>
+  import { useAuthStore } from "./store/auth.js"
 
-export default {
-  name: "App",
-}
-</script>
+  export default {
+    name: "App",
+  }
+  </script>

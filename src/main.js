@@ -9,7 +9,7 @@ import DatePicker from 'primevue/datepicker';
 import InputText from 'primevue/inputtext';
 import Dialog from 'primevue/dialog';
 import Select from 'primevue/select';
-import MultiSelect from 'primevue/MultiSelect';
+import MultiSelect from 'primevue/multiselect';
 import Editor from 'primevue/editor';
 import FileUpload from 'primevue/fileupload';
 import ProgressSpinner from 'primevue/progressspinner';

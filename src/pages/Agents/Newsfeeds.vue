@@ -104,9 +104,10 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <Sideplayers playerHeading="Recent Request" />
-            <div class="mt-4"></div>
-            <Newsfeed playerHeading="Legal Updates" />
+            <Sideplayers playerHeading="Recent Request" class="d-none" />
+            <div class="mt-4 d-none"></div>
+            <Sidelegal :Legalupdates="Legalupdates" playerHeading="Legal Updates" />
+            
           </div>
         </div>
       </div>
@@ -116,8 +117,8 @@
 
 <script>
 import Sideplayers from "@/components/Sideplayers.vue";
-import Newsfeed from "@/components/Newsfeed.vue";
 import Commentlist from "@/components/agents/Commentlist.vue";
+import Sidelegal from "@/components/Sidelegal.vue";
 // Images
 import player from "@/assets/images/player2.png";
 import cover from "@/assets/images/cover.jpg";
@@ -131,14 +132,15 @@ import Spinner from "@/components/Spinner.vue";
 
 // import Axios
 import axios from "axios";
+import Legalupdates from "./Legalupdates.vue";
 
 export default {
   name: "Newsfeeds",
   components: {
     Sideplayers,
-    Newsfeed,
     Commentlist,
     Spinner,
+    Sidelegal,
   },
   data() {
     return {
@@ -151,6 +153,7 @@ export default {
       token: localStorage.getItem("token"),
       showError: false,
       newsFeeds: [],
+      Legalupdates : [],
       userInput: {
         comment : "",
       },
@@ -208,9 +211,11 @@ export default {
           }
         );
         if (response.status == 200) {
-          this.newsFeeds = response.data;
-          this.comments = response.data;
+          this.newsFeeds = response.data.newsFeeds;
+          this.comments = response.data.newsFeeds.comments;
+          this.Legalupdates = response.data.legalUpdates;
           console.error(response.data);
+          console.log("This respinse",response)
         }
       } catch (error) {
         console.log(error.response);

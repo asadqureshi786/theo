@@ -6,6 +6,7 @@
                     <img :src="logo" class="img-fluid" alt="">
                 </a>
                 <div class="nav_links"  :class="{'show': showMenu}">
+                    <!-- {{userPlan ? userPlan : '-'}} -->
                     <ul>
                         <li>
                             <router-link to="dashboard" exact active-class="active" class="nav_item">
@@ -258,6 +259,9 @@ import user1 from '@/assets/images/users/user1.png'
 // Router Import
 import { useRoute } from "vue-router";
 
+// Current User
+import { useAuthStore } from '@/store/auth.js';
+
 
 // Import Axios
 import axios from "axios";
@@ -278,6 +282,8 @@ export default {
                 token : localStorage.getItem('token'),
                 showProfile : false,
                 showMenu : false,
+                userPlan : '',
+                // user : useAuthStore(),
                 notifications : [
                      {
                         img: user1,
@@ -330,6 +336,11 @@ export default {
                 ]
         }
     },
+//     async mounted() {
+//         const res = await this.user.fetchUser();
+//         this.userPlan = res.user.plan;
+//         // console.log("From ", res.user.plan)
+//   } ,
     methods : {
         async logout() {
             try {

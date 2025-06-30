@@ -191,7 +191,7 @@ export default {
                 Authorization: `Bearer ${this.token}`, 
               },
             });
-            console.log( this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile )
+            console.log(response);
             if(response.status == 200){
              this.general = {...response.data.user};
               this.src = this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile ? this.$baseURL+"theo/public/uploads/images/"+response.data.user.profile : dp;

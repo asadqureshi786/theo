@@ -52,7 +52,6 @@
                 <p class="text">{{detail.certification_status ? detail.certification_status : '-'}}</p>
               </div>
             </div>
-             <Skeleton></Skeleton>
             <div class="row formFileds d-none">
               <div class="col-6">
                 <div class="form-group">
@@ -137,10 +136,10 @@
     </div>
     <div class="tab-content mt-4">
       <div v-if="activeTab === 0">
-        <Dynamictable :t_head="player_head" :t_body="player_body" />
+        <Dynamictable :t_head="player_head" :t_body="squadPlayer" />
       </div>
       <div v-if="activeTab === 1">
-         <Dynamictable :t_head="player_head" :t_body="player_body" />
+         <Dynamictable :t_head="player_head" :t_body="squadPlayer" />
       </div>
       <div v-if="activeTab === 2">
          <Dynamictable :t_head="player_head" :t_body="player_body" />
@@ -294,6 +293,7 @@ export default {
                 </div>`,
         },
       ],
+      squadPlayer : [],
       selectedCity: null,
       selectedCountry: null,
       cities: [
@@ -558,8 +558,32 @@ export default {
             },
         })
         if(response.status == 200){
-          this.detail = response.data;
-          console.log(response.data)
+          this.detail = response.data.agent;
+          console.log(response.data);
+          this.squadPlayer  = response.data.my_squad.map((player,index)=>({
+             checkbox: `<label for="check1" class="table_check_list" class="text-center">
+            <input id="check1" type="checkbox" />
+            <div class="c_checkbox"><i class="pi pi-check" ></i></div>
+            </label>`,
+            date: `<div class="text">${player.created_at ? player.created_at.slice(0,-17) : '-'}</div>`,
+            player_name: `<div class="text fw6">${player.name}</div>`,
+            club_name: `<div class="text fw6">${player.club.name}</div>`,
+            role: `<div class="text">Strike</div>`,
+          contract_end: `<div class="text">${player.contract_expire}</div>`,
+          status: `<div class="status">${player.status}</div>`,
+          action: `<div class="dropdown action_dropdown text-center">
+                  <div class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="dots">
+                    <i class="pi pi-ellipsis-v" ></i>
+                    </span>
+                    </div>
+                  <ul class="dropdown-menu action_dropdown_menu">
+                    <li><a class="dropdown-item" href="#">View</a></li>
+                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                    </ul>
+                </div>`,
+              }));
         }
       }catch(error){  
         console.log(error)

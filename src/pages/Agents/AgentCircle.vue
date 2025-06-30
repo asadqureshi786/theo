@@ -38,7 +38,7 @@
                 <div class="bottom d-flex gap-3">
                   <div class="d-flex align-items-center gap-1">
                     <label for="">Agent:</label>
-                    <p class="text">{{}}</p>
+                    <p class="text">{{request.user.name}}</p>
                   </div>
                   <Playerproposed
                     v-if="requestOthers"

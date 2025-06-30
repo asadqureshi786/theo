@@ -24,7 +24,7 @@
                       {{ request.main_position ? request.main_position : "-" }}
                     </h5>
                   </div>
-                  <div class="rside">
+                  <div class="rside d-none">
                     <div class="bookmark_icon">
                       <i class="pi pi-bookmark"></i>
                     </div>
@@ -50,7 +50,7 @@
                 <div class="main">
                   <div class="d-flex align-items-center gap-4">
                     <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
-                    <Playerproposed :proposedImages="proposedImages" />
+                    <Playerproposed :allProposals="allProposals" :proposedImages="proposedImages" />
                   </div>
                   <p class="ltext mt-4 f11">
                     Posted:

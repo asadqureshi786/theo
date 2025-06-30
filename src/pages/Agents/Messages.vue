@@ -4,11 +4,13 @@
       <div class="hd formText f20 fw6">Messages</div>
       <Userslist :agentID="allMessages" :allAgents="allAgents" />
     </div>
-    <div class="chat_side">
+
+    <div v-if="showChat" class="fix_not_Found mt-4 border-0">
+        <i class="pi pi-exclamation-circle" ></i>No Record Found 
+    </div>
+
+    <div v-else class="chat_side ">
       <Chatbox  :agentDetail="agentDetail" :allMessages="allMessages"  :messages="messages"/>
-      <div  class="d-none no_chat_selected d-flex justify-content-center align-items-center h-100">
-        <div   class="f30 fw4 silverCol" >No Chat Selected</div>
-      </div>
     </div>
   </div>
 </template>
@@ -34,6 +36,7 @@ export default {
       agentDetail : {},
       messages : [],
       role : '',
+      showChat : true,
       agentURL : '',
       chatActive : false,
     }
@@ -62,6 +65,7 @@ export default {
 
     async allMessages(id) {
       this.chatActive = false;
+      this.showChat = false;
       try {
         const response = await axios.get(this.$baseURL+`theo/api/agent/messages/${id}`, {
           headers: {

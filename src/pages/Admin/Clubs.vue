@@ -27,12 +27,16 @@
     </div>
     <!-- PAGE HEADER -->
 
-    <div class="spinner_center"  v-if="spinner" >
+    <div class="fix_spinner_center"  v-if="spinner" >
       <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
     </div>
 
+    <div v-if="leagues.length === 0 || allClubs.length === 0"  class="fix_not_Found mt-4">
+        <i class="pi pi-exclamation-circle" ></i>No Record Found 
+    </div>
+
     <!-- Clubs Card Section Start -->
-    <div class="card mt-4 ">
+    <div v-else class="card mt-4 ">
       <div class="card-body">
         <div class="box_grid">
           <Clubcard :allClubs="allClubs" :searchQuery="searchQuery" />
@@ -40,6 +44,7 @@
       </div>
     </div>
     <!-- Clubs Card Section End -->
+   
   </div>
 </template>
 

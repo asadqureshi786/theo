@@ -1,5 +1,10 @@
 <template>
-  <div class="dashboard admin_dashboard">
+
+  <div class="spinner_center" v-if="spinner" >
+    <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
+  </div>
+
+  <div v-else class="dashboard admin_dashboard">
     <!-- First Row -->
     <div class="gird_col">
       <div class="left_column">
@@ -9,7 +14,6 @@
             <li v-for="iuser in users" :key="iuser.id">
               <span>{{iuser.name}}</span>
             </li> -->
-
             <div class="main_banner">
               <img :src="banner1" class="img-fluid img_left" alt="" />
               <h1 class="heading">Your transfer window is open!</h1>
@@ -312,6 +316,7 @@ export default {
     return {
       banner1,
       banner2,
+      spinner: false,
       addRequest: false,
       countries: countries,
       user: user,
@@ -328,7 +333,6 @@ export default {
       totalPlayers: "",
       topLeads: [],
       requestsList: [],
-
       status_counts : {},
 
  
@@ -343,6 +347,7 @@ export default {
   methods: {
     // Fetch Agent Function Start
     async fetchAgents() {
+      this.spinner = true;
       try {
         const response = await axios.get(
           this.$baseURL + "theo/api/admin/dashboard",
@@ -355,11 +360,13 @@ export default {
         );
         console.log(response)
         if (response.status === 200) {
+          this.spinner = false;
           this.totalClubs = response.data.total_clubs;
           this.totalAgents = response.data.total_agents;
           this.totalPlayers = response.data.total_players;
           this.status_counts = response.data.status_counts;
-            this.topLeads = [
+          
+          this.topLeads = [
                 {
                   img: this.timeImg,
                   count: this.totalClubs ?? "0",
@@ -383,6 +390,7 @@ export default {
             this.requestsList = response.data.recent_requests;
         }
       } catch (error) {
+        this.spinner = false;
         console.log(error);
       }
     },

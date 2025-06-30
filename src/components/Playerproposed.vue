@@ -3,7 +3,7 @@
         <div class="img">
           <img v-for="(smImg, index) in proposedImages" key="index" :src="smImg" :class="'img' + index" alt="">
         </div>
-        <p class="text">+3 players Proposed</p>
+        <p class="text">{{allProposals?.length}} players Proposed </p>
       </div>
 </template>
 
@@ -12,6 +12,7 @@
         name  : 'Playerproposed',
         props : {
             proposedImages : Array,
+            allProposals : Array,
         }
     }
 </script>

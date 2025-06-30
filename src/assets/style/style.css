@@ -315,24 +315,6 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 18px;
 }
 
-.fix_not_Found {
-  width: 100%;
-  height: calc(100vh - 180px);
-  border: 1px solid rgba(133, 143, 163, 0.3098039216);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  font-style: italic;
-  color: #424441;
-  font-weight: 400;
-  gap: 10px;
-}
-.fix_not_Found i {
-  font-size: 18px;
-}
-
 .action_icon {
   display: flex;
   align-items: center;
@@ -367,6 +349,32 @@ h1, h2, h3, h4, h5, h6, p, ul {
   align-items: center;
   width: 100%;
   height: calc(100vh - 180px);
+}
+
+.fix_spinner_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 180px);
+}
+
+.fix_not_Found {
+  width: 100%;
+  height: calc(100vh - 180px);
+  border: 1px solid rgba(133, 143, 163, 0.3098039216);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-style: italic;
+  color: #424441;
+  font-weight: 400;
+  gap: 10px;
+}
+.fix_not_Found i {
+  font-size: 18px;
 }
 
 .confirmation_modal {
@@ -1235,7 +1243,8 @@ header.protal_header .main_header .header_option .language {
 header.protal_header .main_header .header_option .language .text {
   font-size: 11px;
 }
-header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
+
+header.protal_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
   bottom: -159px !important;
 }
 
@@ -1381,6 +1390,10 @@ header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header
 .request_items.squad_request {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.request_items.squad_request li:last-child {
+  margin-bottom: 15px;
 }
 .request_items .item {
   background-color: rgba(143, 3, 1, 0.0392156863);
@@ -1686,24 +1699,6 @@ header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header
   font-size: 38px;
   color: rgba(143, 3, 1, 0.8);
 }
-.player_profile .profile_section .profile_instruction .main_col .top .right_side .fcol {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: start;
-  margin-bottom: 5px;
-}
-.player_profile .profile_section .profile_instruction .main_col .top .right_side .fcol .status {
-  padding: 3px 10px 2px 10px;
-  font-weight: 4c00;
-  border-radius: 4px;
-  color: #8F0301;
-  background: rgba(143, 3, 1, 0.0392156863);
-  font-size: 9px;
-}
-.player_profile .profile_section .profile_instruction .main_col .top .right_side .fcol .text {
-  font-size: 10px;
-}
 .player_profile .profile_section .profile_instruction .main_col .top .right_side .teamAgent li {
   margin-bottom: 10px;
 }
@@ -1726,7 +1721,7 @@ header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: end !important;
+  justify-content: end;
   margin-bottom: 5px;
 }
 .player_profile .profile_section .profile_instruction .main_col .top .left_side .fcol .status {
@@ -1782,24 +1777,6 @@ header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.player_profile .profile_section .profile_instruction .main_col .ft_bottom .fcol {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: start;
-  margin-bottom: 5px;
-}
-.player_profile .profile_section .profile_instruction .main_col .ft_bottom .fcol .status {
-  padding: 3px 10px 2px 10px;
-  font-weight: 4c00;
-  border-radius: 4px;
-  color: #8F0301;
-  background: rgba(143, 3, 1, 0.0392156863);
-  font-size: 9px;
-}
-.player_profile .profile_section .profile_instruction .main_col .ft_bottom .fcol .text {
-  font-size: 10px;
 }
 .player_profile .profile_section .profile_instruction .main_col .ft_bottom .contract_dates label {
   font-size: 12px;
@@ -1919,10 +1896,8 @@ header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header
      object-fit: cover;
 }
 .sidePlayer .players li .box .club_img {
-  width: 15px;
-  height: 15px;
-  border-radius: 100px;
-  border: none;
+  width: 20px;
+  height: 20px;
   -o-object-fit: cover;
      object-fit: cover;
 }

@@ -44,10 +44,20 @@
     </div>
     <!-- Page Header End -->
 
+ 
+
     <!-- Main Section Start -->
     <div class="main_section">
       <div class="row">
         <div class="col-md-8">
+
+        <div v-if="legalUpdate.length === 0"  class="fix_not_Found ">
+         <i class="pi pi-exclamation-circle" ></i>No Record Found 
+       </div>
+
+          <div class="spinner_center"  v-if="spinner" >
+           <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
+         </div>
           <ul class="update_item">
             <li v-for="legal in legalUpdate" :key="legal.name">
               <div class="card">
@@ -79,9 +89,9 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <Sideplayers playerHeading="Recent Request" />
-              <div class="mt-4"></div>
-              <Newsfeed playerHeading="Newsfeed" />
+              <!-- <Sideplayers playerHeading="Recent Request" /> -->
+              <div class="mt-4 d-none"></div>
+              <Newsfeed :newsFeeds="newsFeeds" playerHeading="Newsfeed" />
             </div>
           </div>
         </div>
@@ -203,9 +213,10 @@ export default {
       loading: false,
       errors: {},
       legalUpdate: [],
+      newsFeeds: [],
       token: localStorage.getItem("token"),
       selectedFile: null,
-
+      spinner : true,
       form: {
         title: "",
         description: "",
@@ -276,6 +287,7 @@ export default {
 
     async fetchLegal() {
       try {
+        this.spinner = true;
         const response = await axios.get(
           this.$baseURL + "theo/api/admin/legal-updates",
           {
@@ -285,8 +297,12 @@ export default {
             },
           }
         );
-        this.legalUpdate = response.data;
-        console.log(response.data);
+        if(response.status == 200){
+          // this.legalUpdate = response.data;
+               this.legalUpdate = response.data.legalUpdates;
+        this.newsFeeds = response.data.newsFeeds;
+          this.spinner = false;
+        }
 
       } catch (error) {
         console.error("Error fetching legal updates:", error);

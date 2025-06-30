@@ -7,8 +7,12 @@
         <div class="count">{{ status_counts?.approach ?? 0 }}</div>
       </li>
       <li>
-        <p class="label">{{ text2 }}</p>
+        <p class="label">{{ text2}}</p>
         <div class="count">{{ status_counts?.follow ?? 0 }}</div>
+      </li>
+      <li v-if="totalScout" >
+        <p class="label">{{ totalScout ? "Scout Players" : ''}}</p>
+        <div class="count">{{ totalScout ? totalScout : '-' }}</div>
       </li>
     </ul>
   </div>
@@ -22,6 +26,7 @@ const props = defineProps({
   text1: String,
   text2: String,
   status_counts: Object,
+  totalScout : Number,
 });
 
 const chart = ref(null);
@@ -38,10 +43,12 @@ const renderChart = () => {
 
   const approach = props.status_counts.approach ?? 0;
   const follow = props.status_counts.follow ?? 0;
+  const totalScout = props.totalScout ?? 0;
 
   const data = [
     { value: approach, name: props.text1 || "Approach" },
     { value: follow, name: props.text2 || "Follow" },
+    { value: totalScout, name: totalScout ? "Scout Players" : '-' },
   ];
 
   myChart = echarts.init(chart.value);
@@ -54,7 +61,7 @@ const renderChart = () => {
         type: "pie",
         radius: ["42%", "85%"],
         avoidLabelOverlap: false,
-        color: ["#8F0301B2", "#E4C3C2"],
+        color: ["#8F0301B2", "#E4C3C2", "#8F030152"],
         itemStyle: {
           borderRadius: 0,
           borderColor: "#fff",

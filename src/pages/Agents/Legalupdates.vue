@@ -79,9 +79,9 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <Sideplayers playerHeading="Recent Request" />
-              <div class="mt-4"></div>
-              <Newsfeed playerHeading="Newsfeed" />
+              <Sideplayers class="d-none" playerHeading="Recent Request" />
+              <!-- <div class="mt-4"></div> -->
+              <Newsfeed :newsFeeds="newsFeeds" playerHeading="Newsfeed" />
             </div>
           </div>
         </div>
@@ -203,6 +203,7 @@ export default {
       loading: false,
       errors: {},
       legalUpdate: [],
+      newsFeeds: [],
       token: localStorage.getItem("token"),
       selectedFile: null,
 
@@ -285,13 +286,15 @@ export default {
             },
           }
         );
-        this.legalUpdate = response.data;
+        this.legalUpdate = response.data.legalUpdates;
+        this.newsFeeds = response.data.newsFeeds;
         console.log(response.data);
 
       } catch (error) {
         console.error("Error fetching legal updates:", error);
       }
     },
+
   },
 };
 </script>

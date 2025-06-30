@@ -1,4 +1,7 @@
 <template>
+
+
+
   <div class="page_header">
     <h3 class="hd">Agents</h3>
     <div class="r_side">
@@ -55,7 +58,12 @@
     </div>
   </div>
 
-  <div class="card mt-4">
+   <div class="fix_spinner_center" v-if="spinner" >
+  <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
+</div>
+
+
+  <div v-else class="card  mt-4">
     <div class="card-body">
       <div class="box_grid">
         <Agentcard
@@ -69,6 +77,10 @@
       </div>
     </div>
   </div>
+
+   <div v-if="allAgents.length === 0"  class="fix_not_Found mt-4">
+        <i class="pi pi-exclamation-circle" ></i>No Record Found 
+    </div>
 
   <!-- Add Agent Modal -->
   <Dialog
@@ -170,6 +182,7 @@ export default {
     return {
       Profile1: Profile1,
       Profile2: Profile2,
+      spinner: false,
       searchQuery: "",
       showAgent: false,
       loading : false,
@@ -246,6 +259,7 @@ export default {
 
     // Fetch Agent Function Start
     async fetchAgents(){
+      this.spinner = true;
       try{
         const agents = await axios.get(this.$baseURL+"theo/api/admin/agents",{
            headers: {
@@ -253,10 +267,13 @@ export default {
               Authorization: `Bearer ${this.token}`, 
             },
         });
-        this.allAgents = agents.data
-        // console.log(agents.data);
+        if(agents.status == 200){
+          this.allAgents = agents.data
+          this.spinner = false;
+        }
+        console.log(agents);
       }catch(error){
-
+        this.spinner = false;
       }
     },
     // Fetch Agent Function End

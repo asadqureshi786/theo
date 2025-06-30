@@ -26,23 +26,7 @@ body {
         }
 }
 
-.fix_not_Found{
-    width: 100%;
-    height: calc(100vh - 180px);
-    border: 1px solid $lightBorder;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-style: italic;
-    color:$light5;
-    font-weight: 400;
-    gap:10px;
-    i{
-        font-size: 18px;
-    }
-}
+
 
 
     .action_icon {
@@ -80,7 +64,30 @@ body {
     width: 100%;
     height: calc(100vh - 180px);
 }
-
+.fix_spinner_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 180px);
+}
+.fix_not_Found{
+    width: 100%;
+    height: calc(100vh - 180px);
+    border: 1px solid $lightBorder;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-style: italic;
+    color:$light5;
+    font-weight: 400;
+    gap:10px;
+    i{
+        font-size: 18px;
+    }
+}
 // Confirmation Modal SASS Start
 .confirmation_modal{
     width:350px;
@@ -1036,8 +1043,8 @@ body {
 // Video List SASS End
 
 // Portal Header SASS Start
+
 header {
- 
     &.protal_header {
         background: #fff;
         box-shadow: 0px 2px 6px 0px #0000001F;
@@ -1193,9 +1200,9 @@ header {
         }
     }
  
-       &.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown{
-        bottom:-159px!important;
-    }
+}
+header.protal_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown{
+          bottom : -159px!important;
 }
 
 // Portal Header SASS End
@@ -1387,6 +1394,10 @@ header {
     &.squad_request{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap:20px;
+        li:last-child{
+            margin-bottom: 15px;
+        }
     }
     .item {
         background-color: $primaryLight;
@@ -1749,26 +1760,7 @@ header {
                             font-size: 38px;
                             color: #8F0301CC;
                         }
-                        .fcol {
-                            display: flex;
-                            align-items: center;
-                            gap: 10px;
-                            justify-content: start;
-                            margin-bottom: 5px;
 
-                            .status {
-                                padding: 3px 10px 2px 10px;
-                                font-weight: 4c00;
-                                border-radius: 4px;
-                                color: $primaryCol;
-                                background: $primaryLight;
-                                font-size: 9px;
-                            }
-
-                            .text {
-                                font-size: 10px;
-                            }
-                        }
                         .teamAgent {
                             li {
                                 margin-bottom: 10px;
@@ -1800,7 +1792,7 @@ header {
                             display: flex;
                             align-items: center;
                             gap: 10px;
-                            justify-content: end!important;
+                            justify-content: end;
                             margin-bottom: 5px;
 
                             .status {
@@ -1868,26 +1860,6 @@ header {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                       .fcol {
-                            display: flex;
-                            align-items: center;
-                            gap: 10px;
-                            justify-content: start;
-                            margin-bottom: 5px;
-
-                            .status {
-                                padding: 3px 10px 2px 10px;
-                                font-weight: 4c00;
-                                border-radius: 4px;
-                                color: $primaryCol;
-                                background: $primaryLight;
-                                font-size: 9px;
-                            }
-
-                            .text {
-                                font-size: 10px;
-                            }
-                        }
 
                     .contract_dates {
                         label {
@@ -2061,10 +2033,8 @@ header {
                     object-fit: cover;
                 }
                 .club_img{
-                    width: 15px;
-                    height: 15px;
-                    border-radius: 100px;
-                    border:none;
+                    width: 20px;
+                    height: 20px;
                     object-fit: cover;
                 }
 

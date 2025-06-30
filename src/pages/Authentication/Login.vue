@@ -9,7 +9,7 @@
             Enter to get unlimited access to data & information.
           </p>
 
-          <form>
+          <form  >
             <div class="row formFileds">
               <div class="col-md-12">
                 <div class="form-group">

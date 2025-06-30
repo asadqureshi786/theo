@@ -24,7 +24,7 @@
                       {{ request.main_position ? request.main_position : "-" }}
                     </h5>
                   </div>
-                  <div class="rside">
+                  <div class="rside d-none">
                     <div class="bookmark_icon">
                       <i class="pi pi-bookmark"></i>
                     </div>
@@ -50,7 +50,7 @@
                 <div class="main">
                   <div class="d-flex align-items-center gap-4">
                     <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
-                    <Playerproposed :proposedImages="proposedImages" />
+                    <Playerproposed :allProposals="allProposals" :proposedImages="proposedImages" />
                   </div>
                   <p class="ltext mt-4 f11">
                     Posted:
@@ -150,7 +150,7 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <ProposePlayer :allProposals="allProposals" playerHeading="Suggested Players" />
+            <ProposePlayer :allProposals="allProposals" playerHeading="Propose Players" />
             <div class="mt-4"></div>
             <!-- <Sideplayers playerHeading="Recent Requests" /> -->
           </div>
@@ -349,10 +349,10 @@ export default {
     if (response.status == 200) {
       this.request = response.data;
       this.allProposals = response.data.proposals;
-      console.log("All Proposal:", this.allProposals);
+      console.log("All Proposal: confirming", this.allProposals);
     }
   } catch (error) {
-    console.log("Error:", error);
+    console.log("this Error:", error);
   }
 },
 

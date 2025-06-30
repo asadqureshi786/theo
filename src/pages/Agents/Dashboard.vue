@@ -17,9 +17,8 @@
                 Scout talent, finalize deals, and move your players
                 strategically
               </p>
-              <button class="btn btn-primary" @click="addRequest = true">
-                Requests Players
-              </button>
+               <!-- Add Button -->
+               <AddRequest/>
               <img :src="banner2" alt="" class="img_right img-fluid" />
             </div>
           </div>
@@ -101,6 +100,7 @@
               text1="Approach"
               text2="Follow"
               :status_counts="status_counts"
+              :totalScout = "totalScout"
             ></Donut>
           </div>
         </div>
@@ -175,111 +175,7 @@
     </div>
   </div>
 
-  <!-- Add Request Modal Section Start -->
-  <Dialog
-    v-model:visible="addRequest"
-    maximizable
-    modal
-    header="Add Request"
-    :style="{ width: '40rem' }"
-    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
-  >
-    <form>
-      <!-- Corrected from 'from' to 'form' -->
-      <div class="row formFileds">
-        <div class="col-12">
-          <div class="form-group">
-            <label> Job Title</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Country</label>
-            <!-- <input type="text" class="form-control" /> -->
-            <div class="d_select">
-              <Select
-                v-model="selectedCountry"
-                editable
-                :options="countries"
-                optionLabel="name"
-                placeholder="Select a City"
-                class="w-full"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> League</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Club</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Main Position</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Other Position</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Age Reference</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Name</label>
-            <input type="text" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label> Email</label>
-            <input type="email" class="form-control" />
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <label> Additional Information</label>
-            <textarea type="email" class="form-control"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-end gap-2 modal_footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          label="Cancel"
-          severity="secondary"
-          @click="addRequest = false"
-        >
-          Cancel
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          label="Save"
-          @click="addRequest = false"
-        >
-          Add
-        </button>
-      </div>
-    </form>
-  </Dialog>
-  <!-- Add Request Modal Section End -->
+
 </template>
 
 <script>
@@ -290,6 +186,8 @@ import time from "@/assets/images/time.png";
 import profile from "@/assets/images/profile.png";
 import group from "@/assets/images/group.png";
 import { countries } from "@/components/Countrylist.js";
+import AddRequest from "@/components/agents/AddRequest.vue";
+
 
 // Charts
 import Donut from "@/components/Donut.vue";
@@ -310,13 +208,13 @@ export default {
   components: {
     Donut,
     Barchart,
+    AddRequest,
     Requests,
   },
   data() {
     return {
       banner1,
       banner2,
-      addRequest: false,
       countries: countries,
       user: user,
       dateValue: "",
@@ -326,9 +224,9 @@ export default {
       date: null,
       requestOthers: false,
       token: localStorage.getItem("token"),
-      totalClubs: "",
-      totalAgents: "",
-      totalPlayers: "",
+      totalReq: "",
+      totalScout: "",
+      totalSquad: "",
       topLeads: [],
       requestsList: [],
       currentUser : useAuthStore(),
@@ -368,29 +266,29 @@ export default {
         console.log(response)
         // return;
         if (response.status === 200) {
-          this.totalClubs = response.data.total_clubs;
-          this.totalAgents = response.data.total_agents;
-          this.totalPlayers = response.data.total_players;
+          this.totalReq = response.data.total_requests;
+          this.totalScout = response.data.scout_player_count;
+          this.totalSquad = response.data.squad_player_count;
           this.status_counts = response.data.status_counts;
             this.topLeads = [
                 {
                   img: this.timeImg,
-                  count: this.totalClubs ?? "0",
-                  label: "Club Request",
+                  count: this.totalReq ?? "0",
+                  label: "Total Requests",
                   percent: "3.46",
                 },
                 {
                   img: this.profileImg,
-                  count: this.totalAgents ?? "0",
-                  label: "Total Agents",
+                  count: this.totalScout ?? "0",
+                  label: "Total Scout Players",
                   percent: "3.46",
                 },
                 {
-                  img: this.groupImg,
-                  count: this.totalPlayers ?? "0",
-                  label: "Total Players",
+                  img: this.profileImg,
+                  count: this.totalSquad ?? "0",
+                  label: "Total Squad Players",
                   percent: "3.46",
-                  width: "28px",
+                  width: "20px",
                 },
             ];
             this.requestsList = response.data.recent_requests;

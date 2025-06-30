@@ -1,8 +1,6 @@
 
 <template>
-    <div v-if="filteredClub.length === 0" class="text-center text-danger">
-        No record found.
-    </div>
+ 
     <div v-for="item in filteredClub" :key="item.name" class="box_card">
         <img :src="item.logo_url" class="profile_picture">
 

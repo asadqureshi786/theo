@@ -117,10 +117,12 @@
         >
         <button
           type="submit"
-          class="btn btn-primary"
+          class="btn btn-primary spinner"
           label="Save"
           @click="addRequestFunction"
-          >Add</button
+          >
+          <Spinner v-if="loading"  />
+          Add</button
         >
       </div>
     </form>
@@ -132,17 +134,24 @@
 // Axios
 import axios from "axios";
 
+// Spinner
+import Spinner from "@/components/Spinner.vue";
+
 // Toast
 import { useToast } from "vue-toastification";
 const toast = useToast();
 
 export default {
   name: "AddRequest",
+  components : {
+    Spinner,
+  },
   data() {
     return {
       addRequest: false,
       token: localStorage.getItem('token'),
       selectedCountry: null,
+      loading : false,
       leagues : [],
       clubs :[],
       selectedClub: null,
@@ -236,7 +245,8 @@ export default {
         this.formData.country_id = this.selectedCountry?.id || '';
         this.formData.league_id = this.selectedLeague?.id|| '';   
         this.formData.club_id = this.selectedClub?.id|| '';   
-
+        this.loading = true;
+        
         try {
           const response = await axios.post(this.$baseURL + 'theo/api/agent/requests/save', this.formData, {
             headers: {
@@ -245,11 +255,14 @@ export default {
             },
           });
           if (response.status == 201) {
-                toast.success(response.data.message);
-                this.addRequest = false;
-            }
+            toast.success(response.data.message);
+            this.addRequest = false;
+            this.loading = false;
+              this.$emit('request-added')
+          }
         } catch (error) {
-            this.errors = error.response.data;
+          this.errors = error.response.data;
+          this.loading = false;
             if(error.response.data){
             }
             else{

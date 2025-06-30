@@ -17,14 +17,14 @@
         </div>
 
         <!-- Add Button -->
-        <AddRequest/>
+        <AddRequest @request-added="handleRequestAdded"  />
       </div>
     </div>
 
     <!-- SEPARATE TAB CONTENT SECTION -->
     <div class="tab-content mt-4">
       <div v-if="activeTab === 0">
-        <Requests/>
+        <Requests  ref="componentBRef" />
       </div>
       <div v-if="activeTab === 1">
         <p>Header II content: Sed ut perspiciatis unde omnis...</p>
@@ -70,6 +70,10 @@ export default {
     changeTab(index) {
       this.activeTab = index;
     },
+       handleRequestAdded() {
+      // Access child method via ref
+      this.$refs.componentBRef.fetchRequests()
+    }
   },
   
 };

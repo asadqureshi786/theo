@@ -1244,7 +1244,7 @@ header.protal_header .main_header .header_option .language .text {
   font-size: 11px;
 }
 
-header.protal_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
+header.protal_header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
   bottom: -159px !important;
 }
 

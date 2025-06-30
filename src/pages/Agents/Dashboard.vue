@@ -1,5 +1,10 @@
 <template>
-  <div class="dashboard admin_dashboard">
+
+  <div class="spinner_center" v-if="spinner" >
+    <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="4" fill="transparent" stroke="#000" />
+  </div>
+
+  <div v-else class="dashboard admin_dashboard">
     <!-- First Row -->
     <div class="gird_col">
       <div class="left_column">
@@ -220,6 +225,7 @@ export default {
       dateValue: "",
       timeImg: time,
       profileImg: profile,
+      spinner : false,
       groupImg: group,
       date: null,
       requestOthers: false,
@@ -254,6 +260,7 @@ export default {
     // Fetch Agent Function Start
     async fetchAgents() {
       try {
+        this.spinner = true;
         const response = await axios.get(
           this.$baseURL + "theo/api/agent/dashboard",
           {
@@ -266,6 +273,7 @@ export default {
         console.log(response)
         // return;
         if (response.status === 200) {
+          this.spinner = false;
           this.totalReq = response.data.total_requests;
           this.totalScout = response.data.scout_player_count;
           this.totalSquad = response.data.squad_player_count;
@@ -295,6 +303,7 @@ export default {
         }
       } catch (error) {
         console.log(error);
+        this.spinner = false;
       }
     },
     // Fetch Agent Function End

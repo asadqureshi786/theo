@@ -132,7 +132,7 @@ export default {
           setInterval(()=>{
       this.allMessages(this.agent.id);
       // console.log("Ub Chala");
-    },3000)
+    },1000)
     // }
   },
   watch: {

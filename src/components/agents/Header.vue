@@ -1,12 +1,11 @@
-<template>
-    <header class="protal_header agent_header" >
+vi<template>
+    <header :class="`protal_header agent_header ${userPlan == 'gold' ? 'gold' : ''}`" >
         <div class="container-fluid">
             <div class="main_header">
                 <a href="" class="logo">
                     <img :src="logo" class="img-fluid" alt="">
                 </a>
                 <div class="nav_links"  :class="{'show': showMenu}">
-                    <!-- {{userPlan ? userPlan : '-'}} -->
                     <ul>
                         <li>
                             <router-link to="dashboard" exact active-class="active" class="nav_item">
@@ -21,7 +20,7 @@
                                 <span class="text">Dashboard</span>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue'" >
                             <router-link to="clubs" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -52,7 +51,7 @@
                                 <span class="text">Clubs</span>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue'" >
                             <router-link to=""  class="nav_item has_dropdown" :class="(currentPath == '/all-request' || currentPath == '/players') ? 'active' : ''" >
                                 <!-- SVG code here -->
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -74,10 +73,10 @@
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
                                
                                 <div class="header_dropdown">
-                                    <router-link to="players" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
-                                    <router-link to="squad-player" :class="{'active' : currentPath == '/squad-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
-                                    <router-link to="scout-player" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Scout Players</router-link>
-                                    <router-link to="all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
+                                    <router-link to="players" v-if="userPlan != 'gold'" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
+                                    <router-link to="squad-player"  :class="{'active' : currentPath == '/squad-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
+                                    <router-link to="scout-player" v-if="userPlan != 'gold'" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Scout Players</router-link>
+                                    <router-link to="all-request" v-if="userPlan != 'gold'"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
                                 </div>
                             </router-link>
                         </li>
@@ -119,7 +118,7 @@
                                 <span class="text">Newsfeed</span>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
                             <router-link to="agent_circle" exact active-class="active"  href="#" class="nav_item">
     
                               <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -141,7 +140,7 @@
                                 <span class="text">Agent Circle</span>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue'" >
                             <router-link to="messages" exact active-class="active" href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -283,7 +282,7 @@ export default {
                 showProfile : false,
                 showMenu : false,
                 userPlan : '',
-                // user : useAuthStore(),
+                user : useAuthStore(),
                 notifications : [
                      {
                         img: user1,
@@ -336,11 +335,11 @@ export default {
                 ]
         }
     },
-//     async mounted() {
-//         const res = await this.user.fetchUser();
-//         this.userPlan = res.user.plan;
-//         // console.log("From ", res.user.plan)
-//   } ,
+    async mounted() {
+        const res = await this.user.fetchUser();
+        this.userPlan = res.user.plan;
+        // console.log("From ", res.user.plan)
+  } ,
     methods : {
         async logout() {
             try {

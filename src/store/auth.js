@@ -6,9 +6,12 @@ import { baseURL } from '../config/baseURL'
 export const useAuthStore = defineStore('counter', {
  state: () => ({
   user: null,
-    token: localStorage.getItem('token')
 }),
-  // could also be defined as
+
+  getters: {
+    token: () => localStorage.getItem('token'),
+  },
+// could also be defined as
   // state: () => ({ count: 0 })
   actions: {
     async fetchUser(){
@@ -22,6 +25,8 @@ export const useAuthStore = defineStore('counter', {
               },
             });
             if(response.status == 200){
+              console.log(response)
+              this.user = response.data;
               return response.data;
             }
           } catch (error) {

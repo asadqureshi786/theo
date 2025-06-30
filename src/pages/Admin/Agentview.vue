@@ -24,7 +24,7 @@
         </div>
         <div class="dts">
           <p class="text">User-level:</p>
-          <p class="count">THEO - Black</p>
+          <p class="count">THEO - {{detail.plan}}</p>
         </div>
 
         <div class="card main_card mt-3">
@@ -33,25 +33,26 @@
             <div class="general_detail">
               <div class="box">
                 <label>Name</label>
-                <p class="text">{{detail.name}}</p>
+                <p class="text">{{detail.name ? detail.name : '-'}}</p>
               </div>
               <div class="box">
                 <label>Email</label>
-                <p class="text">{{detail.email}}</p>
+                <p class="text">{{detail.email ? detail.email : '-'}}</p>
               </div>
               <div class="box">
                 <label>Country</label>
-                <p class="text">{{detail.country}}</p>
+                <p class="text">{{detail.country ? detail.country : '-'}}</p>
               </div>
               <div class="box">
                 <label>Date</label>
-                <p class="text">{{detail.created_at}}</p>
+                <p class="text">{{detail.created_at ? detail.created_at : '-'}}</p>
               </div>
               <div class="box">
                 <label>Certification Status</label>
-                <p class="text">{{detail.certification_status}}</p>
+                <p class="text">{{detail.certification_status ? detail.certification_status : '-'}}</p>
               </div>
             </div>
+             <Skeleton></Skeleton>
             <div class="row formFileds d-none">
               <div class="col-6">
                 <div class="form-group">

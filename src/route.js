@@ -118,70 +118,87 @@ const routes = [
       {
         path: "",
         component: AgentDashboard,
+        meta: { requiresPlan: ["black","blue","gold"] },
       },
       {
         path: "dashboard",
         component: AgentDashboard,
+        meta: { requiresPlan: ["black","blue","gold"] },
       },
       {
         path: "clubs",
         component: AgentClubs,
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "club-view/:id",
         component: AgentClubview,
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "all-request",
         component: AgentAllrequest,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "job-view/:id",
         component: AgentJobview,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "players",
         component: AgentPlayer,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "player-profile/:id",
         component: AgentPlayerprofile,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "squad-player",
         component: AgentSquadPlayer,
-      },
-      {
-        path: "scout-player",
-        component: AgentScoutPlayer,
-      },
-      {
-        path: "scout-profile/:id",
-        component: AgentScoutProfile,
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "squad-profile/:id",
         component: AgentSquadProfile,
+        meta: { requiresPlan: ["black","gold"] },
+      },
+      {
+        path: "scout-player",
+        component: AgentScoutPlayer,
+        meta: { requiresPlan: ["black"] },
+      },
+      {
+        path: "scout-profile/:id",
+        component: AgentScoutProfile,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "agent_circle",
         component: AgentCircle,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "legal-updates",
         component: AgentLegalupdates,
+        meta: { requiresPlan: ["black",,"blue","gold"] },
       },
       {
         path: "news-feeds",
         component: AgentNewsfeeds,
+        meta: { requiresPlan: ["black","blue","gold"] },
       },
       {
         path: "messages",
         component: AgentMessages,
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "settings",
         component: AgentSettings,
+        meta: { requiresPlan: ["black","blue","gold"] },
       },
     ],
   },
@@ -212,10 +229,31 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+  
 
-router.beforeEach((to, from, next) => {
+// Current User
+import { useAuthStore } from '@/store/auth.js';
+
+
+router.beforeEach(async (to, from, next) => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
+
+   const userStore = useAuthStore();
+
+  if (!userStore.user) {
+    try {
+      await userStore.fetchUser();
+    } catch (err) {
+      console.error("User fetch failed:", err);
+      return next('/login');
+    }
+  }
+
+  const userPlan  = userStore.user.user.plan;
+  const userRole   = userStore.user.user.role;
+  // console.log("this data",user_plan,user_role)
+  // console.log(user_role)
 
   if (token && (to.path === "/login" || to.path === "/signup")) {
     if (role == "admin") {
@@ -237,6 +275,14 @@ router.beforeEach((to, from, next) => {
     if (role == "agent" && to.path.startsWith("/admin")) {
       return next("/agent/dashboard");
     }
+
+
+      // ✅ Plan restriction for agent
+    const requiredPlans = to.meta.requiresPlan;
+    if (userRole === "agent" && requiredPlans && !requiredPlans.includes(userPlan)) {
+      return next("/agent/dashboard"); // 🔒 redirect if plan not allowed
+    }
+
     next();
   } else {
     next();

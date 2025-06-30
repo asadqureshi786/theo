@@ -135,7 +135,7 @@ export default {
 
     setInterval(()=>{
       this.allMessages(this.agent.id)
-    },3000)
+    },1000)
 
 
   },

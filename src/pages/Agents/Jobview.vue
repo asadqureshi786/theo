@@ -49,7 +49,7 @@
                 </div>
                 <div class="main">
                   <div class="d-flex align-items-center gap-4">
-                    <p class="agent f14 silverCol">Agent: Rohat Ackaya</p>
+                    <p class="agent f14 silverCol">Agent: {{userDetail.name}}</p>
                     <Playerproposed :allProposals="allProposals" :proposedImages="proposedImages" />
                   </div>
                   <p class="ltext mt-4 f11">
@@ -306,6 +306,7 @@ export default {
       SquadPlayer: [],
       errors : {},
       allProposals : [],
+      userDetail : [],
     };
   },
 
@@ -349,7 +350,7 @@ export default {
     if (response.status == 200) {
       this.request = response.data;
       this.allProposals = response.data.proposals;
-      console.log("All Proposal: confirming", this.allProposals);
+      this.userDetail = response.data.user
     }
   } catch (error) {
     console.log("this Error:", error);

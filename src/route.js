@@ -241,17 +241,19 @@ router.beforeEach(async (to, from, next) => {
 
    const userStore = useAuthStore();
 
-  if (!userStore.user) {
+  if (token) {
     try {
       await userStore.fetchUser();
+     
     } catch (err) {
       console.error("User fetch failed:", err);
       return next('/login');
     }
   }
 
-  const userPlan  = userStore.user.user.plan;
-  const userRole   = userStore.user.user.role;
+     const userPlan  = userStore.user?.user.plan;
+  const userRole   = userStore.user?.user.role;
+
   // console.log("this data",user_plan,user_role)
   // console.log(user_role)
 
@@ -278,11 +280,13 @@ router.beforeEach(async (to, from, next) => {
 
 
       // ✅ Plan restriction for agent
-    const requiredPlans = to.meta.requiresPlan;
-    if (userRole === "agent" && requiredPlans && !requiredPlans.includes(userPlan)) {
-      return next("/agent/dashboard"); // 🔒 redirect if plan not allowed
-    }
+    if(token){
+            const requiredPlans = to.meta.requiresPlan;
+      if (userRole === "agent" && requiredPlans && !requiredPlans.includes(userPlan)) {
+        return next("/agent/dashboard"); // 🔒 redirect if plan not allowed
+      }
 
+    }
     next();
   } else {
     next();

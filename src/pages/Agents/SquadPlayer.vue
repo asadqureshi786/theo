@@ -172,6 +172,7 @@ export default {
     // Add Player
     async addPlayer(e) {
       e.preventDefault();
+      console.log("Running")
 
       try {
         this.loading = true;
@@ -204,6 +205,7 @@ export default {
         
       } catch (error) {
         this.loading = false;
+        console.log(error);
         this.errors = error.response.data;
         if(error.response.data.error == '"Failed to fetch player data"'){
           toast.error(error.response.data.error);

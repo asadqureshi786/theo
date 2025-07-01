@@ -255,18 +255,18 @@ export default {
       dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
       loading : false,
       months : [
-        { name: 'January', value: '01' },
-        { name: 'February', value: '02' },
-        { name: 'March', value: '03' },
-        { name: 'April', value: '04' },
-        { name: 'May', value: '05' },
-        { name: 'June', value: '06' },
-        { name: 'July', value: '07' },
-        { name: 'August', value: '08' },
-        { name: 'September', value: '09' },
-        { name: 'October', value: '10' },
-        { name: 'November', value: '11' },
-        { name: 'December', value: '11' }
+        { name: 'January', value: 1 },
+        { name: 'February', value: 2 },
+        { name: 'March', value: 3 },
+        { name: 'April', value: 4 },
+        { name: 'May', value: 5 },
+        { name: 'June', value: 6 },
+        { name: 'July', value: 7 },
+        { name: 'August', value: 8 },
+        { name: 'September', value: 9 },
+        { name: 'October', value: 10 },
+        { name: 'November', value: 11 },
+        { name: 'December', value: 12 }
       ],
       days : [
          { name: '1', value: 1 },
@@ -371,11 +371,13 @@ export default {
         // Add more deal data here
       ],
       errors : {},
+      squadProfileID : '',
     };
   },
   mounted() {
     const route = useRoute();
     this.fetchPlayera(route.params.id);
+    this.squadProfileID = route.params.id
   },
   methods: {
     goback() {
@@ -397,6 +399,7 @@ export default {
           this.playerData = response.data;
           this.playerData.dob = response.data.dob;
           this.playerData.joining_date = response.data.joining_date;
+          console.log("after add",response)
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;
           // this.player_data =  response.data.players;
@@ -443,13 +446,13 @@ export default {
           this.loading = false;
           this.showTimerModal = false;
           toast.success(response.data.message)
-          this.fetchPlayera();
+          this.fetchPlayera(this.squadProfileID);
         }
         console.log(response)
       } catch (error) {
         this.loading = false;
-        console.log(error.response.data)
-        this.errors = error.response.data
+        console.log(error.response)
+        this.errors = error.response
       }
     },
 

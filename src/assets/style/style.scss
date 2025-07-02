@@ -2077,6 +2077,38 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
                 }
         }
     }
+
+    .action_buttons{
+        position: absolute;
+        top: 9px;
+        right: 14px;
+        // background-color: red;
+        display: flex;
+        // margin-top: 55px;
+        // justify-content: end;
+        gap: 10px;
+        .btn{
+            padding: 0px;
+            font-size: 12px!important;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            &:focus{
+                border:none!important;
+                outline: none!important;
+            }
+            i{
+                font-size: 10px!important;
+            }
+            &.reject{
+                color:red;
+            }
+            &.accept{
+                color:green;
+            }
+        }
+    }
+
 }
 
 // Side Player SASS End
@@ -2433,7 +2465,9 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
     grid-template-columns: 1.2fr 3fr;
     border: 1px solid $cardBorder;
     border-radius: 8px;
-
+    .users_side{
+        border-right:1px solid $cardBorder;
+    }
     .hd {
         padding: 22.5px 15px;
         border-bottom: 1px solid $cardBorder;
@@ -2554,8 +2588,10 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 
 // ChatBox Page SASS Start
 .chat_side {
-    border-left: 1px solid $cardBorder;
+    // border-left: 1px solid $cardBorder;
 }
+
+
 
 .chat_box {
     .header {

@@ -63,6 +63,7 @@ export default {
 
     async allMessages(id) {
       this.chatActive = false;
+      console.log(id)
       try {
         const response = await axios.get(this.$baseURL+`theo/api/admin/messages/${id}`, {
           headers: {
@@ -75,7 +76,6 @@ export default {
           this.messages = response.data.messages ;
           this.chatActive = true;
         }
-        console.log(response.data.conversation_with)
       } catch (error) {
         console.log(error)
       }

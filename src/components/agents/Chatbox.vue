@@ -127,12 +127,10 @@ export default {
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
-    console.log(this.agent.id);
     // if(this.agent.id >=1){
           setInterval(()=>{
       this.allMessages(this.agent.id);
-      // console.log("Ub Chala");
-    },1000)
+    },3000)
     // }
   },
   watch: {
@@ -153,7 +151,6 @@ export default {
     methods : {
       async sendChat(){
         this.loader = true;
-        // console.log(this.formData.receiver_id)
       try{
         const response = await axios.post(this.$baseURL+`theo/api/agent/messages/send`,this.formData, {
           headers: {
@@ -163,17 +160,14 @@ export default {
         })
 
         if(response.status == 200){
-          console.log("Message Sent");
           this.formData.message = '';
           this.loader = false;
           setTimeout(() => {
             this.scrollToBottom();
           }, 100);
         }
-        console.log(response);
       }catch(error){
         this.loader = false;
-        console.log(error)
       }
     },
     scrollToBottom() {

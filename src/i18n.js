@@ -12,7 +12,7 @@ const messages = {
     // Banner Section Start
     s1_m_hd: ` An All-in-one Digital Office Designed by and for Sports Agents!`,
     s1_text1: ` All your agency operations—streamlined in one smart platform. Built by sports agents for sports agents, THEO helps you stay ahead:
- Manage your players with precision, Anticipate contract deadlines and transfer windows, Collaborate with trusted clubs and fellow agents, Track deals and explore opportunities with unattached players, Build your own workspace and influence circle—your pad, your rules`,
+               Manage your players with precision, Anticipate contract deadlines and transfer windows, Collaborate with trusted clubs and fellow agents, Track deals and explore opportunities with unattached players, Build your own workspace and influence circle—your pad, your rules`,
     s1_text2: 'Finally, a digital hub where everything connects.',
     s1_text3: ' Stay sharp. Stay in control. Stay connected..',
     // Banner Section End
@@ -31,6 +31,7 @@ const messages = {
     s3_text1: 'Get full access to your agency tools with a THEO subscription.',
     s3_text2: `Stay in the loop. Drop your email & get early updates.`,
     // Start Managing End
+
 },
 fr: {
     // Common
@@ -44,8 +45,8 @@ fr: {
     // Banner Section Start
     s1_m_hd: 'Un bureau numérique tout-en-un conçu par et pour les agents sportifs !',
     s1_text1: `Toutes les opérations de votre agence, rationalisées sur une plateforme intelligente. Conçue par des agents sportifs pour des agents sportifs, THEO vous aide à garder une longueur d'avance :
-Gérez vos joueurs avec précision, Anticipez les échéances des contrats et les périodes de transfert, Collaborez avec des clubs de confiance et d'autres agents, Suivez les transactions et explorez les opportunités avec des joueurs indépendants, Créez votre propre espace de travail et votre cercle d'influence : votre espace, vos règles
-`,
+              Gérez vos joueurs avec précision, Anticipez les échéances des contrats et les périodes de transfert, Collaborez avec des clubs de confiance et d'autres agents, Suivez les transactions et explorez les opportunités avec des joueurs indépendants, Créez votre propre espace de travail et votre cercle d'influence : votre espace, vos règles
+              `,
     s1_text2: `Enfin, un hub numérique où tout se connecte..`,
     s1_text3: `Restez vigilant. Gardez le contrôle. Restez connecté.`,
     // Banner Section End
@@ -64,6 +65,8 @@ Gérez vos joueurs avec précision, Anticipez les échéances des contrats et le
     s3_text1: `Obtenez un accès complet aux outils de votre agence avec un abonnement THEO.`,
     s3_text2: `Restez informés. Laissez-nous votre adresse e-mail et recevez les dernières nouvelles en avant-première.
 `,
+
+
     // Start Managing End
 }
 }

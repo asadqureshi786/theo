@@ -132,10 +132,11 @@ export default {
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
-
-    setInterval(()=>{
-      this.allMessages(this.agent.id)
-    },1000)
+    if(this.agent.id){
+      setInterval(()=>{
+        this.allMessages(this.agent.id)
+      },3000)
+    }
 
 
   },
@@ -184,6 +185,7 @@ export default {
         }
       );
 
+      console.log(response)
       if (response.status === 200) {
         this.formData.message = '';
         this.selectedFile = null;

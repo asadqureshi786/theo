@@ -195,8 +195,6 @@ export default {
 
         // Accpect Request
         async updateStatus(id, value) {
-            console.log(id, value)
-            console.log('first', this.$baseURL + `theo/admin/squad-players-requests/${id}/update-status`)
             this.$confirm.require({
                 message: `${value == "accepted" ? 'Are you sure you want to Accept?' : 'Are you sure you want to Reject?'}`,
                 header: "",

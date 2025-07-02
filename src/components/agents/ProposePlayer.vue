@@ -5,17 +5,21 @@
             <a href="" class="fw4 text-decoration-none black f15" >See All</a>
         </div>
         <ul class="players">
-            <li v-for="item in allProposals" :key="item.text" >
-                <div class="box">
+            <li class="position-relative" v-for="item in allProposals" :key="item.text" >
+                <div class="box position-relative"> {{item.player.id}}
                     <img class="img-fluid" :src="item.player.image" />
                     <div class="profile">
-                        <p class="primaryCol2 fw5 f16">{{item.player.name}}</p>
+                        <p class="primaryCol2 fw5 f16">{{item.player.name}} </p>
                         <div>
                             <p class="f13 fw4 silverCol">Club: <img width="10px" height="10px" class="ms-1 img-fluid club_img " :src="item.player.club.logo_url" alt=""> {{item.player.club.name}}</p>
                             <div class="dot" ></div>
                             <p class="f11 fw4 silverCol">{{item.created_at_human}}</p>
                         </div>
                     </div>
+                     <div v-if="action" class="action_buttons">
+                            <button type="button" @click="proposalReq(item.id,item.player.id,'reject')" class="action_button btn reject"> <i class="pi pi-times" ></i> Reject</button>
+                            <button type="button" @click="proposalReq(item.id,item.player.id,'accept')"  class="action_button btn accept"><i class="pi pi-check" ></i> Accept</button>
+                        </div>
                 </div>
             </li>
         </ul>
@@ -33,6 +37,8 @@ export default {
     props : {
         playerHeading : String,
         allProposals : Array,
+        action : Boolean,
+        proposalReq : Function,
     },
     data(){
         return{

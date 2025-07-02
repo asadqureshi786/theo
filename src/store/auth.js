@@ -25,7 +25,6 @@ export const useAuthStore = defineStore('counter', {
               },
             });
             if(response.status == 200){
-              console.log(response)
               this.user = response.data;
               return response.data;
             }

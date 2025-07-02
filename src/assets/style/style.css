@@ -1934,6 +1934,33 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
   border: none;
   padding: 0px;
 }
+.sidePlayer .action_buttons {
+  position: absolute;
+  top: 9px;
+  right: 14px;
+  display: flex;
+  gap: 10px;
+}
+.sidePlayer .action_buttons .btn {
+  padding: 0px;
+  font-size: 12px !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.sidePlayer .action_buttons .btn:focus {
+  border: none !important;
+  outline: none !important;
+}
+.sidePlayer .action_buttons .btn i {
+  font-size: 10px !important;
+}
+.sidePlayer .action_buttons .btn.reject {
+  color: red;
+}
+.sidePlayer .action_buttons .btn.accept {
+  color: green;
+}
 
 .agent_view .profile_section {
   margin-top: 1.5rem;
@@ -2202,6 +2229,9 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
   border: 1px solid #E2E8F0;
   border-radius: 8px;
 }
+.messages_page .users_side {
+  border-right: 1px solid #E2E8F0;
+}
 .messages_page .hd {
   padding: 22.5px 15px;
   border-bottom: 1px solid #E2E8F0;
@@ -2285,10 +2315,6 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 .messages_page .users_list .list li .item .time {
   color: #8B8F92;
   font-size: 12px;
-}
-
-.chat_side {
-  border-left: 1px solid #E2E8F0;
 }
 
 .chat_box .header {

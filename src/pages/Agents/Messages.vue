@@ -57,6 +57,7 @@ export default {
         });
         if (response.status == 200) {
           this.allAgents = response.data;
+          console.log(response.data)
         }
       } catch (error) {
         console.log(error);

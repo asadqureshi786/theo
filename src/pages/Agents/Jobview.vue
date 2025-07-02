@@ -5,7 +5,7 @@
       <div id="goBack" @click="goback" class="cursor-pointer">
         <i class="pi pi-chevron-left"></i>
       </div>
-      <h3 class="hd">Job View  </h3>
+      <h3 class="hd">Job View {{request.id}} </h3>
     </div>
   </div>
   <!-- Page Header Section End -->
@@ -150,7 +150,7 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <ProposePlayer :allProposals="allProposals" playerHeading="Propose Players" />
+            <ProposePlayer :proposalReq="proposalReq" :action="true" :allProposals="allProposals" playerHeading="Propose Players" />
             <div class="mt-4"></div>
             <!-- <Sideplayers playerHeading="Recent Requests" /> -->
           </div>
@@ -212,6 +212,9 @@
       </div>
     </form>
   </Dialog>
+
+   <ConfirmDialog class="confirmation_modal"></ConfirmDialog>
+
 </template>
 
 <script>
@@ -307,6 +310,7 @@ export default {
       errors : {},
       allProposals : [],
       userDetail : [],
+      requestId : '',
     };
   },
 
@@ -349,9 +353,11 @@ export default {
     
     if (response.status == 200) {
       this.request = response.data;
+      this.requestId = response.data.id;
       this.allProposals = response.data.proposals;
       this.userDetail = response.data.user
     }
+    console.log("Get Req Id" ,response)
   } catch (error) {
     console.log("this Error:", error);
   }
@@ -417,6 +423,67 @@ export default {
         }        
       }
     },
+
+    // Proposal Request
+    async proposalReq(proposal_id,player_id,status){
+      // return;
+       this.$confirm.require({
+        message: `${status == "accept" ? 'Are you sure you want to accept?' : 'Are you sure you want to reject?'}`,
+        header: "",
+        icon: `pi ${status == "accept" ? 'pi-check-circle' : 'pi-exclamation-circle'} `,
+        rejectProps: {
+          label: "Cancel",
+          severity: "secondary",
+          outlined: true,
+        },
+        acceptProps: {
+          label: `${status == "accept" ? 'Accept' : 'Reject'}`,
+          severity: `${status == "accept" ? 'successs' : 'danger'}`,
+        },
+        accept: async () => {
+          try {
+            console.log(this.$baseURL+"theo/api/agent/requests/accept-reject-proposal",
+            { 
+              request_id : this.requestId,
+              proposal_id : proposal_id,
+              player_id : player_id,
+              status : status,
+            },{
+                headers: {
+                Accept: "application/json",
+                Authorization: `Bearer ${this.token}`,
+            },
+            })
+            const response = await axios.post(this.$baseURL+"theo/api/agent/requests/accept-reject-proposal",
+            { 
+              request_id : this.requestId,
+              proposal_id : proposal_id,
+              player_id : player_id,
+              status : status,
+            },{
+                headers: {
+                Accept: "application/json",
+                Authorization: `Bearer ${this.token}`,
+            },
+            }
+          )
+          if(response.status == 200){
+             if(status == 'accept'){
+                toast.success(response.data.message)
+              }else{
+                toast.error(response.data.message)
+             }
+             this.fetchData();
+          }
+          } catch (error) {
+            console.log(error)
+          }
+        },
+        reject: () => {
+          // console.log("Delete cancelled");
+        },
+      });
+    }
 
   },
 };

@@ -6,7 +6,7 @@
     </div>
 
     <div v-if="showChat" class="fix_not_Found mt-4 border-0">
-        <i class="pi pi-exclamation-circle" ></i>No Record Found 
+        <i class="pi pi-exclamation-circle" ></i>No Chat Selected 
     </div>
 
     <div v-else class="chat_side ">

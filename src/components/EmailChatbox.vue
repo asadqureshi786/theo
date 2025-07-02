@@ -3,11 +3,11 @@
     <div class="header">
       <div class="info">
         <div class="p_img active">
-          <img :src="profileImg" alt="" />
+          <img :src="dp" alt="" />
         </div>
         <div>
-          <p class="name">{{agent.name }}</p>
-          <p class="last_seen">{{agent.last_seen_human == null && agent.is_online ? "Online" : `Last seen ${agent.last_seen_human}`}}</p>
+          <p class="name">{{emailData.name }}</p>
+          <p class="last_seen">{{emailData.email}}</p>
         </div>
       </div>
       <div class="whatsApp_icon">
@@ -17,7 +17,7 @@
 
     <ul class="msg_list" ref="scrollBox">
       <li
-        v-for="(msg, index) in msgs"
+        v-for="(msg, index) in emailMessages"
         :key="index"
         :class="[
           msg.sender_id !== userId ? 'recieved_msg' : 'sender_msg',
@@ -31,10 +31,10 @@
         <div>
           <ul class="list">
             <li>
-              <p class="msg">{{ msg.message }}</p>
+              <p class="msg">{{ msg.body }}</p>
             </li>
           </ul>
-          <div class="msg_time">{{ msg.time }}</div>
+          <div class="msg_time">{{ msg.date }}</div>
         </div>
 
         <div v-if="msg.type === 'sender'" class="profile_img">
@@ -45,7 +45,7 @@
 
     <div class="chat_input">
       <div class="icon face"><i class="pi pi-face-smile"></i></div>
-        <input type="text"  @keydown.enter="sendChat" v-model="formData.message" class="form-control" placeholder="Type a message" />
+        <!-- <input type="text"  @keydown.enter="sendChat" v-model="formData.message" class="form-control" placeholder="Type a message" /> -->
         <div class="d-flex links aling-items-center gap-3">
           <div class="icon d-flex g-4 align-items-center " >
             <svg
@@ -84,129 +84,27 @@
             <input type="file"  @change="handleFileChange"  class="d-none" />
             <i class="pi pi-paperclip"></i>
           </label>
-          <div  v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
+          <!-- <div v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
           <spinner/>
           </div>
-          <div  v-else @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
+          <div  v-else @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div> -->
         </div>
     </div>
   </div>
 </template>
 
 <script>
-import user1 from "@/assets/images/chatUser4.png";
-
-import { useAuthStore } from '@/store/auth.js';
-import axios from "axios";
-
-// Spinner
-import spinner from "@/components/Spinner.vue";
-
-export default {
-  name: "Chatbox",
-  components: {
-    spinner,
-  },
-  props: {
-    agentDetail: Object,
-    messages: Array,
-    allMessages : Function,
-  },
-
-  data() {
-    return {
-      profileImg: user1,
-      loader : false,
-      selectedFile: null,
-      formData : {
-        message : '',
-        receiver_id : '',
-      },
-      token: localStorage.getItem('token'),
-      agent: {}, 
-      msgs : [],
-      user : useAuthStore(),
-      userId : '',
-    };
-  },
-  async mounted() {
-    const res = await this.user.fetchUser();
-    this.userId = res.user.id;
-    if(this.agent.id){
-      // setInterval(()=>{
-      //   this.allMessages(this.agent.id)
-      // },1000)
-    }
-
-
-  },
-  watch: {
-    agentDetail: {
-      immediate: true,
-      handler(newVal) {
-        this.agent = newVal;
-        this.formData.receiver_id = this.agent.id;
-        this.scrollToBottom();
-      },
-    },
-    messages : {
-      immediate: true,
-      handler(newVal){
-        this.msgs = newVal
-        this.scrollToBottom();
-      
-      }
-    }
-  },
-  methods : {
-     handleFileChange(event) {
-    this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
-  },
-
-  async sendChat() {
-    this.loader = true;
-
-    try {
-      const form = new FormData();
-      form.append('message', this.formData.message);
-      form.append('receiver_id', this.agent.id); // if required by backend
-
-      if (this.selectedFile) {
-        form.append('attachment', this.selectedFile);
-      }
-
-      const response = await axios.post(
-        `${this.$baseURL}theo/api/admin/messages/send`,form,{
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${this.token}`,
-          },
+import dp from "@/assets/images/dummy.jpg"
+    export default{
+        name : 'EmailChatbox',
+        props : {
+            emailMessages : Array,
+            emailData : Object,
+        },
+        data(){
+            return{
+                dp : dp,
+            }
         }
-      );
-
-      console.log(response)
-      if (response.status === 200) {
-        this.formData.message = '';
-        this.selectedFile = null;
-        this.$refs.fileInput.value = ''; // reset file input
-        this.scrollToBottom();
-      }
-      console.log(response.data);
-    } catch (error) {
-      console.error('Send failed:', error);
-    } finally {
-      this.loader = false;
     }
-  },
-  
-    scrollToBottom() {
-      const el = this.$refs.scrollBox
-      if (el) {
-        el.scrollTop = el.scrollHeight
-      }
-    },
-
-  }
-};
 </script>

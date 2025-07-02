@@ -2239,6 +2239,23 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 .messages_page .users_list {
   padding: 10px 15px;
 }
+.messages_page .users_list .list_tabs {
+  border-bottom: 1px solid #E2E8F0;
+}
+.messages_page .users_list .list_tabs .action {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: #475569;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 0px;
+}
+.messages_page .users_list .list_tabs .action.active {
+  color: #8F0301;
+  border-bottom: 1px solid #8F0301;
+}
 .messages_page .users_list .searchBox input {
   border-radius: 8px !important;
   border-width: 1px !important;

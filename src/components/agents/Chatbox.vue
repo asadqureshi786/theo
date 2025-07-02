@@ -127,11 +127,11 @@ export default {
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
-    // if(this.agent.id >=1){
-          setInterval(()=>{
-      this.allMessages(this.agent.id);
-    },3000)
-    // }
+    if(this.agent.id >=1){
+    //       setInterval(()=>{
+    //   this.allMessages(this.agent.id);
+    // },1000)
+    }
   },
   watch: {
     agentDetail: {

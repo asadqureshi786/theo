@@ -2475,6 +2475,23 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 
     .users_list {
         padding: 10px 15px;
+        .list_tabs{
+            border-bottom: 1px solid $cardBorder;
+           .action{
+            background-color: transparent;
+            border:none;
+            box-shadow: none;
+            outline: none;
+            color:$formText;
+            font-weight: 500;
+            font-size: 15px;
+            padding:10px 0px;
+            &.active{
+                color:$primaryCol;
+                border-bottom: 1px solid $primaryCol;
+            }
+           } 
+        }
 
         .searchBox {
             input {

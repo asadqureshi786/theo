@@ -396,9 +396,9 @@ export default {
         );
         console.log("This data",response)
         if (response.status == 200) {
-          this.playerData = response.data;
-          this.playerData.dob = response.data.dob;
-          this.playerData.joining_date = response.data.joining_date;
+          this.playerData = response.data.player;
+          this.playerData.dob = response.data.player.dob;
+          this.playerData.joining_date = response.data.player.joining_date;
           console.log("after add",response)
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;

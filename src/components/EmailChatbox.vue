@@ -20,7 +20,7 @@
         v-for="(msg, index) in emailMessages"
         :key="index"
         :class="[
-          msg.sender_id !== userId ? 'recieved_msg' : 'sender_msg',
+          msg.direction == 'received' ? 'recieved_msg' : 'sender_msg',
           'messages',
         ]"
       >

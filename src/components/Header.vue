@@ -222,7 +222,7 @@
                     </div>
 
                     <div class="profile customDropdwon" @click="showProfile = !showProfile , showNotification = false" >
-                        <img :src="user1" class="img-fluid" alt="">
+                        <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="img-fluid" alt="">
                         <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
                             <div @click="logout" class="logout">
                                 <i class="pi pi-sign-out" ></i>Logout
@@ -250,6 +250,9 @@ import user1 from '@/assets/images/users/user1.png'
 
 // Router Import
 import { useRoute } from "vue-router";
+import dp from '@/assets/images/dummy.jpg'
+import { useAuthStore } from '@/store/auth.js';
+
 
 // Import Axios
 import axios from "axios";
@@ -261,11 +264,13 @@ export default {
                 // currentPath: this.$route.path.slice(this.$route.path.lastIndexOf('/')),
                 logo: logo,
                 user1: user1,
+                dp : dp,
                 texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
                 showNotification : false,
                 token : localStorage.getItem('token'),
                 showProfile : false,
                 showMenu : false,
+                user : useAuthStore(),
                 notifications : [
                      {
                         img: user1,
@@ -317,6 +322,10 @@ export default {
                     }
                 ]
         }
+    },
+    async mounted() {
+        const res = await this.user.fetchUser();
+        this.user = res.user;
     },
     methods : {
         async logout() {

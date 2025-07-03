@@ -10,9 +10,9 @@
           <p class="last_seen">{{agent.last_seen_human == null && agent.is_online ? "Online" : `Last seen ${agent.last_seen_human}`}}</p>
         </div>
       </div>
-      <div class="whatsApp_icon">
+      <a href="https://web.whatsapp.com/"   target="_blank" class="whatsApp_icon">
         <i class="pi pi-whatsapp" ></i>
-      </div>
+      </a>
     </div>
 
     <ul class="msg_list" ref="scrollBox">
@@ -132,10 +132,12 @@ export default {
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
+
     if(this.agent.id){
-      // setInterval(()=>{
-      //   this.allMessages(this.agent.id)
-      // },1000)
+      setInterval(()=>{
+        this.allMessages(this.agent.id)
+        console.log(this.agent.id)
+      },1000)
     }
 
 

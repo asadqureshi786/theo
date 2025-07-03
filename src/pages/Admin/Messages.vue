@@ -11,8 +11,11 @@
 
     <div v-else >
       <div v-if="agentChatShow" class="chat_side">
-      <Chatbox :agentDetail="agentDetail" :emailMessages="emailMessages"  :messages="messages"/>
+      <Chatbox :agentDetail="agentDetail" :allMessages="allMessages" :emailMessages="emailMessages"  :messages="messages"/>
     </div>
+
+    
+
     <div v-if="emailChatShow" class="chat_side">
       <EmailChatbox :emailMessages="emailMessages" :emailData="emailData" />
     </div>
@@ -98,6 +101,9 @@ export default {
           this.agentDetail = response.data.conversation_with;
           this.messages = response.data.messages ;
           this.chatActive = true;
+
+          
+
         }
       } catch (error) {
         console.log(error)
@@ -120,9 +126,10 @@ export default {
           this.emailChatShow = true;
           this.emailMessages = response.data.messages;
           this.emailData = response.data.upperData;
-          // this.agentDetail = response.data.conversation_with;
-          // this.messages = response.data.messages ;
           // this.chatActive = true;
+
+
+
         }
       } catch (error) {
         console.log(error)

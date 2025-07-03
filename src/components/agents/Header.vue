@@ -20,7 +20,7 @@ vi<template>
                                 <span class="text">Dashboard</span>
                             </router-link>
                         </li>
-                        <li v-if="userPlan != 'blue'" >
+                        <li  >
                             <router-link to="clubs" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -51,7 +51,7 @@ vi<template>
                                 <span class="text">Clubs</span>
                             </router-link>
                         </li>
-                        <li v-if="userPlan != 'blue'" >
+                        <li  >
                             <router-link to=""  class="nav_item has_dropdown" :class="(currentPath == '/all-request' || currentPath == '/players') ? 'active' : ''" >
                                 <!-- SVG code here -->
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -80,7 +80,7 @@ vi<template>
                                 </div>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
                             <router-link to="legal-updates" exact active-class="active"  class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -101,7 +101,7 @@ vi<template>
                                 <span class="text">Legal Updates</span>
                             </router-link>
                         </li>
-                        <li>
+                        <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
                             <router-link to="news-feeds" exact active-class="active"  href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -118,7 +118,7 @@ vi<template>
                                 <span class="text">Newsfeed</span>
                             </router-link>
                         </li>
-                        <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
+                        <li v-if="userPlan != 'blue'" >
                             <router-link to="agent_circle" exact active-class="active"  href="#" class="nav_item">
     
                               <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
@@ -229,7 +229,7 @@ vi<template>
                     </div>
 
                     <div class="profile customDropdwon" @click="showProfile = !showProfile , showNotification = false" >
-                        <img :src="user1" class="img-fluid" alt="">
+                    <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="img-fluid" alt="">
                         <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
                             <div @click="logout" class="logout">
                                 <i class="pi pi-sign-out" ></i>Logout
@@ -254,6 +254,7 @@ vi<template>
 // Images
 import logo from '@/assets/images/logo.png'
 import user1 from '@/assets/images/users/user1.png'
+import dp from '@/assets/images/dummy.jpg'
 
 // Router Import
 import { useRoute } from "vue-router";
@@ -275,6 +276,7 @@ export default {
                 // auth: useAuthStore()
                 // currentPath: this.$route.path.slice(this.$route.path.lastIndexOf('/')),
                 logo: logo,
+                dp : dp,
                 user1: user1,
                 texting : 'JavaScript Problem Solving: How to get file extension in JavaScript',
                 showNotification : false,

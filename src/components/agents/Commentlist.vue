@@ -8,7 +8,7 @@
             <li class="comment d-flex justify-content-between align-items-start" v-for="item in comments" :key="item.id">
                 <div class="item">
                     <div class="info">
-                        <img :src="user1" class="profile"/>
+                        <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="profile"/>
                         <div class="m_sec" >
                             <p class="name">{{ item.user.name }} <p class="time">{{ }}</p> </p>
                             <p class="msg">{{ item.comment }}</p>
@@ -78,6 +78,8 @@ import { useToast } from "vue-toastification";
 const toast = useToast();
 
 // Spinner
+import dp from '@/assets/images/dummy.jpg'
+
 import Spinner from "@/components/Spinner.vue";
 
 // import Axios
@@ -89,10 +91,12 @@ import axios from "axios";
             comments: Array,
             count: String,
             id : String,
+               user : Object,
         },
         data() {
             return {
                 user1: user1,
+                 dp: dp,
                 token : localStorage.getItem("token"),
                 
             }

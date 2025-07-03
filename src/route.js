@@ -82,11 +82,11 @@ const routes = [
       },
       {
         path: "legal-updates",
-        component: Legalupdates,
+        component: Newsfeeds,
       },
       {
         path: "news-feeds",
-        component: Newsfeeds,
+        component: Legalupdates,
       },
       {
         path: "messages",
@@ -128,7 +128,7 @@ const routes = [
       {
         path: "clubs",
         component: AgentClubs,
-        meta: { requiresPlan: ["black","gold"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "club-view/:id",
@@ -148,52 +148,52 @@ const routes = [
       {
         path: "players",
         component: AgentPlayer,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","blue"] },
       },
       {
         path: "player-profile/:id",
         component: AgentPlayerprofile,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","blue"] },
       },
       {
         path: "squad-player",
         component: AgentSquadPlayer,
-        meta: { requiresPlan: ["black","gold"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "squad-profile/:id",
         component: AgentSquadProfile,
-        meta: { requiresPlan: ["black","gold"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "scout-player",
         component: AgentScoutPlayer,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","blue"] },
       },
       {
         path: "scout-profile/:id",
         component: AgentScoutProfile,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","blue"] },
       },
       {
         path: "agent_circle",
         component: AgentCircle,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "legal-updates",
-        component: AgentLegalupdates,
-        meta: { requiresPlan: ["black",,"blue","gold"] },
+        component: AgentNewsfeeds,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "news-feeds",
-        component: AgentNewsfeeds,
-        meta: { requiresPlan: ["black","blue","gold"] },
+        component: AgentLegalupdates,
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "messages",
         component: AgentMessages,
-        meta: { requiresPlan: ["black","gold"] },
+        meta: { requiresPlan: ["black"] },
       },
       {
         path: "settings",

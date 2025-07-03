@@ -1,5 +1,5 @@
 <template>
-  <div class="player_profile">
+  <div class="player_profile plus_diary">
     <!-- Page Header Section Start -->
     <div class="page_header">
       <div class="heading_icon">
@@ -116,22 +116,78 @@
           </div>
         </div>
       </div>
+      <div class="diary_section">
+        <!-- <div class="head">
+          <h4 class="text" >Agent 64%</h4>
+        </div> -->
+         <div class="row formFileds">
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Date</label>
+                <!-- <input type="date" class="form-control" > -->
+                 <div class="date_picker">
+                   <DatePicker class="" v-model="formData.status_date" readonly />
+                 </div>
+
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Transfer Offer</label>
+              <div class="d_select">
+              <Select
+                v-model="formData.transfer_offer"
+                :options="t_offers"
+                optionLabel="name"
+                optionValue="value"
+                placeholder="Select Offer"
+                class="w-full"
+              />
+            </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Status</label>
+              <div class="d_select">
+              <Select
+                v-model="formData.status"
+                :options="status"
+                optionLabel="name"
+                   optionValue="value"
+                placeholder="Select Status"
+                class="w-full"
+              />
+              <!-- :options="leagues" -->
+            </div>
+              </div>
+            </div>
+
+             <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Link</label>
+                <input type="text" v-model="formData.link" class="form-control" >
+              </div>
+            </div>
+
+
+             <div class="col-md-12">
+              <div class="form-group">
+                <label for="">Feedback</label>
+                <textarea type="textarea" v-model="formData.feedback" cols="10" rows="5" class="form-control" ></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <button type="button" @click="addDriaryData" class="btn btn-primary w-100">Update</button>
+            </div>
+          </div>
+      </div>
     </div>
-    <!-- Profile Card Section End -->
-
-    <!-- Documents Start -->
-    <!-- <div class="light_head mt-5">
-            Documents
-        </div>
-        <Documents class="" /> -->
-    <!-- Documents End -->
-
-    <!-- Video List Components Start -->
-    <!-- <div class="light_head mt-5">
-            Videos
-        </div>
-        <Videolist /> -->
-    <!-- Video List Components End -->
 
     <!-- Transfer History Compenent Start -->
     <div class="light_head mt-5">Transfer History</div>
@@ -154,6 +210,10 @@ import Simpletable from "@/components/Simpletable.vue";
 // Axios
 import axios from "axios";
 
+// Toast
+import { useToast } from "vue-toastification";
+const toast = useToast();
+
 // Route
 import { useRoute } from "vue-router";
 
@@ -171,6 +231,28 @@ export default {
       club1: club1,
       fullProfile: fullProfile,
       playerData: {},
+      t_offers: [
+        { name: 'Load' , value : 'loan' },
+        { name: 'Free', value : 'free' },
+        { name: 'Contract', value : 'contract' },
+      ],
+      status: [
+        { name: 'Negotiation' , value : 'negotiation' },
+        { name: 'Approach' , value : 'approach' },
+        { name: 'Follow' , value : 'follow' },
+      ],
+      selectedOffers : null,
+      selectedStatus : null,
+      formData : {
+        player_id : '',
+        diary_id : '',
+        status_date : '',
+        transfer_offer : '',  
+        status : '',  
+        link : '',  
+        feedback : '',  
+      },
+      // diaryData : {},
       dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
       deals: [
         [
@@ -262,15 +344,10 @@ export default {
         );
         if (response.status == 200) {
           console.log(response.data);
-          this.playerData = response.data;
-          this.playerData.dob = response.data.dob.slice(0, -8);
-          this.playerData.joining_date = response.data.joining_date.slice(
-            0,
-            -8
-          );
-          // this.contactList = response.data.contacts;
-          // this.player_count = response.data.players_count;
-          // this.player_data =  response.data.players;
+          this.playerData = response.data.player;
+          this.playerData.dob = response.data.player.dob.slice(0, -8);
+          this.playerData.joining_date = response.data.player.joining_date.slice(0,-8);
+          this.formData = {...response.data.diary, diary_id: response.data.diary.id };
           // this.player_body = this.player_data.map((player,index)=>({
 
           // checkbox: `<label for="check1" class="table_check_list" class="text-center">
@@ -299,6 +376,32 @@ export default {
         console.log(error.response.data);
       }
     },
+
+    // Add Diary Data
+    async addDriaryData(){
+      console.log(this.$baseURL+"theo/api/agent/scout-players/save-diary",this.formData,{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+        });
+      // return;
+      try {
+
+        const response = await axios.post(this.$baseURL+"theo/api/agent/scout-players/save-diary",this.formData,{
+            headers: {
+              Accept: "application/json",
+              Authorization: `Bearer ${this.token}`,
+            },
+        });
+        if(response.status == 201){
+          toast.success(response.data.message);
+        }
+      } catch (error) {
+        
+      }
+    }
+
   },
 };
 </script>

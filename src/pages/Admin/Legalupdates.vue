@@ -2,7 +2,7 @@
   <div class="legal_update">
     <!-- Page Header Start -->
     <div class="page_header">
-      <h3 class="hd">Legal Update</h3>
+      <h3 class="hd">News Feed</h3>
       <div class="r_side">
         <button class="btn btn-primary" @click="addUpdate = 'true'">
           <svg
@@ -91,7 +91,7 @@
             <div class="card-body">
               <!-- <Sideplayers playerHeading="Recent Request" /> -->
               <div class="mt-4 d-none"></div>
-              <Newsfeed :newsFeeds="newsFeeds" playerHeading="Newsfeed" />
+              <Newsfeed :newsFeeds="newsFeeds" playerHeading="Legal Updates" />
             </div>
           </div>
         </div>

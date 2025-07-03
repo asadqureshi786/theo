@@ -10,9 +10,9 @@
           <p class="last_seen">Last seend 45 min ago</p>
         </div>
       </div>
-      <div class="whatsApp_icon">
+      <a   target="_blank" href="https://web.whatsapp.com/" class="whatsApp_icon">
         <i class="pi pi-whatsapp" ></i>
-      </div>
+      </a>
     </div>
 
     <ul class="msg_list" ref="scrollBox">
@@ -122,16 +122,13 @@ export default {
       msgs : [],
       user : useAuthStore(),
       userId : '',
+      intervalId : '',
+
     };
   },
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
-    if(this.agent.id >=1){
-    //       setInterval(()=>{
-    //   this.allMessages(this.agent.id);
-    // },1000)
-    }
   },
   watch: {
     agentDetail: {
@@ -139,12 +136,19 @@ export default {
       handler(newVal) {
         this.agent = newVal;
         this.formData.receiver_id = this.agent.id;
+        clearInterval(this.intervalId)
+
       },
     },
     messages : {
       immediate: true,
       handler(newVal){
       this.msgs = newVal
+             if(this.agent.id){
+            this.intervalId =  setInterval(()=>{
+              this.allMessages(this.agent.id)
+            },3000)
+          }
       }
     }
   },
@@ -162,6 +166,7 @@ export default {
         if(response.status == 200){
           this.formData.message = '';
           this.loader = false;
+      
           setTimeout(() => {
             this.scrollToBottom();
           }, 100);

@@ -597,6 +597,35 @@ h1, h2, h3, h4, h5, h6, p, ul {
   transition: 0.2s all linear;
   animation-delay: 1s;
 }
+.form-group .date_picker .p-inputtext {
+  background: transparent !important;
+  border: 1.6px solid #E2E8F0 !important;
+  border-radius: 10px !important;
+  padding: 7px 12px !important;
+  color: #475569 !important;
+  font-size: 14px !important;
+  transition: 0.2s all linear;
+}
+.form-group .date_picker .p-inputtext.errorBorder {
+  border: 2px solid #8F0301 !important;
+}
+.form-group .date_picker .p-inputtext::-moz-placeholder {
+  color: #475569 !important;
+  font-size: 14px !important;
+}
+.form-group .date_picker .p-inputtext::placeholder {
+  color: #475569 !important;
+  font-size: 14px !important;
+}
+.form-group .date_picker .p-inputtext:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.p-datepicker-day-selected {
+  background: #8F0301 !important;
+  color: #fff !important;
+}
 
 .form-control {
   background: transparent !important;
@@ -1829,6 +1858,28 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 .player_profile .profile_section .profile_detail ul li .text {
   font-weight: 400;
   font-size: 16.5px;
+}
+.player_profile.plus_diary .profile_section {
+  grid-template-columns: 16% 54% 30%;
+}
+.player_profile.plus_diary .profile_section .diary_section {
+  border-left: 1px solid #E2E8F0;
+  margin: 7px;
+  margin-left: 25px;
+}
+.player_profile.plus_diary .profile_section .diary_section .head {
+  margin: 5px 20px 15px 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+.player_profile.plus_diary .profile_section .diary_section .head .text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #424441;
+}
+.player_profile.plus_diary .profile_section .diary_section > .row {
+  margin: 10px 15px 0px 15px;
+  padding-bottom: 10px;
 }
 
 .jobView {

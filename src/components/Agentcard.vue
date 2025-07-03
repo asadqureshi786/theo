@@ -3,7 +3,7 @@
     No record found.
   </div>
   <div v-for="item in allAgents" :key="item.id" class="box_card">
-    <img :src="agent" class="profile_picture" />
+    <img :src="item.profile ? item.profile : dp" class="profile_picture" />
 
     <div class="middle">
       <p class="name">{{ item.name ? item.name : '-'  }}</p>
@@ -207,6 +207,7 @@
 // Images
 import agent from "@/assets/images/agent.png";
 import club1 from "@/assets/images/club1.png";
+import dp from "@/assets/images/dummy.jpg"
 
 // Toast
 import { useToast } from "vue-toastification";
@@ -233,6 +234,7 @@ export default {
   },
   data() {
     return {
+      dp : dp,
       agent: agent,
       club1: club1,
       city: "karachi",

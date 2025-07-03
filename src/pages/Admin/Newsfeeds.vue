@@ -1,6 +1,6 @@
 <template>
   <div class="page_header">
-    <h3 class="hd">Newsfeed</h3>
+    <h3 class="hd">Legal Update</h3>
   </div>
 
   <div class="news_feeds mt-4">
@@ -22,7 +22,7 @@
                 <div class="card-body">
                   <div class="top">
                     <div class="lside">
-                      <img :src="player" class="profile img-fluid" />
+                      <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="profile img-fluid" />
                       <div>
                         <p class="black f14 fw5">Tom Lewis</p>
                         <div class="d-flex align-items-center gap-2">
@@ -96,7 +96,7 @@
                   
                 </div>
               </div>
-              <Commentlist  :id="news.id" :count="news.comments_count"  :comments="news.comments" />
+              <Commentlist :user="user"  :id="news.id" :count="news.comments_count"  :comments="news.comments" />
             </li>
           </ul>
         </div>
@@ -104,9 +104,9 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <Sideplayers playerHeading="Recent Request" />
-            <div class="mt-4"></div>
-            <Newsfeed playerHeading="Legal Updates" />
+            <Sideplayers playerHeading="Recent Request" class="d-none" />
+            <div class="mt-4 d-none"></div>
+            <Sidelegal :Legalupdates="Legalupdates" playerHeading="Newsfeeds" />
           </div>
         </div>
       </div>
@@ -125,6 +125,11 @@ import cover from "@/assets/images/cover.jpg";
 // Toast
 import { useToast } from "vue-toastification";
 const toast = useToast();
+import { useAuthStore } from '@/store/auth.js';
+
+import Sidelegal from "@/components/Sidelegal.vue";
+import dp from '@/assets/images/dummy.jpg'
+
 
 // Spinner
 import Spinner from "@/components/Spinner.vue";
@@ -139,10 +144,12 @@ export default {
     Newsfeed,
     Commentlist,
     Spinner,
+    Sidelegal,
   },
   data() {
     return {
       editorValue: "",
+      dp : dp,
       player: player,
       cover: cover,
       like : false,
@@ -151,15 +158,23 @@ export default {
       token: localStorage.getItem("token"),
       showError: false,
       newsFeeds: [],
+      Legalupdates : [],
+
       userInput: {
         comment : "",
       },
       comments: [],
+      user : useAuthStore(),
+
     };
   },
 
   mounted() {
     this.fetchNewsFeed();
+  },
+  async created() {
+        const res = await this.user.fetchUser();
+        this.user = res.user;
   },
 
   methods: {
@@ -179,6 +194,7 @@ export default {
         if (response.status === 201) {
           this.editorValue = "";
           this.loading = false;
+          console.log(response);
           this.fetchNewsFeed();
           toast.success("Newsfeed added successfully!");
         } else {
@@ -208,8 +224,10 @@ export default {
           }
         );
         if (response.status == 200) {
-          this.newsFeeds = response.data;
-          this.comments = response.data;
+          this.newsFeeds = response.data.newsFeeds;
+          this.comments = response.data.newsFeeds.comments;
+          this.Legalupdates = response.data.legalUpdates;
+
           console.error(response.data);
         }
       } catch (error) {

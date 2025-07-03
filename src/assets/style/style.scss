@@ -371,7 +371,36 @@ body {
 //     }
 // }
     }
+    .date_picker{
+        .p-inputtext{
+              background: transparent !important;
+    border: 1.6px solid #E2E8F0 !important;
+    border-radius: 10px !important;
+    padding: 7px 12px !important;
+    color: $formText !important;
+    font-size: 14px !important;
+    transition: 0.2s all linear;
+    &.errorBorder{
+        border:2px solid $primaryCol!important;
+    }
+
+    &::placeholder {
+        color: $formText !important;
+        font-size: 14px !important;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+        }
+    }
   
+}
+
+.p-datepicker-day-selected{
+    background: $primaryCol!important;
+    color:#fff!important;
 }
 
 
@@ -1931,6 +1960,32 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
                     }
                 }
             }
+        }
+    }
+    &.plus_diary{
+        .profile_section{
+           grid-template-columns: 16% 54% 30%;
+           .diary_section{
+            border-left:1px solid $cardBorder;
+            // border-radius: 8px;
+            margin: 7px;
+            margin-left: 25px;
+            .head{
+                margin: 5px 20px 15px 20px;
+                padding-bottom: 12px;
+                border-bottom: 1px solid $cardBorder!important;
+                .text{
+                    // f25 fw5 light5
+                    font-size: 18px;
+                    font-weight: 600;
+                    color:$light5
+                }
+             }
+             & > .row{
+                margin: 10px 15px 0px 15px;
+                padding-bottom: 10px;
+             }
+           }
         }
     }
 }

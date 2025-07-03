@@ -83,7 +83,7 @@
         <div class="card">
           <div class="card-body">
             <div class="card_head b_bottom">
-              <h5 class="hd">Total Sales</h5>
+              <h5 class="hd">Deals Done</h5>
               <div class="box_icon">
                 <i class="pi pi-calendar"></i>
               </div>
@@ -96,7 +96,7 @@
         <div class="card">
           <div class="card-body">
             <div class="card_head b_bottom">
-              <h5 class="hd">Deal Status</h5>
+              <h5 class="hd">Scout Status</h5>
               <div class="box_icon">
                 <i class="pi pi-calendar"></i>
               </div>

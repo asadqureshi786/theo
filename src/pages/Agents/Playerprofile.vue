@@ -276,10 +276,10 @@ export default {
           }
         );
         if (response.status == 200) {
-          console.log(response.data);
-          this.playerData = response.data;
-          this.playerData.dob = response.data.dob.slice(0, -8);
-          this.playerData.joining_date = response.data.joining_date.slice(0,-8);
+          console.log(response.data.player);
+          this.playerData = response.data.player;
+          this.playerData.dob = response.data.player.dob.slice(0, -8);
+          this.playerData.joining_date = response.data.player.joining_date.slice(0,-8);
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;
           // this.player_data =  response.data.players;

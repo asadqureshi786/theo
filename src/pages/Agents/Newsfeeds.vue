@@ -1,6 +1,6 @@
 <template>
   <div class="page_header">
-    <h3 class="hd">Newsfeed</h3>
+    <h3 class="hd">Legal Update</h3>
   </div>
 
   <div class="news_feeds mt-4">
@@ -22,7 +22,7 @@
                 <div class="card-body">
                   <div class="top">
                     <div class="lside">
-                      <img :src="player" class="profile img-fluid" />
+                      <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="profile img-fluid" />
                       <div>
                         <p class="black f14 fw5">Tom Lewis</p>
                         <div class="d-flex align-items-center gap-2">
@@ -96,7 +96,7 @@
                   
                 </div>
               </div>
-              <Commentlist  :id="news.id" :count="news.comments_count"  :comments="news.comments" />
+              <Commentlist  :id="news.id" :user="user" :count="news.comments_count"  :comments="news.comments" />
             </li>
           </ul>
         </div>
@@ -106,7 +106,7 @@
           <div class="card-body">
             <Sideplayers playerHeading="Recent Request" class="d-none" />
             <div class="mt-4 d-none"></div>
-            <Sidelegal :Legalupdates="Legalupdates" playerHeading="Legal Updates" />
+            <Sidelegal :Legalupdates="Legalupdates" playerHeading="Newsfeeds" />
             
           </div>
         </div>
@@ -134,6 +134,9 @@ import Spinner from "@/components/Spinner.vue";
 import axios from "axios";
 import Legalupdates from "./Legalupdates.vue";
 
+import dp from '@/assets/images/dummy.jpg'
+import { useAuthStore } from '@/store/auth.js';
+
 export default {
   name: "Newsfeeds",
   components: {
@@ -145,6 +148,7 @@ export default {
   data() {
     return {
       editorValue: "",
+      dp : dp,
       player: player,
       cover: cover,
       like : false,
@@ -153,6 +157,7 @@ export default {
       token: localStorage.getItem("token"),
       showError: false,
       newsFeeds: [],
+         user : useAuthStore(),
       Legalupdates : [],
       userInput: {
         comment : "",

@@ -2601,6 +2601,15 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
     }
 }
 
+.messages_page{
+    .users_list.emailChatbox{
+        // display: none;
+        .list{
+            height: calc(100vh - 316px)!important;
+        }
+}
+}
+
 // Messages Page SASS End
 
 // ChatBox Page SASS Start
@@ -2678,7 +2687,8 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
 
         padding: 20px 15px 0px 15px;
         height: calc(100vh - 268px);
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
 
         &::-webkit-scrollbar {
             width: 5px;
@@ -2709,6 +2719,22 @@ header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.h
             .list {
                 li {
                     margin-bottom: 5px;
+                    .emai_msg{
+                        overflow:auto;
+                          &::-webkit-scrollbar {
+                                width: 5px;
+                                height: 3px;
+                            }
+
+                            &::-webkit-scrollbar-track {
+                                background-color: transparent;
+                            }
+
+                            &::-webkit-scrollbar-thumb {
+                                background-color: #fff;
+                                border-radius: 100px;
+                            }
+                    }
 
                     &:last-child {
                         margin-bottom: 0px;

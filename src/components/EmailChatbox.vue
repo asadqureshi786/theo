@@ -1,5 +1,5 @@
 <template>
-  <div class="chat_box">
+  <div class="chat_box ">
     <div class="header">
       <div class="info">
         <div class="p_img active">
@@ -31,10 +31,10 @@
         <div>
           <ul class="list">
             <li>
-              <p class="msg">{{ msg.body }}</p>
+              <p class="msg emai_msg" :style="{ maxWidth: '800px', }" v-html="msg.body" ></p>
             </li>
           </ul>
-          <div class="msg_time">{{ msg.date }}</div>
+          <div class="msg_time">{{formatDate(msg.date.slice(9))}} {{formatTime(msg.date.slice(-10))}} </div>
         </div>
 
         <div v-if="msg.type === 'sender'" class="profile_img">
@@ -45,7 +45,7 @@
 
     <div class="chat_input">
       <div class="icon face"><i class="pi pi-face-smile"></i></div>
-        <!-- <input type="text"  @keydown.enter="sendChat" v-model="formData.message" class="form-control" placeholder="Type a message" /> -->
+        <input type="text"  @keydown.enter="sendMsg(emailData.id)" v-model="message" class="form-control" placeholder="Type a message" />
         <div class="d-flex links aling-items-center gap-3">
           <div class="icon d-flex g-4 align-items-center " >
             <svg
@@ -80,14 +80,10 @@
             </svg>
             <span class="text">Ask AI</span>
           </div>
-          <label class="icon d-flex justify-content-center align-items-center cursor_pointer">
-            <input type="file"  @change="handleFileChange"  class="d-none" />
-            <i class="pi pi-paperclip"></i>
-          </label>
-          <!-- <div v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
+          <div v-if="loader" class="spinner_loader d-flex justify-content-center align-items-center" >
           <spinner/>
           </div>
-          <div  v-else @click="sendChat" class="icon cursor-pointer"><i class="pi pi-send"></i></div> -->
+          <div v-else   @click="sendMsg(emailData.id)" class="icon cursor-pointer"><i class="pi pi-send"></i></div>
         </div>
     </div>
   </div>
@@ -95,16 +91,55 @@
 
 <script>
 import dp from "@/assets/images/dummy.jpg"
-    export default{
-        name : 'EmailChatbox',
-        props : {
-            emailMessages : Array,
-            emailData : Object,
+// Spinner
+import spinner from "@/components/Spinner.vue";
+import dayjs from 'dayjs'
+import axios from "axios";
+
+export default{
+    name : 'EmailChatbox',
+    props : {
+        emailMessages : Array,
+        emailData : Object,
+    },
+    components : {
+      spinner
+    },
+    data(){
+        return{
+            dp : dp,
+            message : '',
+            token: localStorage.getItem('token'),
+            loader : false,
+
+        }
+    },
+    methods : {
+      formatDate(dateStr) {
+            return dayjs(dateStr).format('YYYY-MM-DD')
         },
-        data(){
-            return{
-                dp : dp,
+        formatTime(dateStr) {
+            return dayjs(dateStr).format('h:mm A')
+        },
+
+        // Send Message
+        async sendMsg(id){
+          try{
+            this.loader = true;
+            const response = await axios.post(this.$baseURL+`theo/api/admin/emails/send-email?id=${id}&message=${this.message}`,{},{
+              headers : {
+                  'Accept': 'application/json',
+                   Authorization: `Bearer ${this.token}`,
+              }
+            })
+            if(response.status == 200){
+              this.loader = false;
+              this.message = '';
             }
+          }catch(error){
+            console.log(error)
+          }
         }
     }
+}
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="users_list">
+    <div class="users_list emailChatbox">
 
         <div class="list_tabs d-flex gap-1 mb-3 mt-1">
             <button @click="activeTab = 1" type="button" :class="`action w-100  ${activeTab == 1 ? 'active' : ''} `">Agents</button>
@@ -49,7 +49,7 @@
                             <img :src="dp" alt="">
                         </div>
                         <div>
-                            <p class="name">{{ item.name }} {{ item.id }}</p>
+                            <p class="name">{{ item.name }}</p>
                             <p class="msg">{{ item.msg }}</p>
                         </div>
                     </div>

@@ -47,7 +47,7 @@
                     </button>
                   </div>
                 </div>
-                <div class="main">
+                <div class="main"  >
                   <div class="d-flex align-items-center gap-4">
                     <p class="agent f14 silverCol">Agent: {{userDetail.name}}</p>
                     <Playerproposed :allProposals="allProposals" :proposedImages="proposedImages" />
@@ -147,7 +147,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" v-if="request.user_id !== undefined && loginUserId && request.user_id == loginUserId" >
         <div class="card">
           <div class="card-body">
             <ProposePlayer :proposalReq="proposalReq" :action="true" :allProposals="allProposals" playerHeading="Propose Players" />
@@ -409,6 +409,7 @@ export default {
           if(response.status == 201) {
           this.showPropose = false;
           toast.success(response.data.message);
+          this.fetchData();
           this.spinner = false;
           this.selectedCity = null; // Reset selected city after sending proposal
         } else {

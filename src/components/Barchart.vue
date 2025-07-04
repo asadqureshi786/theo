@@ -6,11 +6,36 @@
   import { onMounted, ref } from 'vue'
   import * as echarts from 'echarts'
   
-  const chartRef = ref(null)
+
+const props = defineProps({
+  deals_done : Array,
+});
   
-  onMounted(() => {
+
+const chartRef = ref(null)
+
+onMounted( () => {
+  
+    console.log("From bar Char",props.deals_done)
     
     const chart = echarts.init(chartRef.value)
+    const dealsCount = [];
+     props.deals_done.forEach(function(item){
+      dealsCount.push(item.deals_count)
+    })
+  
+    const dealMonth = [];
+     props.deals_done.forEach(function(item){
+     const monthNum = item.month.split('-')[1]  // e.g. '07'
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const monthIndex = parseInt(monthNum, 10) - 1  // '07' -> 6
+  const monthName = monthNames[monthIndex]
+  dealMonth.push(monthName)
+    })
+    console.log("From ForEach Char",dealsCount);
+
+
   
     chart.setOption({
       title: {
@@ -26,7 +51,7 @@
   },
       xAxis: {
         type: 'category',
-        data: ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+        data: dealMonth,
       },
       yAxis: {
         type: 'value'
@@ -35,22 +60,13 @@
       {
         name: '2024',
         type: 'bar',
-        data: [120, 200, 150, 80, 70,90,122,130,140,100,199,175],
-        barWidth: '40%',
+        data:dealsCount,
+        barWidth: '5%',
         itemStyle: {
           color: '#8F0301B2',
           borderRadius: [4, 4, 0, 0] // top-left, top-right, bottom-right, bottom-left
         }
       },
-      {
-        name: '2025',
-        type: 'bar',
-        data: [180, 150, 100, 60, 90,75,110,95,120,150,120,65],
-        barWidth: '40%',
-        itemStyle: {
-          color: '#E4C3C2'
-        }
-      }
     ]
     })
   })

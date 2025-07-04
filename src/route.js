@@ -143,7 +143,7 @@ const routes = [
       {
         path: "job-view/:id",
         component: AgentJobview,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "players",

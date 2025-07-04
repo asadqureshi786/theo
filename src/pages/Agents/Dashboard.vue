@@ -88,7 +88,7 @@
                 <i class="pi pi-calendar"></i>
               </div>
             </div>
-            <Barchart></Barchart>
+            <Barchart :deals_done="deals_done" ></Barchart>
           </div>
         </div>
       </div>
@@ -240,6 +240,7 @@ export default {
 
 
       status_counts : {},
+      deals_done : [],
 
  
     };
@@ -248,7 +249,6 @@ export default {
   async created(){
       const res = await this.currentUser.fetchUser();
       this.users = res;
-      console.log("This user", this.users.user)
   },
 
   mounted() {
@@ -270,7 +270,6 @@ export default {
             },
           }
         );
-        console.log(response)
         // return;
         if (response.status === 200) {
           this.spinner = false;
@@ -278,6 +277,8 @@ export default {
           this.totalScout = response.data.scout_player_count;
           this.totalSquad = response.data.squad_player_count;
           this.status_counts = response.data.status_counts;
+          this.deals_done = response.data.deals_done;
+          console.log(this.deals_done)
             this.topLeads = [
                 {
                   img: this.timeImg,
@@ -302,7 +303,6 @@ export default {
             this.requestsList = response.data.recent_requests;
         }
       } catch (error) {
-        console.log(error);
         this.spinner = false;
       }
     },

@@ -26,7 +26,7 @@ export const useAuthStore = defineStore('counter', {
             });
             if(response.status == 200){
               this.user = response.data;
-              console.log(response.data);
+              // console.log(response.data);
               return response.data;
             }
           } catch (error) {

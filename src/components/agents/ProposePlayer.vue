@@ -1,12 +1,13 @@
 <template>
-    <div class="sidePlayer proposePlayer">
+    <div class="sidePlayer proposePlayer h-100">
         <div class="hd pb-3">
             <p class="heading f22  fw5">{{playerHeading}}</p>
-            <a href="" class="fw4 text-decoration-none black f15" >See All</a>
+            <!-- <a href="" class="fw4 text-decoration-none black f15" >See All</a> -->
         </div>
-        <ul class="players">
+        <div v-if="allProposals.length == 0" class="h-100 d-flex w-100 justify-content-center align-items-center" >No Player Found</div>
+        <ul>
             <li class="position-relative" v-for="item in allProposals" :key="item.text" >
-                <div class="box position-relative"> {{item.player.id}}
+                <div class="box position-relative"> 
                     <img class="img-fluid" :src="item.player.image" />
                     <div class="profile">
                         <p class="primaryCol2 fw5 f16">{{item.player.name}} </p>

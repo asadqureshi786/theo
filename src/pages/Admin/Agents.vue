@@ -19,7 +19,7 @@
       <button class="btn btn-secondary icon d-none">
         <i class="pi pi-paperclip"></i>Invite Link
       </button>
-      <button class="btn btn-primary" @click="showAgent = 'true'">
+      <button class="btn btn-primary d-none" @click="showAgent = 'true'">
         <svg
           width="13"
           height="12"

@@ -88,7 +88,7 @@
                 <i class="pi pi-calendar"></i>
               </div>
             </div>
-            <Barchart></Barchart>
+            <Barchart :monthly_sales="monthly_sales" ></Barchart>
           </div>
         </div>
       </div>
@@ -334,6 +334,7 @@ export default {
       topLeads: [],
       requestsList: [],
       status_counts : {},
+      monthly_sales : [],
 
  
     };
@@ -365,6 +366,7 @@ export default {
           this.totalAgents = response.data.total_agents;
           this.totalPlayers = response.data.total_players;
           this.status_counts = response.data.status_counts;
+          this.monthly_sales = response.data.monthly_sales;
           
           this.topLeads = [
                 {

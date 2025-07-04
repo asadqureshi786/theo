@@ -13,7 +13,7 @@
 
     <div class="profile_section">
       <div class="lside">
-        <img :src="Agent" alt="" />
+        <img :src="detail.profile ? `${$baseURL}theo/public/uploads/images/${detail.profile}` : Agent" alt="" />
         <button class="btn btn-primary w-100">Send Message</button>
       </div>
       <div class="rside">
@@ -168,7 +168,8 @@ import { useRoute } from 'vue-router';
 import axios from "axios";
 
 // Images
-import Agent from "@/assets/images/agent.png";
+import Agent from "@/assets/images/dummy.jpg";
+
 
 export default {
   name: "Agentview",

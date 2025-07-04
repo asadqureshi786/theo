@@ -9,7 +9,7 @@
       <p class="name">{{ item.name ? item.name : '-'  }}</p>
       <div class="desc agent">
         <label>User Level:</label>
-        <p class="text">THEO BLACK</p>
+        <p class="text">{{item.plan ? item.plan : '-'}}</p>
       </div>
       <div class="desc club">
         <label>Country:</label>

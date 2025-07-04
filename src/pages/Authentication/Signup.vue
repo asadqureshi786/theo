@@ -10,7 +10,7 @@
             <div class="row formFileds">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Name</label>
+                  <label>Email</label>
                   <input type="text" v-model="form.name" class="form-control" />
                   <small v-if="errors.email" class="text-danger validate">{{
                     errors.name[0]
@@ -109,13 +109,23 @@
                 >Forgot your passowrd?</a
               >
             </div>
+            <div class="d-flex gap-2 align-items-center">
+                  <button
+              type="button"
+                @click="showDemo = true"
+            
+              class="btn btn-primary spinner mt-2 w-100"
+            >
+             Demo Request
+            </button>
             <button
               type="button"
-              @click="handleSubmit"
+               @click="handleSubmit"
               class="btn btn-primary spinner mt-2 w-100"
             >
               <Spinner v-if="loading" /> Sign up
             </button>
+            </div>
             <div
               class="dont_have_account d-flex justify-content-center gap-1 mt-4 align-content-center"
             >
@@ -132,6 +142,50 @@
       <img :src="sideCover" class="img-fluid" />
     </div>
   </div>
+
+
+  <Dialog
+    v-model:visible="showDemo"
+    maximizable
+    modal
+    header="Demo Request"
+    :style="{ width: '40rem' }"
+    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <form @submit.prevent="addAgent"> 
+      <!-- Corrected from 'from' to 'form' -->
+      <div class="row formFileds">
+        <div class="col-12">
+          <div class="form-group">
+            <label> Email</label>
+            <input  type="email" v-model="demoEmail" class="form-control" />
+              <!-- <small v-if="errors.name" class="text-danger validate">{{errors.name[0]}}</small> -->
+            </div>
+          </div>
+  
+      </div>
+      <div class="flex justify-end gap-2 modal_footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          label="Cancel"
+          severity="secondary"
+          @click="showDemo = false"
+          >Cancel</button
+        >
+        <button
+          type="submit"
+          class="btn btn-primary spinner"
+          label="Save"
+          @click.prevent="demoReq"
+          > <Spinner v-if="demoLoad"  /> Send</button
+        >
+      </div>
+    </form>
+  </Dialog>
+
+
+
 </template>
 
 <script>
@@ -162,6 +216,8 @@ export default {
       logo: logo,
       sideCover: cover,
       loading: false,
+      showDemo : true,
+      demoEmail : '',
       form: {
         name: "",
         email: "",
@@ -176,6 +232,7 @@ export default {
       elements: null,
       card: null,
       error: "",
+      demoLoad : false,
     };
   },
 
@@ -236,6 +293,30 @@ export default {
         this.errors = error.response.data;    
       }
     },
+
+    async demoReq(){
+      this.demoLoad = true;
+      console.log(this.$baseURL+"theo/api/demo-request",{email : this.demoEmail},{
+        headers: {
+              'Accept' : 'application/json',
+            },
+        });
+      try {
+        const response = await axios.post(this.$baseURL+"theo/api/demo-request",{email : this.demoEmail},{
+             headers: {
+              'Accept' : 'application/json',
+            },
+        })
+        if(response.status == 200){
+            toast.success(response.data.message);
+            this.demoLoad = false;
+            this.showDemo = false;
+        }
+        console.log(response)
+      } catch (error) {
+        
+      }
+    }
   },
 };
 </script>

@@ -138,7 +138,8 @@
 
     <!-- Transfer History Compenent Start -->
     <div class="light_head mt-5">Transfer History</div>
-        <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" />
+        <!-- <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" /> -->
+        <Dynamictable class="mt-3" :t_head="dealHeaders" :t_body="transfer_histories" />
     </div>
     <!-- Transfer History Compenent End -->
 </template>
@@ -153,6 +154,7 @@ import fullProfile from "@/assets/images/fullProfile.jpg";
 import Documents from "@/components/Documents.vue";
 import Videolist from "@/components/Videolist.vue";
 import Simpletable from "@/components/Simpletable.vue";
+import Dynamictable from "@/components/Dynamictable.vue";
 
 // Axios
 import axios from "axios";
@@ -170,6 +172,7 @@ export default {
     Documents,
     Videolist,
     Simpletable,
+    Dynamictable,
   },
   data() {
     return {
@@ -184,74 +187,33 @@ export default {
         {name : 'Approach' , value : 'approach'},
         {name : 'Cancel' , value : 'cancel'},
       ],
-      dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
-      deals: [
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        [
-          "18/19",
-          "01/Jul/2018",
-          "AS Monaco",
-          "Paris SG",
-          "$120.00 M",
-          "End of Loan",
-        ],
-        // Add more deal data here
-      ],
+     dealHeaders : [
+                     {
+                        key: "date",
+                        label: "Date",
+                    },
+                     {
+                        key: "fee",
+                        label: "Fee",
+                    },
+                     {
+                        key: "market_value",
+                        label: "Market Value",
+                    },
+                     {
+                        key: "new_club",
+                        label: "New Club",
+                    },
+                     {
+                        key: "old_club",
+                        label: "Old Club",
+                    },
+                     {
+                        key: "season",
+                        label: "Season",
+                    },
+                ],
+                transfer_histories : [],
     };
   },
   mounted() {
@@ -280,6 +242,7 @@ export default {
           this.playerData = response.data.player;
           this.playerData.dob = response.data.player.dob.slice(0, -8);
           this.playerData.joining_date = response.data.player.joining_date.slice(0,-8);
+          // console.log(response)
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;
           // this.player_data =  response.data.players;
@@ -306,6 +269,17 @@ export default {
 
           // contract_end: `<div class="text">${player.contract_expire}</div>`,
           // }))
+          console.log("khalo",response.data.player.transfer_historiesdata)
+              this.transfer_histories = response.data.player.transfer_histories.map((player,index)=>({
+
+                    date: `<div class="text">${player.date}</div>`,
+                    fee: `<div class="text">${player.fee}</div>`,
+                    market_value: `<div class="text">${player.market_value}</div>`,
+                    new_club: `<div class="text">${player.new_club}</div>`,
+                    old_player: `<div class="text">${player.old_player}</div>`,
+                    season: `<div class="text">${player.season}</div>`,
+
+                    }))
         }
       } catch (error) {
         console.log(error.response.data);

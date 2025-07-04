@@ -138,22 +138,22 @@ const routes = [
       {
         path: "all-request",
         component: AgentAllrequest,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "job-view/:id",
         component: AgentJobview,
-        meta: { requiresPlan: ["black","gold"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "players",
         component: AgentPlayer,
-        meta: { requiresPlan: ["black","blue"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "player-profile/:id",
         component: AgentPlayerprofile,
-        meta: { requiresPlan: ["black","blue"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "squad-player",
@@ -168,12 +168,12 @@ const routes = [
       {
         path: "scout-player",
         component: AgentScoutPlayer,
-        meta: { requiresPlan: ["black","blue"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "scout-profile/:id",
         component: AgentScoutProfile,
-        meta: { requiresPlan: ["black","blue"] },
+        meta: { requiresPlan: ["black","gold","blue"] },
       },
       {
         path: "agent_circle",

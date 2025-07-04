@@ -127,18 +127,22 @@ export default {
       msgs : [],
       user : useAuthStore(),
       userId : '',
+      intervalId : '',
+ 
     };
   },
   async mounted() {
     const res = await this.user.fetchUser();
     this.userId = res.user.id;
+    
 
-    if(this.agent.id){
-      setInterval(()=>{
+     if(this.agent.id){
+      // console.log("Chaliye")
+      this.intervalId = setInterval(()=>{
         this.allMessages(this.agent.id)
-        console.log(this.agent.id)
+        console.log("Running");
       },1000)
-    }
+    };
 
 
   },

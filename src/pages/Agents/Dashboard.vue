@@ -196,7 +196,7 @@ import AddRequest from "@/components/agents/AddRequest.vue";
 
 // Charts
 import Donut from "@/components/Donut.vue";
-import Barchart from "@/components/Barchart.vue";
+import Barchart from "@/components/agents/Barchart.vue";
 
 // Axios
 import axios from "axios";

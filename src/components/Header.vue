@@ -8,7 +8,7 @@
                 <div class="nav_links"  :class="{'show': showMenu}">
                     <ul>
                         <li>
-                            <router-link to="dashboard" exact active-class="active" class="nav_item">
+                            <router-link to="/admin/dashboard" exact active-class="active" class="nav_item">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -21,7 +21,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="agents" exact active-class="active" class="nav_item">
+                            <router-link to="/admin/agents" exact active-class="active" class="nav_item">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -35,7 +35,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="clubs" exact active-class="active" class="nav_item">
+                            <router-link to="/admin/clubs" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -87,16 +87,16 @@
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
 
                                 <div class="header_dropdown">
-                                    <router-link to="players" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
+                                    <router-link to="/admin/players" :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
 
-                                    <router-link to="all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
+                                    <router-link to="/admin/all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
 
-                                    <router-link to="squad-request"  :class="{'active' : currentPath == '/squad-request'}" class="nav_item"><i class="pi pi-user"></i>Squad Requests</router-link>
+                                    <router-link to="/admin/squad-request"  :class="{'active' : currentPath == '/squad-request'}" class="nav_item"><i class="pi pi-user"></i>Squad Requests</router-link>
                                 </div>
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="legal-updates" exact active-class="active"  class="nav_item">
+                            <router-link to="/admin/legal-updates" exact active-class="active"  class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="news-feeds" exact active-class="active"  href="#" class="nav_item">
+                            <router-link to="/admin/news-feeds" exact active-class="active"  href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="messages" exact active-class="active" href="#" class="nav_item">
+                            <router-link to="/admin/messages" exact active-class="active" href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -154,7 +154,7 @@
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="settings" exact active-class="active" class="nav_item">
+                            <router-link to="/admin/settings" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

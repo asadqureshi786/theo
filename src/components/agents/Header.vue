@@ -8,7 +8,7 @@ vi<template>
                 <div class="nav_links"  :class="{'show': showMenu}">
                     <ul>
                         <li>
-                            <router-link to="dashboard" exact active-class="active" class="nav_item">
+                            <router-link to="/agent/dashboard" exact active-class="active" class="nav_item">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -21,7 +21,7 @@ vi<template>
                             </router-link>
                         </li>
                         <li  >
-                            <router-link to="clubs" exact active-class="active" class="nav_item">
+                            <router-link to="/agent/clubs" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -73,15 +73,15 @@ vi<template>
                                 <span class="icon"><i class="pi pi-angle-down"></i></span>
                                
                                 <div class="header_dropdown">
-                                    <router-link to="players"  :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
-                                    <router-link to="squad-player"  :class="{'active' : currentPath == '/squad-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
-                                    <router-link to="scout-player" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Scout Players</router-link>
-                                    <router-link to="all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
+                                    <router-link to="/agent/players"  :class="{'active' : currentPath == '/players'}" class="nav_item mb-1"><i class="pi pi-user"></i>All Players</router-link>
+                                    <router-link to="/agent/squad-player"  :class="{'active' : currentPath == '/squad-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Squad Players</router-link>
+                                    <router-link to="/agent/scout-player" :class="{'active' : currentPath == '/scout-player'}" class="nav_item mb-1"><i class="pi pi-user"></i>Scout Players</router-link>
+                                    <router-link to="/agent/all-request"  :class="{'active' : currentPath == '/all-request'}" class="nav_item"><i class="pi pi-user"></i>All Requests</router-link>
                                 </div>
                             </router-link>
                         </li>
                         <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
-                            <router-link to="legal-updates" exact active-class="active"  class="nav_item">
+                            <router-link to="/agent/legal-updates" exact active-class="active"  class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +102,7 @@ vi<template>
                             </router-link>
                         </li>
                         <li v-if="userPlan != 'blue' && userPlan != 'gold'" >
-                            <router-link to="news-feeds" exact active-class="active"  href="#" class="nav_item">
+                            <router-link to="/agent/news-feeds" exact active-class="active"  href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -119,7 +119,7 @@ vi<template>
                             </router-link>
                         </li>
                         <li v-if="userPlan != 'blue'" >
-                            <router-link to="agent_circle" exact active-class="active"  href="#" class="nav_item">
+                            <router-link to="/agent/agent_circle" exact active-class="active"  href="#" class="nav_item">
     
                               <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +141,7 @@ vi<template>
                             </router-link>
                         </li>
                         <li v-if="userPlan != 'blue'" >
-                            <router-link to="messages" exact active-class="active" href="#" class="nav_item">
+                            <router-link to="/agent/messages" exact active-class="active" href="#" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +161,7 @@ vi<template>
                             </router-link>
                         </li>
                         <li>
-                            <router-link to="settings" exact active-class="active" class="nav_item">
+                            <router-link to="/agent/settings" exact active-class="active" class="nav_item">
     
                                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

@@ -188,32 +188,32 @@ export default {
         {name : 'Cancel' , value : 'cancel'},
       ],
      dealHeaders : [
-                     {
-                        key: "date",
-                        label: "Date",
-                    },
-                     {
-                        key: "fee",
-                        label: "Fee",
-                    },
-                     {
-                        key: "market_value",
-                        label: "Market Value",
-                    },
-                     {
-                        key: "new_club",
-                        label: "New Club",
-                    },
-                     {
-                        key: "old_club",
-                        label: "Old Club",
-                    },
-                     {
-                        key: "season",
-                        label: "Season",
-                    },
-                ],
-                transfer_histories : [],
+           {
+              key: "date",
+              label: "Date",
+          },
+           {
+              key: "fee",
+              label: "Fee",
+          },
+           {
+              key: "market_value",
+              label: "Market Value",
+          },
+           {
+              key: "new_club",
+              label: "New Club",
+          },
+           {
+              key: "old_club",
+              label: "Old Club",
+          },
+           {
+              key: "season",
+              label: "Season",
+          },
+      ],
+      transfer_histories : [],
     };
   },
   mounted() {
@@ -271,15 +271,13 @@ export default {
           // }))
           console.log("khalo",response.data.player.transfer_historiesdata)
               this.transfer_histories = response.data.player.transfer_histories.map((player,index)=>({
-
-                    date: `<div class="text">${player.date}</div>`,
-                    fee: `<div class="text">${player.fee}</div>`,
-                    market_value: `<div class="text">${player.market_value}</div>`,
-                    new_club: `<div class="text">${player.new_club}</div>`,
-                    old_player: `<div class="text">${player.old_player}</div>`,
-                    season: `<div class="text">${player.season}</div>`,
-
-                    }))
+                date: `<div class="text">${player.date}</div>`,
+                fee: `<div class="text">${player.fee}</div>`,
+                market_value: `<div class="text">${player.market_value}</div>`,
+                new_club: `<div class="text">${player.new_club}</div>`,
+                old_player: `<div class="text">${player.old_player}</div>`,
+                season: `<div class="text">${player.season}</div>`,                               
+              }))
         }
       } catch (error) {
         console.log(error.response.data);

@@ -51,7 +51,7 @@ onMounted( () => {
   },
       xAxis: {
         type: 'category',
-        data: dealMonth,
+        data: dealMonth.length != 0  ? dealMonth : ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] ,
       },
       yAxis: {
         type: 'value'
@@ -60,7 +60,7 @@ onMounted( () => {
       {
         name: '2024',
         type: 'bar',
-        data:dealsCount,
+        data: dealsCount.length != 0  ? dealsCount : 0 ,
         barWidth: '5%',
         itemStyle: {
           color: '#8F0301B2',

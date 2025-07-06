@@ -193,7 +193,7 @@ const routes = [
       {
         path: "messages",
         component: AgentMessages,
-        meta: { requiresPlan: ["black"] },
+        meta: { requiresPlan: ["black","gold"] },
       },
       {
         path: "settings",

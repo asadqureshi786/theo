@@ -21,7 +21,7 @@
      
 
     <ul v-else class="request_items squad_request mt-4">
-        <li class="item" v-for="request in requestsList" :key="request.id">
+        <li class="item" v-for="request in filteredRequests" :key="request.id">
             <div class="rside">
                 <div class="img">
                     <img :src="request.image" alt="" class="main_profile" />
@@ -104,6 +104,7 @@ export default {
             documents: [],
             notFound : false,
             spinner : false,
+            searchQuery : '',
 
         };
     },
@@ -231,5 +232,20 @@ export default {
 
         }
     },
+
+    computed: {
+    filteredRequests() {
+        if (!this.searchQuery) return this.requestsList;
+
+        const query = this.searchQuery.toLowerCase();
+        const filtered = this.requestsList.filter((player) =>
+            player.name?.toLowerCase().includes(query)
+        );
+
+        // Update notFound flag reactively
+
+        return filtered;
+    }
+}
 };
 </script>

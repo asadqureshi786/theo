@@ -4,7 +4,6 @@
             <div class="box_grid">
                 <div v-for="item in filteredPlayers" :key="item.name" class="box_card">
                     <img :src="item.image" class="profile_picture">
-
                     <div class="middle">
                         <p class="name">{{ item.name }}</p>
                         <div class="desc club">

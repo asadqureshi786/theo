@@ -265,7 +265,6 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         });
-        console.log(response)
         if(response.status == 200){
           this.loading = false;
           this.AddContact = false;
@@ -281,7 +280,6 @@ export default {
       } catch (error) {
         this.loading = false;
         this.c_Error = error.response.data; 
-        console.log(error.response.data)
       }
     },
     // Add Contact JS End
@@ -324,7 +322,6 @@ export default {
             }))
         }
       } catch (error) {
-        console.log(error.response.data)
       }
     }
     // Fetch Contact JS End

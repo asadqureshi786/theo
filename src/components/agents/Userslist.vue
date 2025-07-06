@@ -13,10 +13,10 @@
                 <div class="item" :class="{ 'active': item.active === true, 'online': item.online === true }" @click="agentID(item.id)" >
                     <div class="info">
                         <div class="p_img">
-                            <img :src="img" alt="">
+                            <img :src="item.profile ? `${$baseURL}theo/public/uploads/images/${item.profile}` : dp" alt="">
                         </div>
                         <div>
-                            <p class="name">{{ item.name }}</p>
+                            <p class="name">{{ item.name }}  </p>
                             <p class="msg">{{ item.msg }}</p>
                         </div>
                     </div>
@@ -33,6 +33,8 @@ import user2 from "@/assets/images/chatUser2.png"
 import user3 from "@/assets/images/chatUser3.png"
 import user4 from "@/assets/images/chatUser4.png"
 import user5 from "@/assets/images/chatUser5.png"
+import dp from "@/assets/images/dummy.jpg"
+import { baseURL } from "@/config/baseURL"
 
 
 export default {
@@ -45,6 +47,7 @@ export default {
         return {
             searchInput: '',
             img : user1,
+            dp : dp,
             users: [
                 { img: user1, name: 'Eion Morgan', msg: 'This player is really cool.', time: '5h', active: true, online: true },
                 { img: user2, name: 'Ian Bell', msg: 'This player is really cool.', time: '5h', active: false, online: true },
@@ -57,9 +60,7 @@ export default {
             ]
         }
     },
-    mounted(){
-        console.log(this.allAgents);
-    },
+
     computed: {
         filterChat() {
             return this.allAgents.filter((player) => {

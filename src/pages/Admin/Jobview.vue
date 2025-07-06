@@ -349,10 +349,8 @@ export default {
     if (response.status == 200) {
       this.request = response.data;
       this.allProposals = response.data.proposals;
-      console.log("All Proposal:", this.allProposals);
     }
   } catch (error) {
-    console.log("Error:", error);
   }
 },
 
@@ -379,7 +377,6 @@ export default {
           // }
         }
       } catch (error) {
-        console.log("Error fetching squad players:", error);
         // this.spinner = false;
       }
     },
@@ -398,7 +395,6 @@ export default {
             },
           }
         );
-          console.log("Proposal Response:", response);
           if(response.status == 201) {
           this.showPropose = false;
           toast.success(response.data.message);
@@ -411,7 +407,6 @@ export default {
       } catch (error) {
         this.spinner = false;
         if(error.response && error.response.data) {
-          console.log(error.response.data.message)
           this.errors = error.response.data || "An error occurred while sending the proposal.";
         }        
       }

@@ -7,7 +7,7 @@
         </div>
         <div>
           <p class="name">{{agent.name }}</p>
-          <p class="last_seen">{{agent.last_seen_human == null && agent.is_online ? "Online" : `Last seen ${agent.last_seen_human}`}}</p>
+          <!-- <p class="last_seen">{{agent.last_seen_human == null && agent.is_online ? "Online" : `Last seen ${agent.last_seen_human}`}}</p> -->
         </div>
       </div>
       <a href="https://web.whatsapp.com/"   target="_blank" class="whatsApp_icon">
@@ -137,10 +137,8 @@ export default {
     
 
      if(this.agent.id){
-      // console.log("Chaliye")
       this.intervalId = setInterval(()=>{
         this.allMessages(this.agent.id)
-        console.log("Running");
       },1000)
     };
 
@@ -167,7 +165,6 @@ export default {
   methods : {
      handleFileChange(event) {
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
   },
 
   async sendChat() {
@@ -191,14 +188,12 @@ export default {
         }
       );
 
-      console.log(response)
       if (response.status === 200) {
         this.formData.message = '';
         this.selectedFile = null;
         this.$refs.fileInput.value = ''; // reset file input
         this.scrollToBottom();
       }
-      console.log(response.data);
     } catch (error) {
       console.error('Send failed:', error);
     } finally {

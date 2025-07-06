@@ -194,14 +194,12 @@ export default {
         if (response.status === 201) {
           this.editorValue = "";
           this.loading = false;
-          console.log(response);
           this.fetchNewsFeed();
           toast.success("Newsfeed added successfully!");
         } else {
           this.loading = false;
           toast.error("Failed to add newsfeed.");
         }
-        console.log("Newsfeed added successfully:", response);
       } catch (error) {
         if (error.response.data.errors) {
           toast.error(error.response.data.errors.content[0]);
@@ -231,7 +229,6 @@ export default {
           console.error(response.data);
         }
       } catch (error) {
-        console.log(error.response);
       }
     },
     // Fetch Newsfeed JS End
@@ -263,7 +260,6 @@ export default {
           toast.success("Post Deleted successfully");
         }
       } catch (error) {
-        console.log(error.response);
       }
     },
 
@@ -292,12 +288,6 @@ export default {
 
     // Add Comment JS Start
     async addComment(id) {
-      console.log(  this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${this.token}`,
-            },
-          })
       try {
         const response = await axios.post(
           this.$baseURL + `theo/api/admin/posts/${id}/comment`,this.userInput,{
@@ -307,7 +297,6 @@ export default {
             },
           }
         );
-        console.log(response)
         if(response.status == 200){
           this.fetchNewsFeed();
           this.userInput.comment = "";

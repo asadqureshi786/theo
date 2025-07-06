@@ -357,9 +357,7 @@ export default {
       this.allProposals = response.data.proposals;
       this.userDetail = response.data.user
     }
-    console.log("Get Req Id" ,response)
   } catch (error) {
-    console.log("this Error:", error);
   }
 },
 
@@ -386,7 +384,6 @@ export default {
           // }
         }
       } catch (error) {
-        console.log("Error fetching squad players:", error);
         // this.spinner = false;
       }
     },
@@ -405,7 +402,6 @@ export default {
             },
           }
         );
-          console.log("Proposal Response:", response);
           if(response.status == 201) {
           this.showPropose = false;
           toast.success(response.data.message);
@@ -419,7 +415,6 @@ export default {
       } catch (error) {
         this.spinner = false;
         if(error.response && error.response.data) {
-          console.log(error.response.data.message)
           this.errors = error.response.data || "An error occurred while sending the proposal.";
         }        
       }
@@ -443,18 +438,6 @@ export default {
         },
         accept: async () => {
           try {
-            console.log(this.$baseURL+"theo/api/agent/requests/accept-reject-proposal",
-            { 
-              request_id : this.requestId,
-              proposal_id : proposal_id,
-              player_id : player_id,
-              status : status,
-            },{
-                headers: {
-                Accept: "application/json",
-                Authorization: `Bearer ${this.token}`,
-            },
-            })
             const response = await axios.post(this.$baseURL+"theo/api/agent/requests/accept-reject-proposal",
             { 
               request_id : this.requestId,
@@ -477,11 +460,9 @@ export default {
              this.fetchData();
           }
           } catch (error) {
-            console.log(error)
           }
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     }

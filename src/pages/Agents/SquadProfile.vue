@@ -176,14 +176,14 @@
           <div class="form-group">
             <label> Month</label>
             <div class="d_select">
-              <Select v-model="selectedMonth" editable   optionValue="value" :options="months" optionLabel="name"placeholder="Select club" class="w-full" />
+              <Select v-model="selectedMonth" editable   optionValue="value" :options="months" optionLabel="name"placeholder="Select Month" class="w-full" />
             </div>
             <small v-if="errors.selectedDay" class="text-danger validate">{{errors.selectedDay[0]}}</small>
             </div>
           </div>
       <div class="col-6">
           <div class="form-group">
-            <label> Days</label>
+            <label> Day</label>
             <div class="d_select">
               <Select v-model="selectedDay" editable   optionValue="value" :options="days" optionLabel="name"placeholder="Select Day" class="w-full" />
             </div>
@@ -394,12 +394,10 @@ export default {
             },
           }
         );
-        console.log("This data",response)
         if (response.status == 200) {
           this.playerData = response.data.player;
-          this.playerData.dob = response.data.player.dob;
+          this.playerData.dob = response.data.player.dob.slice(0,-8);
           this.playerData.joining_date = response.data.player.joining_date;
-          console.log("after add",response)
           // this.contactList = response.data.contacts;
           // this.player_count = response.data.players_count;
           // this.player_data =  response.data.players;
@@ -428,7 +426,6 @@ export default {
           // }))
         }
       } catch (error) {
-        console.log(error);
       }
     },
 
@@ -448,10 +445,8 @@ export default {
           toast.success(response.data.message)
           this.fetchPlayera(this.squadProfileID);
         }
-        console.log(response)
       } catch (error) {
         this.loading = false;
-        console.log(error.response)
         this.errors = error.response
       }
     },
@@ -466,7 +461,6 @@ export default {
         }
       })
       } catch (error) {
-        console.log(error)
       }
     }
 

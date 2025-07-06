@@ -164,7 +164,6 @@ export default {
 
             const downloadPromises = this.documents.map(async (doc) => {
                 const fileUrl = this.$baseURL + 'theo/public/uploads/images/' + doc.file
-                console.log("Downloading:", fileUrl)
 
                 try {
                     const response = await axios.get(fileUrl, {
@@ -175,10 +174,8 @@ export default {
                         },
                     })
 
-                    console.log("Blob size for", doc.file, ":", response.data.size)
 
                     const safeFileName = doc.file.replace(/[^a-zA-Z0-9.\-_]/g, '_')
-                    console.log("Adding to zip:", safeFileName)
                     zip.file(safeFileName, response.data)
 
                 } catch (error) {
@@ -189,7 +186,6 @@ export default {
             await Promise.all(downloadPromises)
 
             zip.generateAsync({ type: 'blob' }).then((content) => {
-                console.log("✅ ZIP ready, starting download")
                 saveAs(content, 'documents.zip')
             })
         },
@@ -217,16 +213,13 @@ export default {
                                 Authorization: `Bearer ${this.token}`,
                             },
                         })
-                        console.log(response);
                         if(response.status == 200){
                              this.fetchRequests();
                         }
                     } catch (error) {
-                        console.log(error)
                     }
                 },
                 reject: () => {
-                    console.log("Delete cancelled");
                 },
             });
 

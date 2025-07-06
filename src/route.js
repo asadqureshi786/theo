@@ -254,9 +254,6 @@ router.beforeEach(async (to, from, next) => {
      const userPlan  = userStore.user?.user.plan;
   const userRole   = userStore.user?.user.role;
 
-  // console.log("this data",user_plan,user_role)
-  // console.log(user_role)
-
   if (token && (to.path === "/login" || to.path === "/signup")) {
     if (role == "admin") {
       return next("/admin/dashboard");

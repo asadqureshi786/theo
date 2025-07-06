@@ -15,7 +15,7 @@
                 </div>
                 <!-- <button class="btn btn-primary px-3 view_btn" >View</button> -->
                 <div class="d-flex align-items-center justify-content-between">
-                        <p class="date silverCol f12 mt-2">{{item.created_at}}</p>
+                        <p class="date silverCol f12 mt-2">{{item.created_at.slice(0,-17)}}</p>
                         <!-- <button class="btn btn-primary " >View</button> -->
                     </div>
                 </div>

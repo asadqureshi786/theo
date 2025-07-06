@@ -1259,8 +1259,9 @@ header.protal_header .main_header .header_option {
 }
 header.protal_header .main_header .header_option .profile img {
   width: 40px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 100px;
   border: 1px solid rgba(143, 3, 1, 0.3215686275);
 }
@@ -1275,10 +1276,6 @@ header.protal_header .main_header .header_option .language .text {
 
 header.protal_header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
   bottom: -159px !important;
-}
-
-header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown {
-  bottom: -61px !important;
 }
 
 .tabs_header_cs {

@@ -53,11 +53,6 @@ export default {
         )
     },
 
-    mounted() {
-        // You can fetch data here if needed
-        // this.fetchPlayers();
-        console.log(this.allPlayers);
-    },
 
     computed: {
         filteredPlayers() {

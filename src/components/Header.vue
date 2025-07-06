@@ -336,12 +336,10 @@ export default {
                       Authorization: `Bearer ${this.token}`,
                 }
             });
-            console.log(response)
             localStorage.removeItem('token');
             localStorage.removeItem('role');
             this.$router.push({ path: '/login' });
             } catch (error) {
-                console.log(error);
             }
         },
     },

@@ -243,7 +243,6 @@ export default {
                     },
                 })
                 if (response.status == 200) {
-                    console.log(response);
                     this.playerData = response.data
                     this.playerData.dob = response.data.dob.slice(0,-8)
                     this.playerData.joining_date = response.data.joining_date.slice(0,-8)
@@ -263,7 +262,6 @@ export default {
                     }))
                 }
             } catch (error) {
-                console.log(error.response.data)
             }
         }
     }

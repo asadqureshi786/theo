@@ -3,7 +3,7 @@
     No record found.
   </div>
   <div v-for="item in allAgents" :key="item.id" class="box_card">
-    <img :src="item.profile ? item.profile : dp" class="profile_picture" />
+    <img :src="item.profile ? `${$baseURL}theo/public/uploads/images/${item.profile}` : dp" class="profile_picture" />
 
     <div class="middle">
       <p class="name">{{ item.name ? item.name : '-'  }}</p>
@@ -288,7 +288,6 @@ export default {
           this.onDelete(agentId);
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     },

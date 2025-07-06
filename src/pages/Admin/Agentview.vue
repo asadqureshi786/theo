@@ -45,7 +45,7 @@
               </div>
               <div class="box">
                 <label>Date</label>
-                <p class="text">{{detail.created_at ? detail.created_at : '-'}}</p>
+                <p class="text">{{detail.created_at ? detail.created_at.slice(0,-17) : '-'}}</p>
               </div>
               <div class="box">
                 <label>Certification Status</label>
@@ -550,7 +550,6 @@ export default {
 
     // Get Agent View JS Start
     async getAgent(){
-      console.log("Your Api",this.$baseURL+`theo/api/admin/agents`)
       try{
         const response = await axios.get(this.$baseURL+`theo/api/admin/agents/${this.routeId}`,{
              headers: {
@@ -560,7 +559,6 @@ export default {
         })
         if(response.status == 200){
           this.detail = response.data.agent;
-          console.log(response.data);
           this.squadPlayer  = response.data.my_squad.map((player,index)=>({
              checkbox: `<label for="check1" class="table_check_list" class="text-center">
             <input id="check1" type="checkbox" />
@@ -587,7 +585,6 @@ export default {
               }));
         }
       }catch(error){  
-        console.log(error)
       }
     }
     // Get Agent View JS End

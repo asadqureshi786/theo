@@ -238,12 +238,6 @@ export default {
   methods : {
     // Delete Contact 
       async deleteContact(contactID) {
-        console.log(`${this.$baseURL}theo/api/admin/clubs/${this.routeId}/delete-contact/${contactID}`, {
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
       try {
         const response = await axios.delete(`${this.$baseURL}theo/api/admin/clubs/${this.routeId}/delete-contact/${contactID}`, {
           headers: {
@@ -258,7 +252,6 @@ export default {
           toast.error("Failed to delete agent.");
         }
       } catch (error) {
-        console.log(error)
         toast.error("Error deleting agent.");
       }
     },
@@ -281,7 +274,6 @@ export default {
           this.deleteContact(contactID);
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     },
@@ -289,7 +281,6 @@ export default {
     // Handle Edit
     async updateContact(e){
       e.preventDefault();
-      // console.log(this.contact);
       // return
       this.loading = true;
       this.c_Error = [];
@@ -318,10 +309,8 @@ export default {
           toast.error("Failed to update contact.");
           this.loading = false;
         }
-        console.log(response);
       } catch (error) {
         this.loading = false;
-        console.log(error);
       }
     }
     

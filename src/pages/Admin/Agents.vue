@@ -271,7 +271,6 @@ export default {
           this.allAgents = agents.data
           this.spinner = false;
         }
-        console.log(agents);
       }catch(error){
         this.spinner = false;
       }
@@ -295,7 +294,6 @@ export default {
       return response.data;
         
       }catch(error){
-        console.log(error)
       }
     },
     // Get Agent ID JS End

@@ -229,7 +229,7 @@ vi<template>
                     </div>
 
                     <div class="profile customDropdwon" @click="showProfile = !showProfile , showNotification = false" >
-                    <img :src="user.profile ? `${$baseURL}theo/public/uploads/images/${user.profile}` : dp" class="img-fluid" alt="">
+                    <img :src="userProfile ? `${$baseURL}theo/public/uploads/images/${userProfile}` : dp" class="img-fluid" alt="">
                         <div class="option_dropdown profile_dropdown" :class="{'show_n' : showProfile == true}" >
                             <div @click="logout" class="logout">
                                 <i class="pi pi-sign-out" ></i>Logout
@@ -334,13 +334,14 @@ export default {
                         text: 'Victory tastes even better with teamwork.',
                         time: '45m ago',
                     }
-                ]
+                ],
+                userProfile : ''
         }
     },
     async mounted() {
         const res = await this.user.fetchUser();
         this.userPlan = res.user.plan;
-        // console.log("From ", res.user.plan)
+        this.userProfile = res.user.profile;
   } ,
     methods : {
         async logout() {
@@ -351,12 +352,10 @@ export default {
                       Authorization: `Bearer ${this.token}`,
                 }
             });
-            console.log(response)
             localStorage.removeItem('token');
             localStorage.removeItem('role');
             this.$router.push({ path: '/login' });
             } catch (error) {
-                console.log(error);
             }
         },
     },

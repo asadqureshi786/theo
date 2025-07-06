@@ -154,7 +154,6 @@
                       </div>
                       
                       
-                      <Playerproposed v-if="requestOthers" :proposedImages="proposedImages"   />
                       
                     </div>
                   </div>
@@ -278,7 +277,6 @@ export default {
           this.totalSquad = response.data.squad_player_count;
           this.status_counts = response.data.status_counts;
           this.deals_done = response.data.deals_done;
-          console.log(this.deals_done)
             this.topLeads = [
                 {
                   img: this.timeImg,

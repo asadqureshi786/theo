@@ -88,9 +88,7 @@ export default {
         if (response.status == 200) {
           this.countries = response.data;
         }
-        console.log(response);
       } catch (error) {
-        console.log(error)
       }
     },
     async selectLeague() {
@@ -111,9 +109,7 @@ export default {
           this.leagues = '';
           this.selectedLeague = 'League';
         }
-        console.log();
       } catch (error) {
-        console.log(error)
       }
       }
     },
@@ -125,12 +121,6 @@ export default {
       this.leagueID = this.selectedLeague?.id;
       if(this.selectedLeague?.id){
         try {
-          console.log(this.$baseURL+`theo/api/agent/club/${this.leagueID}/clubs`, {
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
         const response = await axios.get(this.$baseURL+`theo/api/agent/clubs/${this.leagueID}/clubs`, {
           headers: {
             'Accept': 'application/json',
@@ -139,7 +129,6 @@ export default {
         })
         if (response.status == 200  && response.data.length >= 1) {
           this.spinner = false
-          console.log(response)
           this.allClubs = response.data;
           // this.selectedLeague = 'League';
         }else{
@@ -147,10 +136,8 @@ export default {
           // this.leagues = '';
           // this.selectedLeague = 'League';
         }
-        console.log();
       } catch (error) {
         this.spinner = false
-        console.log(error)
       }finally {
         this.spinner = false
       }

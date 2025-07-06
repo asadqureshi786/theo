@@ -10,9 +10,9 @@
             <div class="row formFileds">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Email</label>
+                  <label>Name</label>
                   <input type="text" v-model="form.name" class="form-control" />
-                  <small v-if="errors.email" class="text-danger validate">{{
+                  <small v-if="errors.name" class="text-danger validate">{{
                     errors.name[0]
                   }}</small>
                 </div>
@@ -116,7 +116,7 @@
             
               class="btn btn-primary spinner mt-2 w-100"
             >
-             Demo Request
+             Request a demo 
             </button>
             <button
               type="button"
@@ -148,7 +148,7 @@
     v-model:visible="showDemo"
     maximizable
     modal
-    header="Demo Request"
+    header="Request Demo"
     :style="{ width: '40rem' }"
     :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
   >
@@ -216,7 +216,7 @@ export default {
       logo: logo,
       sideCover: cover,
       loading: false,
-      showDemo : true,
+      showDemo : false,
       demoEmail : '',
       form: {
         name: "",
@@ -268,14 +268,12 @@ export default {
         this.error = stripeError.message;
         return;
       }
-      console.log("Payment Method Created:", paymentMethod);
 
       try {
         const response = await axios.post(this.$baseURL + "theo/api/register", {
           ...this.form,
           payment_method_id: paymentMethod.id,
         });
-        console.log(this.form);
         toast.success("Signup complete! Welcome to the CRM.");
         if (response.status == 201) {
           setTimeout(() => {
@@ -296,11 +294,6 @@ export default {
 
     async demoReq(){
       this.demoLoad = true;
-      console.log(this.$baseURL+"theo/api/demo-request",{email : this.demoEmail},{
-        headers: {
-              'Accept' : 'application/json',
-            },
-        });
       try {
         const response = await axios.post(this.$baseURL+"theo/api/demo-request",{email : this.demoEmail},{
              headers: {
@@ -312,7 +305,6 @@ export default {
             this.demoLoad = false;
             this.showDemo = false;
         }
-        console.log(response)
       } catch (error) {
         
       }

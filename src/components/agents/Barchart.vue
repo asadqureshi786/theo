@@ -16,7 +16,6 @@ const chartRef = ref(null)
 
 onMounted( () => {
   
-    console.log("From bar Char",props.deals_done)
     
     const chart = echarts.init(chartRef.value)
     const dealsCount = [];
@@ -33,7 +32,6 @@ onMounted( () => {
   const monthName = monthNames[monthIndex]
   dealMonth.push(monthName)
     })
-    console.log("From ForEach Char",dealsCount);
 
 
   

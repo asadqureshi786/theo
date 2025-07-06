@@ -47,7 +47,7 @@
                  <div class="form-group p-0 m-0">
             <div class="d_select">
               <Select editable v-model="statusValue" @change="setStatus" optionValue="value" :options="statusOPT" optionLabel="name"
-                placeholder="Select club" class="w-full" />
+                placeholder="Select Status" class="w-full" />
               <small v-if="errors" class="text-danger validate">{{ errors }}</small>
             </div>
           </div>
@@ -238,39 +238,10 @@ export default {
           }
         );
         if (response.status == 200) {
-          console.log(response.data.player);
           this.playerData = response.data.player;
           this.playerData.dob = response.data.player.dob.slice(0, -8);
           this.playerData.joining_date = response.data.player.joining_date.slice(0,-8);
-          // console.log(response)
-          // this.contactList = response.data.contacts;
-          // this.player_count = response.data.players_count;
-          // this.player_data =  response.data.players;
-          // this.player_body = this.player_data.map((player,index)=>({
-
-          // checkbox: `<label for="check1" class="table_check_list" class="text-center">
-          //             <input id="check1" type="checkbox" />
-          //             <div class="c_checkbox"><i class="pi pi-check" ></i></div>
-          //           </label>`,
-
-          // join_date: `<div class="text">${player.joining_date.slice(0, -8)}</div>`,
-
-          // player_name: `<div class="text fw6">${player.name}</div>`,
-
-          // dob: `<div class="text fw6">${player.dob.slice(0, -8)}</div>`,
-
-          // // nationality: `<div class="flag_imges "><img class="img-fluid" src="${ukLogo}" ><img class="img-fluid" src="${frLogo}" ></div>`,
-
-          // nationality: `<div class="text">${player.citizenship}</div>`,
-
-          // role: `<div class="text">${player.position}</div>`,
-
-          // mv: `<div class="text">€${player.mv}m</div>`,
-
-          // contract_end: `<div class="text">${player.contract_expire}</div>`,
-          // }))
-          console.log("khalo",response.data.player.transfer_historiesdata)
-              this.transfer_histories = response.data.player.transfer_histories.map((player,index)=>({
+                   this.transfer_histories = response.data.player.transfer_histories.map((player,index)=>({
                 date: `<div class="text">${player.date}</div>`,
                 fee: `<div class="text">${player.fee}</div>`,
                 market_value: `<div class="text">${player.market_value}</div>`,
@@ -280,14 +251,11 @@ export default {
               }))
         }
       } catch (error) {
-        console.log(error.response.data);
       }
     },
 
     // Set Status
     async setStatus() {
-        // console.log(this.$baseURL + `theo/api/agent/players/${this.playerData.id}/status`,{status: this.statusValue});
-        // return
       try {
         const response = await axios.post(
           this.$baseURL + `theo/api/agent/players/${this.playerData.id}/status`,
@@ -300,14 +268,12 @@ export default {
           }
         );
         if(response.status == 200) {
-        //    console.log(response);
          this.$router.push({ path: "/agent/scout-player" });
            toast.success(response.data.message);
            this.statusValue = '';
         }
         
       } catch (error) {
-        console.log(error.response.data);
         this.errors = error.response.data.error;
       }
     },

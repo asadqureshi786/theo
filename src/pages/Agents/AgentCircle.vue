@@ -152,7 +152,6 @@ export default {
           }
         );
         // return;
-        console.log("Circle Agent", response);
         if (response.status === 200) {
           this.spinner = false; 
           this.requestsList = response.data.requests;

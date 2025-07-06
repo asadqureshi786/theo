@@ -1210,7 +1210,8 @@ header {
                 .profile {
                     img {
                         width: 40px;
-                        object-fit: contain;
+                        height: 40px;
+                        object-fit: cover;
                         border-radius: 100px;
                         border: 1px solid $primaryLightBorder1;
                     }
@@ -1233,9 +1234,9 @@ header {
 header.protal_header.agent_header .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown{
           bottom : -159px!important;
 }
-header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown{
-          bottom : -61px!important;
-}
+// header.protal_header.agent_header.gold .main_header .nav_links ul li .nav_item.has_dropdown .header_dropdown{
+//           bottom : -61px!important;
+// }
 
 // Portal Header SASS End
 

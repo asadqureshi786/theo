@@ -7,7 +7,7 @@
         </div>
         <div>
           <p class="name">{{agent.name }}</p>
-          <p class="last_seen">Last seend 45 min ago</p>
+          <!-- <p class="last_seen">Last seend 45 min ago</p> -->
         </div>
       </div>
       <a   target="_blank" href="https://web.whatsapp.com/" class="whatsApp_icon">

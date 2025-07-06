@@ -81,7 +81,6 @@ export default {
               toast.error("Email Not Send");
             }
             
-            console.log('Response:', response);
             
           } catch (error) {
             toast.error('Error fetching users:', error);
@@ -116,7 +115,6 @@ export default {
       //     "s-ZJd5J4cI6c3MEDY"
       //   )
       //   .then((response) => {
-      //     console.log("SUCCESS!", response.status, response.text);
       //     this.email = "";
       //     this.loading = false;
       //     toast.success("Email Send Successfully!");

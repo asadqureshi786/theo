@@ -264,7 +264,6 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         });
-        console.log(response)
         if(response.status == 200){
           this.loading = false;
           this.AddContact = false;
@@ -280,7 +279,6 @@ export default {
       } catch (error) {
         this.loading = false;
         this.c_Error = error.response.data; 
-        console.log(error.response.data)
       }
     },
     // Add Contact JS End
@@ -294,7 +292,6 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         })
-        console.log("this ones" , response)
         if(response.status == 200){
             this.contactList = response.data.contacts;
             this.player_count = response.data.players_count;
@@ -324,7 +321,6 @@ export default {
             }))
         }
       } catch (error) {
-        console.log(error)
       }
     }
     // Fetch Contact JS End

@@ -8,7 +8,8 @@
       <li v-for="item in circle_agent" :key="item.text" class="">
         <div class="d-flex justify-content-between align-items-center w-100">
             <div class="box">
-          <img class="img-fluid" :src="item.profile ? item.profile : dummy" />
+          <!-- <img class="img-fluid" :src="item.profile ? item.profile : dummy" /> -->
+          <img class="img-fluid" :src="item.profile ? `${$baseURL}theo/public/uploads/images/${item.profile}` : dummy" />
           <div class="profile">
             <p class="primaryCol2 fw5 f16">{{ item.name }}</p>
             <div>
@@ -182,7 +183,6 @@ export default {
             },
           }
         );
-        console.log(agents);
         if(agents.status === 200) {
             this.drop_Agents = agents.data.all_agents;
             this.circle_agent = agents.data.circle_agents;
@@ -195,7 +195,6 @@ export default {
     // Add Agent in Circle
     async addCircleAgent(e) {
       e.preventDefault();
-      console.log(this.selectedAgent);
       try {
         this.errors = {};
         this.loading = true;
@@ -207,7 +206,6 @@ export default {
             },
           }
         );
-        console.log(response);
         if (response.status === 200) {
           this.loading = false;
           toast.success(response.data.message);
@@ -265,7 +263,6 @@ export default {
         }
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     }

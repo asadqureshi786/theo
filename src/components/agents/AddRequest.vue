@@ -190,7 +190,6 @@ export default {
           this.allCountries = response.data;
         }
       } catch (error) {
-        console.log(error)
       }
     },
 
@@ -213,7 +212,6 @@ export default {
           this.selectedLeague = 'League';
         }
       } catch (error) {
-        console.log(error)
       }
       }
     },
@@ -233,7 +231,6 @@ export default {
             this.clubs = response.data;
           }
         } catch (error) {
-          console.log(error)
         }
       }
     },

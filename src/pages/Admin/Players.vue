@@ -156,12 +156,9 @@ export default {
           },
         }) 
         if(response.status == 200){
-          console.log(response.data)
           this.allPlayers = response.data;
-          console.log(response.data);
         }
       } catch (error) {
-        console.log(error)
       }
     }
   }

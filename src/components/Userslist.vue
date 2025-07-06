@@ -16,11 +16,11 @@
             </div>
                 </div>
         <ul class="list">
-            <li v-for="item in allAgents" :key="item.name">
+            <li v-for="item in filterChat" :key="item.name">
                 <div class="item" :class="{ 'active': item.active === true, 'online': item.online === true }" @click="agentID(item.id)" >
                     <div class="info">
                         <div class="p_img">
-                            <img :src="item.profile ? item.profile : dp" alt="">
+                            <img :src="item.profile ? `${$baseURL}theo/public/uploads/images/${item.profile}` : dp" alt="">
                         </div>
                         <div>
                             <p class="name">{{ item.name }}</p>
@@ -46,7 +46,7 @@
                 <div class="item" :class="{ 'active': item.active === true, 'online': item.online === true }" @click="emailID(item.id)" >
                     <div class="info">
                         <div class="p_img">
-                            <img :src="dp" alt="">
+                            <img :src="item.profile ? `${$baseURL}theo/public/uploads/images/${item.profile}` : dp" alt="">
                         </div>
                         <div>
                             <p class="name">{{ item.name }}</p>
@@ -98,9 +98,6 @@ export default {
                 { img: user5, name: 'Chris Gayle', msg: 'This player is really cool.', time: '5h', active: false, online: false },
             ]
         }
-    },
-    mounted(){
-        console.log(this.allAgents);
     },
     computed: {
         filterChat() {

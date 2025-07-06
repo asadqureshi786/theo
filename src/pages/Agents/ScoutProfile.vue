@@ -183,7 +183,9 @@
             </div>
 
             <div class="col-md-12">
-              <button type="button" @click="addDriaryData" class="btn btn-primary w-100">Update</button>
+              <button type="button" @click="addDriaryData" class="btn spinner btn-primary w-100">
+                  <Spinner v-if="loading" />
+                Update</button>
             </div>
           </div>
       </div>
@@ -191,7 +193,7 @@
 
     <!-- Transfer History Compenent Start -->
     <div class="light_head mt-5">Transfer History</div>
-    <Simpletable class="mt-3" :headers="dealHeaders" :data="deals" />
+    <Dynamictable class="mt-3" :t_head="dealHeaders" :t_body="transfer_histories" />
     <!-- Transfer History Compenent End -->
   </div>
 </template>
@@ -205,10 +207,13 @@ import fullProfile from "@/assets/images/fullProfile.jpg";
 // Components
 import Documents from "@/components/Documents.vue";
 import Videolist from "@/components/Videolist.vue";
-import Simpletable from "@/components/Simpletable.vue";
+import Dynamictable from "@/components/Dynamictable.vue";
 
 // Axios
 import axios from "axios";
+
+// Spinner
+import Spinner from "@/components/Spinner.vue";
 
 // Toast
 import { useToast } from "vue-toastification";
@@ -222,7 +227,8 @@ export default {
   components: {
     Documents,
     Videolist,
-    Simpletable,
+    Dynamictable,
+    Spinner,
   },
   data() {
     return {
@@ -231,6 +237,7 @@ export default {
       club1: club1,
       fullProfile: fullProfile,
       playerData: {},
+      loading : false,
       t_offers: [
         { name: 'Load' , value : 'loan' },
         { name: 'Free', value : 'free' },
@@ -253,7 +260,32 @@ export default {
         feedback : '',  
       },
       // diaryData : {},
-      dealHeaders: ["Season", "Date", "Left", "Joined", "Mv", "Fee"],
+      dealHeaders: [
+            {
+                        key: "date",
+                        label: "Date",
+                    },
+                     {
+                        key: "fee",
+                        label: "Fee",
+                    },
+                     {
+                        key: "market_value",
+                        label: "Market Value",
+                    },
+                     {
+                        key: "new_club",
+                        label: "New Club",
+                    },
+                     {
+                        key: "old_club",
+                        label: "Old Club",
+                    },
+                     {
+                        key: "season",
+                        label: "Season",
+                    },
+      ],
       deals: [
         [
           "18/19",
@@ -321,6 +353,7 @@ export default {
         ],
         // Add more deal data here
       ],
+      transfer_histories : [],
     };
   },
   mounted() {
@@ -343,11 +376,18 @@ export default {
           }
         );
         if (response.status == 200) {
-          console.log(response.data);
           this.playerData = response.data.player;
           this.playerData.dob = response.data.player.dob.slice(0, -8);
           this.playerData.joining_date = response.data.player.joining_date.slice(0,-8);
           this.formData = {...response.data.diary, diary_id: response.data.diary.id };
+          this.transfer_histories = response.data.player.transfer_histories.map((player,index)=>({
+            date: `<div class="text">${player.date}</div>`,
+            fee: `<div class="text">${player.fee}</div>`,
+            market_value: `<div class="text">${player.market_value}</div>`,
+            new_club: `<div class="text">${player.new_club}</div>`,
+            old_player: `<div class="text">${player.old_player}</div>`,
+            season: `<div class="text">${player.season}</div>`,                               
+          }))
           // this.player_body = this.player_data.map((player,index)=>({
 
           // checkbox: `<label for="check1" class="table_check_list" class="text-center">
@@ -373,21 +413,13 @@ export default {
           // }))
         }
       } catch (error) {
-        console.log(error.response.data);
       }
     },
 
     // Add Diary Data
     async addDriaryData(){
-      console.log(this.$baseURL+"theo/api/agent/scout-players/save-diary",this.formData,{
-            headers: {
-              Accept: "application/json",
-              Authorization: `Bearer ${this.token}`,
-            },
-        });
-      // return;
       try {
-
+        this.loading = true;
         const response = await axios.post(this.$baseURL+"theo/api/agent/scout-players/save-diary",this.formData,{
             headers: {
               Accept: "application/json",
@@ -396,8 +428,10 @@ export default {
         });
         if(response.status == 201){
           toast.success(response.data.message);
+          this.loading = false;
         }
       } catch (error) {
+        this.loading = false;
         
       }
     }

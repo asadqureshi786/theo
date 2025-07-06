@@ -171,12 +171,6 @@ export default {
   methods : {
     // Delete Contact 
       async deleteContact(contactID) {
-        console.log(`${this.$baseURL}theo/api/agent/clubs/${this.routeId}/delete-contact/${contactID}`, {
-          headers: {
-            'Accept': 'application/json',
-            Authorization: `Bearer ${this.token}`,
-          },
-        });
       try {
         const response = await axios.delete(`${this.$baseURL}theo/api/agent/clubs/${this.routeId}/delete-contact/${contactID}`, {
           headers: {
@@ -191,7 +185,6 @@ export default {
           toast.error("Failed to delete agent.");
         }
       } catch (error) {
-        console.log(error)
         toast.error("Error deleting agent.");
       }
     },
@@ -214,7 +207,6 @@ export default {
           this.deleteContact(contactID);
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     }

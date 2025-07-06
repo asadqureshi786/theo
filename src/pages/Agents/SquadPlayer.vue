@@ -172,7 +172,6 @@ export default {
     // Add Player
     async addPlayer(e) {
       e.preventDefault();
-      console.log("Running")
 
       try {
         this.loading = true;
@@ -184,7 +183,6 @@ export default {
           Sendform.append(`documents[]`, file);
         });
 
-        console.log("this one",Sendform)
           const response = await axios.post(
           this.$baseURL + "theo/api/agent/squad-players/fetch",Sendform,
           {
@@ -196,16 +194,13 @@ export default {
           }
         );
         if (response.status === 201) {
-          console.log(response)
           this.loading = false;
           this.showModal = false;
           toast.success(response.data.message);
         }
-        console.log(response);
         
       } catch (error) {
         this.loading = false;
-        console.log(error);
         this.errors = error.response.data;
         if(error.response.data.error == '"Failed to fetch player data"'){
           toast.error(error.response.data.error);
@@ -213,7 +208,6 @@ export default {
         else{
           this.errors = {};
         }
-        console.log(error);
       }
     },
 

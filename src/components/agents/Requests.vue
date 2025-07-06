@@ -219,11 +219,8 @@ export default {
         if(response.status ==  200){
           this.shareModal = true ;
           this.shareData = response.data;
-          console.log(this.shareData)
         }
-        console.log(response.data);
       } catch (error) {
-        console.log(error)
       }
     },
 
@@ -246,10 +243,8 @@ export default {
       } catch (error) {
         this.loading = false;
         if(error.response.data.message){
-          console.log(error.response.data.message);
           this.errors = error.response.data.message;
         }
-        console.log(error);
       }
     },
 
@@ -284,12 +279,10 @@ export default {
           toast.error("Failed to delete agent.");
         }
       } catch (error) {
-        console.log(error)
         toast.error("Error deleting agent.");
       }
         },
         reject: () => {
-          // console.log("Delete cancelled");
         },
       });
     },

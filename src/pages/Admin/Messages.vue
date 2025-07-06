@@ -72,16 +72,12 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         });
-                console.log(response)
         // return
         if (response.status == 200) {
           this.allAgents = response.data.agents;
           this.emailContacts = response.data.emailContacts;
-          // console.log("Jeeaha",this.emailContacts);
         }
-        console.log("This One is",response.data)
       } catch (error) {
-        console.log(error);
       }
     },
 
@@ -106,7 +102,6 @@ export default {
 
         }
       } catch (error) {
-        console.log(error)
       }
     },
 
@@ -118,7 +113,6 @@ export default {
             Authorization: `Bearer ${this.token}`,
           },
         }) 
-        console.log(response)
         // return;
         if(response.status == 200){
           this.showChat = false;
@@ -132,7 +126,6 @@ export default {
 
         }
       } catch (error) {
-        console.log(error)
       }
     }
   }

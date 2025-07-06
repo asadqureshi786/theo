@@ -294,7 +294,6 @@ export default {
     // Send Email Function Start
     async sendEmail() {
       this.loading = true;
-      console.log("This One",`https://jetnetixsolutions.com/Backend/theo-email/email.php?to=${this.email}`);
       try {
         if (this.email.length == 0) {
           this.loading = false;
@@ -315,7 +314,6 @@ export default {
           toast.error("Email Not Send");
         }
 
-        console.log("Response:", response);
       } catch (error) {
         toast.error("Error fetching users:", error);
         this.loading = false;

@@ -16,7 +16,6 @@
   onMounted(() => {
     // monthly_sales
     
-    console.log("Insdie Bar",props.monthly_sales)
 
     const barData = props.monthly_sales
 

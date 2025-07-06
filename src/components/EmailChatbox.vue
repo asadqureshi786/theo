@@ -137,7 +137,6 @@ export default{
               this.message = '';
             }
           }catch(error){
-            console.log(error)
           }
         }
     }

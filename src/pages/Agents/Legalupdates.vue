@@ -4,7 +4,7 @@
     <div class="page_header">
       <h3 class="hd">Newsfeeds</h3>
       <div class="r_side">
-        <button class="btn btn-primary" @click="addUpdate = 'true'">
+        <button class="btn btn-primary d-none" @click="addUpdate = 'true'">
           <svg
             width="13"
             height="12"
@@ -45,7 +45,7 @@
     <!-- Page Header End -->
 
     <!-- Main Section Start -->
-    <div class="main_section">
+    <div class="main_section d">
       <div class="row">
         <div class="col-md-8">
           <ul class="update_item">
@@ -232,17 +232,6 @@ export default {
         formData.append("image", this.selectedFile);
       }
       
-      console.log(
-          this.$baseURL + "theo/api/agent/legal-updates/save",
-          formData,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "multipart/form-data",
-              Authorization: `Bearer ${this.token}`,
-            },
-          })
-      
       try {
         const response = await axios.post(
           this.$baseURL + "theo/api/agent/legal-updates/save",
@@ -266,7 +255,6 @@ export default {
               description: "",
             };
         }
-        console.log(response);
       } catch (error) {
         this.loading = false;
         this.errors = error.response.data.errors;
@@ -288,7 +276,6 @@ export default {
         );
         this.legalUpdate = response.data.legalUpdates;
         this.newsFeeds = response.data.newsFeeds;
-        console.log(response.data);
 
       } catch (error) {
         console.error("Error fetching legal updates:", error);

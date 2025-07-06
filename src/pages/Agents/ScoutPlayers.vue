@@ -85,7 +85,6 @@ export default {
               Authorization: `Bearer ${this.token}`,
             },
         })
-        console.log("this one",response);
         if(response.status == 200){
           this.allPlayers = response.data;
           this.spinner = false;

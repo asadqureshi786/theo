@@ -359,7 +359,6 @@ export default {
             },
           }
         );
-        console.log(response)
         if (response.status === 200) {
           this.spinner = false;
           this.totalClubs = response.data.total_clubs;
@@ -393,7 +392,6 @@ export default {
         }
       } catch (error) {
         this.spinner = false;
-        console.log(error);
       }
     },
     // Fetch Agent Function End

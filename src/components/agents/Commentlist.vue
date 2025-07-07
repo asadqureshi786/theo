@@ -90,6 +90,7 @@ import axios from "axios";
         props: {
             comments: Array,
             count: String,
+            fetchNewsFeed: Function,
             id : String,
                user : Object,
         },
@@ -111,6 +112,7 @@ import axios from "axios";
                     })
                     if(response.status == 200){
                         toast.error("Comment deleted successfully!")
+                        this.fetchNewsFeed()
                     }
                 } catch (error) {
                     toast.error(error.response.data.message)

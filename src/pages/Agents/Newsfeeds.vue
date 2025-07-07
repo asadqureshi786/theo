@@ -52,7 +52,7 @@
                     </div>
                     <p class="text">{{news.likes_count}}</p>
                     <div class="dot"></div>
-                    <p class="text">4 Comments</p>
+                    <p class="text">{{news.comments_count}} Comments</p>
                   </div>
 
                   <div class="bottom_icon">
@@ -96,7 +96,7 @@
                   
                 </div>
               </div>
-              <Commentlist  :id="news.id" :user="user" :count="news.comments_count"  :comments="news.comments" />
+              <Commentlist :fetchNewsFeed="fetchNewsFeed"  :id="news.id" :user="user" :count="news.comments_count"  :comments="news.comments" />
             </li>
           </ul>
         </div>

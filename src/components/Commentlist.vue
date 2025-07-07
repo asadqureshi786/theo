@@ -90,6 +90,7 @@ import axios from "axios";
             count: String,
             id : String,
             user : Object,
+            fetchNewsFeed : Function,
         },
         data() {
             return {
@@ -108,6 +109,7 @@ import axios from "axios";
                     })
                     if(response.status == 200){
                         toast.error("Comment deleted successfully!")
+                        this.fetchNewsFeed();
                     }
                 } catch (error) {
                     toast.error(error.response.data.message)

@@ -3,7 +3,7 @@
     <div class="header">
       <div class="info">
         <div class="p_img active">
-          <img :src="profileImg" alt="" />
+          <img :src="agent.profile ? `${$baseURL}theo/public/uploads/images/${agent.profile}` : dp" alt="" />
         </div>
         <div>
           <p class="name">{{agent.name }}</p>
@@ -95,12 +95,14 @@
 
 <script>
 import user1 from "@/assets/images/chatUser4.png";
+import dp from "@/assets/images/dummy.jpg"
 
 import { useAuthStore } from '@/store/auth.js';
 import axios from "axios";
 
 // Spinner
 import spinner from "@/components/Spinner.vue";
+
 
 export default {
   name: "Chatbox",
@@ -118,6 +120,7 @@ export default {
       profileImg: user1,
       loader : false,
       selectedFile: null,
+      dp : dp,
       formData : {
         message : '',
         receiver_id : '',

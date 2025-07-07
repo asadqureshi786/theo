@@ -270,6 +270,7 @@ export default {
         if(agents.status == 200){
           this.allAgents = agents.data
           this.spinner = false;
+          console.log(agents);
         }
       }catch(error){
         this.spinner = false;

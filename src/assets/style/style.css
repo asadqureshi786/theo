@@ -315,6 +315,10 @@ h1, h2, h3, h4, h5, h6, p, ul {
   height: 18px;
 }
 
+.uppercase {
+  text-transform: capitalize;
+}
+
 .action_icon {
   display: flex;
   align-items: center;

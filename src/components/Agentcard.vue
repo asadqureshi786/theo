@@ -9,12 +9,12 @@
       <p class="name">{{ item.name ? item.name : '-'  }}</p>
       <div class="desc agent">
         <label>User Level:</label>
-        <p class="text">{{item.plan ? item.plan : '-'}}</p>
+        <p class="text uppercase" >{{item.plan ? item.plan : '-'}}</p>
       </div>
       <div class="desc club">
         <label>Country:</label>
         <div class="club_img">
-          <p class="text">{{ item.country }}</p>
+          <p class="text">{{ item.country ? item.country : '-'}}</p>
         </div>
       </div>
     </div>

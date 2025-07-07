@@ -38,7 +38,7 @@
                       class="rounded-circle sm_img object-fit-cover"
                       :src="club1"
                     />
-                    <label>Agent: James Worth</label>
+                    <label>Agent: {{currentUser}}</label>
                   </div>
                 </li>
               </ul>
@@ -212,6 +212,9 @@ import Dynamictable from "@/components/Dynamictable.vue";
 // Axios
 import axios from "axios";
 
+// Current User
+import { useAuthStore } from '@/store/auth.js';
+
 // Spinner
 import Spinner from "@/components/Spinner.vue";
 
@@ -242,6 +245,7 @@ export default {
         { name: 'Load' , value : 'loan' },
         { name: 'Free', value : 'free' },
         { name: 'Contract', value : 'contract' },
+        { name: 'Cancel', value : 'cancel' },
       ],
       status: [
         { name: 'Negotiation' , value : 'negotiation' },
@@ -354,12 +358,19 @@ export default {
         // Add more deal data here
       ],
       transfer_histories : [],
+      user : useAuthStore(),
+      currentUser : '',
+
     };
   },
   mounted() {
     const route = useRoute();
     this.fetchPlayera(route.params.id);
   },
+  async created() {
+        const res = await this.user.fetchUser();
+        this.currentUser = res.user.name;
+  } ,
   methods: {
     goback() {
       window.history.back();

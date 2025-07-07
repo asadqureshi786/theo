@@ -131,6 +131,10 @@
                   <label>Date of last contract:</label>
                   <p class="text">{{playerData.last_contract ? playerData.last_contract : '-'}}</p>
                 </li>
+                   <li>
+               <label>Caps/Goals:</label>
+                                    <p class="text">{{playerData.caps}} / {{playerData.goals}}</p>
+                </li>
               </ul>
             </div>
           </div>

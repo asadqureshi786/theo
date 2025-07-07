@@ -113,7 +113,7 @@
                                 </li>
                                 <li>
                                     <label>Contract expires:</label>
-                                    <p class="text">Jun 30, 2024</p>
+                                    <p class="text">{{playerData.contract_expire}}</p>
                                 </li>
                                 <li>
                                     <label>Market Value</label>
@@ -122,6 +122,10 @@
                                 <li>
                                     <label>Date of last contract:</label>
                                     <p class="text">May 21, 2022</p>
+                                </li>
+                                <li>
+                                    <label>Caps/Goals:</label>
+                                    <p class="text">{{playerData.caps}} / {{playerData.goals}}</p>
                                 </li>
                             </ul>
                         </div>
@@ -242,6 +246,7 @@ export default {
                         Authorization: `Bearer ${this.token}`,
                     },
                 })
+                console.log(response)
                 if (response.status == 200) {
                     this.playerData = response.data
                     this.playerData.dob = response.data.dob.slice(0,-8)
